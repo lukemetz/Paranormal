@@ -12,15 +12,20 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 
+    @IBOutlet weak var glview: CCGLView!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
+
+        let director = CCDirector.sharedDirector() as CCDirector!;
+        director.setView(self.glview);
+
+        let scene = TestScene();
+        director.runWithScene(scene);
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
-
-
 }
 

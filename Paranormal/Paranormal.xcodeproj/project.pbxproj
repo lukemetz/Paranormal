@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
 		ADE87F3D19E9A9360041AAB5 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F3B19E9A9360041AAB5 /* Document.xib */; };
@@ -14,6 +15,16 @@
 		ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4119E9A9360041AAB5 /* Images.xcassets */; };
 		ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
 		ADE87F5119E9A9360041AAB5 /* ParanormalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F5019E9A9360041AAB5 /* ParanormalTests.swift */; };
+		ADEE7BD319E9C59200588629 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BD219E9C59200588629 /* OpenAL.framework */; };
+		ADEE7BD519E9C5D300588629 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BD419E9C5D300588629 /* AudioToolbox.framework */; };
+		ADEE7BD719E9C5D800588629 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BD619E9C5D800588629 /* AppKit.framework */; };
+		ADEE7BD919E9C5DC00588629 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BD819E9C5DC00588629 /* AVFoundation.framework */; };
+		ADEE7BDB19E9C5E000588629 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BDA19E9C5E000588629 /* GLKit.framework */; };
+		ADEE7BDD19E9C5E600588629 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BDC19E9C5E600588629 /* CoreGraphics.framework */; };
+		ADEE7BDF19E9C5EB00588629 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BDE19E9C5EB00588629 /* CoreFoundation.framework */; };
+		ADEE7BE119E9C5F300588629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BE019E9C5F300588629 /* QuartzCore.framework */; };
+		ADEE7BE319E9C5FC00588629 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BE219E9C5FC00588629 /* OpenGL.framework */; };
+		ADEE7DE419E9CCA000588629 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7DDC19E9C80300588629 /* libcocos2d.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +35,24 @@
 			remoteGlobalIDString = ADE87F3119E9A9350041AAB5;
 			remoteInfo = Paranormal;
 		};
+		ADEE7DDB19E9C80300588629 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E01E663D121CA00A001A484F;
+			remoteInfo = cocos2d;
+		};
+		ADEE7DDD19E9C80300588629 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D37EE9FC187D4E7700CB5EF2;
+			remoteInfo = ObjectiveChipmunk;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD2A8E9119E9CF6A001586E4 /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +64,17 @@
 		ADE87F4A19E9A9360041AAB5 /* ParanormalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParanormalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F4F19E9A9360041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADE87F5019E9A9360041AAB5 /* ParanormalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParanormalTests.swift; sourceTree = "<group>"; };
+		ADEE7BD219E9C59200588629 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		ADEE7BD419E9C5D300588629 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		ADEE7BD619E9C5D800588629 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ADEE7BD819E9C5DC00588629 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ADEE7BDA19E9C5E000588629 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		ADEE7BDC19E9C5E600588629 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ADEE7BDE19E9C5EB00588629 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		ADEE7BE019E9C5F300588629 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ADEE7BE219E9C5FC00588629 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-osx.xcodeproj"; path = "libs/cocos2d-swift/cocos2d-osx.xcodeproj"; sourceTree = "<group>"; };
+		ADEE7DE019E9C89B00588629 /* Paranormal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Paranormal-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +82,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADEE7DE419E9CCA000588629 /* libcocos2d.a in Frameworks */,
+				ADEE7BE319E9C5FC00588629 /* OpenGL.framework in Frameworks */,
+				ADEE7BD319E9C59200588629 /* OpenAL.framework in Frameworks */,
+				ADEE7BE119E9C5F300588629 /* QuartzCore.framework in Frameworks */,
+				ADEE7BDF19E9C5EB00588629 /* CoreFoundation.framework in Frameworks */,
+				ADEE7BDD19E9C5E600588629 /* CoreGraphics.framework in Frameworks */,
+				ADEE7BDB19E9C5E000588629 /* GLKit.framework in Frameworks */,
+				ADEE7BD919E9C5DC00588629 /* AVFoundation.framework in Frameworks */,
+				ADEE7BD719E9C5D800588629 /* AppKit.framework in Frameworks */,
+				ADEE7BD519E9C5D300588629 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				ADE87F3419E9A9350041AAB5 /* Paranormal */,
+				ADEE7BD119E9C57100588629 /* libs */,
 				ADE87F4D19E9A9360041AAB5 /* ParanormalTests */,
 				ADE87F3319E9A9350041AAB5 /* Products */,
+				ADEE7DDF19E9C81C00588629 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +135,8 @@
 				ADE87F4319E9A9360041AAB5 /* MainMenu.xib */,
 				ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */,
 				ADE87F3519E9A9350041AAB5 /* Supporting Files */,
+				ADEE7DE019E9C89B00588629 /* Paranormal-Bridging-Header.h */,
+				AD2A8E9119E9CF6A001586E4 /* TestScene.swift */,
 			);
 			path = Paranormal;
 			sourceTree = "<group>";
@@ -113,6 +164,39 @@
 				ADE87F4F19E9A9360041AAB5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADEE7BD119E9C57100588629 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		ADEE7DD719E9C80300588629 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE7DDC19E9C80300588629 /* libcocos2d.a */,
+				ADEE7DDE19E9C80300588629 /* libObjectiveChipmunk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADEE7DDF19E9C81C00588629 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE7BE219E9C5FC00588629 /* OpenGL.framework */,
+				ADEE7BE019E9C5F300588629 /* QuartzCore.framework */,
+				ADEE7BDE19E9C5EB00588629 /* CoreFoundation.framework */,
+				ADEE7BDC19E9C5E600588629 /* CoreGraphics.framework */,
+				ADEE7BDA19E9C5E000588629 /* GLKit.framework */,
+				ADEE7BD819E9C5DC00588629 /* AVFoundation.framework */,
+				ADEE7BD619E9C5D800588629 /* AppKit.framework */,
+				ADEE7BD419E9C5D300588629 /* AudioToolbox.framework */,
+				ADEE7BD219E9C59200588629 /* OpenAL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +266,12 @@
 			mainGroup = ADE87F2919E9A9340041AAB5;
 			productRefGroup = ADE87F3319E9A9350041AAB5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = ADEE7DD719E9C80300588629 /* Products */;
+					ProjectRef = ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ADE87F3119E9A9350041AAB5 /* Paranormal */,
@@ -189,6 +279,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		ADEE7DDC19E9C80300588629 /* libcocos2d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2d.a;
+			remoteRef = ADEE7DDB19E9C80300588629 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ADEE7DDE19E9C80300588629 /* libObjectiveChipmunk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libObjectiveChipmunk.a;
+			remoteRef = ADEE7DDD19E9C80300588629 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ADE87F3019E9A9350041AAB5 /* Resources */ = {
@@ -215,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
@@ -293,10 +401,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"libs/cocos2d-swift/cocos2d/**",
+					"libs/cocos2d-swift/external/ObjectAL/**",
+					"libs/cocos2d-swift/cocos2d-ui/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+				);
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Paranormal/Paranormal-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -330,9 +450,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"libs/cocos2d-swift/cocos2d/**",
+					"libs/cocos2d-swift/external/ObjectAL/**",
+					"libs/cocos2d-swift/cocos2d-ui/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+				);
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Paranormal/Paranormal-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -343,6 +475,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Paranormal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/msvc/glew/lib/Release/Win32",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/msvc/glfw/lib-msvc100",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/xcode/libGLEW/lib",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/xcode/libglfw/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -354,6 +493,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Paranormal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/msvc/glew/lib/Release/Win32",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/msvc/glfw/lib-msvc100",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/xcode/libGLEW/lib",
+					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/xcode/libglfw/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -413,6 +559,7 @@
 				ADE87F5619E9A9360041AAB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADE87F5719E9A9360041AAB5 /* Build configuration list for PBXNativeTarget "ParanormalTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +568,7 @@
 				ADE87F5919E9A9360041AAB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
