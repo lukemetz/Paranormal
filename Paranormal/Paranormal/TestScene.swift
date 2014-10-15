@@ -10,7 +10,8 @@ class TestScene : CCScene {
         // Enable touch handling on scene node
         userInteractionEnabled = true
 
-        var background:CCNodeColor = CCNodeColor(color: CCColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1.0))
+        var background:CCNodeColor = CCNodeColor(color:
+          CCColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1.0))
         addChild(background)
     }
 
