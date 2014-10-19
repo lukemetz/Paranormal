@@ -58,8 +58,6 @@ try:
                 check_tab = False
             if line.find(linelength_flag) != -1:
                 check_linelength = False
-            if line.find("TODO") != -1:
-                report_err("TODO is deprecated; use FIXME")
             match = re.match(r'^.*/(\*|/!?)\s*XXX', line)
             if match:
                 report_err("XXX is no longer necessary, use FIXME")
