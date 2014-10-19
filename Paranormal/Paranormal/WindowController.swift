@@ -44,7 +44,6 @@ class WindowController: NSWindowController {
     override func awakeFromNib() {
         super.awakeFromNib()
         if preview != nil && previewView != nil {
-            println("Putting in frame")
             previewView?.addSubview(preview!)
 
             // Place the view at the top
