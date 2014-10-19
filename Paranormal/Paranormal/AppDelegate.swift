@@ -10,18 +10,17 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-    @IBOutlet weak var glview: CCGLView!
-
+    var window : WindowController!;
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        // At this point, the main menu is automatically loaded
+        // Load the Window and WindowController
+        window = WindowController(windowNibName: "Application")
+        window.loadWindow()
+        window.showWindow(self);
 
-        let director = CCDirector.sharedDirector() as CCDirector!;
-        director.setView(self.glview);
-
-        let scene = TestScene();
-        director.runWithScene(scene);
+        // TODO move this to a windowdidload or something
+        // inside window controller
+        window.setUpCocos()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

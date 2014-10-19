@@ -12,7 +12,6 @@ class Document: NSPersistentDocument {
 
     override init() {
         super.init()
-
         // Add your subclass-specific initialization here.
     }
 
@@ -27,11 +26,7 @@ class Document: NSPersistentDocument {
         return true
     }
 
-    override var windowNibName: String? {
-        // Returns the nib file name of the document
-        // If you need to use a subclass of NSWindowController or if your document supports
-        // multiple NSWindowControllers, you should remove
-        // this property and override -makeWindowControllers instead.
-        return "Document"
+    override func makeWindowControllers() {
+        // TODO make this get access to the shared WindowController
     }
 }
