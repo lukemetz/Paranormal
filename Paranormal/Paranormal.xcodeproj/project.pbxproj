@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
+		AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
+		AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
+		AD969B2019F0C98800A2F718 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
-		ADE87F3D19E9A9360041AAB5 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F3B19E9A9360041AAB5 /* Document.xib */; };
 		ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
 		ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4119E9A9360041AAB5 /* Images.xcassets */; };
 		ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
@@ -53,11 +55,13 @@
 
 /* Begin PBXFileReference section */
 		AD2A8E9119E9CF6A001586E4 /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
+		AD969B1919F09B5300A2F718 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewSettings.xib; sourceTree = "<group>"; };
+		AD969B1F19F0C98800A2F718 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE87F3919E9A9350041AAB5 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		ADE87F3C19E9A9360041AAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
 		ADE87F3F19E9A9360041AAB5 /* Document.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Document.xcdatamodel; sourceTree = "<group>"; };
 		ADE87F4119E9A9360041AAB5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ADE87F4419E9A9360041AAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -130,13 +134,15 @@
 			children = (
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
-				ADE87F3B19E9A9360041AAB5 /* Document.xib */,
 				ADE87F4119E9A9360041AAB5 /* Images.xcassets */,
 				ADE87F4319E9A9360041AAB5 /* MainMenu.xib */,
+				AD969B1F19F0C98800A2F718 /* Application.xib */,
 				ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */,
 				ADE87F3519E9A9350041AAB5 /* Supporting Files */,
 				ADEE7DE019E9C89B00588629 /* Paranormal-Bridging-Header.h */,
 				AD2A8E9119E9CF6A001586E4 /* TestScene.swift */,
+				AD969B1919F09B5300A2F718 /* WindowController.swift */,
+				AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */,
 			);
 			path = Paranormal;
 			sourceTree = "<group>";
@@ -302,9 +308,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADE87F3D19E9A9360041AAB5 /* Document.xib in Resources */,
+				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
+				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */,
+				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
@@ -348,14 +356,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ADE87F3B19E9A9360041AAB5 /* Document.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ADE87F3C19E9A9360041AAB5 /* Base */,
-			);
-			name = Document.xib;
-			sourceTree = "<group>";
-		};
 		ADE87F4319E9A9360041AAB5 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
