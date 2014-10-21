@@ -5,7 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="PreviewSettings" customModule="Paranormal" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="c22-O7-iKe" id="hme-g4-FJ1"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
@@ -15,6 +19,9 @@
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a45-go-UkL">
                     <rect key="frame" x="164" y="60" width="121" height="20"/>
                     <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="Mus-Pf-WvK"/>
+                    <connections>
+                        <action selector="onSliderChange:" target="-2" id="z76-Tp-mp8"/>
+                    </connections>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xY-Sa-Pl6">
                     <rect key="frame" x="18" y="25" width="84" height="17"/>
@@ -24,10 +31,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5k-tc-nee">
-                    <rect key="frame" x="200" y="9" width="48" height="48"/>
-                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="9B6-E3-9uR"/>
-                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eKq-Zz-kH5">
                     <rect key="frame" x="18" y="62" width="124" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Index of Refraction" id="tb8-w6-WHp">
@@ -36,6 +39,10 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5k-tc-nee">
+                    <rect key="frame" x="214" y="9" width="48" height="48"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="9B6-E3-9uR"/>
+                </imageView>
             </subviews>
             <point key="canvasLocation" x="287" y="191"/>
         </customView>

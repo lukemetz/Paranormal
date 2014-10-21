@@ -30,6 +30,9 @@
                     </openGLView>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="PU0-Dy-pdN"/>
+            </connections>
             <point key="canvasLocation" x="361" y="315"/>
         </window>
     </objects>
