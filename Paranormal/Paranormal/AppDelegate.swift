@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // TODO move this to a windowdidload or something
         // inside window controller
         window.setUpCocos()
+        window.setUpEditor()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
