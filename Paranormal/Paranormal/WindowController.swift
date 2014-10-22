@@ -11,10 +11,12 @@ import Foundation
 import Cocoa
 
 class WindowController: NSWindowController {
+    @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var previewView: NSView!
 
     @IBOutlet weak var glView: CCGLView!
     var preview : NSView?
+    var cgContext : CGContextRef?
 
     override init(window: NSWindow?) {
         super.init(window:window)
@@ -41,6 +43,17 @@ class WindowController: NSWindowController {
         director.runWithScene(scene);
     }
 
+    func setUpEditor(){
+        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+        
+        cgContext = CGBitmapContextCreate(nil, UInt(300) , UInt(400) ,  UInt(8),  UInt(300*4), colorSpace, bitmapInfo)
+        CGContextSetRGBFillColor(cgContext, 1, 1, 0, 1)
+        CGContextFillRect(cgContext, CGRectMake(0, 0, 300, 400))
+        let image = CGBitmapContextCreateImage(cgContext!)
+        editor.image = NSImage(CGImage: image, size: NSSize(width: 300 , height: 400) )
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if preview != nil && previewView != nil {
