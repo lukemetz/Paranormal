@@ -2,12 +2,14 @@ import Foundation
 import Cocoa
 
 class PreviewSettings : NSViewController {
-    var context : NSManagedObjectContext?
+
+    var refractionModel : Refraction?;
 
     init?(context : NSManagedObjectContext?) {
         super.init(nibName: "PreviewSettings", bundle: nil)
-
-        self.context = context
+        let fetch = NSFetchRequest(entityName: "Refraction")
+        let res = context?.executeFetchRequest(fetch, error: nil)
+        refractionModel = res?[0] as? Refraction
     }
 
     required init?(coder:NSCoder) {
@@ -15,6 +17,6 @@ class PreviewSettings : NSViewController {
     }
 
     @IBAction func onSliderChange(sender: NSSlider) {
-        println(sender)
+        println(refractionModel?.indexOfRefraction)
     }
 }

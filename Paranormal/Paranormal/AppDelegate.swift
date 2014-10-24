@@ -2,6 +2,12 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var documentController : DocumentController
+    override init() {
+        documentController = DocumentController()
+        super.init()
+    }
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // At this point, the main menu is automatically loaded
     }

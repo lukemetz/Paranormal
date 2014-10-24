@@ -3,24 +3,10 @@ import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var editor: NSImageView!
-    @IBOutlet weak var previewView: NSView!
-    var cgContext : CGContextRef?
-
+    @IBOutlet weak var previewSettingsView: NSView!
     @IBOutlet weak var glView: CCGLView!
+    var cgContext : CGContextRef?
     var previewSettings : PreviewSettings?
-
-    class var sharedInstance: WindowController {
-        struct Static {
-            static var instance: WindowController?
-            static var token: dispatch_once_t = 0
-        }
-
-        dispatch_once(&Static.token) {
-            Static.instance = WindowController(windowNibName: "Application")
-        }
-
-        return Static.instance!
-    }
 
     override init(window: NSWindow?) {
         super.init(window:window)
@@ -36,11 +22,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     func tearDownCocos() {
         let director = CCDirector.sharedDirector() as CCDirector!
-        director.end()
-        director.setView(nil)
+        // TODO correctly shutdown cocos2D
+        //director.end()
     }
 
-    func setUpEditor(){
+    func setUpEditor() {
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
 
@@ -56,32 +42,36 @@ class WindowController: NSWindowController, NSWindowDelegate {
         super.awakeFromNib()
     }
 
+    func updatePreviewSettings() {
+        previewSettings = PreviewSettings(context: document?.managedObjectContext)
+
+        if let preview = previewSettings?.view {
+            for sub in previewSettingsView.subviews {
+                sub.removeFromSuperview()
+            }
+            previewSettingsView.addSubview(preview)
+
+            // Place the view at the top
+            let rect : NSRect! = preview.frame
+            let container : NSRect! = previewSettingsView?.frame
+            preview.frame = NSRect(x: 0,
+                y: container.height - rect.height,
+                width: rect.width,
+                height: rect.height)
+        }
+    }
+
     override func windowDidLoad() {
         setUpCocos()
         setUpEditor()
-        if previewSettings == nil {
-            previewSettings = PreviewSettings(context: document?.managedObjectContext)
-
-            if let preview = previewSettings?.view {
-                previewView.addSubview(preview)
-
-                // Place the view at the top
-                let rect : NSRect! = preview.frame
-                let container : NSRect! = previewView?.frame
-                preview.frame = NSRect(x: 0,
-                    y: container.height - rect.height,
-                    width: rect.width,
-                    height: rect.height)
-            }
-        }
+        updatePreviewSettings()
     }
 
     required init?(coder:NSCoder) {
         super.init(coder: coder)
     }
 
-    override init()
-    {
+    override init() {
         super.init()
     }
 
@@ -89,8 +79,10 @@ class WindowController: NSWindowController, NSWindowDelegate {
         // TODO this needs to now hold an array or something as
         // we are using a single window
         set(document) {
-            // Tear down UI or something
             super.document = document
+            if (previewSettingsView != nil) {
+                updatePreviewSettings()
+            }
         }
 
         get {
@@ -105,6 +97,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     func windowWillReturnUndoManager(window: NSWindow) -> NSUndoManager? {
         let doc = document as Document?
-        return doc?.managedObjectContext.undoManager
+        return doc?.undoManager
     }
 }
