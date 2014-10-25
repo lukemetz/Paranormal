@@ -2,9 +2,23 @@ import Cocoa
 
 class Document: NSPersistentDocument {
 
+    var singleWindowController : WindowController?
+
     override init() {
         super.init()
-        // Add your subclass-specific initialization here.
+        let entityDescription = NSEntityDescription.entityForName("Refraction",
+            inManagedObjectContext: managedObjectContext)!
+        let refraction = Refraction(entity: entityDescription,
+            insertIntoManagedObjectContext: managedObjectContext)
+
+        refraction.indexOfRefraction = 0.8
+        managedObjectContext.processPendingChanges()
+
+        undoManager?.removeAllActions()
+    }
+
+    convenience init?(type typeName: String, error outError: NSErrorPointer) {
+        self.init()
     }
 
     override func windowControllerDidLoadNib(aController: NSWindowController) {
@@ -15,11 +29,10 @@ class Document: NSPersistentDocument {
     }
 
     override class func autosavesInPlace() -> Bool {
-        return true
+        return false
     }
 
     override func makeWindowControllers() {
-        let windowController = WindowController.sharedInstance
-        addWindowController(windowController)
+        addWindowController(singleWindowController!)
     }
 }
