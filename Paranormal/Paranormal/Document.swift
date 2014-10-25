@@ -6,11 +6,12 @@ class Document: NSPersistentDocument {
 
     override init() {
         super.init()
-        let desc = NSEntityDescription.entityForName("Refraction",
+        let entityDescription = NSEntityDescription.entityForName("Refraction",
             inManagedObjectContext: managedObjectContext)!
-        let refrac = Refraction(entity: desc, insertIntoManagedObjectContext: managedObjectContext)
+        let refraction = Refraction(entity: entityDescription,
+            insertIntoManagedObjectContext: managedObjectContext)
 
-        refrac.indexOfRefraction = 0.8
+        refraction.indexOfRefraction = 0.8
         managedObjectContext.processPendingChanges()
 
         undoManager?.removeAllActions()
