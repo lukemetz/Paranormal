@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="Document" customModule="Paranormal" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="WindowController" customModule="Paranormal" customModuleProvider="target">
             <connections>
                 <outlet property="editor" destination="0Df-Pn-8RE" id="jFc-Hh-A2x"/>
                 <outlet property="glView" destination="Gci-uR-xur" id="KbK-jX-YUp"/>
