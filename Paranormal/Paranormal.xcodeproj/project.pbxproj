@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* ImageEditorView.swift */; };
+		0A27FC841A0564CF00999020 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* ImageEditorView.swift */; };
 		0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
 		0AB813461A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
@@ -71,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A27FC821A0564CF00999020 /* ImageEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageEditorView.swift; path = ../ImageEditorView.swift; sourceTree = "<group>"; };
 		0AB813441A0129FE0032FD6E /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
 		AD2A8E9119E9CF6A001586E4 /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
+				0A27FC821A0564CF00999020 /* ImageEditorView.swift */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
 				ADE87F4119E9A9360041AAB5 /* Images.xcassets */,
 				ADE87F4319E9A9360041AAB5 /* MainMenu.xib */,
@@ -368,6 +372,7 @@
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
+				0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */,
+				0A27FC841A0564CF00999020 /* ImageEditorView.swift in Sources */,
 				ADC4E46E19F9EB1900678A89 /* TestScene.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
 				ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */,
