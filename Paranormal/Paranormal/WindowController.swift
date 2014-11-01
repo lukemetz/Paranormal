@@ -16,7 +16,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         let director = CCDirector.sharedDirector() as CCDirector!
         director.setView(glView)
 
-        let scene = TestScene()
+        let scene = PreviewScene()
         director.runWithScene(scene)
     }
 
