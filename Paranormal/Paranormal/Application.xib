@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="editor" destination="0Df-Pn-8RE" id="jFc-Hh-A2x"/>
                 <outlet property="glView" destination="Gci-uR-xur" id="KbK-jX-YUp"/>
+                <outlet property="layersView" destination="IYT-c0-9vF" id="TXY-4l-NBb"/>
                 <outlet property="previewSettingsView" destination="UHG-fk-BXj" id="q0R-zj-6l7"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
             </connections>
@@ -23,9 +24,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="924" height="584"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-fk-BXj">
-                        <rect key="frame" x="568" y="20" width="336" height="239"/>
-                    </customView>
                     <openGLView fixedFrame="YES" colorSize="5bit_RGB_8bit_Alpha" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gci-uR-xur" customClass="CCGLView">
                         <rect key="frame" x="568" y="267" width="336" height="297"/>
                     </openGLView>
@@ -33,6 +31,12 @@
                         <rect key="frame" x="98" y="20" width="450" height="544"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FxS-sH-mWa"/>
                     </imageView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IYT-c0-9vF">
+                        <rect key="frame" x="568" y="20" width="336" height="239"/>
+                    </customView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-fk-BXj">
+                        <rect key="frame" x="212" y="20" width="336" height="90"/>
+                    </customView>
                 </subviews>
             </view>
             <connections>

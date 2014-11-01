@@ -32,6 +32,8 @@
 		ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		ADC4E46E19F9EB1900678A89 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
+		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
+		ADE732F11A0573C400A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
 		ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
@@ -48,6 +50,10 @@
 		ADEE7BE119E9C5F300588629 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BE019E9C5F300588629 /* QuartzCore.framework */; };
 		ADEE7BE319E9C5FC00588629 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BE219E9C5FC00588629 /* OpenGL.framework */; };
 		ADEE7DE419E9CCA000588629 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7DDC19E9C80300588629 /* libcocos2d.a */; };
+		ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */; };
+		ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF4A0E81A01366500E47DA1 /* Layers.xib */; };
+		ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */; };
+		ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF4A0E81A01366500E47DA1 /* Layers.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +92,7 @@
 		AD969B1919F09B5300A2F718 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewSettings.xib; sourceTree = "<group>"; };
 		AD969B1F19F0C98800A2F718 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
+		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +114,8 @@
 		ADEE7BE219E9C5FC00588629 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-osx.xcodeproj"; path = "libs/cocos2d-swift/cocos2d-osx.xcodeproj"; sourceTree = "<group>"; };
 		ADEE7DE019E9C89B00588629 /* Paranormal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Paranormal-Bridging-Header.h"; sourceTree = "<group>"; };
+		ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayersViewController.swift; sourceTree = "<group>"; };
+		ADF4A0E81A01366500E47DA1 /* Layers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Layers.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +151,7 @@
 			children = (
 				AD83DDB619F81EA5004EAA77 /* Refraction.swift */,
 				AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */,
+				ADE732ED1A0572C900A1C743 /* Layer.swift */,
 			);
 			name = DocumentModels;
 			sourceTree = "<group>";
@@ -185,6 +195,8 @@
 				AD7C0D3219FB24E800A58201 /* DocumentController.swift */,
 				AD8757E219FC2C760057B456 /* NewDocumentController.swift */,
 				AD8757DE19FC22C20057B456 /* NewDocument.xib */,
+				ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */,
+				ADF4A0E81A01366500E47DA1 /* Layers.xib */,
 			);
 			path = Paranormal;
 			sourceTree = "<group>";
@@ -356,6 +368,7 @@
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD8757DF19FC22C20057B456 /* NewDocument.xib in Resources */,
+				ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +380,7 @@
 				AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
 				ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */,
+				ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +394,8 @@
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */,
 				AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */,
+				ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */,
+				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				AD8757E319FC2C760057B456 /* NewDocumentController.swift in Sources */,
@@ -397,6 +413,8 @@
 				ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */,
 				ADC4E46E19F9EB1900678A89 /* TestScene.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
+				ADE732F11A0573C400A1C743 /* Layer.swift in Sources */,
+				ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */,
 				AD8757E419FC2C760057B456 /* NewDocumentController.swift in Sources */,
 				ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,

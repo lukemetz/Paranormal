@@ -28,6 +28,13 @@ class Document: NSPersistentDocument {
         let documentSettings = DocumentSettings(entity: documentSettingsDescription,
             insertIntoManagedObjectContext: managedObjectContext)
 
+        let layerDescription = NSEntityDescription.entityForName("Layer",
+            inManagedObjectContext: managedObjectContext)!
+        let layer = Layer(entity: layerDescription,
+            insertIntoManagedObjectContext: managedObjectContext)
+        layer.name = "Default Layer"
+        layer.visible = true
+
         managedObjectContext.processPendingChanges()
 
         undoManager?.removeAllActions()
