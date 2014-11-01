@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
 		770131311A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
+		772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096B1A055F6D000686E0 /* gem-diffuse.png */; };
+		772A096E1A055F6D000686E0 /* gem-diffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096B1A055F6D000686E0 /* gem-diffuse.png */; };
+		772A096F1A055F6D000686E0 /* gem-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096C1A055F6D000686E0 /* gem-normal.png */; };
+		772A09701A055F6D000686E0 /* gem-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096C1A055F6D000686E0 /* gem-normal.png */; };
+		772A09801A05681F000686E0 /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A097F1A05681F000686E0 /* checker.png */; };
+		772A09811A05681F000686E0 /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A097F1A05681F000686E0 /* checker.png */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* NewDocument.xib */; };
 		AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
@@ -78,6 +84,9 @@
 
 /* Begin PBXFileReference section */
 		7701312F1A0555A700C6CC9E /* PreviewScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewScene.swift; sourceTree = "<group>"; };
+		772A096B1A055F6D000686E0 /* gem-diffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gem-diffuse.png"; path = "../../../../screenshots/gem-diffuse.png"; sourceTree = "<group>"; };
+		772A096C1A055F6D000686E0 /* gem-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gem-normal.png"; path = "../../../../screenshots/gem-normal.png"; sourceTree = "<group>"; };
+		772A097F1A05681F000686E0 /* checker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checker.png; path = ../../../paranormal/Paranormal/Paranormal/Examples/Background/checker.png; sourceTree = "<group>"; };
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
 		AD2A8E9119E9CF6A001586E4 /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		AD7C0D3219FB24E800A58201 /* DocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
@@ -140,6 +149,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		772A09731A055F99000686E0 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				772A097E1A05681F000686E0 /* Background */,
+				772A09741A055F99000686E0 /* Diffuse */,
+				772A09751A055F99000686E0 /* Normal */,
+			);
+			name = Examples;
+			path = ../../../paranormal/Paranormal/Paranormal/Examples;
+			sourceTree = "<group>";
+		};
+		772A09741A055F99000686E0 /* Diffuse */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Diffuse;
+			sourceTree = "<group>";
+		};
+		772A09751A055F99000686E0 /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		772A097E1A05681F000686E0 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
 		AD898B8819FC78AB000FF6AF /* DocumentModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +215,10 @@
 			children = (
 				AD898B8819FC78AB000FF6AF /* DocumentModels */,
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
+				772A097F1A05681F000686E0 /* checker.png */,
+				772A096B1A055F6D000686E0 /* gem-diffuse.png */,
+				772A096C1A055F6D000686E0 /* gem-normal.png */,
+				772A09731A055F99000686E0 /* Examples */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
 				ADE87F4119E9A9360041AAB5 /* Images.xcassets */,
 				ADE87F4319E9A9360041AAB5 /* MainMenu.xib */,
@@ -357,9 +402,12 @@
 			files = (
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
+				772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */,
+				772A09801A05681F000686E0 /* checker.png in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD8757DF19FC22C20057B456 /* NewDocument.xib in Resources */,
+				772A096F1A055F6D000686E0 /* gem-normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,10 +415,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				772A09701A055F6D000686E0 /* gem-normal.png in Resources */,
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
 				AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
+				772A09811A05681F000686E0 /* checker.png in Resources */,
 				ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */,
+				772A096E1A055F6D000686E0 /* gem-diffuse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
