@@ -30,5 +30,11 @@ class DocumentTests: XCTestCase {
         let documentResult : NSArray? =
         document.managedObjectContext.executeFetchRequest(documentFetch, error: nil)
         XCTAssert(documentResult?.count == 1, "1 DocumentSettings")
+
+        // The set up creates 1 default layer entity
+        let layerFetch = NSFetchRequest(entityName: "Layer")
+        let layerResult : NSArray? =
+        document.managedObjectContext.executeFetchRequest(layerFetch, error: nil)
+        XCTAssert(layerResult?.count == 1, "1 Layer")
     }
 }

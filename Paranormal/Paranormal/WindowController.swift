@@ -5,8 +5,10 @@ class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var previewSettingsView: NSView!
     @IBOutlet weak var previewView: PreviewView!
+    @IBOutlet weak var layersView: NSView!
     var cgContext : CGContextRef?
     var previewSettings : PreviewSettings?
+    var layersViewController : LayersViewController?
 
     override init(window: NSWindow?) {
         super.init(window:window)
@@ -60,10 +62,21 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
+    func updateLayers() {
+        layersViewController = LayersViewController(context: document?.managedObjectContext)
+        if let layers = layersViewController?.view {
+            for sub in layersView.subviews {
+                sub.removeFromSuperview()
+            }
+            layersView.addSubview(layers)
+        }
+    }
+
     override func windowDidLoad() {
         setUpCocos()
         setUpEditor()
         updatePreviewSettings()
+        updateLayers()
     }
 
     required init?(coder:NSCoder) {
@@ -79,8 +92,14 @@ class WindowController: NSWindowController, NSWindowDelegate {
         // we are using a single window
         set(document) {
             super.document = document
-            if (previewSettingsView != nil) {
+
+            // Don't update if the view doesn't have pices loaded
+            // or if there is no document such as when closing
+            if (previewSettingsView != nil && layersView != nil &&
+                document != nil) {
+
                 updatePreviewSettings()
+                updateLayers()
             }
         }
 
