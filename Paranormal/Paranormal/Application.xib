@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="editor" destination="0Df-Pn-8RE" id="jFc-Hh-A2x"/>
                 <outlet property="previewSettingsView" destination="UHG-fk-BXj" id="q0R-zj-6l7"/>
-                <outlet property="previewView" destination="Gci-uR-xur" id="Bn3-Gq-MUT"/>
+                <outlet property="previewView" destination="Gci-uR-xur" id="gVM-RQ-TLH"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
             </connections>
         </customObject>

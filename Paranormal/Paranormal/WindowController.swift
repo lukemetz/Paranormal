@@ -4,7 +4,7 @@ import Cocoa
 class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var previewSettingsView: NSView!
-    @IBOutlet weak var previewView: CCGLView!
+    @IBOutlet weak var previewView: PreviewView!
     var cgContext : CGContextRef?
     var previewSettings : PreviewSettings?
 
@@ -15,7 +15,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
     func setUpCocos() {
         let director = CCDirector.sharedDirector() as CCDirector!
         director.setView(previewView)
-
         let scene = PreviewScene()
         director.runWithScene(scene)
     }
