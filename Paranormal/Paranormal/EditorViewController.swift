@@ -14,7 +14,8 @@ class EditorViewController : NSViewController {
     
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var tempEditor: NSImageView!
-    var context : CGContext!
+    var editorContext : CGContext!
+    var tempContext : CGContext!
     var mouseSwiped : Bool = false
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
     
@@ -40,21 +41,18 @@ class EditorViewController : NSViewController {
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
         
+        editorContext = CGBitmapContextCreate(nil, UInt(width),
+            UInt(height),  UInt(8),  0 , colorSpace, bitmapInfo)
+        CGContextSetFillColorWithColor(editorContext, CGColorCreateGenericRGB(0, 0, 1, 0))
+        CGContextFillRect(editorContext, CGRectMake(0, 0, width, height))
         
-        var cgContext = CGBitmapContextCreate(nil, UInt(width),
-            UInt(height),  UInt(8),  UInt(width*4), colorSpace, bitmapInfo)
-        CGContextSetRGBFillColor(cgContext, 1, 1, 0, 1)
-        //CGContextFillRect(cgContext, CGRectMake(0, 0, width, height))
-        let image = CGBitmapContextCreateImage(cgContext!)
-        
+        let image = CGBitmapContextCreateImage(editorContext!)
 
-        
-        editor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
-        tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
+//        editor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
+//        tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
 
-        context = CGBitmapContextCreate(nil, UInt(width),
-            UInt(height),  UInt(8),  UInt(width*4), colorSpace, bitmapInfo)
-        
+        tempContext = CGBitmapContextCreate(nil, UInt(width),
+            UInt(height),  UInt(8),  0, colorSpace, bitmapInfo)
     }
     
     
@@ -65,11 +63,14 @@ class EditorViewController : NSViewController {
         println(lastPoint)
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+//            PremultipliedLast.rawValue)
         var width = editor.frame.size.width
         var height = editor.frame.size.height
         
-        context = CGBitmapContextCreate(nil, UInt(width),
-            UInt(height),  UInt(8),  UInt(width*4), colorSpace, bitmapInfo)
+        tempContext = CGBitmapContextCreate(nil, UInt(width),
+            UInt(height),  UInt(8),  0, colorSpace, bitmapInfo)
+        CGContextSetFillColorWithColor(tempContext, CGColorCreateGenericRGB(0, 0, 1, 0))
+        CGContextFillRect(tempContext, CGRectMake(0, 0, width, height))
     }
     
     override func mouseDragged(theEvent: NSEvent) {
@@ -82,17 +83,17 @@ class EditorViewController : NSViewController {
 
 //        var cgContext = CGBitmapContextCreate(nil, UInt(self.view.frame.size.width),
 //            UInt(self.view.frame.size.height),  UInt(8),  UInt(300*4), colorSpace, bitmapInfo)
-        CGContextMoveToPoint(context, lastPoint.x, lastPoint.y)
-        CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
-        CGContextSetLineCap(context, kCGLineCapRound)
-        CGContextSetLineWidth(context, brush)
-        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
-        CGContextSetBlendMode(context, kCGBlendModeNormal)
+        CGContextMoveToPoint(tempContext, lastPoint.x, lastPoint.y)
+        CGContextAddLineToPoint(tempContext, currentPoint.x, currentPoint.y)
+        CGContextSetLineCap(tempContext, kCGLineCapRound)
+        CGContextSetLineWidth(tempContext, brush)
+        CGContextSetRGBStrokeColor(tempContext, red, green, blue, 1.0)
+        CGContextSetBlendMode(tempContext, kCGBlendModeNormal)
         
-        CGContextStrokePath(context)
-        println(CGBitmapContextGetBitmapInfo(context).rawValue)
+        CGContextStrokePath(tempContext)
+        println(CGBitmapContextGetBitmapInfo(tempContext).rawValue)
         
-        var image = CGBitmapContextCreateImage(context!)
+        var image = CGBitmapContextCreateImage(tempContext!)
         
         var width = editor.frame.size.width
         var height = editor.frame.size.height
@@ -114,29 +115,32 @@ class EditorViewController : NSViewController {
 //        context = CGBitmapContextCreate(nil, UInt(width),
 //            UInt(height),  UInt(8),  UInt(width*4), colorSpace, bitmapInfo)
         if (mouseSwiped){
-            CGContextSetLineCap(context, kCGLineCapRound)
-            CGContextSetLineWidth(context, brush)
-            CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
-            CGContextSetBlendMode(context, kCGBlendModeNormal)
-            CGContextMoveToPoint(context, lastPoint.x, lastPoint.y)
-            CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
-            CGContextStrokePath(context)
-            CGContextFlush(context)
+            CGContextSetLineCap(tempContext, kCGLineCapRound)
+            CGContextSetLineWidth(tempContext, brush)
+            CGContextSetRGBStrokeColor(tempContext, red, green, blue, 1.0)
+            CGContextSetBlendMode(tempContext, kCGBlendModeNormal)
+            CGContextMoveToPoint(tempContext, lastPoint.x, lastPoint.y)
+            CGContextAddLineToPoint(tempContext, currentPoint.x, currentPoint.y)
+            CGContextStrokePath(tempContext)
+            CGContextFlush(tempContext)
 //            var image = CGBitmapContextCreateImage(context!)
 //            tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
         }
         
         var rect = CGRectMake(0, 0, width, height)
-        editor.image?.drawInRect(rect, fromRect: rect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0)
-        tempEditor.image?.drawInRect(rect, fromRect: rect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0)
-        var image = CGBitmapContextCreateImage(context!)
-        editor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
+        var image = CGBitmapContextCreateImage(tempContext)
+        CGContextDrawImage(editorContext, rect, image)
+//        var tempLayer = CGLayerCreateWithContext(tempContext, CGSizeMake(width, height), nil)
+//        CGContextDrawLayerInRect(editorContext, rect, tempLayer)
+//        CGContextDrawLayerAtPoint(editorContext, CGPointMake(100, 100), tempLayer)
+//        InRect(editorContext, CGRectMake(30, 30, width+30, height+30), tempLayer)
+
+
+        let editorImage = CGBitmapContextCreateImage(editorContext!)
+        editor.image = NSImage(CGImage: editorImage, size: NSSize(width: width , height: height) )
         tempEditor.image = nil
-        
+
     }
-    
-    //touchesMovedWithEvent:
-    //touchesCancelledWithEvent:
-    //touchesEndedWithEvent:
+
     
 }

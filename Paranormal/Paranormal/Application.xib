@@ -29,7 +29,7 @@
                         <rect key="frame" x="568" y="267" width="336" height="297"/>
                     </openGLView>
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-m4-ypl">
-                        <rect key="frame" x="0.0" y="0.0" width="524" height="544"/>
+                        <rect key="frame" x="20" y="13" width="524" height="551"/>
                         <subviews>
                             <imageView identifier="EditorView" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Df-Pn-8RE" userLabel="editor">
                                 <rect key="frame" x="0.0" y="0.0" width="524" height="544"/>
