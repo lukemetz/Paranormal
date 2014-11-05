@@ -24,11 +24,15 @@ class PreviewView: CCGLView {
 
     override func keyDown(event: NSEvent)
     {
-        super.keyDown(event)
         NSLog("view key down: \(event.keyCode)")
         if let scene: PreviewScene = director.runningScene as? PreviewScene
         {
             scene.keyDown(event)
         }
+    }
+
+    override func mouseDown(event: NSEvent)
+    {
+        NSLog("Mouse down")
     }
 }
