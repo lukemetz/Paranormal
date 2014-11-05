@@ -23,6 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="924" height="584"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+<<<<<<< HEAD
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-fk-BXj">
                         <rect key="frame" x="568" y="13" width="336" height="239"/>
                     </customView>
@@ -44,6 +45,20 @@
                                 </connections>
                             </imageView>
                         </subviews>
+=======
+                    <openGLView fixedFrame="YES" colorSize="5bit_RGB_8bit_Alpha" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gci-uR-xur" customClass="CCGLView">
+                        <rect key="frame" x="568" y="267" width="336" height="297"/>
+                    </openGLView>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Df-Pn-8RE">
+                        <rect key="frame" x="98" y="20" width="450" height="544"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FxS-sH-mWa"/>
+                    </imageView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IYT-c0-9vF">
+                        <rect key="frame" x="568" y="20" width="336" height="239"/>
+                    </customView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-fk-BXj">
+                        <rect key="frame" x="212" y="20" width="336" height="90"/>
+>>>>>>> master
                     </customView>
                 </subviews>
             </view>

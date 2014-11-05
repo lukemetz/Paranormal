@@ -64,6 +64,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         setUpCocos()
         updatePreviewSettings()
+<<<<<<< HEAD
+        
+=======
+        updateLayers()
+>>>>>>> master
     }
 
     required init?(coder:NSCoder) {

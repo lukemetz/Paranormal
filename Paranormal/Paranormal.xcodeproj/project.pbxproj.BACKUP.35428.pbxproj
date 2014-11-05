@@ -400,8 +400,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
+<<<<<<< HEAD
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
+=======
 				AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */,
+>>>>>>> master
 				AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */,
 				ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */,
 				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
