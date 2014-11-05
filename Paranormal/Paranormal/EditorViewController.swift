@@ -15,7 +15,7 @@ class EditorViewController : NSViewController {
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var tempEditor: NSImageView!
     var context : CGContext!
-    var mouseSwiped : Bool?
+    var mouseSwiped : Bool = false
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
     
     var red : CGFloat = 0.0/255.0;
@@ -106,7 +106,32 @@ class EditorViewController : NSViewController {
     
     override func mouseUp(theEvent: NSEvent) {
         println("UP")
+        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+        var width = editor.frame.size.width
+        var height = editor.frame.size.height
+        var currentPoint : CGPoint = theEvent.locationInWindow
+//        context = CGBitmapContextCreate(nil, UInt(width),
+//            UInt(height),  UInt(8),  UInt(width*4), colorSpace, bitmapInfo)
+        if (mouseSwiped){
+            CGContextSetLineCap(context, kCGLineCapRound)
+            CGContextSetLineWidth(context, brush)
+            CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
+            CGContextSetBlendMode(context, kCGBlendModeNormal)
+            CGContextMoveToPoint(context, lastPoint.x, lastPoint.y)
+            CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
+            CGContextStrokePath(context)
+            CGContextFlush(context)
+//            var image = CGBitmapContextCreateImage(context!)
+//            tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
+        }
         
+        var rect = CGRectMake(0, 0, width, height)
+        editor.image?.drawInRect(rect, fromRect: rect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0)
+        tempEditor.image?.drawInRect(rect, fromRect: rect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0)
+        var image = CGBitmapContextCreateImage(context!)
+        editor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
+        tempEditor.image = nil
         
     }
     
