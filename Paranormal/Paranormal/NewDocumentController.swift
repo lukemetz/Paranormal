@@ -14,7 +14,6 @@ class NewDocumentController : NSWindowController, NSOpenSavePanelDelegate {
     init(parentWindow: NSWindow) {
         super.init(window: nil)
         self.parentWindow = parentWindow
-
     }
 
     override init() {

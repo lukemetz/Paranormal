@@ -3,6 +3,7 @@ import Cocoa
 class PreviewView: CCGLView {
 
     var director: CCDirector = CCDirector.sharedDirector()
+    override var acceptsFirstResponder: Bool { return true }
 
     required init?(coder:NSCoder) {
         super.init(coder:coder)
@@ -13,7 +14,7 @@ class PreviewView: CCGLView {
     }
 
     override func keyDown(event: NSEvent) {
-        NSLog("view key down: \(event.keyCode)")
+        println("view key down: \(event.keyCode)")
         if let scene: PreviewScene = director.runningScene as? PreviewScene
         {
             scene.keyDown(event)
@@ -21,6 +22,6 @@ class PreviewView: CCGLView {
     }
 
     override func mouseDown(event: NSEvent) {
-        NSLog("Mouse down")
+        println("Mouse down")
     }
 }
