@@ -4,14 +4,30 @@ class Document: NSPersistentDocument {
 
     var singleWindowController : WindowController?
 
+    var documentSettings : DocumentSettings? {
+        let fetch = NSFetchRequest(entityName: "DocumentSettings")
+        var error : NSError?
+        let documentSettings = managedObjectContext.executeFetchRequest(fetch, error: &error)
+        if let unwrapError = error {
+            let alert = NSAlert(error: unwrapError)
+            alert.runModal()
+        }
+        return documentSettings?[0] as? DocumentSettings
+    }
+
     override init() {
         super.init()
-        let entityDescription = NSEntityDescription.entityForName("Refraction",
+        let refractionDescription = NSEntityDescription.entityForName("Refraction",
             inManagedObjectContext: managedObjectContext)!
-        let refraction = Refraction(entity: entityDescription,
+        let refraction = Refraction(entity: refractionDescription,
+            insertIntoManagedObjectContext: managedObjectContext)
+        refraction.indexOfRefraction = 0.8
+
+        let documentSettingsDescription = NSEntityDescription.entityForName("DocumentSettings",
+            inManagedObjectContext: managedObjectContext)!
+        let documentSettings = DocumentSettings(entity: documentSettingsDescription,
             insertIntoManagedObjectContext: managedObjectContext)
 
-        refraction.indexOfRefraction = 0.8
         managedObjectContext.processPendingChanges()
 
         undoManager?.removeAllActions()
