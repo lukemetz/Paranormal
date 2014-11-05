@@ -116,11 +116,8 @@ class EditorViewController : NSViewController {
         var image = CGBitmapContextCreateImage(tempContext)
         CGContextDrawImage(editorContext, rect, image)
 
-
         let editorImage = CGBitmapContextCreateImage(editorContext!)
         editor.image = NSImage(CGImage: editorImage, size: NSSize(width: width , height: height) )
         tempEditor.image = nil
-
     }
-
 }

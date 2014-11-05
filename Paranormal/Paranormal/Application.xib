@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="WindowController" customModule="Paranormal" customModuleProvider="target">
             <connections>
                 <outlet property="glView" destination="Gci-uR-xur" id="KbK-jX-YUp"/>
+                <outlet property="layersView" destination="IYT-c0-9vF" id="TXY-4l-NBb"/>
                 <outlet property="previewSettingsView" destination="UHG-fk-BXj" id="q0R-zj-6l7"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
             </connections>

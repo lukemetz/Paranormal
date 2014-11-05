@@ -15,9 +15,11 @@ TIDY=$?
 
 echo -e "\n======================\n"
 
+FAILED=0
 if [ $TIDY != 0 ]
 then
   echo -e "Tidy: \x1B[0;31mFail\x1B[0m"
+  FAILED=1
 else
   echo -e "Tidy: \x1B[0;32mPass\x1B[0m"
 fi
@@ -25,6 +27,7 @@ fi
 if [ $BUILD != 0 ]
 then
   echo -e "Build: \x1B[0;31mFail\x1B[0m"
+  FAILED=1
 else
   echo -e "Build: \x1B[0;32mPass\x1B[0m"
 fi
@@ -32,6 +35,9 @@ fi
 if [ $TEST != 0 ]
 then
   echo -e "Test: \x1B[0;31mFail\x1B[0m"
+  FAILED=1
 else
   echo -e "Test: \x1B[0;32mPass\x1B[0m"
 fi
+
+$FAILED
