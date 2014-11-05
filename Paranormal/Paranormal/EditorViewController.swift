@@ -104,13 +104,19 @@ class EditorViewController : NSViewController {
         var height = editor.frame.size.height
         var currentPoint : CGPoint = theEvent.locationInWindow
 
+        CGContextMoveToPoint(tempContext, lastPoint.x, lastPoint.y)
+        CGContextAddLineToPoint(tempContext, lastPoint.x, lastPoint.y)
+        CGContextSetLineCap(tempContext, kCGLineCapRound)
+        CGContextSetLineWidth(tempContext, brush)
+        CGContextSetRGBStrokeColor(tempContext, red, green, blue, 1.0)
+        CGContextSetBlendMode(tempContext, kCGBlendModeNormal)
+
+        CGContextStrokePath(tempContext)
+        println(CGBitmapContextGetBitmapInfo(tempContext).rawValue)
+
         var rect = CGRectMake(0, 0, width, height)
         var image = CGBitmapContextCreateImage(tempContext)
         CGContextDrawImage(editorContext, rect, image)
-//        var tempLayer = CGLayerCreateWithContext(tempContext, CGSizeMake(width, height), nil)
-//        CGContextDrawLayerInRect(editorContext, rect, tempLayer)
-//        CGContextDrawLayerAtPoint(editorContext, CGPointMake(100, 100), tempLayer)
-//        InRect(editorContext, CGRectMake(30, 30, width+30, height+30), tempLayer)
 
 
         let editorImage = CGBitmapContextCreateImage(editorContext!)
