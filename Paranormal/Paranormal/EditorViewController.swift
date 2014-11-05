@@ -11,45 +11,43 @@ import Cocoa
 import AppKit
 
 class EditorViewController : NSViewController {
-    
+
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var tempEditor: NSImageView!
     var editorContext : CGContext!
     var tempContext : CGContext!
     var mouseSwiped : Bool = false
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
-    
+
     var red : CGFloat = 0.0/255.0;
     var green : CGFloat =  0.0/255.0;
     var blue : CGFloat =  0.0/255.0;
     var brush : CGFloat = 10.0;
     var opacity : CGFloat = 1.0;
 
-    
     override func awakeFromNib() {
         setUpEditor()
         println("initialized")
     }
-    
+
     func setUpEditor() {
         var width = editor.frame.size.width
         var height = editor.frame.size.height
-        
+
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-        
+
         editorContext = CGBitmapContextCreate(nil, UInt(width),
             UInt(height),  UInt(8),  0 , colorSpace, bitmapInfo)
         CGContextSetFillColorWithColor(editorContext, CGColorCreateGenericRGB(0, 0, 1, 0))
         CGContextFillRect(editorContext, CGRectMake(0, 0, width, height))
-        
+
         let image = CGBitmapContextCreateImage(editorContext!)
 
         tempContext = CGBitmapContextCreate(nil, UInt(width),
             UInt(height),  UInt(8),  0, colorSpace, bitmapInfo)
     }
-    
-    
+
     override func mouseDown(theEvent: NSEvent) {
         println("mouse down!")
         mouseSwiped = false
@@ -59,13 +57,13 @@ class EditorViewController : NSViewController {
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
         var width = editor.frame.size.width
         var height = editor.frame.size.height
-        
+
         tempContext = CGBitmapContextCreate(nil, UInt(width),
             UInt(height),  UInt(8),  0, colorSpace, bitmapInfo)
         CGContextSetFillColorWithColor(tempContext, CGColorCreateGenericRGB(0, 0, 1, 0))
         CGContextFillRect(tempContext, CGRectMake(0, 0, width, height))
     }
-    
+
     override func mouseDragged(theEvent: NSEvent) {
         println("dragged")
         mouseSwiped = true
@@ -80,22 +78,22 @@ class EditorViewController : NSViewController {
         CGContextSetLineWidth(tempContext, brush)
         CGContextSetRGBStrokeColor(tempContext, red, green, blue, 1.0)
         CGContextSetBlendMode(tempContext, kCGBlendModeNormal)
-        
+
         CGContextStrokePath(tempContext)
         println(CGBitmapContextGetBitmapInfo(tempContext).rawValue)
-        
+
         var image = CGBitmapContextCreateImage(tempContext!)
-        
+
         var width = editor.frame.size.width
         var height = editor.frame.size.height
-        
+
         //editor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
         tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
 
         lastPoint = currentPoint
-        
+
     }
-    
+
     override func mouseUp(theEvent: NSEvent) {
         println("UP")
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
@@ -125,5 +123,4 @@ class EditorViewController : NSViewController {
 
     }
 
-    
 }

@@ -51,7 +51,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         setUpCocos()
         updatePreviewSettings()
-        
     }
 
     required init?(coder:NSCoder) {
