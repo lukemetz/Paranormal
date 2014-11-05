@@ -164,38 +164,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		772A09731A055F99000686E0 /* Examples */ = {
-			isa = PBXGroup;
-			children = (
-				772A097E1A05681F000686E0 /* Background */,
-				772A09741A055F99000686E0 /* Diffuse */,
-				772A09751A055F99000686E0 /* Normal */,
-			);
-			name = Examples;
-			path = ../../../paranormal/Paranormal/Paranormal/Examples;
-			sourceTree = "<group>";
-		};
-		772A09741A055F99000686E0 /* Diffuse */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Diffuse;
-			sourceTree = "<group>";
-		};
-		772A09751A055F99000686E0 /* Normal */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Normal;
-			sourceTree = "<group>";
-		};
-		772A097E1A05681F000686E0 /* Background */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Background;
-			sourceTree = "<group>";
-		};
 		AD898B8819FC78AB000FF6AF /* DocumentModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,7 +202,6 @@
 				772A097F1A05681F000686E0 /* checker.png */,
 				772A096B1A055F6D000686E0 /* gem-diffuse.png */,
 				772A096C1A055F6D000686E0 /* gem-normal.png */,
-				772A09731A055F99000686E0 /* Examples */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
 				ADE87F4119E9A9360041AAB5 /* Images.xcassets */,
 				ADE87F4319E9A9360041AAB5 /* MainMenu.xib */,
