@@ -24,10 +24,7 @@ class EditorViewController : NSViewController {
     var blue : CGFloat =  0.0/255.0;
     var brush : CGFloat = 10.0;
     var opacity : CGFloat = 1.0;
-    
 
-    
-    
     
     override func awakeFromNib() {
         setUpEditor()
@@ -48,9 +45,6 @@ class EditorViewController : NSViewController {
         
         let image = CGBitmapContextCreateImage(editorContext!)
 
-//        editor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
-//        tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
-
         tempContext = CGBitmapContextCreate(nil, UInt(width),
             UInt(height),  UInt(8),  0, colorSpace, bitmapInfo)
     }
@@ -63,7 +57,6 @@ class EditorViewController : NSViewController {
         println(lastPoint)
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-//            PremultipliedLast.rawValue)
         var width = editor.frame.size.width
         var height = editor.frame.size.height
         
@@ -81,8 +74,6 @@ class EditorViewController : NSViewController {
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
 
-//        var cgContext = CGBitmapContextCreate(nil, UInt(self.view.frame.size.width),
-//            UInt(self.view.frame.size.height),  UInt(8),  UInt(300*4), colorSpace, bitmapInfo)
         CGContextMoveToPoint(tempContext, lastPoint.x, lastPoint.y)
         CGContextAddLineToPoint(tempContext, currentPoint.x, currentPoint.y)
         CGContextSetLineCap(tempContext, kCGLineCapRound)
@@ -112,21 +103,7 @@ class EditorViewController : NSViewController {
         var width = editor.frame.size.width
         var height = editor.frame.size.height
         var currentPoint : CGPoint = theEvent.locationInWindow
-//        context = CGBitmapContextCreate(nil, UInt(width),
-//            UInt(height),  UInt(8),  UInt(width*4), colorSpace, bitmapInfo)
-        if (mouseSwiped){
-            CGContextSetLineCap(tempContext, kCGLineCapRound)
-            CGContextSetLineWidth(tempContext, brush)
-            CGContextSetRGBStrokeColor(tempContext, red, green, blue, 1.0)
-            CGContextSetBlendMode(tempContext, kCGBlendModeNormal)
-            CGContextMoveToPoint(tempContext, lastPoint.x, lastPoint.y)
-            CGContextAddLineToPoint(tempContext, currentPoint.x, currentPoint.y)
-            CGContextStrokePath(tempContext)
-            CGContextFlush(tempContext)
-//            var image = CGBitmapContextCreateImage(context!)
-//            tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width , height: height) )
-        }
-        
+
         var rect = CGRectMake(0, 0, width, height)
         var image = CGBitmapContextCreateImage(tempContext)
         CGContextDrawImage(editorContext, rect, image)
