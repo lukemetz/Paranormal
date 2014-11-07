@@ -29,6 +29,7 @@
 		AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		AD969B2019F0C98800A2F718 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
+		ADA963271A0C6A0000AF22EB /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
@@ -61,6 +62,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		ADA963231A0C69C000AF22EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCA3F31C17239B6500E28AEC;
+			remoteInfo = GPUImage;
+		};
+		ADA963251A0C69F800AF22EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCA3F31B17239B6500E28AEC;
+			remoteInfo = GPUImage;
+		};
 		ADE87F4B19E9A9360041AAB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADE87F2A19E9A9350041AAB5 /* Project object */;
@@ -98,6 +113,7 @@
 		AD969B1919F09B5300A2F718 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewSettings.xib; sourceTree = "<group>"; };
 		AD969B1F19F0C98800A2F718 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
+		ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImageMac.xcodeproj; path = libs/GPUImage/framework/GPUImageMac.xcodeproj; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA963271A0C6A0000AF22EB /* GPUImage.framework in Frameworks */,
 				ADEE7DE419E9CCA000588629 /* libcocos2d.a in Frameworks */,
 				ADEE7BE319E9C5FC00588629 /* OpenGL.framework in Frameworks */,
 				ADEE7BD319E9C59200588629 /* OpenAL.framework in Frameworks */,
@@ -160,6 +177,14 @@
 				ADE732ED1A0572C900A1C743 /* Layer.swift */,
 			);
 			name = DocumentModels;
+			sourceTree = "<group>";
+		};
+		ADA9631E1A0C69BF00AF22EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADA963241A0C69C000AF22EB /* GPUImage.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		ADE87F2919E9A9340041AAB5 = {
@@ -238,6 +263,7 @@
 		ADEE7BD119E9C57100588629 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */,
 				ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */,
 			);
 			name = libs;
@@ -282,6 +308,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				ADA963261A0C69F800AF22EB /* PBXTargetDependency */,
 			);
 			name = Paranormal;
 			productName = Paranormal;
@@ -340,6 +367,10 @@
 					ProductGroup = ADEE7DD719E9C80300588629 /* Products */;
 					ProjectRef = ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */;
 				},
+				{
+					ProductGroup = ADA9631E1A0C69BF00AF22EB /* Products */;
+					ProjectRef = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -350,6 +381,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		ADA963241A0C69C000AF22EB /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = ADA963231A0C69C000AF22EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADEE7DDC19E9C80300588629 /* libcocos2d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -442,6 +480,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		ADA963261A0C69F800AF22EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = ADA963251A0C69F800AF22EB /* PBXContainerItemProxy */;
+		};
 		ADE87F4C19E9A9360041AAB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ADE87F3119E9A9350041AAB5 /* Paranormal */;
