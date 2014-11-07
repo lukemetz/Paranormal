@@ -1,3 +1,6 @@
 [submodule "Paranormal/libs/cocos2d-swift"]
 	path = Paranormal/libs/cocos2d-swift
 	url = git@github.com:cocos2d/cocos2d-swift.git
+[submodule "Paranormal/libs/GPUImage"]
+	path = Paranormal/libs/GPUImage
+	url = git@github.com:BradLarson/GPUImage.git
