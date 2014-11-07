@@ -1,17 +1,8 @@
-//
-//  EditorViewController.swift
-//  Paranormal
-//
-//  Created by Diana Vermilya on 10/29/14.
-//  Copyright (c) 2014 spritebuilder. All rights reserved.
-//
-
 import Foundation
 import Cocoa
 import AppKit
 
 class EditorViewController : NSViewController {
-
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var tempEditor: NSImageView!
     var editorContext : CGContext?
