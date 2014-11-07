@@ -1,5 +1,6 @@
 import Foundation
 import Cocoa
+import GPUImage
 
 class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var previewSettingsView: NSView!
@@ -10,6 +11,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
     var previewSettings : PreviewSettings?
     var layersViewController : LayersViewController?
 
+    @IBOutlet weak var testView: NSImageView!
+    
     override init(window: NSWindow?) {
         super.init(window:window)
     }
@@ -64,6 +67,37 @@ class WindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         setUpCocos()
         updatePreviewSettings()
+
+        let img = testView.image
+        println(img)
+        var stillImageSource = GPUImagePicture(image: img!)
+        // var stillImageFilter = GPUImageSepiaFilter()
+        let stillImageFilter = GPUImageFilter(fragmentShaderFromFile: "ZUpInitialize")
+
+        stillImageSource.addTarget(stillImageFilter)
+        stillImageFilter.useNextFrameForImageCapture()
+        stillImageSource.processImageWithCompletionHandler { () -> Void in
+            //testView.image = stillImageFilter.imageFromCurrentFramebuffer()
+            let retImg = stillImageFilter.imageFromCurrentFramebuffer()
+            //let retImg = stillImageFilter.imageByFilteringImage(img)
+            println(retImg)
+            self.testView.image = retImg
+        }
+
+
+
+        /*
+        UIImage *inputImage = [UIImage imageNamed:@"Lambeau.jpg"];
+
+        GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
+        GPUImageSepiaFilter *stillImageFilter = [[GPUImageSepiaFilter alloc] init];
+
+        [stillImageSource addTarget:stillImageFilter];
+        [stillImageFilter useNextFrameForImageCapture];
+        [stillImageSource processImage];
+
+        UIImage *currentFilteredVideoFrame = [stillImageFilter imageFromCurrentFramebuffer];
+        */
     }
 
     required init?(coder:NSCoder) {

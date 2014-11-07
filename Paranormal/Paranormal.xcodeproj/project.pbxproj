@@ -30,6 +30,10 @@
 		AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		AD969B2019F0C98800A2F718 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADA963271A0C6A0000AF22EB /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
+		ADA9632F1A0C6E5300AF22EB /* bear.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA9632E1A0C6E5300AF22EB /* bear.png */; };
+		ADA963301A0C6E5300AF22EB /* bear.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA9632E1A0C6E5300AF22EB /* bear.png */; };
+		ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
+		ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
@@ -114,6 +118,8 @@
 		AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewSettings.xib; sourceTree = "<group>"; };
 		AD969B1F19F0C98800A2F718 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
 		ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImageMac.xcodeproj; path = libs/GPUImage/framework/GPUImageMac.xcodeproj; sourceTree = "<group>"; };
+		ADA9632E1A0C6E5300AF22EB /* bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bear.png; sourceTree = "<group>"; };
+		ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ZUpInitialize.fsh; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -187,6 +193,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		ADA963331A0C6E6100AF22EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ADA9632E1A0C6E5300AF22EB /* bear.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		ADA963341A0C734F00AF22EB /* GPUImageFilters */ = {
+			isa = PBXGroup;
+			children = (
+				ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */,
+			);
+			name = GPUImageFilters;
+			sourceTree = "<group>";
+		};
 		ADE87F2919E9A9340041AAB5 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +232,8 @@
 		ADE87F3419E9A9350041AAB5 /* Paranormal */ = {
 			isa = PBXGroup;
 			children = (
+				ADA963341A0C734F00AF22EB /* GPUImageFilters */,
+				ADA963331A0C6E6100AF22EB /* Resources */,
 				AD898B8819FC78AB000FF6AF /* DocumentModels */,
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
 				0A27FC821A0564CF00999020 /* ImageEditorView.swift */,
@@ -409,8 +433,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA9632F1A0C6E5300AF22EB /* bear.png in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
+				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD8757DF19FC22C20057B456 /* NewDocument.xib in Resources */,
@@ -425,8 +451,10 @@
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
 				AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
+				ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */,
 				ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */,
+				ADA963301A0C6E5300AF22EB /* bear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
