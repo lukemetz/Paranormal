@@ -8,9 +8,8 @@
         <customObject id="-2" userLabel="File's Owner" customClass="WindowController" customModule="Paranormal" customModuleProvider="target">
             <connections>
                 <outlet property="editor" destination="0Df-Pn-8RE" id="jFc-Hh-A2x"/>
-                <outlet property="layersView" destination="IYT-c0-9vF" id="TXY-4l-NBb"/>
                 <outlet property="previewSettingsView" destination="UHG-fk-BXj" id="q0R-zj-6l7"/>
-                <outlet property="previewView" destination="Gci-uR-xur" id="gVM-RQ-TLH"/>
+                <outlet property="previewView" destination="Gci-uR-xur" id="rE1-es-rn6"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
             </connections>
         </customObject>
@@ -34,9 +33,6 @@
                         <rect key="frame" x="98" y="20" width="450" height="544"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FxS-sH-mWa"/>
                     </imageView>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IYT-c0-9vF">
-                        <rect key="frame" x="568" y="20" width="336" height="239"/>
-                    </customView>
                 </subviews>
             </view>
             <connections>
