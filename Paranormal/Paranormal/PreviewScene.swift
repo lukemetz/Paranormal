@@ -18,7 +18,7 @@ class PreviewScene: CCScene {
     override func onExit() {
         super.onExit()
     }
-    
+
     func keyDown(event:NSEvent) {
         println(event.keyCode)
     }
