@@ -2,7 +2,6 @@ import Foundation
 import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
-    @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var previewSettingsView: NSView!
     @IBOutlet weak var layersView: NSView!
     @IBOutlet weak var previewView: PreviewView!
@@ -25,18 +24,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
         let director = CCDirector.sharedDirector() as CCDirector!
         // TODO correctly shutdown cocos2D
         //director.end()
-    }
-
-    func setUpEditor() {
-        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-
-        cgContext = CGBitmapContextCreate(nil, UInt(300),
-            UInt(400),  UInt(8),  UInt(300*4), colorSpace, bitmapInfo)
-        CGContextSetRGBFillColor(cgContext, 1, 1, 0, 1)
-        CGContextFillRect(cgContext, CGRectMake(0, 0, 300, 400))
-        let image = CGBitmapContextCreateImage(cgContext!)
-        editor.image = NSImage(CGImage: image, size: NSSize(width: 300 , height: 400) )
     }
 
     override func awakeFromNib() {
@@ -74,9 +61,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     override func windowDidLoad() {
 //        setUpCocos()
-//        setUpEditor()
         updatePreviewSettings()
-        updateLayers()
     }
 
     required init?(coder:NSCoder) {
