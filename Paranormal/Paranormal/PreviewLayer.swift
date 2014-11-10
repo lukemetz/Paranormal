@@ -18,14 +18,14 @@ class PreviewLayer: CCNode {
 
     func createStaticExample() {
         var gemSprite: CCSprite = CCSprite(imageNamed:"gem-diffuse.png")
-        resizeSpriteWithoutWarp(gemSprite, toWidth:Float(size.width/2),
-            toHeight:Float(size.height/2))
-        gemSprite.position = CGPointMake(size.width/4, size.height/4)
+        resizeSpriteWithoutWarp(gemSprite, toWidth:Float(size.width),
+            toHeight:Float(size.height))
+        gemSprite.position = CGPointMake(size.width/2, size.height/2)
         gemSprite.opacity = 0.8
 
         var background: CCSprite = CCSprite(imageNamed:"checker.png")
-        resizeSprite(background, toWidth:Float(size.width),
-            toHeight:Float(size.height))
+        resizeSprite(background, toWidth:Float(size.width*2),
+            toHeight:Float(size.height*2))
         var normalMap: CCSpriteFrame = CCSpriteFrame(
             textureFilename:"gem-normal.png",
             rectInPixels: CGRectMake(0, 0, size.width, size.height),
