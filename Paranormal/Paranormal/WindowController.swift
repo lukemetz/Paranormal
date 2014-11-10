@@ -70,6 +70,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
         let img = testView.image
         var stillImageSource = GPUImagePicture(image: img!)
+        let chamfer = ChamferFilter()
+        /*
         let alphaMask = GPUImageFilter(fragmentShaderFromFile: "MaskAlpha")
         let blurFilter = GPUImageGaussianBlurFilter()
         blurFilter.blurRadiusInPixels = 10.0;
@@ -83,11 +85,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
         blurFilter.addTarget(multiply)
         alphaMask.addTarget(multiply)
 
-        multiply.addTarget(depthToNormal)
-
-        depthToNormal.useNextFrameForImageCapture()
+        multiply.addTarget(depthToNormal) */
+        stillImageSource.addTarget(chamfer)
+        chamfer.useNextFrameForImageCapture()
         stillImageSource.processImageWithCompletionHandler { () -> Void in
-            let retImg = depthToNormal.imageFromCurrentFramebuffer()
+            let retImg = chamfer.imageFromCurrentFramebuffer()
             println(retImg)
             self.testView.image = retImg
         }

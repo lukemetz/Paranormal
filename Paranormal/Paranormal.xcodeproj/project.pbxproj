@@ -47,6 +47,8 @@
 		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
 		ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
 		ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
+		ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */; };
+		ADE7B2FF1A107572005EDD11 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
 		ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
@@ -128,6 +130,7 @@
 		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
 		ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthToNormalFilter.swift; sourceTree = "<group>"; };
+		ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */,
+				ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */,
 			);
 			name = GPUImageFilters;
 			sourceTree = "<group>";
@@ -495,6 +499,7 @@
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				AD8757E319FC2C760057B456 /* NewDocumentController.swift in Sources */,
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
+				ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
@@ -517,6 +522,7 @@
 				ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */,
 				0AB813461A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
+				ADE7B2FF1A107572005EDD11 /* ChamferFilter.swift in Sources */,
 				ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */,
 				AD7C0D3619FB250300A58201 /* DocumentController.swift in Sources */,
 				ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */,
