@@ -43,6 +43,10 @@
 		ADC4E46E19F9EB1900678A89 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE732F11A0573C400A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
+		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
+		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
+		ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
+		ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
 		ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
@@ -121,6 +125,9 @@
 		ADA9632E1A0C6E5300AF22EB /* bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bear.png; sourceTree = "<group>"; };
 		ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ZUpInitialize.fsh; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
+		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
+		ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthToNormalFilter.swift; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,10 +208,20 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		ADA963341A0C734F00AF22EB /* GPUImageFilters */ = {
+		ADA963341A0C734F00AF22EB /* GPUImageShaders */ = {
 			isa = PBXGroup;
 			children = (
 				ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */,
+				ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */,
+				ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */,
+			);
+			name = GPUImageShaders;
+			sourceTree = "<group>";
+		};
+		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
+			isa = PBXGroup;
+			children = (
+				ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */,
 			);
 			name = GPUImageFilters;
 			sourceTree = "<group>";
@@ -232,7 +249,8 @@
 		ADE87F3419E9A9350041AAB5 /* Paranormal */ = {
 			isa = PBXGroup;
 			children = (
-				ADA963341A0C734F00AF22EB /* GPUImageFilters */,
+				ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */,
+				ADA963341A0C734F00AF22EB /* GPUImageShaders */,
 				ADA963331A0C6E6100AF22EB /* Resources */,
 				AD898B8819FC78AB000FF6AF /* DocumentModels */,
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
@@ -436,8 +454,10 @@
 				ADA9632F1A0C6E5300AF22EB /* bear.png in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
+				ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */,
 				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
+				ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD8757DF19FC22C20057B456 /* NewDocument.xib in Resources */,
 				ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */,
@@ -479,6 +499,7 @@
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
 				0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */,
+				ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +519,7 @@
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
 				ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */,
 				AD7C0D3619FB250300A58201 /* DocumentController.swift in Sources */,
+				ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
 				AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */,
 				ADE87F5119E9A9360041AAB5 /* ParanormalTests.swift in Sources */,
