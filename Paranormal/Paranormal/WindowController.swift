@@ -16,7 +16,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     func setUpCocos() {
         let director = CCDirector.sharedDirector() as CCDirector!
-        println(previewView)
         director.setView(previewView)
         let scene = PreviewScene()
         director.runWithScene(scene)
@@ -74,8 +73,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     override func windowDidLoad() {
-        setUpCocos()
-        setUpEditor()
+//        setUpCocos()
+//        setUpEditor()
         updatePreviewSettings()
         updateLayers()
     }
