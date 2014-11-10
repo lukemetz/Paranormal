@@ -1,17 +1,13 @@
 import Foundation
 import Cocoa
-import GPUImage
 
 class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var previewSettingsView: NSView!
-    @IBOutlet weak var glView: CCGLView!
     @IBOutlet weak var layersView: NSView!
-
+    @IBOutlet weak var previewView: PreviewView!
     var cgContext : CGContextRef?
     var previewSettings : PreviewSettings?
     var layersViewController : LayersViewController?
-
-    @IBOutlet weak var testView: NSImageView!
 
     override init(window: NSWindow?) {
         super.init(window:window)
@@ -19,9 +15,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     func setUpCocos() {
         let director = CCDirector.sharedDirector() as CCDirector!
-        director.setView(glView)
-
-        let scene = TestScene()
+        director.setView(previewView)
+        let scene = PreviewScene()
         director.runWithScene(scene)
     }
 
@@ -67,32 +62,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         setUpCocos()
         updatePreviewSettings()
-
-        let img = testView.image
-        var stillImageSource = GPUImagePicture(image: img!)
-        let chamfer = ChamferFilter()
-        /*
-        let alphaMask = GPUImageFilter(fragmentShaderFromFile: "MaskAlpha")
-        let blurFilter = GPUImageGaussianBlurFilter()
-        blurFilter.blurRadiusInPixels = 10.0;
-        let multiply = GPUImageMultiplyBlendFilter()
-
-        let depthToNormal = DepthToNormalFilter()
-
-        stillImageSource.addTarget(alphaMask)
-        alphaMask.addTarget(blurFilter)
-
-        blurFilter.addTarget(multiply)
-        alphaMask.addTarget(multiply)
-
-        multiply.addTarget(depthToNormal) */
-        stillImageSource.addTarget(chamfer)
-        chamfer.useNextFrameForImageCapture()
-        stillImageSource.processImageWithCompletionHandler { () -> Void in
-            let retImg = chamfer.imageFromCurrentFramebuffer()
-            println(retImg)
-            self.testView.image = retImg
-        }
     }
 
     required init?(coder:NSCoder) {
