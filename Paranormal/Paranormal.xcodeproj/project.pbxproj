@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
+		770131311A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
+		772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096B1A055F6D000686E0 /* gem-diffuse.png */; };
+		772A096E1A055F6D000686E0 /* gem-diffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096B1A055F6D000686E0 /* gem-diffuse.png */; };
+		772A096F1A055F6D000686E0 /* gem-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096C1A055F6D000686E0 /* gem-normal.png */; };
+		772A09701A055F6D000686E0 /* gem-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096C1A055F6D000686E0 /* gem-normal.png */; };
+		772A09801A05681F000686E0 /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A097F1A05681F000686E0 /* checker.png */; };
+		772A09811A05681F000686E0 /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A097F1A05681F000686E0 /* checker.png */; };
+		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
+		772A098A1A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
+		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
+		77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* ImageEditorView.swift */; };
 		0A27FC841A0564CF00999020 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* ImageEditorView.swift */; };
 		0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
@@ -85,6 +97,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7701312F1A0555A700C6CC9E /* PreviewScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewScene.swift; sourceTree = "<group>"; };
+		772A096B1A055F6D000686E0 /* gem-diffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gem-diffuse.png"; path = "../../../paranormal/Paranormal/Paranormal/Examples/Diffuse/gem-diffuse.png"; sourceTree = "<group>"; };
+		772A096C1A055F6D000686E0 /* gem-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gem-normal.png"; path = "../../../paranormal/Paranormal/Paranormal/Examples/Normal/gem-normal.png"; sourceTree = "<group>"; };
+		772A097F1A05681F000686E0 /* checker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checker.png; path = ../../../paranormal/Paranormal/Paranormal/Examples/Background/checker.png; sourceTree = "<group>"; };
+		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
+		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		0A27FC821A0564CF00999020 /* ImageEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
 		0AB813441A0129FE0032FD6E /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
@@ -187,6 +205,9 @@
 			children = (
 				AD898B8819FC78AB000FF6AF /* DocumentModels */,
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
+				772A097F1A05681F000686E0 /* checker.png */,
+				772A096B1A055F6D000686E0 /* gem-diffuse.png */,
+				772A096C1A055F6D000686E0 /* gem-normal.png */,
 				0A27FC821A0564CF00999020 /* ImageEditorView.swift */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
 				ADE87F4119E9A9360041AAB5 /* Images.xcassets */,
@@ -198,6 +219,9 @@
 				ADEE7DE019E9C89B00588629 /* Paranormal-Bridging-Header.h */,
 				AD2A8E9119E9CF6A001586E4 /* TestScene.swift */,
 				AD969B1919F09B5300A2F718 /* WindowController.swift */,
+				77C2E4CF1A094AB300991492 /* PreviewView.swift */,
+				772A09881A05D18C000686E0 /* PreviewLayer.swift */,
+				7701312F1A0555A700C6CC9E /* PreviewScene.swift */,
 				AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */,
 				AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */,
 				AD7C0D3219FB24E800A58201 /* DocumentController.swift */,
@@ -373,9 +397,12 @@
 			files = (
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
+				772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */,
+				772A09801A05681F000686E0 /* checker.png in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD8757DF19FC22C20057B456 /* NewDocument.xib in Resources */,
+				772A096F1A055F6D000686E0 /* gem-normal.png in Resources */,
 				ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,10 +411,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				772A09701A055F6D000686E0 /* gem-normal.png in Resources */,
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
 				AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
+				772A09811A05681F000686E0 /* checker.png in Resources */,
 				ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */,
+				772A096E1A055F6D000686E0 /* gem-diffuse.png in Resources */,
 				ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */,
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */,
@@ -406,9 +437,11 @@
 				ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */,
 				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
+				770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				AD8757E319FC2C760057B456 /* NewDocumentController.swift in Sources */,
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
+				772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
@@ -428,11 +461,14 @@
 				ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */,
 				AD8757E419FC2C760057B456 /* NewDocumentController.swift in Sources */,
 				ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */,
+				77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */,
 				0AB813461A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
+				770131311A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */,
 				AD7C0D3619FB250300A58201 /* DocumentController.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
+				772A098A1A05D18C000686E0 /* PreviewLayer.swift in Sources */,
 				AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */,
 				ADE87F5119E9A9360041AAB5 /* ParanormalTests.swift in Sources */,
 				AD83DDBD19F9EA1F004EAA77 /* Document.swift in Sources */,
