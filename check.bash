@@ -10,7 +10,7 @@ TEST=$?
 
 echo "==== Running Tidy ===="
 # Ensure things have no whitespace
-python tools/tidy.py `find . -name *.swift`
+python tools/tidy.py $(find . -name "*.swift" | grep -v "/libs/")
 TIDY=$?
 
 echo -e "\n======================\n"

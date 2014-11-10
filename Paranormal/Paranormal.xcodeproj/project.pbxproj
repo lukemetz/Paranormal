@@ -41,6 +41,11 @@
 		AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		AD969B2019F0C98800A2F718 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
+		ADA963271A0C6A0000AF22EB /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
+		ADA9632F1A0C6E5300AF22EB /* bear.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA9632E1A0C6E5300AF22EB /* bear.png */; };
+		ADA963301A0C6E5300AF22EB /* bear.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA9632E1A0C6E5300AF22EB /* bear.png */; };
+		ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
+		ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
@@ -50,6 +55,12 @@
 		ADC4E46E19F9EB1900678A89 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE732F11A0573C400A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
+		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
+		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
+		ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
+		ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
+		ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */; };
+		ADE7B2FF1A107572005EDD11 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
 		ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
@@ -73,6 +84,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		ADA963231A0C69C000AF22EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCA3F31C17239B6500E28AEC;
+			remoteInfo = GPUImage;
+		};
+		ADA963251A0C69F800AF22EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCA3F31B17239B6500E28AEC;
+			remoteInfo = GPUImage;
+		};
 		ADE87F4B19E9A9360041AAB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADE87F2A19E9A9350041AAB5 /* Project object */;
@@ -116,7 +141,14 @@
 		AD969B1919F09B5300A2F718 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewSettings.xib; sourceTree = "<group>"; };
 		AD969B1F19F0C98800A2F718 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
+		ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImageMac.xcodeproj; path = libs/GPUImage/framework/GPUImageMac.xcodeproj; sourceTree = "<group>"; };
+		ADA9632E1A0C6E5300AF22EB /* bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bear.png; sourceTree = "<group>"; };
+		ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ZUpInitialize.fsh; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
+		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
+		ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthToNormalFilter.swift; sourceTree = "<group>"; };
+		ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
 		ADE87F3219E9A9350041AAB5 /* Paranormal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paranormal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F3619E9A9350041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA963271A0C6A0000AF22EB /* GPUImage.framework in Frameworks */,
 				ADEE7DE419E9CCA000588629 /* libcocos2d.a in Frameworks */,
 				ADEE7BE319E9C5FC00588629 /* OpenGL.framework in Frameworks */,
 				ADEE7BD319E9C59200588629 /* OpenAL.framework in Frameworks */,
@@ -180,6 +213,41 @@
 			name = DocumentModels;
 			sourceTree = "<group>";
 		};
+		ADA9631E1A0C69BF00AF22EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADA963241A0C69C000AF22EB /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADA963331A0C6E6100AF22EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ADA9632E1A0C6E5300AF22EB /* bear.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		ADA963341A0C734F00AF22EB /* GPUImageShaders */ = {
+			isa = PBXGroup;
+			children = (
+				ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */,
+				ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */,
+				ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */,
+			);
+			name = GPUImageShaders;
+			sourceTree = "<group>";
+		};
+		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
+			isa = PBXGroup;
+			children = (
+				ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */,
+				ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */,
+			);
+			name = GPUImageFilters;
+			sourceTree = "<group>";
+		};
 		ADE87F2919E9A9340041AAB5 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +271,9 @@
 		ADE87F3419E9A9350041AAB5 /* Paranormal */ = {
 			isa = PBXGroup;
 			children = (
+				ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */,
+				ADA963341A0C734F00AF22EB /* GPUImageShaders */,
+				ADA963331A0C6E6100AF22EB /* Resources */,
 				AD898B8819FC78AB000FF6AF /* DocumentModels */,
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
 				772A097F1A05681F000686E0 /* checker.png */,
@@ -262,6 +333,7 @@
 		ADEE7BD119E9C57100588629 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */,
 				ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */,
 			);
 			name = libs;
@@ -306,6 +378,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				ADA963261A0C69F800AF22EB /* PBXTargetDependency */,
 			);
 			name = Paranormal;
 			productName = Paranormal;
@@ -364,6 +437,10 @@
 					ProductGroup = ADEE7DD719E9C80300588629 /* Products */;
 					ProjectRef = ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */;
 				},
+				{
+					ProductGroup = ADA9631E1A0C69BF00AF22EB /* Products */;
+					ProjectRef = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -374,6 +451,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		ADA963241A0C69C000AF22EB /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = ADA963231A0C69C000AF22EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADEE7DDC19E9C80300588629 /* libcocos2d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -395,11 +479,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA9632F1A0C6E5300AF22EB /* bear.png in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
+				ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */,
+				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */,
 				772A09801A05681F000686E0 /* checker.png in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
+				ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD8757DF19FC22C20057B456 /* NewDocument.xib in Resources */,
 				772A096F1A055F6D000686E0 /* gem-normal.png in Resources */,
@@ -415,10 +503,12 @@
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
 				AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
+				ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				772A09811A05681F000686E0 /* checker.png in Resources */,
 				ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */,
 				772A096E1A055F6D000686E0 /* gem-diffuse.png in Resources */,
 				ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */,
+				ADA963301A0C6E5300AF22EB /* bear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,11 +531,13 @@
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				AD8757E319FC2C760057B456 /* NewDocumentController.swift in Sources */,
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
+				ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */,
 				772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
 				0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */,
+				ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,9 +556,11 @@
 				77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */,
 				0AB813461A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
+				ADE7B2FF1A107572005EDD11 /* ChamferFilter.swift in Sources */,
 				770131311A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */,
 				AD7C0D3619FB250300A58201 /* DocumentController.swift in Sources */,
+				ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
 				772A098A1A05D18C000686E0 /* PreviewLayer.swift in Sources */,
 				AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */,
@@ -478,6 +572,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		ADA963261A0C69F800AF22EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = ADA963251A0C69F800AF22EB /* PBXContainerItemProxy */;
+		};
 		ADE87F4C19E9A9360041AAB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ADE87F3119E9A9350041AAB5 /* Paranormal */;
