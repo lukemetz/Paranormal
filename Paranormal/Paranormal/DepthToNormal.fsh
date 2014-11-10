@@ -16,7 +16,7 @@ void main() {
 
     float ym1 = texture2D(inputImageTexture, vec2(x, y - texelHeight)).r;
     float yp1 = texture2D(inputImageTexture, vec2(x, y + texelHeight)).r;
-    
+
     float dx = (xp1 - xm1)/(2.0 * texelWidth);
     float dy = (yp1 - ym1)/(2.0 * texelHeight);
 
@@ -25,7 +25,6 @@ void main() {
     trial.x += 0.5;
     trial.y += 0.5;
     outputColor = vec4(trial, 1.0);
-
 
     gl_FragColor = outputColor;
 }
