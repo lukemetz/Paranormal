@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="EditorViewController" customModule="Paranormal" customModuleProvider="target">
+            <connections>
+                <outlet property="editor" destination="cmO-AS-zF0" id="p47-nk-mpm"/>
+                <outlet property="tempEditor" destination="ybp-Qy-xWP" id="vS7-q2-T0Y"/>
+                <outlet property="view" destination="c22-O7-iKe" id="mog-jm-EpF"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView wantsLayer="YES" id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="258" height="416"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ybp-Qy-xWP" userLabel="tempEditor" customClass="ImageEditorView" customModule="Paranormal" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="258" height="416"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="GGt-au-6CZ"/>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="uue-zd-y5A"/>
+                    </connections>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmO-AS-zF0" userLabel="editor">
+                    <rect key="frame" x="0.0" y="0.0" width="258" height="416"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="aiB-zf-86r"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ybp-Qy-xWP" secondAttribute="bottom" id="2Jk-Lr-LSZ"/>
+                <constraint firstItem="cmO-AS-zF0" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="E4A-Hu-cLj"/>
+                <constraint firstItem="cmO-AS-zF0" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="FDF-b2-Www"/>
+                <constraint firstItem="ybp-Qy-xWP" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="P6H-8H-RL2"/>
+                <constraint firstAttribute="bottom" secondItem="cmO-AS-zF0" secondAttribute="bottom" id="Qgl-Rm-ut6"/>
+                <constraint firstAttribute="bottom" secondItem="cmO-AS-zF0" secondAttribute="bottom" id="R7Q-Ud-MuO"/>
+                <constraint firstAttribute="trailing" secondItem="ybp-Qy-xWP" secondAttribute="trailing" id="cWb-aH-Zqp"/>
+                <constraint firstAttribute="trailing" secondItem="cmO-AS-zF0" secondAttribute="trailing" id="giz-1f-1pM"/>
+                <constraint firstItem="ybp-Qy-xWP" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ofC-59-jyC"/>
+                <constraint firstAttribute="bottom" secondItem="ybp-Qy-xWP" secondAttribute="bottom" id="vwE-sY-8wa"/>
+            </constraints>
+            <point key="canvasLocation" x="220" y="477"/>
+        </customView>
+    </objects>
+</document>

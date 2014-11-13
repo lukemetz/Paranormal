@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
@@ -7,9 +7,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WindowController" customModule="Paranormal" customModuleProvider="target">
             <connections>
-                <outlet property="glView" destination="Gci-uR-xur" id="KbK-jX-YUp"/>
-                <outlet property="previewSettingsView" destination="UHG-fk-BXj" id="q0R-zj-6l7"/>
-                <outlet property="previewView" destination="Gci-uR-xur" id="Tyb-w7-Fbb"/>
+                <outlet property="editorView" destination="Lpj-m4-ypl" id="QVH-jh-c67"/>
+                <outlet property="mainView" destination="LMU-Ob-Gbw" id="usj-BD-CjJ"/>
+                <outlet property="panelView" destination="mR4-zi-C0S" id="hBt-Th-uaM"/>
+                <outlet property="previewView" destination="Thk-fp-sXC" id="A5n-T9-cZE"/>
+                <outlet property="toolsView" destination="gYp-f6-dFS" id="vY9-4S-rmi"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
             </connections>
         </customObject>
@@ -17,51 +19,76 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="khZ-mA-o3D">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="163" y="199" width="924" height="584"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
+            <rect key="contentRect" x="163" y="199" width="729" height="532"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="LMU-Ob-Gbw">
-                <rect key="frame" x="0.0" y="0.0" width="924" height="584"/>
+                <rect key="frame" x="0.0" y="0.0" width="729" height="532"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-fk-BXj">
-                        <rect key="frame" x="568" y="13" width="336" height="239"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="D3t-Tj-Maq" userLabel="Tabs">
+                        <rect key="frame" x="0.0" y="500" width="729" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="Alf-Qz-Flj"/>
+                        </constraints>
                     </customView>
-                    <openGLView fixedFrame="YES" colorSize="5bit_RGB_8bit_Alpha" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gci-uR-xur" customClass="CCGLView">
-                        <rect key="frame" x="568" y="267" width="336" height="297"/>
-                    </openGLView>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-m4-ypl">
-                        <rect key="frame" x="20" y="13" width="524" height="551"/>
-                        <subviews>
-                            <imageView identifier="EditorView" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Df-Pn-8RE" userLabel="editor">
-                                <rect key="frame" x="0.0" y="0.0" width="524" height="544"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FxS-sH-mWa"/>
-                            </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-Gf-kxX" userLabel="tempEditor" customClass="ImageEditorView" customModule="Paranormal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="524" height="544"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="mqA-pW-PvY"/>
-                                <connections>
-                                    <outlet property="delegate" destination="YSb-Qa-UAI" id="ruG-bc-fXW"/>
-                                </connections>
-                            </imageView>
-                        </subviews>
-                        <shadow key="shadow">
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </shadow>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="gYp-f6-dFS" userLabel="Tools">
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="503"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="fHD-UH-Qsm"/>
+                        </constraints>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-m4-ypl" userLabel="Editor">
+                        <rect key="frame" x="63" y="15" width="420" height="488"/>
                         <animations/>
                     </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="tHU-eL-O8M" userLabel="Status bar">
+                        <rect key="frame" x="63" y="0.0" width="666" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="pt9-tW-0NY"/>
+                        </constraints>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="mR4-zi-C0S" userLabel="Sidebar">
+                        <rect key="frame" x="482" y="15" width="247" height="488"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Thk-fp-sXC" userLabel="Preview">
+                                <rect key="frame" x="0.0" y="281" width="247" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="247" id="KH9-CL-yiL"/>
+                                    <constraint firstAttribute="height" constant="207" id="tqd-q6-wNM"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Thk-fp-sXC" firstAttribute="top" secondItem="mR4-zi-C0S" secondAttribute="top" id="Vnv-q3-0od"/>
+                            <constraint firstAttribute="width" constant="247" id="jp0-fG-uuW"/>
+                            <constraint firstItem="Thk-fp-sXC" firstAttribute="leading" secondItem="mR4-zi-C0S" secondAttribute="leading" id="lXE-5W-rJt"/>
+                            <constraint firstAttribute="trailing" secondItem="Thk-fp-sXC" secondAttribute="trailing" id="wFI-3O-PpK"/>
+                        </constraints>
+                    </customView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="D3t-Tj-Maq" firstAttribute="top" secondItem="LMU-Ob-Gbw" secondAttribute="top" id="9Xc-ly-1de"/>
+                    <constraint firstItem="D3t-Tj-Maq" firstAttribute="leading" secondItem="gYp-f6-dFS" secondAttribute="leading" id="Fx6-G8-aI2"/>
+                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="top" secondItem="mR4-zi-C0S" secondAttribute="top" id="GoI-47-xO3"/>
+                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="bottom" secondItem="mR4-zi-C0S" secondAttribute="bottom" id="III-Z0-PhZ"/>
+                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="leading" secondItem="tHU-eL-O8M" secondAttribute="leading" id="Mwd-wE-Vpd"/>
+                    <constraint firstItem="mR4-zi-C0S" firstAttribute="trailing" secondItem="D3t-Tj-Maq" secondAttribute="trailing" id="Nhp-yV-yS6"/>
+                    <constraint firstAttribute="bottom" secondItem="gYp-f6-dFS" secondAttribute="bottom" id="Nip-O1-vEd"/>
+                    <constraint firstAttribute="trailing" secondItem="tHU-eL-O8M" secondAttribute="trailing" id="Sow-jR-h8Q"/>
+                    <constraint firstItem="gYp-f6-dFS" firstAttribute="top" secondItem="LMU-Ob-Gbw" secondAttribute="top" constant="29" id="XsV-5V-P3Y"/>
+                    <constraint firstItem="gYp-f6-dFS" firstAttribute="bottom" secondItem="tHU-eL-O8M" secondAttribute="bottom" id="Y7F-nH-fuk"/>
+                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="top" secondItem="gYp-f6-dFS" secondAttribute="top" id="g5s-0G-iWs"/>
+                    <constraint firstAttribute="bottom" secondItem="Lpj-m4-ypl" secondAttribute="bottom" constant="15" id="glc-r5-YZv"/>
+                    <constraint firstItem="mR4-zi-C0S" firstAttribute="trailing" secondItem="tHU-eL-O8M" secondAttribute="trailing" id="iuF-tX-apl"/>
+                    <constraint firstItem="D3t-Tj-Maq" firstAttribute="leading" secondItem="LMU-Ob-Gbw" secondAttribute="leading" id="jCz-Ly-8Oh"/>
+                    <constraint firstAttribute="trailing" secondItem="Lpj-m4-ypl" secondAttribute="trailing" constant="246" id="sDC-MK-fZ4"/>
+                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="leading" secondItem="LMU-Ob-Gbw" secondAttribute="leading" constant="63" id="u14-dM-pnR"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="PU0-Dy-pdN"/>
             </connections>
-            <point key="canvasLocation" x="361" y="315"/>
+            <point key="canvasLocation" x="539.5" y="278"/>
         </window>
-        <viewController id="YSb-Qa-UAI" customClass="EditorViewController" customModule="Paranormal" customModuleProvider="target">
-            <connections>
-                <outlet property="editor" destination="0Df-Pn-8RE" id="duP-l5-U9m"/>
-                <outlet property="tempEditor" destination="EoA-Gf-kxX" id="kzq-sR-92S"/>
-                <outlet property="view" destination="Lpj-m4-ypl" id="ojt-Cy-wGa"/>
-            </connections>
-        </viewController>
     </objects>
 </document>
