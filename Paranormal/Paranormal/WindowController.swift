@@ -2,66 +2,58 @@ import Foundation
 import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
-    @IBOutlet weak var previewSettingsView: NSView!
-    @IBOutlet weak var layersView: NSView!
-    @IBOutlet weak var previewView: PreviewView!
-    var cgContext : CGContextRef?
-    var previewSettings : PreviewSettings?
-    var layersViewController : LayersViewController?
+    @IBOutlet weak var mainView: NSView!
+
+    @IBOutlet weak var panelView: NSView!
+    @IBOutlet weak var previewView: NSView!
+    var previewViewController: PreviewViewController?
+
+    @IBOutlet weak var toolsView: NSView!
+
+    @IBOutlet weak var editorView: NSView!
+    var editorViewController: EditorViewController?
 
     override init(window: NSWindow?) {
         super.init(window:window)
-    }
-
-    func setUpCocos() {
-        let director = CCDirector.sharedDirector() as CCDirector!
-        director.setView(previewView)
-        let scene = PreviewScene()
-        director.runWithScene(scene)
-    }
-
-    func tearDownCocos() {
-        let director = CCDirector.sharedDirector() as CCDirector!
-        // TODO correctly shutdown cocos2D
-        //director.end()
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func updatePreviewSettings() {
-        previewSettings = PreviewSettings(context: document?.managedObjectContext)
+    // Insert view into parent and set up constraints such that it resizes how parent element
+    // resizes.
+    func insertSubviewIntoParent(parent: NSView, child: NSView) {
+        child.translatesAutoresizingMaskIntoConstraints = false
+        parent.addSubview(child)
 
-        if let preview = previewSettings?.view {
-            for sub in previewSettingsView.subviews {
-                sub.removeFromSuperview()
-            }
-            previewSettingsView.addSubview(preview)
+        let horizontalContraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|",
+            options: NSLayoutFormatOptions.AlignAllBaseline,
+            metrics: nil,
+            views: ["view" : child])
+        parent.addConstraints(horizontalContraints)
 
-            // Place the view at the top
-            let rect : NSRect! = preview.frame
-            let container : NSRect! = previewSettingsView?.frame
-            preview.frame = NSRect(x: 0,
-                y: container.height - rect.height,
-                width: rect.width,
-                height: rect.height)
-        }
-    }
+        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|",
+            options: NSLayoutFormatOptions.AlignAllBaseline,
+            metrics: nil,
+            views: ["view" : child])
 
-    func updateLayers() {
-        layersViewController = LayersViewController(context: document?.managedObjectContext)
-        if let layers = layersViewController?.view {
-            for sub in layersView.subviews {
-                sub.removeFromSuperview()
-            }
-            layersView.addSubview(layers)
-        }
+        parent.addConstraints(verticalConstraints)
+
+        child.updateConstraints()
+        parent.updateConstraints()
     }
 
     override func windowDidLoad() {
-        setUpCocos()
-        updatePreviewSettings()
+        editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
+        if let view = editorViewController?.view {
+            insertSubviewIntoParent(editorView, child: view)
+        }
+
+        previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
+        if let view = previewViewController?.view {
+            insertSubviewIntoParent(previewView, child: view)
+        }
     }
 
     required init?(coder:NSCoder) {
@@ -77,15 +69,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
         // we are using a single window
         set(document) {
             super.document = document
-
-            // Don't update if the view doesn't have pices loaded
-            // or if there is no document such as when closing
-            if (previewSettingsView != nil && layersView != nil &&
-                document != nil) {
-
-                updatePreviewSettings()
-                updateLayers()
-            }
         }
 
         get {
@@ -95,7 +78,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     func windowWillClose(notification: NSNotification) {
         document?.close()
-        tearDownCocos()
     }
 
     func windowWillReturnUndoManager(window: NSWindow) -> NSUndoManager? {

@@ -16,7 +16,9 @@ class EditorViewController : NSViewController {
     var brush : CGFloat = 10.0
     var opacity : CGFloat = 1.0
 
-    override func awakeFromNib() {
+    override func viewDidAppear() {
+        // Must be called after the editor view is displayed such that constraints
+        // are updated and editor has a non zero frame.
         setUpEditor()
     }
 

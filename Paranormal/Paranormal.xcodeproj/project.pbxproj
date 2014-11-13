@@ -25,8 +25,12 @@
 		77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* NewDocument.xib */; };
-		AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
+		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
 		AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
+		AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A31A13C91800ABDD2A /* Editor.xib */; };
+		AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
+		AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */; };
+		AD7699A91A13F4F600ABDD2A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */; };
 		AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C0D3219FB24E800A58201 /* DocumentController.swift */; };
 		AD7C0D3619FB250300A58201 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C0D3219FB24E800A58201 /* DocumentController.swift */; };
 		AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
@@ -52,7 +56,6 @@
 		ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
-		ADC4E46E19F9EB1900678A89 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A8E9119E9CF6A001586E4 /* TestScene.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE732F11A0573C400A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
@@ -131,7 +134,9 @@
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
-		AD2A8E9119E9CF6A001586E4 /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
+		AD7699A31A13C91800ABDD2A /* Editor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Editor.xib; sourceTree = "<group>"; };
+		AD7699A51A13F2CE00ABDD2A /* Preview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preview.xib; sourceTree = "<group>"; };
+		AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		AD7C0D3219FB24E800A58201 /* DocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		AD83DDB619F81EA5004EAA77 /* Refraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refraction.swift; sourceTree = "<group>"; };
 		AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
@@ -203,6 +208,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD76999D1A13C81300ABDD2A /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				AD7699A21A13C88D00ABDD2A /* Layers */,
+				AD7699A11A13C85C00ABDD2A /* Preview */,
+			);
+			name = Panels;
+			sourceTree = "<group>";
+		};
+		AD7699A01A13C84900ABDD2A /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				0A27FC821A0564CF00999020 /* ImageEditorView.swift */,
+				0AB813441A0129FE0032FD6E /* EditorViewController.swift */,
+				AD7699A31A13C91800ABDD2A /* Editor.xib */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
+		AD7699A11A13C85C00ABDD2A /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */,
+				AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */,
+				77C2E4CF1A094AB300991492 /* PreviewView.swift */,
+				772A09881A05D18C000686E0 /* PreviewLayer.swift */,
+				7701312F1A0555A700C6CC9E /* PreviewScene.swift */,
+				AD7699A51A13F2CE00ABDD2A /* Preview.xib */,
+				AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */,
+			);
+			name = Preview;
+			sourceTree = "<group>";
+		};
+		AD7699A21A13C88D00ABDD2A /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */,
+				ADF4A0E81A01366500E47DA1 /* Layers.xib */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
 		AD898B8819FC78AB000FF6AF /* DocumentModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +318,8 @@
 		ADE87F3419E9A9350041AAB5 /* Paranormal */ = {
 			isa = PBXGroup;
 			children = (
+				AD7699A01A13C84900ABDD2A /* Editor */,
+				AD76999D1A13C81300ABDD2A /* Panels */,
 				ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */,
 				ADA963341A0C734F00AF22EB /* GPUImageShaders */,
 				ADA963331A0C6E6100AF22EB /* Resources */,
@@ -279,27 +328,17 @@
 				772A097F1A05681F000686E0 /* checker.png */,
 				772A096B1A055F6D000686E0 /* gem-diffuse.png */,
 				772A096C1A055F6D000686E0 /* gem-normal.png */,
-				0A27FC821A0564CF00999020 /* ImageEditorView.swift */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
 				ADE87F4119E9A9360041AAB5 /* Images.xcassets */,
 				ADE87F4319E9A9360041AAB5 /* MainMenu.xib */,
 				ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */,
 				AD969B1F19F0C98800A2F718 /* Application.xib */,
-				0AB813441A0129FE0032FD6E /* EditorViewController.swift */,
 				ADE87F3519E9A9350041AAB5 /* Supporting Files */,
 				ADEE7DE019E9C89B00588629 /* Paranormal-Bridging-Header.h */,
-				AD2A8E9119E9CF6A001586E4 /* TestScene.swift */,
 				AD969B1919F09B5300A2F718 /* WindowController.swift */,
-				77C2E4CF1A094AB300991492 /* PreviewView.swift */,
-				772A09881A05D18C000686E0 /* PreviewLayer.swift */,
-				7701312F1A0555A700C6CC9E /* PreviewScene.swift */,
-				AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */,
-				AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */,
 				AD7C0D3219FB24E800A58201 /* DocumentController.swift */,
 				AD8757E219FC2C760057B456 /* NewDocumentController.swift */,
 				AD8757DE19FC22C20057B456 /* NewDocument.xib */,
-				ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */,
-				ADF4A0E81A01366500E47DA1 /* Layers.xib */,
 			);
 			path = Paranormal;
 			sourceTree = "<group>";
@@ -479,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */,
 				ADA9632F1A0C6E5300AF22EB /* bear.png in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
@@ -486,6 +526,7 @@
 				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */,
 				772A09801A05681F000686E0 /* checker.png in Resources */,
+				AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
@@ -502,6 +543,7 @@
 				772A09701A055F6D000686E0 /* gem-normal.png in Resources */,
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
 				AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */,
+				AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
 				ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				772A09811A05681F000686E0 /* checker.png in Resources */,
@@ -523,7 +565,6 @@
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */,
-				AD2A8E9219E9CF6A001586E4 /* TestScene.swift in Sources */,
 				ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */,
 				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
@@ -533,6 +574,7 @@
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
 				ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */,
 				772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */,
+				AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
@@ -547,7 +589,7 @@
 			files = (
 				ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */,
 				0A27FC841A0564CF00999020 /* ImageEditorView.swift in Sources */,
-				ADC4E46E19F9EB1900678A89 /* TestScene.swift in Sources */,
+				AD7699A91A13F4F600ABDD2A /* PreviewViewController.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
 				ADE732F11A0573C400A1C743 /* Layer.swift in Sources */,
 				ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */,
