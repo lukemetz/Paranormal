@@ -16,9 +16,8 @@ class EditorViewController : NSViewController {
     var brush : CGFloat = 10.0
     var opacity : CGFloat = 1.0
 
-    override func viewDidAppear() {
-        // Must be called after the editor view is displayed such that constraints
-        // are updated and editor has a non zero frame.
+    override func loadView() {
+        super.loadView()
         setUpEditor()
     }
 
@@ -28,7 +27,6 @@ class EditorViewController : NSViewController {
 
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-
         editorContext = CGBitmapContextCreate(nil, UInt(width),
             UInt(height),  8,  0 , colorSpace, bitmapInfo)
         CGContextSetFillColorWithColor(editorContext, CGColorCreateGenericRGB(0, 0, 1, 0))
