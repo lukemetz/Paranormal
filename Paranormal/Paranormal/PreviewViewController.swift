@@ -4,7 +4,8 @@ import Appkit
 class PreviewViewController : NSViewController {
     @IBOutlet weak var glView: PreviewView!
 
-    override func viewDidLayout() {
+    override func loadView() {
+        super.loadView()
         // FIXME
         // The following is needed. OpenGL context is not loaded otherwise.
         let _ = glView.openGLContext

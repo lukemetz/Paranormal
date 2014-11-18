@@ -9,6 +9,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     var previewViewController: PreviewViewController?
 
     @IBOutlet weak var toolsView: NSView!
+    var toolsViewController: ToolsViewController?
 
     @IBOutlet weak var editorView: NSView!
     var editorViewController: EditorViewController?
@@ -46,6 +47,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     override func windowDidLoad() {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
+        editorViewController?.document = document as? Document
         if let view = editorViewController?.view {
             insertSubviewIntoParent(editorView, child: view)
         }
@@ -53,6 +55,12 @@ class WindowController: NSWindowController, NSWindowDelegate {
         previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
         if let view = previewViewController?.view {
             insertSubviewIntoParent(previewView, child: view)
+        }
+
+        toolsViewController = ToolsViewController(nibName: "Tools", bundle: nil)
+        toolsViewController?.document = document as? Document
+        if let view = toolsViewController?.view {
+            insertSubviewIntoParent(toolsView, child: view)
         }
     }
 
