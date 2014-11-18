@@ -1,8 +1,8 @@
 import Cocoa
 
 class Document: NSPersistentDocument {
-
     var singleWindowController : WindowController?
+    var editorContext : CGContext?
 
     var documentSettings : DocumentSettings? {
         let fetch = NSFetchRequest(entityName: "DocumentSettings")

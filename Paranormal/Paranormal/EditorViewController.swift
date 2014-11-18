@@ -5,7 +5,6 @@ import AppKit
 class EditorViewController : NSViewController {
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var tempEditor: NSImageView!
-    var editorContext : CGContext?
     var tempContext : CGContext?
     var mouseSwiped : Bool = false
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
@@ -16,26 +15,31 @@ class EditorViewController : NSViewController {
     var brush : CGFloat = 10.0
     var opacity : CGFloat = 1.0
 
+    var document: Document?
+
     override func loadView() {
         super.loadView()
         setUpEditor()
     }
 
     func setUpEditor() {
-        let width = editor.frame.size.width
-        let height = editor.frame.size.height
+        if let doc = document? {
+            let width = editor.frame.size.width
+            let height = editor.frame.size.height
 
-        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-        editorContext = CGBitmapContextCreate(nil, UInt(width),
-            UInt(height),  8,  0 , colorSpace, bitmapInfo)
-        CGContextSetFillColorWithColor(editorContext, CGColorCreateGenericRGB(0, 0, 1, 0))
-        CGContextFillRect(editorContext, CGRectMake(0, 0, width, height))
+            let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
 
-        let image = CGBitmapContextCreateImage(editorContext!)
+            doc.editorContext = CGBitmapContextCreate(nil, UInt(width),
+                UInt(height),  8,  0 , colorSpace, bitmapInfo)
+            CGContextSetFillColorWithColor(doc.editorContext, CGColorCreateGenericRGB(0, 0, 1, 0))
+            CGContextFillRect(doc.editorContext, CGRectMake(0, 0, width, height))
 
-        tempContext = CGBitmapContextCreate(nil, UInt(width),
-            UInt(height),  8,  0, colorSpace, bitmapInfo)
+            let image = CGBitmapContextCreateImage(doc.editorContext!)
+
+            tempContext = CGBitmapContextCreate(nil, UInt(width),
+                UInt(height),  8,  0, colorSpace, bitmapInfo)
+        }
     }
 
     func drawLine(context: CGContext?, currentPoint: CGPoint) {
@@ -79,12 +83,14 @@ class EditorViewController : NSViewController {
         var currentPoint : CGPoint = theEvent.locationInWindow
         drawLine(tempContext, currentPoint: currentPoint)
 
-        var rect = CGRectMake(0, 0, width, height)
-        var image = CGBitmapContextCreateImage(tempContext)
-        CGContextDrawImage(editorContext, rect, image)
+        if let editorContext = document?.editorContext {
+            var rect = CGRectMake(0, 0, width, height)
+            var image = CGBitmapContextCreateImage(tempContext)
+            CGContextDrawImage(editorContext, rect, image)
 
-        let editorImage = CGBitmapContextCreateImage(editorContext!)
-        editor.image = NSImage(CGImage: editorImage, size: NSSize(width: width, height: height))
+            let editorImage = CGBitmapContextCreateImage(editorContext)
+            editor.image = NSImage(CGImage: editorImage, size: NSSize(width: width, height: height))
+        }
         tempEditor.image = nil
     }
 }
