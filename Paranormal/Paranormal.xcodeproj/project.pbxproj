@@ -60,6 +60,7 @@
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
 		ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
+		ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */; };
 		ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
@@ -158,6 +159,7 @@
 		ADAE53301A17E2AA007135C0 /* Tools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tools.xib; sourceTree = "<group>"; };
 		ADAE53331A17E36D007135C0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		ADAE53361A17E847007135C0 /* ChamferTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferTool.swift; sourceTree = "<group>"; };
+		ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerTests.swift; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
@@ -305,6 +307,14 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
+		ADBC406C1A2A7E700033B7C7 /* DocumentModels */ = {
+			isa = PBXGroup;
+			children = (
+				ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */,
+			);
+			name = DocumentModels;
+			sourceTree = "<group>";
+		};
 		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +384,7 @@
 		ADE87F4D19E9A9360041AAB5 /* ParanormalTests */ = {
 			isa = PBXGroup;
 			children = (
+				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
 				ADE87F5019E9A9360041AAB5 /* ParanormalTests.swift */,
 				ADE87F4E19E9A9360041AAB5 /* Supporting Files */,
 				AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */,
@@ -618,6 +629,7 @@
 				ADE732F11A0573C400A1C743 /* Layer.swift in Sources */,
 				ADAE53381A17E847007135C0 /* ChamferTool.swift in Sources */,
 				ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */,
+				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
 				AD8757E419FC2C760057B456 /* NewDocumentController.swift in Sources */,
 				ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */,
 				77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */,
