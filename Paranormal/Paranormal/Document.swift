@@ -2,7 +2,19 @@ import Cocoa
 
 class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
-    var editorContext : CGContext?
+
+    var rootLayer : Layer? {
+        let fetch = NSFetchRequest(entityName: "Layer")
+        var error : NSError?
+        let layers = managedObjectContext.executeFetchRequest(fetch, error: &error)
+
+        if let unwrapError = error {
+            let alert = NSAlert(error: unwrapError)
+            alert.runModal()
+        }
+
+        return layers?[0] as? Layer
+    }
 
     var documentSettings : DocumentSettings? {
         let fetch = NSFetchRequest(entityName: "DocumentSettings")
@@ -13,6 +25,14 @@ class Document: NSPersistentDocument {
             alert.runModal()
         }
         return documentSettings?[0] as? DocumentSettings
+    }
+
+    var computedEditorImage : NSImage? {
+        if let data = rootLayer?.imageData {
+            return NSImage(data: data)
+        } else {
+            return nil
+        }
     }
 
     override init() {
@@ -34,6 +54,15 @@ class Document: NSPersistentDocument {
             insertIntoManagedObjectContext: managedObjectContext)
         layer.name = "Default Layer"
         layer.visible = true
+
+        // Set up default layer
+        let width = documentSettings.width
+        let height = documentSettings.height
+        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+        let context = CGBitmapContextCreate(nil, UInt(width),
+            UInt(height), 8, 0, colorSpace, bitmapInfo)
+        layer.updateFromContext(context)
 
         managedObjectContext.processPendingChanges()
 

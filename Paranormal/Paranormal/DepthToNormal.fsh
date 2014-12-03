@@ -11,7 +11,6 @@ void main() {
     float x = textureCoordinate.x;
     float y = textureCoordinate.y;
 
-    vec4 xy = texture2D(inputImageTexture, textureCoordinate);
     float xm1 = texture2D(inputImageTexture, vec2(x - texelWidth, y)).r;
     float xp1 = texture2D(inputImageTexture, vec2(x + texelWidth, y)).r;
 
