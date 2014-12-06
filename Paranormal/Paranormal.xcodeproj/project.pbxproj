@@ -26,6 +26,9 @@
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* NewDocument.xib */; };
 		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
+		AD70F96F1A33847300141A64 /* Panels.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD70F96E1A33847300141A64 /* Panels.xib */; };
+		AD70F9721A3386C500141A64 /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
+		AD70F9731A338DA800141A64 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
 		AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
 		AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A31A13C91800ABDD2A /* Editor.xib */; };
 		AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
@@ -62,6 +65,11 @@
 		ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
+		ADD01FCA1A2F9B1000C8712C /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
+		ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
+		ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
+		ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */; };
+		ADD01FD31A2FCEA400C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE732F11A0573C400A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
@@ -140,6 +148,7 @@
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
+		AD70F96E1A33847300141A64 /* Panels.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Panels.xib; sourceTree = "<group>"; };
 		AD7699A31A13C91800ABDD2A /* Editor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Editor.xib; sourceTree = "<group>"; };
 		AD7699A51A13F2CE00ABDD2A /* Preview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preview.xib; sourceTree = "<group>"; };
 		AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +167,10 @@
 		ADAE53301A17E2AA007135C0 /* Tools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tools.xib; sourceTree = "<group>"; };
 		ADAE53331A17E36D007135C0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		ADAE53361A17E847007135C0 /* ChamferTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferTool.swift; sourceTree = "<group>"; };
+		ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelsViewController.swift; sourceTree = "<group>"; };
+		ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
+		ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPicker.xib; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
@@ -220,6 +233,9 @@
 		AD76999D1A13C81300ABDD2A /* Panels */ = {
 			isa = PBXGroup;
 			children = (
+				AD70F96E1A33847300141A64 /* Panels.xib */,
+				ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */,
+				ADD01FC31A2F99C000C8712C /* ToolSettings */,
 				AD7699A21A13C88D00ABDD2A /* Layers */,
 				AD7699A11A13C85C00ABDD2A /* Preview */,
 			);
@@ -305,6 +321,23 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
+		ADD01FC31A2F99C000C8712C /* ToolSettings */ = {
+			isa = PBXGroup;
+			children = (
+				ADD01FC61A2F9A0300C8712C /* ColorPicker */,
+			);
+			name = ToolSettings;
+			sourceTree = "<group>";
+		};
+		ADD01FC61A2F9A0300C8712C /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */,
+				ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */,
+			);
+			name = ColorPicker;
+			sourceTree = "<group>";
+		};
 		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +392,7 @@
 				AD7C0D3219FB24E800A58201 /* DocumentController.swift */,
 				AD8757E219FC2C760057B456 /* NewDocumentController.swift */,
 				AD8757DE19FC22C20057B456 /* NewDocument.xib */,
+				ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */,
 			);
 			path = Paranormal;
 			sourceTree = "<group>";
@@ -546,9 +580,11 @@
 				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */,
 				772A09801A05681F000686E0 /* checker.png in Resources */,
+				ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */,
 				AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */,
+				AD70F96F1A33847300141A64 /* Panels.xib in Resources */,
 				ADAE53311A17E2AA007135C0 /* Tools.xib in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD8757DF19FC22C20057B456 /* NewDocument.xib in Resources */,
@@ -587,9 +623,12 @@
 				ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */,
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
+				ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */,
+				ADD01FCA1A2F9B1000C8712C /* ColorPickerViewController.swift in Sources */,
 				AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */,
 				ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */,
 				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
+				ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
 				770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
@@ -611,9 +650,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD70F9731A338DA800141A64 /* ColorPickerViewController.swift in Sources */,
 				ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */,
 				0A27FC841A0564CF00999020 /* ImageEditorView.swift in Sources */,
 				AD7699A91A13F4F600ABDD2A /* PreviewViewController.swift in Sources */,
+				AD70F9721A3386C500141A64 /* PanelsViewController.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
 				ADE732F11A0573C400A1C743 /* Layer.swift in Sources */,
 				ADAE53381A17E847007135C0 /* ChamferTool.swift in Sources */,
@@ -631,6 +672,7 @@
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
 				ADAE53351A17E36D007135C0 /* ToolsViewController.swift in Sources */,
 				772A098A1A05D18C000686E0 /* PreviewLayer.swift in Sources */,
+				ADD01FD31A2FCEA400C8712C /* ViewControllerUtils.swift in Sources */,
 				AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */,
 				ADE87F5119E9A9360041AAB5 /* ParanormalTests.swift in Sources */,
 				AD83DDBD19F9EA1F004EAA77 /* Document.swift in Sources */,
