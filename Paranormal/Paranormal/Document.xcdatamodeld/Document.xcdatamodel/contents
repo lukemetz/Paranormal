@@ -4,12 +4,13 @@
         <attribute name="baseImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" attributeType="Integer 16" defaultValueString="300" syncable="YES"/>
         <attribute name="width" attributeType="Integer 16" defaultValueString="400" syncable="YES"/>
+        <relationship name="rootLayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Layer" syncable="YES"/>
     </entity>
     <entity name="Layer" representedClassName="Paranormal.Layer" syncable="YES">
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visible" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="layers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Layer" inverseName="parent" inverseEntity="Layer" syncable="YES"/>
+        <relationship name="layers" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Layer" inverseName="parent" inverseEntity="Layer" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Layer" inverseName="layers" inverseEntity="Layer" syncable="YES"/>
     </entity>
     <entity name="Refraction" representedClassName="Paranormal.Refraction" syncable="YES">
@@ -17,7 +18,7 @@
         <attribute name="indexOfRefraction" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DocumentSettings" positionX="-63" positionY="0" width="128" height="90"/>
+        <element name="DocumentSettings" positionX="-63" positionY="0" width="128" height="103"/>
         <element name="Layer" positionX="133" positionY="0" width="128" height="118"/>
         <element name="Refraction" positionX="97" positionY="-144" width="128" height="73"/>
     </elements>

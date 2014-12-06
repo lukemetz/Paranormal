@@ -37,8 +37,8 @@ class EditorViewController : NSViewController {
             editorContext = CGBitmapContextCreate(nil, UInt(width),
                 UInt(height), 8, 0, colorSpace, bitmapInfo)
 
-            if let rootLayer = document?.rootLayer {
-                rootLayer.drawToContext(editorContext!)
+            if let currentLayer  = document?.currentLayer {
+                currentLayer.drawToContext(editorContext!)
             }
 
             tempContext = CGBitmapContextCreate(nil, UInt(width),
@@ -100,13 +100,13 @@ class EditorViewController : NSViewController {
         var image = CGBitmapContextCreateImage(tempContext)
 
         if let context = editorContext {
-            document?.rootLayer?.drawToContext(context)
+            document?.currentLayer?.drawToContext(context)
         }
 
         CGContextDrawImage(editorContext, rect, image)
 
         if let context = editorContext {
-            document?.rootLayer?.updateFromContext(context)
+            document?.currentLayer?.updateFromContext(context)
         }
 
         editor.image = document?.computedEditorImage

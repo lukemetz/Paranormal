@@ -4,16 +4,11 @@ class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
 
     var rootLayer : Layer? {
-        let fetch = NSFetchRequest(entityName: "Layer")
-        var error : NSError?
-        let layers = managedObjectContext.executeFetchRequest(fetch, error: &error)
+        return documentSettings?.rootLayer
+    }
 
-        if let unwrapError = error {
-            let alert = NSAlert(error: unwrapError)
-            alert.runModal()
-        }
-
-        return layers?[0] as? Layer
+    var currentLayer : Layer? {
+        return rootLayer?.layers.objectAtIndex(0) as Layer?
     }
 
     var documentSettings : DocumentSettings? {
@@ -28,7 +23,7 @@ class Document: NSPersistentDocument {
     }
 
     var computedEditorImage : NSImage? {
-        if let data = rootLayer?.imageData {
+        if let data = currentLayer?.imageData {
             return NSImage(data: data)
         } else {
             return nil
@@ -52,8 +47,13 @@ class Document: NSPersistentDocument {
             inManagedObjectContext: managedObjectContext)!
         let layer = Layer(entity: layerDescription,
             insertIntoManagedObjectContext: managedObjectContext)
-        layer.name = "Default Layer"
+        layer.name = "Root Layer"
         layer.visible = true
+
+        documentSettings.rootLayer = layer
+
+        let defaultLayer = layer.addLayer()
+        defaultLayer?.name = "Default Layer"
 
         // Set up default layer
         let width = documentSettings.width
@@ -62,7 +62,7 @@ class Document: NSPersistentDocument {
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
         let context = CGBitmapContextCreate(nil, UInt(width),
             UInt(height), 8, 0, colorSpace, bitmapInfo)
-        layer.updateFromContext(context)
+        defaultLayer?.updateFromContext(context)
 
         managedObjectContext.processPendingChanges()
 
