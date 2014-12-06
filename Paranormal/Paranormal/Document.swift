@@ -1,4 +1,5 @@
 import Cocoa
+import GPUImage
 
 class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
@@ -22,12 +23,38 @@ class Document: NSPersistentDocument {
         return documentSettings?[0] as? DocumentSettings
     }
 
-    var computedEditorImage : NSImage? {
-        if let data = currentLayer?.imageData {
-            return NSImage(data: data)
-        } else {
-            return nil
+    func mergeTwoNormals(# base: NSImage, detail: NSImage) -> NSImage? {
+        // Apply the filter
+        let blend = BlendReorientedNormalsFilter()
+        let baseSource = GPUImagePicture(image: base)
+        baseSource.addTarget(blend)
+
+        let detailSource = GPUImagePicture(image: detail)
+        detailSource.addTarget(blend)
+
+        blend.useNextFrameForImageCapture()
+        baseSource.processImage()
+        detailSource.processImage()
+
+        return blend.imageFromCurrentFramebuffer()
+    }
+
+    func combineLayer(parentLayer: Layer?) -> NSImage? {
+        var accum : NSImage? = nil
+        for layer in (parentLayer?.layers.array as [Layer]) {
+            if accum == nil {
+                accum = layer.toImage()
+            } else {
+                if let detail = layer.toImage() {
+                    accum = mergeTwoNormals(base: accum!, detail: detail)
+                }
+            }
         }
+        return accum
+    }
+
+    var computedEditorImage : NSImage? {
+        return combineLayer(rootLayer)
     }
 
     override init() {

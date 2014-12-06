@@ -26,11 +26,22 @@
                         <action selector="chamferPressed:" target="-2" id="YX2-sN-siu"/>
                     </connections>
                 </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-Es-LLJ">
+                    <rect key="frame" x="8" y="250" width="48" height="48"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSUserAccounts" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WrH-6T-F5G">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="noisePressed:" target="-2" id="nwY-Bx-3FF"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="291" y="248"/>
         </customView>
     </objects>
     <resources>
         <image name="NSListViewTemplate" width="14" height="10"/>
+        <image name="NSUserAccounts" width="32" height="32"/>
     </resources>
 </document>

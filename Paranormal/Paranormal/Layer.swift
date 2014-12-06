@@ -44,9 +44,15 @@ class Layer : NSManagedObject{
         CGContextDrawImage(context, rect, cgImage)
     }
 
+    func toImage() -> NSImage? {
+        if let data = imageData {
+            return NSImage(data: data)
+        } else {
+            return nil
+        }
+    }
 
     func addLayer() -> Layer? {
-        println(managedObjectContext)
         if let context = managedObjectContext {
             let layerDescription = NSEntityDescription.entityForName("Layer",
                 inManagedObjectContext: context)!

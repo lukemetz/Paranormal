@@ -4,8 +4,7 @@ import GPUImage
 import Appkit
 
 class ChamferTool {
-    func preform(document: Document) {
-        // TODO Update to the new document model.
+    func perform(document: Document) {
         if let imageData = document.currentLayer?.imageData {
             let image = NSImage(data: imageData)
             // Apply the filter
