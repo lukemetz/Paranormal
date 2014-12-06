@@ -103,6 +103,11 @@
                                     <action selector="saveDocumentAs:" target="-1" id="mDf-zr-I0C"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Export" keyEquivalent="E" id="VLb-Bw-anB">
+                                <connections>
+                                    <action selector="export:" target="-1" id="7ad-GO-bUC"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Revert to Saved" id="KaW-ft-85H">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>

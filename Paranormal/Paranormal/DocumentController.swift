@@ -29,4 +29,23 @@ class DocumentController: NSDocumentController {
             }
         }
     }
+
+    func export(sender: AnyObject?) {
+        // Get the current active document
+        if let document = windowController.document as? Document {
+            let panel = NSSavePanel()
+            panel.allowedFileTypes = ["png"]
+            panel.beginWithCompletionHandler({ (_) -> Void in
+                // Convert image to png and write to file
+                let imageData = document.computedExportImage?.TIFFRepresentation
+                if nil != panel.URL && imageData != nil {
+                    let newRep = NSBitmapImageRep(data: imageData!)
+                    let type = NSBitmapImageFileType.NSPNGFileType
+                    let pngData = newRep?.representationUsingType(type, properties:[:])
+
+                    pngData?.writeToURL(panel.URL!, atomically: true)
+                }
+            })
+        }
+    }
 }

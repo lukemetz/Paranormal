@@ -1,10 +1,13 @@
 import Foundation
 import Cocoa
 import AppKit
+import CoreGraphics
 
 class EditorViewController : NSViewController {
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var tempEditor: NSImageView!
+
+    var editorContext : CGContext?
     var tempContext : CGContext?
     var mouseSwiped : Bool = false
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
@@ -23,23 +26,33 @@ class EditorViewController : NSViewController {
     }
 
     func setUpEditor() {
-        if let doc = document? {
-            let width = editor.frame.size.width
-            let height = editor.frame.size.height
+        if let documentSettings = document?.documentSettings {
+
+            let width = documentSettings.width
+            let height = documentSettings.height
 
             let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
             let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
 
-            doc.editorContext = CGBitmapContextCreate(nil, UInt(width),
-                UInt(height),  8,  0 , colorSpace, bitmapInfo)
-            CGContextSetFillColorWithColor(doc.editorContext, CGColorCreateGenericRGB(0, 0, 1, 0))
-            CGContextFillRect(doc.editorContext, CGRectMake(0, 0, width, height))
+            editorContext = CGBitmapContextCreate(nil, UInt(width),
+                UInt(height), 8, 0, colorSpace, bitmapInfo)
 
-            let image = CGBitmapContextCreateImage(doc.editorContext!)
+            if let currentLayer  = document?.currentLayer {
+                currentLayer.drawToContext(editorContext!)
+            }
 
             tempContext = CGBitmapContextCreate(nil, UInt(width),
-                UInt(height),  8,  0, colorSpace, bitmapInfo)
+                UInt(height), 8, 0, colorSpace, bitmapInfo)
+        } else {
+            println("[Error] Failed to setup editor, document has no documentSettings")
         }
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+    }
+
+    func updateCoreData(notification: NSNotification){
+        editor.image = document?.computedEditorImage
     }
 
     func drawLine(context: CGContext?, currentPoint: CGPoint) {
@@ -55,8 +68,8 @@ class EditorViewController : NSViewController {
     override func mouseDown(theEvent: NSEvent) {
         mouseSwiped = false
         lastPoint = theEvent.locationInWindow
-        let width = editor.frame.size.width
-        let height = editor.frame.size.height
+        let width = CGFloat(CGBitmapContextGetWidth(tempContext))
+        let height = CGFloat(CGBitmapContextGetHeight(tempContext))
         let rect = CGRectMake(0, 0, width, height)
 
         CGContextClearRect(tempContext, rect)
@@ -70,27 +83,34 @@ class EditorViewController : NSViewController {
         drawLine(tempContext, currentPoint: currentPoint)
 
         let image = CGBitmapContextCreateImage(tempContext!)
-        let width = editor.frame.size.width
-        let height = editor.frame.size.height
+        let width = CGFloat(CGBitmapContextGetWidth(tempContext))
+        let height = CGFloat(CGBitmapContextGetHeight(tempContext))
         tempEditor.image = NSImage(CGImage: image, size: NSSize(width: width, height: height))
 
         lastPoint = currentPoint
     }
 
     override func mouseUp(theEvent: NSEvent) {
-        let width = editor.frame.size.width
-        let height = editor.frame.size.height
+        let width = CGFloat(CGBitmapContextGetWidth(tempContext))
+        let height = CGFloat(CGBitmapContextGetHeight(tempContext))
         var currentPoint : CGPoint = theEvent.locationInWindow
         drawLine(tempContext, currentPoint: currentPoint)
 
-        if let editorContext = document?.editorContext {
-            var rect = CGRectMake(0, 0, width, height)
-            var image = CGBitmapContextCreateImage(tempContext)
-            CGContextDrawImage(editorContext, rect, image)
+        var rect = CGRectMake(0, 0, width, height)
+        var image = CGBitmapContextCreateImage(tempContext)
 
-            let editorImage = CGBitmapContextCreateImage(editorContext)
-            editor.image = NSImage(CGImage: editorImage, size: NSSize(width: width, height: height))
+        if let context = editorContext {
+            document?.currentLayer?.drawToContext(context)
         }
+
+        CGContextDrawImage(editorContext, rect, image)
+
+        if let context = editorContext {
+            document?.currentLayer?.updateFromContext(context)
+        }
+
+        editor.image = document?.computedEditorImage
+
         tempEditor.image = nil
     }
 }
