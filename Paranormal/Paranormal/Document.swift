@@ -35,6 +35,10 @@ class Document: NSPersistentDocument {
         }
     }
 
+    var computedExportImage : NSImage? {
+        return computedEditorImage
+    }
+
     override init() {
         super.init()
         let refractionDescription = NSEntityDescription.entityForName("Refraction",
