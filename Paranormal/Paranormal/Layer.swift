@@ -5,7 +5,7 @@ class Layer : NSManagedObject{
     @NSManaged var visible : Bool
     @NSManaged var name : String
     @NSManaged var imageData : NSData?
-    @NSManaged var layers : NSMutableSet
+    @NSManaged var layers : NSMutableOrderedSet
     @NSManaged var parent : Layer
 
     override init(entity: NSEntityDescription,
@@ -42,5 +42,29 @@ class Layer : NSManagedObject{
         CGContextClearRect(context, rect)
 
         CGContextDrawImage(context, rect, cgImage)
+    }
+
+    func toImage() -> NSImage? {
+        if let data = imageData {
+            return NSImage(data: data)
+        } else {
+            return nil
+        }
+    }
+
+    func addLayer() -> Layer? {
+        if let context = managedObjectContext {
+            let layerDescription = NSEntityDescription.entityForName("Layer",
+                inManagedObjectContext: context)!
+            let layer = Layer(entity: layerDescription,
+                insertIntoManagedObjectContext: managedObjectContext)
+            layer.name = "Unnamed Layer"
+            layer.visible = true
+            let index = layers.count
+            layers.insertObject(layer, atIndex: index)
+            return layer
+        } else {
+            return nil
+        }
     }
 }

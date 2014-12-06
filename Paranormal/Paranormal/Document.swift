@@ -1,19 +1,15 @@
 import Cocoa
+import GPUImage
 
 class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
 
     var rootLayer : Layer? {
-        let fetch = NSFetchRequest(entityName: "Layer")
-        var error : NSError?
-        let layers = managedObjectContext.executeFetchRequest(fetch, error: &error)
+        return documentSettings?.rootLayer
+    }
 
-        if let unwrapError = error {
-            let alert = NSAlert(error: unwrapError)
-            alert.runModal()
-        }
-
-        return layers?[0] as? Layer
+    var currentLayer : Layer? {
+        return rootLayer?.layers.objectAtIndex(0) as Layer?
     }
 
     var documentSettings : DocumentSettings? {
@@ -27,12 +23,38 @@ class Document: NSPersistentDocument {
         return documentSettings?[0] as? DocumentSettings
     }
 
-    var computedEditorImage : NSImage? {
-        if let data = rootLayer?.imageData {
-            return NSImage(data: data)
-        } else {
-            return nil
+    func mergeTwoNormals(# base: NSImage, detail: NSImage) -> NSImage? {
+        // Apply the filter
+        let blend = BlendReorientedNormalsFilter()
+        let baseSource = GPUImagePicture(image: base)
+        baseSource.addTarget(blend)
+
+        let detailSource = GPUImagePicture(image: detail)
+        detailSource.addTarget(blend)
+
+        blend.useNextFrameForImageCapture()
+        baseSource.processImage()
+        detailSource.processImage()
+
+        return blend.imageFromCurrentFramebuffer()
+    }
+
+    func combineLayer(parentLayer: Layer?) -> NSImage? {
+        var accum : NSImage? = nil
+        for layer in (parentLayer?.layers.array as [Layer]) {
+            if accum == nil {
+                accum = layer.toImage()
+            } else {
+                if let detail = layer.toImage() {
+                    accum = mergeTwoNormals(base: accum!, detail: detail)
+                }
+            }
         }
+        return accum
+    }
+
+    var computedEditorImage : NSImage? {
+        return combineLayer(rootLayer)
     }
 
     var computedExportImage : NSImage? {
@@ -56,8 +78,13 @@ class Document: NSPersistentDocument {
             inManagedObjectContext: managedObjectContext)!
         let layer = Layer(entity: layerDescription,
             insertIntoManagedObjectContext: managedObjectContext)
-        layer.name = "Default Layer"
+        layer.name = "Root Layer"
         layer.visible = true
+
+        documentSettings.rootLayer = layer
+
+        let defaultLayer = layer.addLayer()
+        defaultLayer?.name = "Default Layer"
 
         // Set up default layer
         let width = documentSettings.width
@@ -66,7 +93,7 @@ class Document: NSPersistentDocument {
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
         let context = CGBitmapContextCreate(nil, UInt(width),
             UInt(height), 8, 0, colorSpace, bitmapInfo)
-        layer.updateFromContext(context)
+        defaultLayer?.updateFromContext(context)
 
         managedObjectContext.processPendingChanges()
 

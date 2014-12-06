@@ -80,4 +80,15 @@ class LayerTests: XCTestCase {
 
         XCTAssert(layer.imageData == originalData, "updateFromContext changes imagedata back")
     }
+
+    func testAddLayer() {
+        let dummy = dummyLayer()
+        let layer = dummy.addLayer()
+        // The set up creates 1 default layer entity
+        let layerFetch = NSFetchRequest(entityName: "Layer")
+        let layerResult : NSArray? =
+        managedObjectContext.executeFetchRequest(layerFetch, error: nil)
+        XCTAssert(layerResult?.count == 2, "3 Layers after adding a layer")
+        XCTAssert(dummy.layers.count == 1, "Root Layer has 2 children")
+    }
 }
