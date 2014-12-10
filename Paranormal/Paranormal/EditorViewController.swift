@@ -44,7 +44,7 @@ class EditorViewController : NSViewController {
             tempContext = CGBitmapContextCreate(nil, UInt(width),
                 UInt(height), 8, 0, colorSpace, bitmapInfo)
         } else {
-            println("[Error] Failed to setup editor, document has no documentSettings")
+            log.error("Failed to setup editor, document has no documentSettings")
         }
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",

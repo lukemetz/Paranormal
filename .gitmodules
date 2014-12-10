@@ -4,3 +4,6 @@
 [submodule "Paranormal/libs/GPUImage"]
 	path = Paranormal/libs/GPUImage
 	url = git@github.com:BradLarson/GPUImage.git
+[submodule "Paranormal/libs/XCGLogger"]
+	path = Paranormal/libs/XCGLogger
+	url = git@github.com:DaveWoodCom/XCGLogger.git
