@@ -22,7 +22,7 @@ class Layer : NSManagedObject{
 
         let size = NSSize(width: Int(width), height: Int(height))
         let nsImage = NSImage(CGImage: cgImage, size: size)
-        if let data = nsImage.TIFFRepresentation {
+        if let data = nsImage?.TIFFRepresentation {
             self.imageData = data
         } else {
             // TODO we need an logging framework

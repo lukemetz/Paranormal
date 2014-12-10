@@ -46,7 +46,7 @@ class LayerTests: XCTestCase {
         let layer = Layer(entity: layerDescription,
             insertIntoManagedObjectContext: managedObjectContext)
 
-        layer.imageData = nsImage.TIFFRepresentation!
+        layer.imageData = nsImage?.TIFFRepresentation!
         layer.name = "dummy layer"
         return layer
     }
