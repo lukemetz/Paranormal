@@ -11,7 +11,7 @@ class PreviewViewController : NSViewController {
         let _ = glView.openGLContext
         let director = CCDirector.sharedDirector() as CCDirector!
 
-        director.setView(glView as CCGLView)
+        director.view = glView as CCGLView
         let scene = PreviewScene()
         director.runWithScene(scene)
     }
