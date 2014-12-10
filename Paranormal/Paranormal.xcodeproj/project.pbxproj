@@ -101,6 +101,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AD55F1031A38943400BC3E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE4519D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
+		AD55F1051A38943400BC3E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 554DF41719D76FE7005708BE;
+			remoteInfo = "XCGLogger (OS X)";
+		};
+		AD55F1071A38943400BC3E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE5019D76F280068C3A7;
+			remoteInfo = XCGLoggerTests;
+		};
+		AD55F1091A38943B00BC3E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 554DF41619D76FE7005708BE;
+			remoteInfo = "XCGLogger (OS X)";
+		};
 		ADA963231A0C69C000AF22EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
@@ -148,6 +176,7 @@
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
+		AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = libs/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
 		AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorientedNormals.fsh; sourceTree = "<group>"; };
 		AD66498C1A32BBCD00B52295 /* NoiseTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseTool.swift; sourceTree = "<group>"; };
 		AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendReorientedNormalsFilter.swift; sourceTree = "<group>"; };
@@ -229,6 +258,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD55F0FC1A38943400BC3E1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD55F1041A38943400BC3E1B /* XCGLogger.framework */,
+				AD55F1061A38943400BC3E1B /* XCGLogger.framework */,
+				AD55F1081A38943400BC3E1B /* XCGLoggerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AD76999D1A13C81300ABDD2A /* Panels */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +455,7 @@
 		ADEE7BD119E9C57100588629 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */,
 				ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */,
 				ADEE7DD619E9C80300588629 /* cocos2d-osx.xcodeproj */,
 			);
@@ -461,6 +501,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AD55F10A1A38943B00BC3E1B /* PBXTargetDependency */,
 				ADA963261A0C69F800AF22EB /* PBXTargetDependency */,
 			);
 			name = Paranormal;
@@ -524,6 +565,10 @@
 					ProductGroup = ADA9631E1A0C69BF00AF22EB /* Products */;
 					ProjectRef = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
 				},
+				{
+					ProductGroup = AD55F0FC1A38943400BC3E1B /* Products */;
+					ProjectRef = AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -534,6 +579,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		AD55F1041A38943400BC3E1B /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = AD55F1031A38943400BC3E1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AD55F1061A38943400BC3E1B /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = AD55F1051A38943400BC3E1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AD55F1081A38943400BC3E1B /* XCGLoggerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = XCGLoggerTests.xctest;
+			remoteRef = AD55F1071A38943400BC3E1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADA963241A0C69C000AF22EB /* GPUImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -672,6 +738,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AD55F10A1A38943B00BC3E1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XCGLogger (OS X)";
+			targetProxy = AD55F1091A38943B00BC3E1B /* PBXContainerItemProxy */;
+		};
 		ADA963261A0C69F800AF22EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPUImage;

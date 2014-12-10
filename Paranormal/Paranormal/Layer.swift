@@ -26,7 +26,7 @@ class Layer : NSManagedObject{
             self.imageData = data
         } else {
             // TODO we need an logging framework
-            println("[Error] could not set image data")
+            log.error("Could not set image data")
         }
     }
 
