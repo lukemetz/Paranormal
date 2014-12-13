@@ -1,6 +1,8 @@
 import Cocoa
 
 class PreviewView: CCGLView {
+    @IBOutlet var delegate : PreviewViewDelegate?
+
     override var acceptsFirstResponder: Bool { return true }
 
     required init?(coder:NSCoder) {
@@ -16,6 +18,11 @@ class PreviewView: CCGLView {
         if let scene: PreviewScene = CCDirector.sharedDirector().runningScene as? PreviewScene {
             scene.keyDown(event)
         }
+    }
+
+    override func layout() {
+        super.layout()
+        delegate?.previewViewDidLayout()
     }
 
     override func mouseDown(event: NSEvent) {
