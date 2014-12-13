@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6249"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="EditorViewController" customModule="Paranormal" customModuleProvider="target">
             <connections>
+                <outlet property="EditorView" destination="c22-O7-iKe" id="X5l-z3-jQk"/>
                 <outlet property="editor" destination="cmO-AS-zF0" id="p47-nk-mpm"/>
                 <outlet property="tempEditor" destination="ybp-Qy-xWP" id="vS7-q2-T0Y"/>
                 <outlet property="view" destination="c22-O7-iKe" id="mog-jm-EpF"/>
@@ -22,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="258" height="416"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="GGt-au-6CZ"/>
                     <connections>
-                        <outlet property="delegate" destination="-2" id="uue-zd-y5A"/>
+                        <outlet property="delegate" destination="-2" id="P4a-MJ-cdO"/>
                     </connections>
                 </imageView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmO-AS-zF0" userLabel="editor">
