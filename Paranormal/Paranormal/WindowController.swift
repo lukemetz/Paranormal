@@ -53,6 +53,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
 
         previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
+        previewViewController?.document = document as? Document
         if let view = previewViewController?.view {
             insertSubviewIntoParent(previewView, child: view)
         }
