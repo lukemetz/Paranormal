@@ -17,15 +17,13 @@ void main() {
     float ym1 = texture2D(inputImageTexture, vec2(x, y - texelHeight)).r;
     float yp1 = texture2D(inputImageTexture, vec2(x, y + texelHeight)).r;
 
-    float dx = (xp1 - xm1)/(2.0 * texelWidth);
+    float dx = -(xp1 - xm1)/(2.0 * texelWidth); // Negative to get normal direction correct
     float dy = (yp1 - ym1)/(2.0 * texelHeight);
 
     vec3 normal = normalize(vec3(dx, dy, 1.0/depth));
 
     // Encode normal back into RGB space
-    normal.x = normal.x * 0.5 + 0.5;
-    normal.y = normal.y * 0.5 + 0.5;
-
+    normal = normal * 0.5 + 0.5;
     outputColor = vec4(normal, 1.0);
 
     gl_FragColor = outputColor;
