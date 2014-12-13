@@ -7,11 +7,11 @@ uniform sampler2D inputImageTexture;
 uniform sampler2D inputImageTexture2;
 
 vec3 decodeNormal(vec4 color) {
-    return vec3(color.x * 2.0 - 1.0, color.y * 2.0 - 1.0, color.z);
+    return color.xyz * 2.0 - 1.0;
 }
 
 vec3 encodeNormal(vec3 normal) {
-    return vec3(normal.x * 0.5 + 0.5, normal.y * 0.5 + 0.5, normal.z);
+    return normal * 0.5 + 0.5;
 }
 
 void main() {
