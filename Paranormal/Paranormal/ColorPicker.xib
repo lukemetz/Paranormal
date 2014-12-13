@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ColorPickerViewController" customModule="Paranormal" customModuleProvider="target">
             <connections>
+                <outlet property="DegreeText" destination="q5E-xa-hul" id="1ZC-4v-naS"/>
+                <outlet property="PitchText" destination="6cy-xX-dhx" id="Wpa-Jb-YFS"/>
                 <outlet property="view" destination="c22-O7-iKe" id="ng7-ba-C3R"/>
             </connections>
         </customObject>
@@ -23,6 +25,9 @@
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <action selector="getPitch:" target="-2" id="rjG-fZ-ZC7"/>
+                    </connections>
                 </textField>
                 <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNk-Sj-QCt">
                     <rect key="frame" x="14" y="91" width="28" height="30"/>
@@ -55,6 +60,9 @@
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <action selector="getDegree:" target="-2" id="wsJ-k0-CXk"/>
+                    </connections>
                 </textField>
             </subviews>
             <point key="canvasLocation" x="158" y="-45.5"/>
