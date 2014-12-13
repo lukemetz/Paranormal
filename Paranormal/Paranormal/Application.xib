@@ -51,10 +51,10 @@
                         <rect key="frame" x="482" y="15" width="247" height="488"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Thk-fp-sXC" userLabel="Preview">
-                                <rect key="frame" x="0.0" y="281" width="247" height="207"/>
+                                <rect key="frame" x="0.0" y="241" width="247" height="247"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="247" id="KH9-CL-yiL"/>
-                                    <constraint firstAttribute="height" constant="207" id="tqd-q6-wNM"/>
+                                    <constraint firstAttribute="height" constant="247" id="tqd-q6-wNM"/>
                                 </constraints>
                             </customView>
                         </subviews>
