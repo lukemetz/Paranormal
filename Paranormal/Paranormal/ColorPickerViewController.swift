@@ -19,7 +19,8 @@ class ColorPickerViewController: NSViewController {
         let x = sin(deg)*cos(pit)
         let y = sin(deg)*sin(pit)
         let z = cos(deg)
-        document?.currentColor = NSColor(red: CGFloat(x), green: CGFloat(y), blue: CGFloat(z), alpha: 1.0)
+        document?.currentColor = NSColor(red: CGFloat(x),
+            green: CGFloat(y), blue: CGFloat(z), alpha: 1.0)
 //        TODO: figure out whats going on when changing deg and pit value
 //        println("-")
 //        println(deg)
