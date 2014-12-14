@@ -4,6 +4,8 @@ import GPUImage
 class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
 
+    var currentColor : NSColor = NSColor.blackColor()
+
     var rootLayer : Layer? {
         return documentSettings?.rootLayer
     }

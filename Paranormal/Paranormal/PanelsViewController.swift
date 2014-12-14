@@ -19,6 +19,7 @@ class PanelsViewController: NSViewController {
         }
 
         colorPickerViewController = ColorPickerViewController(nibName: "ColorPicker", bundle: nil)
+        colorPickerViewController?.document = document
         if let view = colorPickerViewController?.view {
             ViewControllerUtils.insertSubviewIntoParent(colorPickerView, child: view)
         }

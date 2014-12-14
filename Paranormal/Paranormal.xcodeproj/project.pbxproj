@@ -26,9 +26,6 @@
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD1F336419FC2DA800BBC4DC /* NewDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* NewDocument.xib */; };
 		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
-		AD70F96F1A33847300141A64 /* Panels.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD70F96E1A33847300141A64 /* Panels.xib */; };
-		AD70F9721A3386C500141A64 /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
-		AD70F9731A338DA800141A64 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
 		AD6649841A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */; };
 		AD6649851A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */; };
 		AD66498B1A32BB6300B52295 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
@@ -36,6 +33,9 @@
 		AD66498E1A32BBCD00B52295 /* NoiseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66498C1A32BBCD00B52295 /* NoiseTool.swift */; };
 		AD6649901A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */; };
 		AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */; };
+		AD70F96F1A33847300141A64 /* Panels.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD70F96E1A33847300141A64 /* Panels.xib */; };
+		AD70F9721A3386C500141A64 /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
+		AD70F9731A338DA800141A64 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
 		AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
 		AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A31A13C91800ABDD2A /* Editor.xib */; };
 		AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
@@ -52,6 +52,7 @@
 		AD8757E419FC2C760057B456 /* NewDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8757E219FC2C760057B456 /* NewDocumentController.swift */; };
 		AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */; };
 		AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */; };
+		AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9454AB1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift */; };
 		AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		AD969B2019F0C98800A2F718 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
@@ -156,10 +157,10 @@
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
-		AD70F96E1A33847300141A64 /* Panels.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Panels.xib; sourceTree = "<group>"; };
 		AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorientedNormals.fsh; sourceTree = "<group>"; };
 		AD66498C1A32BBCD00B52295 /* NoiseTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseTool.swift; sourceTree = "<group>"; };
 		AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendReorientedNormalsFilter.swift; sourceTree = "<group>"; };
+		AD70F96E1A33847300141A64 /* Panels.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Panels.xib; sourceTree = "<group>"; };
 		AD7699A31A13C91800ABDD2A /* Editor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Editor.xib; sourceTree = "<group>"; };
 		AD7699A51A13F2CE00ABDD2A /* Preview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preview.xib; sourceTree = "<group>"; };
 		AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 		AD8757DE19FC22C20057B456 /* NewDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewDocument.xib; sourceTree = "<group>"; };
 		AD8757E219FC2C760057B456 /* NewDocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocumentController.swift; sourceTree = "<group>"; };
 		AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSettings.swift; sourceTree = "<group>"; };
+		AD9454AB1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewControllerTests.swift; sourceTree = "<group>"; };
 		AD969B1919F09B5300A2F718 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewSettings.xib; sourceTree = "<group>"; };
 		AD969B1F19F0C98800A2F718 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
@@ -178,11 +180,11 @@
 		ADAE53301A17E2AA007135C0 /* Tools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tools.xib; sourceTree = "<group>"; };
 		ADAE53331A17E36D007135C0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		ADAE53361A17E847007135C0 /* ChamferTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferTool.swift; sourceTree = "<group>"; };
+		ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerTests.swift; sourceTree = "<group>"; };
 		ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelsViewController.swift; sourceTree = "<group>"; };
 		ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPicker.xib; sourceTree = "<group>"; };
-		ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerTests.swift; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
@@ -297,6 +299,30 @@
 			name = DocumentModels;
 			sourceTree = "<group>";
 		};
+		AD9454A81A3CDE2D008CD31F /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				AD9454A91A3CDE38008CD31F /* ToolSettings */,
+			);
+			name = Panels;
+			sourceTree = "<group>";
+		};
+		AD9454A91A3CDE38008CD31F /* ToolSettings */ = {
+			isa = PBXGroup;
+			children = (
+				AD9454AA1A3CDE46008CD31F /* ColorPicker */,
+			);
+			name = ToolSettings;
+			sourceTree = "<group>";
+		};
+		AD9454AA1A3CDE46008CD31F /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				AD9454AB1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift */,
+			);
+			name = ColorPicker;
+			sourceTree = "<group>";
+		};
 		ADA9631E1A0C69BF00AF22EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +361,14 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
+		ADBC406C1A2A7E700033B7C7 /* DocumentModels */ = {
+			isa = PBXGroup;
+			children = (
+				ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */,
+			);
+			name = DocumentModels;
+			sourceTree = "<group>";
+		};
 		ADD01FC31A2F99C000C8712C /* ToolSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,14 +384,6 @@
 				ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */,
 			);
 			name = ColorPicker;
-			sourceTree = "<group>";
-		};
-		ADBC406C1A2A7E700033B7C7 /* DocumentModels */ = {
-			isa = PBXGroup;
-			children = (
-				ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */,
-			);
-			name = DocumentModels;
 			sourceTree = "<group>";
 		};
 		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
@@ -431,6 +457,7 @@
 		ADE87F4D19E9A9360041AAB5 /* ParanormalTests */ = {
 			isa = PBXGroup;
 			children = (
+				AD9454A81A3CDE2D008CD31F /* Panels */,
 				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
 				ADE87F5019E9A9360041AAB5 /* ParanormalTests.swift */,
 				ADE87F4E19E9A9360041AAB5 /* Supporting Files */,
@@ -703,6 +730,7 @@
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
 				ADAE53351A17E36D007135C0 /* ToolsViewController.swift in Sources */,
 				772A098A1A05D18C000686E0 /* PreviewLayer.swift in Sources */,
+				AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */,
 				ADD01FD31A2FCEA400C8712C /* ViewControllerUtils.swift in Sources */,
 				AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */,
 				AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,

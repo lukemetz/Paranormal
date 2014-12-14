@@ -4,37 +4,34 @@ import AppKit
 
 class ColorPickerViewController: NSViewController {
     var document: Document?
-//    var phi: CGFloat = 0.0
-//    var the: CGFloat = 0.0
-    var x: Float32 = 0.0
-    var y: Float32 = 0.0
-    var z: Float32 = 0.0
-    var deg: Float32 = 0
-    var pit: Float32 = 0
-    
-    @IBOutlet weak var DegreeText: NSTextField!
-
-    @IBOutlet weak var PitchText: NSTextField!
-
-
-    @IBAction func getDegree(sender: AnyObject) {
-        deg = DegreeText.floatValue
-        x = sin(deg)*cos(pit)
-        y = sin(deg)*sin(pit)
-        z = cos(deg)
+    var deg: Float32 = 0 {
+        willSet(value) {
+            updateColoronDocument()
+        }
+    }
+    var pit: Float32 = 0 {
+        willSet(value) {
+            updateColoronDocument()
+        }
     }
 
-    @IBAction func getPitch(sender: AnyObject) {
-        pit = PitchText.floatValue
-        x = sin(deg)*cos(pit)
-        y = sin(deg)*sin(pit)
-        z = cos(deg)
+    func updateColoronDocument() {
+        let x = sin(deg)*cos(pit)
+        let y = sin(deg)*sin(pit)
+        let z = cos(deg)
+        document?.currentColor = NSColor(red: CGFloat(x), green: CGFloat(y), blue: CGFloat(z), alpha: 1.0)
+//        TODO: figure out whats going on when changing deg and pit value
+//        println("-")
+//        println(deg)
+//        println(pit)
+//
+//        println("Print doc color")
+//        println(document?.currentColor)
+    }
+
+    @IBAction func test(sender: AnyObject) {
+        println(deg)
         println(pit)
-    }
-
-    func calcColor(){
-        x = sin(1)
-        println(x)
     }
 
 }
