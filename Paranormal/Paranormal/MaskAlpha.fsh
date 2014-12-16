@@ -8,7 +8,7 @@ void main() {
     outputColor.x = textureColor.a;
     outputColor.y = textureColor.a;
     outputColor.z = textureColor.a;
-    outputColor.a = 1.0;
+    outputColor.a = textureColor.a;
 
     gl_FragColor = outputColor;
 }

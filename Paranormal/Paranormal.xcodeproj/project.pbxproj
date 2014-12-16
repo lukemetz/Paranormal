@@ -102,6 +102,7 @@
 		ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF4A0E81A01366500E47DA1 /* Layers.xib */; };
 		ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */; };
 		ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF4A0E81A01366500E47DA1 /* Layers.xib */; };
+		ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */; };
 		ADFCB80B1A3923220016A49B /* light64.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFCB80A1A3923220016A49B /* light64.png */; };
 		ADFCB80C1A3923220016A49B /* light64.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFCB80A1A3923220016A49B /* light64.png */; };
 /* End PBXBuildFile section */
@@ -257,6 +258,7 @@
 		ADEE7DE019E9C89B00588629 /* Paranormal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Paranormal-Bridging-Header.h"; sourceTree = "<group>"; };
 		ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayersViewController.swift; sourceTree = "<group>"; };
 		ADF4A0E81A01366500E47DA1 /* Layers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Layers.xib; sourceTree = "<group>"; };
+		ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MultiplyMaxAlpha.fsh; sourceTree = "<group>"; };
 		ADFCB80A1A3923220016A49B /* light64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light64.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -390,6 +392,7 @@
 				ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */,
 				ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */,
 				AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */,
+				ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */,
 			);
 			name = GPUImageShaders;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */,
 				772A096F1A055F6D000686E0 /* gem-normal.png in Resources */,
 				ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */,
+				ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
