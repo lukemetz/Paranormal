@@ -24,6 +24,11 @@ class EditorViewController : NSViewController {
         didSet {
             if editor != nil {
                 editor.image = document?.computedEditorImage
+
+                // TODO make resetting of editor contexts less sketchy
+                tempContext = nil
+                editorContext = nil
+                editorViewDidLayout()
             }
         }
     }

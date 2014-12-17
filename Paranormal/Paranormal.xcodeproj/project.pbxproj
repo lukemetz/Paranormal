@@ -31,6 +31,8 @@
 		AD1F336419FC2DA800BBC4DC /* DocumentCreation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* DocumentCreation.xib */; };
 		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
 		AD54AF7F1A38A00700450175 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D44991A389BE9004D1994 /* libcocos2d-mac.a */; };
+		AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6295791A420615001252BC /* ZUpInitializeFilter.swift */; };
+		AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6295791A420615001252BC /* ZUpInitializeFilter.swift */; };
 		AD6649841A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */; };
 		AD6649851A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */; };
 		AD66498B1A32BB6300B52295 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
@@ -218,6 +220,7 @@
 		AD17EEDA1A392E7B00FA4849 /* gem-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gem-empty.png"; path = "Examples/Diffuse/gem-empty.png"; sourceTree = "<group>"; };
 		AD2D44871A389BE8004D1994 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "libs/cocos2d-swift/cocos2d.xcodeproj"; sourceTree = "<group>"; };
 		AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = libs/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
+		AD6295791A420615001252BC /* ZUpInitializeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZUpInitializeFilter.swift; sourceTree = "<group>"; };
 		AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorientedNormals.fsh; sourceTree = "<group>"; };
 		AD66498C1A32BBCD00B52295 /* NoiseTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseTool.swift; sourceTree = "<group>"; };
 		AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendReorientedNormalsFilter.swift; sourceTree = "<group>"; };
@@ -481,6 +484,7 @@
 				ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */,
 				ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */,
 				AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */,
+				AD6295791A420615001252BC /* ZUpInitializeFilter.swift */,
 			);
 			name = GPUImageFilters;
 			sourceTree = "<group>";
@@ -826,6 +830,7 @@
 				0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */,
 				AD66498D1A32BBCD00B52295 /* NoiseTool.swift in Sources */,
 				ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */,
+				AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +849,7 @@
 				ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
 				AD8757E419FC2C760057B456 /* DocumentCreationController.swift in Sources */,
+				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
 				ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */,
 				77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */,
 				0AB813461A0129FE0032FD6E /* EditorViewController.swift in Sources */,

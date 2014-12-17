@@ -30,6 +30,22 @@ class DocumentController: NSDocumentController {
         }
 
         document.documentSettings?.baseImage = baseUrl.path
+
+        let filter = ZUpInitializeFilter()
+        if let image = document.baseImage {
+            if let data = image.TIFFRepresentation {
+                let bitmap = NSBitmapImageRep.imageRepsWithData(data)[0] as NSBitmapImageRep
+
+                document.documentSettings?.width = bitmap.pixelsWide
+                document.documentSettings?.height = bitmap.pixelsHigh
+
+                let filteredImage = filter.imageByFilteringImage(image)
+                document.currentLayer?.imageData = filteredImage.TIFFRepresentation
+            } else {
+                log.error("Could not initialize document. Image size cannot be found")
+            }
+        }
+
         document.managedObjectContext.processPendingChanges()
         document.undoManager?.removeAllActions()
 
