@@ -1,6 +1,7 @@
 import Foundation
 import Cocoa
 import AppKit
+import Darwin
 
 class ColorPickerViewController: NSViewController {
     var document: Document?
@@ -16,23 +17,24 @@ class ColorPickerViewController: NSViewController {
     }
 
     func updateColoronDocument() {
-        let x = sin(deg)*cos(pit)
-        let y = sin(deg)*sin(pit)
-        let z = cos(deg)
+        let dir = deg * Float(M_PI) / 180.0
+        let pitt = pit * Float(M_PI) / 180.0
+        let x = sin(dir) * sin(pitt) * 0.5 + 0.5
+        let y = cos(dir) * sin(pitt) * 0.5 + 0.5
+        let z = cos(pitt)
         document?.currentColor = NSColor(red: CGFloat(x),
             green: CGFloat(y), blue: CGFloat(z), alpha: 1.0)
-//        TODO: figure out whats going on when changing deg and pit value
-//        println("-")
-//        println(deg)
-//        println(pit)
-//
-//        println("Print doc color")
-//        println(document?.currentColor)
+        println("x")
+        println(x)
+        println("y")
+        println(y)
+        println("z")
+        println(z)
     }
 
     @IBAction func test(sender: AnyObject) {
-        println(deg)
-        println(pit)
+//        println(deg)
+//        println(pit)
     }
 
 }

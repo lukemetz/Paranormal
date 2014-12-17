@@ -41,6 +41,7 @@
                     <rect key="frame" x="14" y="30" width="28" height="30"/>
                     <sliderCell key="cell" alignment="left" maxValue="90" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="CZ4-Es-kqJ"/>
                     <connections>
+                        <action selector="test:" target="-2" id="D1i-3E-Q36"/>
                         <binding destination="-2" name="value" keyPath="self.pit" id="Jo5-ZF-rOE"/>
                     </connections>
                 </slider>
