@@ -19,6 +19,25 @@ class DocumentController: NSDocumentController {
         super.addDocument(document)
     }
 
+    // Create a document with the url and switch to it.
+    func createDocumentFromUrl(baseUrl: NSURL) {
+        var error : NSError?
+        var document = self.openUntitledDocumentAndDisplay(true, error: &error)
+            as Document
+        if let actualError = error {
+            let alert = NSAlert(error: actualError)
+            alert.runModal()
+        }
+
+        document.documentSettings?.baseImage = baseUrl.path
+        document.managedObjectContext.processPendingChanges()
+        document.undoManager?.removeAllActions()
+
+        // Retrigger the setting of document to reupdate with new document settings
+        // TODO this should really be a message
+        windowController.document = document
+    }
+
     override func newDocument(sender: AnyObject?) {
         if let window = windowController.window {
             documentCreationController = DocumentCreationController(parentWindow: window)

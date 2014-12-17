@@ -56,6 +56,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
             super.document = document
             editorViewController?.document = document as? Document
             toolsViewController?.document = document as? Document
+            panelsViewController?.document = document as? Document
         }
 
         get {

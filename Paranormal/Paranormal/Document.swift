@@ -70,8 +70,15 @@ class Document: NSPersistentDocument {
 
     var baseImage : NSImage? {
         if let path = documentSettings?.baseImage {
-            return NSImage(contentsOfFile: path)
+            let image = NSImage(contentsOfFile: path)
+            if image == nil {
+                log.error("Tried to create image from path" + path + " but failed")
+                return nil
+            }
+            return image
         } else {
+            // TODO this is being called more than it should be.
+            log.warning("No base image specified. Using blank image.")
             // If there is no base image, try to make a gray image.
             if let docSettings = documentSettings? {
                 let width = docSettings.width
@@ -82,7 +89,7 @@ class Document: NSPersistentDocument {
 
                 var context = CGBitmapContextCreate(nil, UInt(width),
                     UInt(height), 8, 0, colorSpace, bitmapInfo)
-                let color = CGColorCreateGenericRGB(0.5, 0.5, 0.5, 1.0)
+                let color = CGColorCreateGenericRGB(0.9, 0.5, 0.5, 1.0)
                 CGContextSetFillColorWithColor(context, color)
                 let rect = CGRectMake(0, 0, CGFloat(height), CGFloat(width))
                 CGContextFillRect(context, rect)

@@ -3,7 +3,12 @@ import Cocoa
 import AppKit
 
 class PanelsViewController: NSViewController {
-    var document: Document?
+    var document: Document? {
+        didSet {
+            previewViewController?.document = document
+            colorPickerViewController?.document = document
+        }
+    }
 
     @IBOutlet weak var previewView: NSView!
     var previewViewController: PreviewViewController?

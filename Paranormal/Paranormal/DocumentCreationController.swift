@@ -55,19 +55,12 @@ class DocumentCreationController : NSWindowController, NSOpenSavePanelDelegate {
 
     @IBAction func pushCreate(sender: NSButton) {
         closeSheet()
-        var error : NSError?
         let documentController = DocumentController.sharedDocumentController() as DocumentController
-        var document = documentController.openUntitledDocumentAndDisplay(true, error: &error)
-            as Document
-        if let actualError = error {
-            let alert = NSAlert(error: actualError)
-            alert.runModal()
+        if let url = baseImageURL {
+            documentController.createDocumentFromUrl(url)
+        } else {
+            log.error("URL not set. Not creating new document")
         }
-
-        document.documentSettings?.baseImage = baseImageURL?.absoluteString
-
-        document.managedObjectContext.processPendingChanges()
-        document.undoManager?.removeAllActions()
     }
 
     override init(window: NSWindow?) {

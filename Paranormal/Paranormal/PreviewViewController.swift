@@ -6,7 +6,15 @@ class PreviewViewController : NSViewController, PreviewViewDelegate {
     @IBOutlet weak var glView: PreviewView!
 
     var scene : PreviewScene?
-    var document : Document?
+    var document : Document? {
+        didSet {
+            // Force an update of components from document
+            // This should probably be rewritten to not have to need a notification
+            // Or a notification should be triggered in the document of the correct form.
+            updateComputedEditorImage(NSNotification(name: "unused", object: nil))
+            updateCoreData(NSNotification(name: "unused", object: nil))
+        }
+    }
     var currentPreviewLayer: PreviewLayer?
 
     override func loadView() {
