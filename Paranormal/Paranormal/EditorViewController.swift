@@ -20,7 +20,13 @@ class EditorViewController : NSViewController {
     var opacity : CGFloat = 1.0
     var viewSize : CGSize = CGSizeMake(0, 0)
 
-    var document: Document?
+    var document: Document? {
+        didSet {
+            if editor != nil {
+                editor.image = document?.computedEditorImage
+            }
+        }
+    }
 
     func editorViewDidLayout() {
         if let documentSettings = document?.documentSettings {
