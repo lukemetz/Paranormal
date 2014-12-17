@@ -14,6 +14,7 @@ class PanelsViewController: NSViewController {
     override func loadView() {
         super.loadView()
         previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
+        previewViewController?.document = document
         if let view = previewViewController?.view {
             ViewControllerUtils.insertSubviewIntoParent(previewView, child: view)
         }
