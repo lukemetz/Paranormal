@@ -66,7 +66,11 @@ class EditorViewController : NSViewController {
         CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
         CGContextSetLineCap(context, kCGLineCapRound)
         CGContextSetLineWidth(context, brush)
-        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
+
+        if let color = document?.currentColor {
+            CGContextSetRGBStrokeColor(context,
+                color.redComponent, color.greenComponent, color.blueComponent, 1.0)
+        }
         CGContextSetBlendMode(context, kCGBlendModeNormal)
         CGContextStrokePath(context)
     }

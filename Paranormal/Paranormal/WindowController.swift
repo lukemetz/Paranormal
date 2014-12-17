@@ -4,9 +4,8 @@ import Cocoa
 class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var mainView: NSView!
 
-    @IBOutlet weak var panelView: NSView!
-    @IBOutlet weak var previewView: NSView!
-    var previewViewController: PreviewViewController?
+    @IBOutlet weak var panelsView: NSView!
+    var panelsViewController: PanelsViewController?
 
     @IBOutlet weak var toolsView: NSView!
     var toolsViewController: ToolsViewController?
@@ -22,46 +21,23 @@ class WindowController: NSWindowController, NSWindowDelegate {
         super.awakeFromNib()
     }
 
-    // Insert view into parent and set up constraints such that it resizes how parent element
-    // resizes.
-    func insertSubviewIntoParent(parent: NSView, child: NSView) {
-        child.translatesAutoresizingMaskIntoConstraints = false
-        parent.addSubview(child)
-
-        let horizontalContraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|",
-            options: NSLayoutFormatOptions.AlignAllBaseline,
-            metrics: nil,
-            views: ["view" : child])
-        parent.addConstraints(horizontalContraints)
-
-        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|",
-            options: NSLayoutFormatOptions.AlignAllBaseline,
-            metrics: nil,
-            views: ["view" : child])
-
-        parent.addConstraints(verticalConstraints)
-
-        child.updateConstraints()
-        parent.updateConstraints()
-    }
-
     override func windowDidLoad() {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
         editorViewController?.document = document as? Document
         if let view = editorViewController?.view {
-            insertSubviewIntoParent(editorView, child: view)
-        }
-
-        previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
-        previewViewController?.document = document as? Document
-        if let view = previewViewController?.view {
-            insertSubviewIntoParent(previewView, child: view)
+            ViewControllerUtils.insertSubviewIntoParent(editorView, child: view)
         }
 
         toolsViewController = ToolsViewController(nibName: "Tools", bundle: nil)
         toolsViewController?.document = document as? Document
         if let view = toolsViewController?.view {
-            insertSubviewIntoParent(toolsView, child: view)
+            ViewControllerUtils.insertSubviewIntoParent(toolsView, child: view)
+        }
+
+        panelsViewController = PanelsViewController(nibName: "Panels", bundle: nil)
+        panelsViewController?.document = document as? Document
+        if let view = panelsViewController?.view{
+            ViewControllerUtils.insertSubviewIntoParent(panelsView, child: view)
         }
     }
 
