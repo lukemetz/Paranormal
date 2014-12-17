@@ -1,4 +1,7 @@
 import Cocoa
+import XCGLogger
+
+let log = XCGLogger.defaultInstance()
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

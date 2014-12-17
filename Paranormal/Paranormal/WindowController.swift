@@ -54,6 +54,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
         // we are using a single window
         set(document) {
             super.document = document
+            editorViewController?.document = document as? Document
+            toolsViewController?.document = document as? Document
         }
 
         get {

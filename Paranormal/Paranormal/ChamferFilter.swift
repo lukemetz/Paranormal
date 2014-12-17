@@ -13,7 +13,7 @@ class ChamferFilter : GPUImageFilterGroup {
         blurFilter.blurRadiusInPixels = 10.0;
         self.addFilter(blurFilter)
 
-        let multiply = GPUImageMultiplyBlendFilter()
+        let multiply = GPUImageTwoInputFilter(fragmentShaderFromFile: "MultiplyMaxAlpha")
         self.addFilter(multiply)
 
         let depthToNormal = DepthToNormalFilter()

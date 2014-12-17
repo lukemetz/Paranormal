@@ -3,7 +3,7 @@ import Cocoa
 
 class DocumentController: NSDocumentController {
     var windowController = WindowController(windowNibName: "Application")
-    var newDocumentController : NewDocumentController?
+    var documentCreationController : DocumentCreationController?
 
     override func addDocument(document: NSDocument) {
         if let paraDocument = document as? Document {
@@ -21,11 +21,11 @@ class DocumentController: NSDocumentController {
 
     override func newDocument(sender: AnyObject?) {
         if let window = windowController.window {
-            newDocumentController = NewDocumentController(parentWindow: window)
+            documentCreationController = DocumentCreationController(parentWindow: window)
 
-            if let newDocumentWindow : NSWindow = newDocumentController?.window {
-                NSApp.beginSheet(newDocumentWindow, modalForWindow: window, modalDelegate: self,
-                    didEndSelector: nil, contextInfo: nil)
+            if let documentCreationWindow : NSWindow = documentCreationController?.window {
+                NSApp.beginSheet(documentCreationWindow, modalForWindow: window,
+                    modalDelegate: self, didEndSelector: nil, contextInfo: nil)
             }
         }
     }

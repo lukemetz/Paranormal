@@ -39,5 +39,3 @@ then
 else
   echo -e "Test: \x1B[0;32mPass\x1B[0m"
 fi
-
-$FAILED

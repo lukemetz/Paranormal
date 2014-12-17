@@ -22,11 +22,15 @@ class Layer : NSManagedObject{
 
         let size = NSSize(width: Int(width), height: Int(height))
         let nsImage = NSImage(CGImage: cgImage, size: size)
-        if let data = nsImage.TIFFRepresentation {
-            self.imageData = data
+        // Hack to fix backwards compatibility with NSImage(CGImage:...) constructor
+        if let image = (nsImage as NSObject) as? NSImage {
+            if let data = image.TIFFRepresentation {
+                self.imageData = data
+            } else {
+                log.error("Could not set image data")
+            }
         } else {
-            // TODO we need an logging framework
-            println("[Error] could not set image data")
+            log.error("Could not unwrap constructed NSImage")
         }
     }
 

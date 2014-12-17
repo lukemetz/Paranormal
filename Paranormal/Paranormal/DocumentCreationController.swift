@@ -1,14 +1,15 @@
 import Foundation
 import Cocoa
 
-class NewDocumentController : NSWindowController, NSOpenSavePanelDelegate {
+class DocumentCreationController : NSWindowController, NSOpenSavePanelDelegate {
     var parentWindow : NSWindow?
     var baseImageURL : NSURL?
 
+    @IBOutlet weak var urlTextField: NSTextField!
     @IBOutlet weak var imageView: NSImageView!
 
     override var windowNibName : String! {
-        return "NewDocument"
+        return "DocumentCreation"
     }
 
     init(parentWindow: NSWindow) {
@@ -34,8 +35,17 @@ class NewDocumentController : NSWindowController, NSOpenSavePanelDelegate {
         panel.beginWithCompletionHandler { (_) -> Void in
             if let url = panel.URL {
                 self.baseImageURL = url
+                self.urlTextField.stringValue = url.path!
                 self.imageView.image = NSImage(contentsOfURL: url)
             }
+        }
+    }
+
+    @IBAction func changeUrlText(sender: NSTextField) {
+        let urlString = sender.stringValue
+        if let url = NSURL(fileURLWithPath: urlString) {
+            self.baseImageURL = url
+            self.imageView.image = NSImage(contentsOfURL: url)
         }
     }
 

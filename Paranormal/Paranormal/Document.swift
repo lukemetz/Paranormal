@@ -1,6 +1,8 @@
 import Cocoa
 import GPUImage
 
+let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
+
 class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
 
@@ -56,11 +58,42 @@ class Document: NSPersistentDocument {
     }
 
     var computedEditorImage : NSImage? {
-        return combineLayer(rootLayer)
+        didSet {
+            NSNotificationCenter.defaultCenter().postNotificationName(
+                PNDocumentComputedEditorChanged, object: self.computedEditorImage)
+        }
     }
 
     var computedExportImage : NSImage? {
         return computedEditorImage
+    }
+
+    var baseImage : NSImage? {
+        if let path = documentSettings?.baseImage {
+            return NSImage(contentsOfFile: path)
+        } else {
+            // If there is no base image, try to make a gray image.
+            if let docSettings = documentSettings? {
+                let width = docSettings.width
+                let height = docSettings.height
+
+                let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+                let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+                var context = CGBitmapContextCreate(nil, UInt(width),
+                    UInt(height), 8, 0, colorSpace, bitmapInfo)
+                let color = CGColorCreateGenericRGB(0.5, 0.5, 0.5, 1.0)
+                CGContextSetFillColorWithColor(context, color)
+                let rect = CGRectMake(0, 0, CGFloat(height), CGFloat(width))
+                CGContextFillRect(context, rect)
+                let cgImage = CGBitmapContextCreateImage(context)
+
+                let size = NSSize(width: CGFloat(width), height: CGFloat(height))
+                return NSImage(CGImage: cgImage, size:size)
+            }
+        }
+
+        return nil
     }
 
     override init() {
@@ -100,10 +133,19 @@ class Document: NSPersistentDocument {
         managedObjectContext.processPendingChanges()
 
         undoManager?.removeAllActions()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
 
     convenience init?(type typeName: String, error outError: NSErrorPointer) {
         self.init()
+    }
+
+    func updateCoreData(notification: NSNotification) {
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            self.computedEditorImage = self.combineLayer(self.rootLayer)
+        }
     }
 
     override func windowControllerDidLoadNib(aController: NSWindowController) {

@@ -45,8 +45,10 @@ class LayerTests: XCTestCase {
 
         let layer = Layer(entity: layerDescription,
             insertIntoManagedObjectContext: managedObjectContext)
-
-        layer.imageData = nsImage.TIFFRepresentation!
+        // Hack to fix backwards compatibility with NSImage(CGImage:...) constructor
+        if let nsImage = (nsImage as NSObject) as? NSImage {
+            layer.imageData = nsImage.TIFFRepresentation!
+        }
         layer.name = "dummy layer"
         return layer
     }
