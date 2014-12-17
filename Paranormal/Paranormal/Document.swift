@@ -1,7 +1,7 @@
 import Cocoa
 import GPUImage
 
-var PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
+let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
 
 class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
@@ -136,14 +136,14 @@ class Document: NSPersistentDocument {
             name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
 
+    convenience init?(type typeName: String, error outError: NSErrorPointer) {
+        self.init()
+    }
+
     func updateCoreData(notification: NSNotification) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             self.computedEditorImage = self.combineLayer(self.rootLayer)
         }
-    }
-
-    convenience init?(type typeName: String, error outError: NSErrorPointer) {
-        self.init()
     }
 
     override func windowControllerDidLoadNib(aController: NSWindowController) {

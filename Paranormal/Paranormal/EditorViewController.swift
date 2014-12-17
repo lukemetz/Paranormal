@@ -77,6 +77,8 @@ class EditorViewController : NSViewController {
         if let documentSettings = document?.documentSettings {
             let width = CGFloat(documentSettings.width)
             let height = CGFloat(documentSettings.height)
+            // The image in the imageview is placed in the center of the screen
+            // Determine the difference in sizes then divide by two to get offset
             let offsetY = (height - editor.frame.size.height) / 2.0
             let offsetX = (width - editor.frame.size.width) / 2.0
 
