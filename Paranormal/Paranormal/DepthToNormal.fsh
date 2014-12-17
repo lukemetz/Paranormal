@@ -7,7 +7,7 @@ uniform float depth;
 
 void main() {
     vec4 outputColor;
-
+    vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
     float x = textureCoordinate.x;
     float y = textureCoordinate.y;
 
@@ -24,7 +24,7 @@ void main() {
 
     // Encode normal back into RGB space
     normal = normal * 0.5 + 0.5;
-    outputColor = vec4(normal, 1.0);
+    outputColor = vec4(normal, baseColor.a);
 
     gl_FragColor = outputColor;
 }

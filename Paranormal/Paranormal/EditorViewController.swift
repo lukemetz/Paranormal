@@ -20,16 +20,20 @@ class EditorViewController : NSViewController {
     var opacity : CGFloat = 1.0
     var viewSize : CGSize = CGSizeMake(0, 0)
 
-
-
-    var document: Document?
+    var document: Document? {
+        didSet {
+            if editor != nil {
+                editor.image = document?.computedEditorImage
+            }
+        }
+    }
 
     func editorViewDidLayout() {
         if let documentSettings = document?.documentSettings {
-            viewSize = CGSizeMake(editor.frame.width, editor.frame.height)
+            viewSize = CGSizeMake(CGFloat(documentSettings.width),
+                CGFloat(documentSettings.height))
 
             if tempContext == nil {
-
                 let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
                 let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
 
@@ -46,11 +50,14 @@ class EditorViewController : NSViewController {
         } else {
             log.error("Failed to setup editor, document has no documentSettings")
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
-            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "updateComputedEditorImage:",
+            name: PNDocumentComputedEditorChanged,
+            object: nil)
     }
 
-    func updateCoreData(notification: NSNotification){
+    func updateComputedEditorImage(notification: NSNotification){
         editor.image = document?.computedEditorImage
     }
 
@@ -64,11 +71,30 @@ class EditorViewController : NSViewController {
         CGContextStrokePath(context)
     }
 
+    func pointToContext(point: CGPoint) -> CGPoint {
+        var point = editor.convertPoint(point, fromView: nil)
+
+        if let documentSettings = document?.documentSettings {
+            let width = CGFloat(documentSettings.width)
+            let height = CGFloat(documentSettings.height)
+            // The image in the imageview is placed in the center of the screen
+            // Determine the difference in sizes then divide by two to get offset
+            let offsetY = (height - editor.frame.size.height) / 2.0
+            let offsetX = (width - editor.frame.size.width) / 2.0
+
+            point = CGPointMake(point.x + offsetX, point.y + offsetY)
+        } else {
+            log.error("Could not convert point to drawing canvas")
+        }
+
+        return point
+    }
+
     override func mouseDown(theEvent: NSEvent) {
         mouseSwiped = false
 
         var locationInWindow = theEvent.locationInWindow
-        lastPoint = editor.convertPoint(theEvent.locationInWindow, fromView: nil)
+        lastPoint = pointToContext(theEvent.locationInWindow)
 
         let rect = CGRectMake(0, 0, viewSize.width, viewSize.height)
         CGContextClearRect(tempContext, rect)
@@ -80,7 +106,7 @@ class EditorViewController : NSViewController {
         mouseSwiped = true
 
         var locationInWindow = theEvent.locationInWindow
-        var currentPoint = editor.convertPoint(theEvent.locationInWindow, fromView: nil)
+        var currentPoint = pointToContext(theEvent.locationInWindow)
 
         drawLine(tempContext, currentPoint: currentPoint)
 
@@ -91,9 +117,7 @@ class EditorViewController : NSViewController {
     }
 
     override func mouseUp(theEvent: NSEvent) {
-
-        let locationInWindow = theEvent.locationInWindow
-        let currentPoint : CGPoint = editor.convertPoint(theEvent.locationInWindow, fromView: nil)
+        let currentPoint : CGPoint = pointToContext(theEvent.locationInWindow)
 
         drawLine(tempContext, currentPoint: currentPoint)
 
