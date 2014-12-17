@@ -14,13 +14,20 @@ class PreviewViewController : NSViewController, PreviewViewDelegate {
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
             name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "updateComputedEditorImage:",
+            name: PNDocumentComputedEditorChanged,
+            object: nil)
     }
 
-    func updateCoreData(notification: NSNotification) {
-        // TODO only update when specific objects need to be updated
+    func updateComputedEditorImage(notification: NSNotification) {
         if let image = document?.computedExportImage {
             currentPreviewLayer?.updateNormalMap(image)
         }
+    }
+
+    func updateCoreData(notification: NSNotification) {
         if let baseImage = document?.baseImage {
             currentPreviewLayer?.updateBaseImage(baseImage)
         }

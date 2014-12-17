@@ -1,6 +1,8 @@
 import Cocoa
 import GPUImage
 
+var PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
+
 class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
 
@@ -54,7 +56,10 @@ class Document: NSPersistentDocument {
     }
 
     var computedEditorImage : NSImage? {
-        return combineLayer(rootLayer)
+        didSet {
+            NSNotificationCenter.defaultCenter().postNotificationName(
+                PNDocumentComputedEditorChanged, object: self.computedEditorImage)
+        }
     }
 
     var computedExportImage : NSImage? {
@@ -126,6 +131,15 @@ class Document: NSPersistentDocument {
         managedObjectContext.processPendingChanges()
 
         undoManager?.removeAllActions()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+    }
+
+    func updateCoreData(notification: NSNotification) {
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            self.computedEditorImage = self.combineLayer(self.rootLayer)
+        }
     }
 
     convenience init?(type typeName: String, error outError: NSErrorPointer) {

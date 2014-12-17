@@ -25,7 +25,11 @@ class PreviewLayer: CCNode {
     }
 
     func updateNormalMap(image : NSImage) {
-        sprite?.normalMapSpriteFrame = spriteFrameForImage(image)
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            if let sprite = self.sprite? {
+                sprite.normalMapSpriteFrame = self.spriteFrameForImage(image)
+            }
+        }
     }
 
     func updateBaseImage(image : NSImage) {
