@@ -15,7 +15,7 @@ class PreviewLayer: CCNode {
 
     func spriteFrameForImage(image : NSImage) -> CCSpriteFrame! {
         let source = CGImageSourceCreateWithData(image.TIFFRepresentation, nil)
-        let img =  CGImageSourceCreateImageAtIndex(source, 0, nil)
+        let img = CGImageSourceCreateImageAtIndex(source, 0, nil)
 
         let texture : CCTexture = CCTexture(CGImage: img, contentScale: 1.0)
         let rect = CGRectMake(0.0, 0.0, image.size.width, image.size.height)

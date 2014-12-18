@@ -22,7 +22,7 @@ class DocumentController: NSDocumentController {
     // Create a document with the url and switch to it.
     func createDocumentFromUrl(baseUrl: NSURL) {
         var error : NSError?
-        var document = self.openUntitledDocumentAndDisplay(true, error: &error)
+        var document = self.makeUntitledDocumentOfType("Paranormal", error: &error)
             as Document
         if let actualError = error {
             let alert = NSAlert(error: actualError)
@@ -34,7 +34,11 @@ class DocumentController: NSDocumentController {
         let filter = ZUpInitializeFilter()
         if let image = document.baseImage {
             if let data = image.TIFFRepresentation {
-                let bitmap = NSBitmapImageRep.imageRepsWithData(data)[0] as NSBitmapImageRep
+                let reps = NSBitmapImageRep.imageRepsWithData(data)
+                if reps.count != 0 {
+                    log.warning("More than one image rep found on image. Using the first.")
+                }
+                let bitmap = reps[0] as NSBitmapImageRep
 
                 document.documentSettings?.width = bitmap.pixelsWide
                 document.documentSettings?.height = bitmap.pixelsHigh
@@ -49,9 +53,9 @@ class DocumentController: NSDocumentController {
         document.managedObjectContext.processPendingChanges()
         document.undoManager?.removeAllActions()
 
-        // Retrigger the setting of document to reupdate with new document settings
-        // TODO this should really be a message
-        windowController.document = document
+        // Acutally use the document now.
+        self.addDocument(document)
+        document.makeWindowControllers()
     }
 
     override func newDocument(sender: AnyObject?) {

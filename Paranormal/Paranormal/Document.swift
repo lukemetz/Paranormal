@@ -24,7 +24,11 @@ class Document: NSPersistentDocument {
             let alert = NSAlert(error: unwrapError)
             alert.runModal()
         }
-        return documentSettings?[0] as? DocumentSettings
+        if documentSettings?.count == 0 {
+            return nil
+        } else {
+            return documentSettings?[0] as? DocumentSettings
+        }
     }
 
     func mergeTwoNormals(# base: NSImage, detail: NSImage) -> NSImage? {
@@ -68,6 +72,7 @@ class Document: NSPersistentDocument {
         return computedEditorImage
     }
 
+    // TODO cache this
     var baseImage : NSImage? {
         if let path = documentSettings?.baseImage {
             let image = NSImage(contentsOfFile: path)
@@ -77,8 +82,7 @@ class Document: NSPersistentDocument {
             }
             return image
         } else {
-            // TODO this is being called more than it should be.
-            log.warning("No base image specified. Using blank image.")
+            log.info("No base image specified. Using blank image.")
             // If there is no base image, try to make a gray image.
             if let docSettings = documentSettings? {
                 let width = docSettings.width
@@ -105,6 +109,15 @@ class Document: NSPersistentDocument {
 
     override init() {
         super.init()
+
+        setUpDefaultDocument()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+    }
+
+    // Create a default document with correct managed objects.
+    func setUpDefaultDocument() {
         let refractionDescription = NSEntityDescription.entityForName("Refraction",
             inManagedObjectContext: managedObjectContext)!
         let refraction = Refraction(entity: refractionDescription,
@@ -140,9 +153,6 @@ class Document: NSPersistentDocument {
         managedObjectContext.processPendingChanges()
 
         undoManager?.removeAllActions()
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
-            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
 
     convenience init?(type typeName: String, error outError: NSErrorPointer) {

@@ -8,11 +8,8 @@ class PreviewViewController : NSViewController, PreviewViewDelegate {
     var scene : PreviewScene?
     var document : Document? {
         didSet {
-            // Force an update of components from document
-            // This should probably be rewritten to not have to need a notification
-            // Or a notification should be triggered in the document of the correct form.
-            updateComputedEditorImage(NSNotification(name: "unused", object: nil))
-            updateCoreData(NSNotification(name: "unused", object: nil))
+            updateComputedEditorImage(nil)
+            updateCoreData(nil)
         }
     }
     var currentPreviewLayer: PreviewLayer?
@@ -29,13 +26,13 @@ class PreviewViewController : NSViewController, PreviewViewDelegate {
             object: nil)
     }
 
-    func updateComputedEditorImage(notification: NSNotification) {
+    func updateComputedEditorImage(notification: NSNotification?) {
         if let image = document?.computedExportImage {
             currentPreviewLayer?.updateNormalMap(image)
         }
     }
 
-    func updateCoreData(notification: NSNotification) {
+    func updateCoreData(notification: NSNotification?) {
         if let baseImage = document?.baseImage {
             currentPreviewLayer?.updateBaseImage(baseImage)
         }

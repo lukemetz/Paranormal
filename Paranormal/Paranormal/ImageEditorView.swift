@@ -6,11 +6,6 @@ class ImageEditorView : NSImageView {
 
     @IBOutlet var delegate : EditorViewController?
 
-    override func layout () {
-        super.layout()
-        delegate?.editorViewDidLayout()
-    }
-
     override func mouseDown(theEvent: NSEvent) {
         delegate?.mouseDown(theEvent)
     }
