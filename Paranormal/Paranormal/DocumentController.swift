@@ -19,6 +19,45 @@ class DocumentController: NSDocumentController {
         super.addDocument(document)
     }
 
+    // Create a document with the url and switch to it.
+    func createDocumentFromUrl(baseUrl: NSURL) {
+        var error : NSError?
+        var document = self.makeUntitledDocumentOfType("Paranormal", error: &error)
+            as Document
+        if let actualError = error {
+            let alert = NSAlert(error: actualError)
+            alert.runModal()
+        }
+
+        document.documentSettings?.baseImage = baseUrl.path
+
+        let filter = ZUpInitializeFilter()
+        if let image = document.baseImage {
+            if let data = image.TIFFRepresentation {
+                let reps = NSBitmapImageRep.imageRepsWithData(data)
+                if reps.count != 0 {
+                    log.warning("More than one image rep found on image. Using the first.")
+                }
+                let bitmap = reps[0] as NSBitmapImageRep
+
+                document.documentSettings?.width = bitmap.pixelsWide
+                document.documentSettings?.height = bitmap.pixelsHigh
+
+                let filteredImage = filter.imageByFilteringImage(image)
+                document.currentLayer?.imageData = filteredImage.TIFFRepresentation
+            } else {
+                log.error("Could not initialize document. Image size cannot be found")
+            }
+        }
+
+        document.managedObjectContext.processPendingChanges()
+        document.undoManager?.removeAllActions()
+
+        // Acutally use the document now.
+        self.addDocument(document)
+        document.makeWindowControllers()
+    }
+
     override func newDocument(sender: AnyObject?) {
         if let window = windowController.window {
             documentCreationController = DocumentCreationController(parentWindow: window)

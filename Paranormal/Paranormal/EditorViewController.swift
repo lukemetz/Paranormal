@@ -23,34 +23,38 @@ class EditorViewController : NSViewController {
     var document: Document? {
         didSet {
             if editor != nil {
-                editor.image = document?.computedEditorImage
+                updateEditorWithDocument()
             }
         }
     }
 
-    func editorViewDidLayout() {
+    func updateEditorWithDocument() {
         if let documentSettings = document?.documentSettings {
             viewSize = CGSizeMake(CGFloat(documentSettings.width),
-                CGFloat(documentSettings.height))
+            CGFloat(documentSettings.height))
 
-            if tempContext == nil {
-                let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
-                let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+            let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
 
-                editorContext = CGBitmapContextCreate(nil, UInt(viewSize.width),
-                    UInt(viewSize.height),  8,  0 , colorSpace, bitmapInfo)
+            editorContext = CGBitmapContextCreate(nil, UInt(viewSize.width),
+                UInt(viewSize.height),  8,  0 , colorSpace, bitmapInfo)
 
-                if let currentLayer  = document?.currentLayer {
-                    currentLayer.drawToContext(editorContext!)
-                }
-
-                tempContext = CGBitmapContextCreate(nil, UInt(viewSize.width),
-                    UInt(viewSize.height), 8, 0, colorSpace, bitmapInfo)
+            if let currentLayer  = document?.currentLayer {
+                currentLayer.drawToContext(editorContext!)
             }
+
+            tempContext = CGBitmapContextCreate(nil, UInt(viewSize.width),
+                UInt(viewSize.height), 8, 0, colorSpace, bitmapInfo)
+
+            editor.image = document?.computedEditorImage
         } else {
             log.error("Failed to setup editor, document has no documentSettings")
         }
+    }
 
+    override func loadView() {
+        super.loadView()
+        updateEditorWithDocument()
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "updateComputedEditorImage:",
             name: PNDocumentComputedEditorChanged,

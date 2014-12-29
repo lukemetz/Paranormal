@@ -24,7 +24,11 @@ class Document: NSPersistentDocument {
             let alert = NSAlert(error: unwrapError)
             alert.runModal()
         }
-        return documentSettings?[0] as? DocumentSettings
+        if documentSettings?.count == 0 {
+            return nil
+        } else {
+            return documentSettings?[0] as? DocumentSettings
+        }
     }
 
     func mergeTwoNormals(# base: NSImage, detail: NSImage) -> NSImage? {
@@ -68,10 +72,17 @@ class Document: NSPersistentDocument {
         return computedEditorImage
     }
 
+    // TODO cache this
     var baseImage : NSImage? {
         if let path = documentSettings?.baseImage {
-            return NSImage(contentsOfFile: path)
+            let image = NSImage(contentsOfFile: path)
+            if image == nil {
+                log.error("Tried to create image from path" + path + " but failed")
+                return nil
+            }
+            return image
         } else {
+            log.info("No base image specified. Using blank image.")
             // If there is no base image, try to make a gray image.
             if let docSettings = documentSettings? {
                 let width = docSettings.width
@@ -82,7 +93,7 @@ class Document: NSPersistentDocument {
 
                 var context = CGBitmapContextCreate(nil, UInt(width),
                     UInt(height), 8, 0, colorSpace, bitmapInfo)
-                let color = CGColorCreateGenericRGB(0.5, 0.5, 0.5, 1.0)
+                let color = CGColorCreateGenericRGB(0.9, 0.5, 0.5, 1.0)
                 CGContextSetFillColorWithColor(context, color)
                 let rect = CGRectMake(0, 0, CGFloat(height), CGFloat(width))
                 CGContextFillRect(context, rect)
@@ -98,6 +109,15 @@ class Document: NSPersistentDocument {
 
     override init() {
         super.init()
+
+        setUpDefaultDocument()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+    }
+
+    // Create a default document with correct managed objects.
+    func setUpDefaultDocument() {
         let refractionDescription = NSEntityDescription.entityForName("Refraction",
             inManagedObjectContext: managedObjectContext)!
         let refraction = Refraction(entity: refractionDescription,
@@ -133,9 +153,6 @@ class Document: NSPersistentDocument {
         managedObjectContext.processPendingChanges()
 
         undoManager?.removeAllActions()
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
-            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
 
     convenience init?(type typeName: String, error outError: NSErrorPointer) {

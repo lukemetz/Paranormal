@@ -54,8 +54,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
         // we are using a single window
         set(document) {
             super.document = document
-            editorViewController?.document = document as? Document
-            toolsViewController?.document = document as? Document
+            if let doc = document as? Document {
+                editorViewController?.document = doc
+                toolsViewController?.document = doc
+                panelsViewController?.document = doc
+            }
         }
 
         get {

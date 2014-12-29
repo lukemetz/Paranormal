@@ -6,7 +6,12 @@ class PreviewViewController : NSViewController, PreviewViewDelegate {
     @IBOutlet weak var glView: PreviewView!
 
     var scene : PreviewScene?
-    var document : Document?
+    var document : Document? {
+        didSet {
+            updateComputedEditorImage(nil)
+            updateCoreData(nil)
+        }
+    }
     var currentPreviewLayer: PreviewLayer?
 
     override func loadView() {
@@ -21,13 +26,13 @@ class PreviewViewController : NSViewController, PreviewViewDelegate {
             object: nil)
     }
 
-    func updateComputedEditorImage(notification: NSNotification) {
+    func updateComputedEditorImage(notification: NSNotification?) {
         if let image = document?.computedExportImage {
             currentPreviewLayer?.updateNormalMap(image)
         }
     }
 
-    func updateCoreData(notification: NSNotification) {
+    func updateCoreData(notification: NSNotification?) {
         if let baseImage = document?.baseImage {
             currentPreviewLayer?.updateBaseImage(baseImage)
         }
