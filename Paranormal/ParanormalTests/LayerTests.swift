@@ -53,7 +53,7 @@ class LayerTests: QuickSpec {
             return layer
         }
 
-        it("Tests the layer context") {
+        it("Can copy data to and from a context") {
             let layer = dummyLayer()
 
             let colorSpace = CGColorSpaceCreateDeviceRGB()
