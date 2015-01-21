@@ -101,7 +101,6 @@
 		ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
 		ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4119E9A9360041AAB5 /* Images.xcassets */; };
 		ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
-		ADE87F5119E9A9360041AAB5 /* ParanormalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F5019E9A9360041AAB5 /* ParanormalTests.swift */; };
 		ADEE7BD319E9C59200588629 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BD219E9C59200588629 /* OpenAL.framework */; };
 		ADEE7BD519E9C5D300588629 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BD419E9C5D300588629 /* AudioToolbox.framework */; };
 		ADEE7BD719E9C5D800588629 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BD619E9C5D800588629 /* AppKit.framework */; };
@@ -337,7 +336,6 @@
 		ADE87F4419E9A9360041AAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		ADE87F4A19E9A9360041AAB5 /* ParanormalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParanormalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE87F4F19E9A9360041AAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADE87F5019E9A9360041AAB5 /* ParanormalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParanormalTests.swift; sourceTree = "<group>"; };
 		ADEE7BD219E9C59200588629 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		ADEE7BD419E9C5D300588629 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		ADEE7BD619E9C5D800588629 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -660,7 +658,6 @@
 				AD2CDA181A70292A007CA3B7 /* libs */,
 				AD9454A81A3CDE2D008CD31F /* Panels */,
 				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
-				ADE87F5019E9A9360041AAB5 /* ParanormalTests.swift */,
 				ADE87F4E19E9A9360041AAB5 /* Supporting Files */,
 				AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */,
 			);
@@ -1056,7 +1053,6 @@
 				ADD01FD31A2FCEA400C8712C /* ViewControllerUtils.swift in Sources */,
 				AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */,
 				AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,
-				ADE87F5119E9A9360041AAB5 /* ParanormalTests.swift in Sources */,
 				AD83DDBD19F9EA1F004EAA77 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
