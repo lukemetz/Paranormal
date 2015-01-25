@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Copyright 2010-2014 The Rust Project Developers. See  at
 # http://rust-lang.org/COPYRIGHT.
 # Modified by Scope Apportable Team 2014
