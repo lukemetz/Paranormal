@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 
-class WindowController: NSWindowController, NSWindowDelegate {
+public class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var mainView: NSView!
 
     @IBOutlet weak var panelsView: NSView!
@@ -17,11 +17,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
         super.init(window:window)
     }
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    override func windowDidLoad() {
+    override public func windowDidLoad() {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
         editorViewController?.document = document as? Document
         if let view = editorViewController?.view {
@@ -41,7 +41,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    required init?(coder:NSCoder) {
+    required public init?(coder:NSCoder) {
         super.init(coder: coder)
     }
 
@@ -49,7 +49,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         super.init()
     }
 
-    override var document : AnyObject? {
+    override public var document : AnyObject? {
         // TODO this needs to now hold an array or something as
         // we are using a single window
         set(document) {
@@ -66,11 +66,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    func windowWillClose(notification: NSNotification) {
+    public func windowWillClose(notification: NSNotification) {
         document?.close()
     }
 
-    func windowWillReturnUndoManager(window: NSWindow) -> NSUndoManager? {
+    public func windowWillReturnUndoManager(window: NSWindow) -> NSUndoManager? {
         let doc = document as Document?
         return doc?.undoManager
     }

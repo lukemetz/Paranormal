@@ -1,21 +1,21 @@
 import Foundation
 import Cocoa
 
-class Layer : NSManagedObject{
-    @NSManaged var visible : Bool
-    @NSManaged var name : String
-    @NSManaged var imageData : NSData?
-    @NSManaged var layers : NSMutableOrderedSet
-    @NSManaged var parent : Layer
+public class Layer : NSManagedObject{
+    @NSManaged public var visible : Bool
+    @NSManaged public var name : String
+    @NSManaged public var imageData : NSData?
+    @NSManaged public var layers : NSMutableOrderedSet
+    @NSManaged public var parent : Layer
 
-    override init(entity: NSEntityDescription,
+    override public init(entity: NSEntityDescription,
         insertIntoManagedObjectContext context: NSManagedObjectContext?) {
 
             super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
 
     // Copies content of CGContext to data attribute
-    func updateFromContext(context: CGContext) {
+    public func updateFromContext(context: CGContext) {
         let cgImage = CGBitmapContextCreateImage(context)
         let width = CGImageGetWidth(cgImage)
         let height = CGImageGetHeight(cgImage)
@@ -35,7 +35,7 @@ class Layer : NSManagedObject{
     }
 
     // Clear and draw the layers data to a CGContext
-    func drawToContext(context: CGContext) {
+    public func drawToContext(context: CGContext) {
         let source = CGImageSourceCreateWithData(self.imageData, nil)
         let cgImage = CGImageSourceCreateImageAtIndex(source, 0, nil)
 
@@ -48,7 +48,7 @@ class Layer : NSManagedObject{
         CGContextDrawImage(context, rect, cgImage)
     }
 
-    func toImage() -> NSImage? {
+    public func toImage() -> NSImage? {
         if let data = imageData {
             return NSImage(data: data)
         } else {
@@ -56,7 +56,7 @@ class Layer : NSManagedObject{
         }
     }
 
-    func addLayer() -> Layer? {
+    public func addLayer() -> Layer? {
         if let context = managedObjectContext {
             let layerDescription = NSEntityDescription.entityForName("Layer",
                 inManagedObjectContext: context)!

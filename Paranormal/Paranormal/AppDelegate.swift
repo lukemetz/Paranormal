@@ -4,26 +4,26 @@ import XCGLogger
 let log = XCGLogger.defaultInstance()
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-    var documentController : DocumentController
-    override init() {
+public class AppDelegate: NSObject, NSApplicationDelegate {
+    public var documentController : DocumentController
+    public override init() {
         documentController = DocumentController()
         super.init()
     }
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    public func applicationDidFinishLaunching(aNotification: NSNotification) {
         // At this point, the main menu is automatically loaded
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    public func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
 
-    func applicationShouldOpenUntitledFile(sender: NSApplication) -> Bool {
+    public func applicationShouldOpenUntitledFile(sender: NSApplication) -> Bool {
         return true
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
+    public func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
         return true
     }
 }
