@@ -1,2 +1,2 @@
 script:
-  ./tools/tidySource.bash
+  ./tools/check_tidy.py
