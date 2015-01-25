@@ -45,7 +45,7 @@ class ShadersCompileTest : QuickSpec {
             }
 
             it("DepthToNormal compiles") {
-                test_single_input("MaskAlpha")
+                test_single_input("DepthToNormal")
             }
 
             it("BlendReorientedNormals compiles") {
