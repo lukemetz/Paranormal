@@ -1,6 +1,7 @@
 import Cocoa
 import Quick
 import Nimble
+import Paranormal
 
 class DocumentTests: QuickSpec {
     override func spec() {
@@ -41,17 +42,13 @@ class DocumentTests: QuickSpec {
                 }
 
                 it("Check number of sublayers") {
-                    // TODO fix this so it takes advantage of subclasses
-                    // Currently the test environment can do these dynamic casts from
-                    // managedObjects to subclasses.
                     let documentFetch = NSFetchRequest(entityName: "DocumentSettings")
                     let documentResult : NSArray? =
                         document.managedObjectContext.executeFetchRequest(documentFetch, error: nil)
-                    let documentSettings = documentResult?[0] as NSManagedObject
-                    let rootLayer = documentSettings.valueForKey("rootLayer") as NSManagedObject
-                    let layers = rootLayer.valueForKey("layers") as NSOrderedSet
+                    let documentSettings = documentResult?[0] as DocumentSettings
+                    let layers = documentSettings.rootLayer?.layers
 
-                    expect(layers.count).to(equal(1))
+                    expect(layers?.count).to(equal(1))
                 }
             }
         }

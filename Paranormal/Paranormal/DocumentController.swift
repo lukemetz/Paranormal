@@ -1,11 +1,11 @@
 import Foundation
 import Cocoa
 
-class DocumentController: NSDocumentController {
-    var windowController = WindowController(windowNibName: "Application")
+public class DocumentController: NSDocumentController {
+    public var windowController = WindowController(windowNibName: "Application")
     var documentCreationController : DocumentCreationController?
 
-    override func addDocument(document: NSDocument) {
+    override public func addDocument(document: NSDocument) {
         if let paraDocument = document as? Document {
             paraDocument.singleWindowController = windowController
         }
@@ -58,7 +58,7 @@ class DocumentController: NSDocumentController {
         document.makeWindowControllers()
     }
 
-    override func newDocument(sender: AnyObject?) {
+    override public func newDocument(sender: AnyObject?) {
         if let window = windowController.window {
             documentCreationController = DocumentCreationController(parentWindow: window)
 
