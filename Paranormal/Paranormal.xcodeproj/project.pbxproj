@@ -69,6 +69,9 @@
 		ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
 		ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
 		ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */; };
+		ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */; };
+		ADDA76731A756CF200CCCC45 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
+		ADDA76761A756DF600CCCC45 /* blankImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76751A756DF600CCCC45 /* blankImage.png */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
 		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
@@ -298,6 +301,8 @@
 		ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelsViewController.swift; sourceTree = "<group>"; };
 		ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPicker.xib; sourceTree = "<group>"; };
+		ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadersCompileTest.swift; sourceTree = "<group>"; };
+		ADDA76751A756DF600CCCC45 /* blankImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blankImage.png; path = ParanormalTests/assets/blankImage.png; sourceTree = SOURCE_ROOT; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
@@ -351,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADDA76731A756CF200CCCC45 /* GPUImage.framework in Frameworks */,
 				AD2CDA441A7029E0007CA3B7 /* Nimble.framework in Frameworks */,
 				AD2CDA431A7029DB007CA3B7 /* Quick.framework in Frameworks */,
 			);
@@ -561,6 +567,22 @@
 			name = ColorPicker;
 			sourceTree = "<group>";
 		};
+		ADDA76601A756BB600CCCC45 /* GPUImageShaders */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */,
+			);
+			name = GPUImageShaders;
+			sourceTree = "<group>";
+		};
+		ADDA76741A756DEC00CCCC45 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA76751A756DF600CCCC45 /* blankImage.png */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,6 +653,8 @@
 		ADE87F4D19E9A9360041AAB5 /* ParanormalTests */ = {
 			isa = PBXGroup;
 			children = (
+				ADDA76741A756DEC00CCCC45 /* assets */,
+				ADDA76601A756BB600CCCC45 /* GPUImageShaders */,
 				AD2CDA181A70292A007CA3B7 /* libs */,
 				AD9454A81A3CDE2D008CD31F /* Panels */,
 				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
@@ -946,6 +970,7 @@
 				AD17EEDC1A392E7B00FA4849 /* gem-empty.png in Resources */,
 				AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
+				ADDA76761A756DF600CCCC45 /* blankImage.png in Resources */,
 				AD6649851A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */,
 				ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADFCB80C1A3923220016A49B /* light64.png in Resources */,
@@ -1005,6 +1030,7 @@
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
 				AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */,
+				ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */,
 				AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1196,7 +1222,9 @@
 				);
 				INFOPLIST_FILE = ParanormalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paranormal.app/Contents/MacOS/Paranormal";
 			};
 			name = Debug;
@@ -1212,7 +1240,9 @@
 				);
 				INFOPLIST_FILE = ParanormalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paranormal.app/Contents/MacOS/Paranormal";
 			};
 			name = Release;
