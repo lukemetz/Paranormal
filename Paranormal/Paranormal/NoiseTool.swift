@@ -7,6 +7,7 @@ class NoiseTool {
     func perform(document: Document) {
         // This should just add a new layer!
         let panel = NSOpenPanel()
+        panel.allowedFileTypes = ["png", "jpg", "jpeg"]
         panel.beginWithCompletionHandler { (_) -> Void in
             if let url = panel.URL {
                 let image = NSImage(contentsOfURL: url)
