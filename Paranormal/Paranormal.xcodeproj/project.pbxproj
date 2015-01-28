@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* ImageEditorView.swift */; };
-		0A27FC841A0564CF00999020 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* ImageEditorView.swift */; };
 		0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
-		0AB813461A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
 		770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
-		770131311A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
 		772A096D1A055F6D000686E0 /* gem-diffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096B1A055F6D000686E0 /* gem-diffuse.png */; };
 		772A096E1A055F6D000686E0 /* gem-diffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096B1A055F6D000686E0 /* gem-diffuse.png */; };
 		772A096F1A055F6D000686E0 /* gem-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A096C1A055F6D000686E0 /* gem-normal.png */; };
@@ -20,18 +17,17 @@
 		772A09801A05681F000686E0 /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A097F1A05681F000686E0 /* checker.png */; };
 		772A09811A05681F000686E0 /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = 772A097F1A05681F000686E0 /* checker.png */; };
 		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
-		772A098A1A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
 		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
-		77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17EED11A39294D00FA4849 /* PreviewViewDelegate.swift */; };
-		AD17EED91A392ABA00FA4849 /* PreviewViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17EED11A39294D00FA4849 /* PreviewViewDelegate.swift */; };
 		AD17EEDB1A392E7B00FA4849 /* gem-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = AD17EEDA1A392E7B00FA4849 /* gem-empty.png */; };
 		AD17EEDC1A392E7B00FA4849 /* gem-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = AD17EEDA1A392E7B00FA4849 /* gem-empty.png */; };
 		AD1F336419FC2DA800BBC4DC /* DocumentCreation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* DocumentCreation.xib */; };
 		AD2CDA431A7029DB007CA3B7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2CDA381A702954007CA3B7 /* Quick.framework */; };
 		AD2CDA441A7029E0007CA3B7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2CDA2B1A70293F007CA3B7 /* Nimble.framework */; };
 		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
+		AD3BCEC51A74769500747A1A /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
+		AD3BCEC61A74770200747A1A /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
 		AD54AF7F1A38A00700450175 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D44991A389BE9004D1994 /* libcocos2d-mac.a */; };
 		AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6295791A420615001252BC /* ZUpInitializeFilter.swift */; };
 		AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6295791A420615001252BC /* ZUpInitializeFilter.swift */; };
@@ -39,28 +35,20 @@
 		AD6649851A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */; };
 		AD66498B1A32BB6300B52295 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
 		AD66498D1A32BBCD00B52295 /* NoiseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66498C1A32BBCD00B52295 /* NoiseTool.swift */; };
-		AD66498E1A32BBCD00B52295 /* NoiseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66498C1A32BBCD00B52295 /* NoiseTool.swift */; };
 		AD6649901A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */; };
 		AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */; };
 		AD70F96F1A33847300141A64 /* Panels.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD70F96E1A33847300141A64 /* Panels.xib */; };
-		AD70F9721A3386C500141A64 /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
-		AD70F9731A338DA800141A64 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
 		AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
 		AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A31A13C91800ABDD2A /* Editor.xib */; };
 		AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
 		AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */; };
-		AD7699A91A13F4F600ABDD2A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */; };
 		AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C0D3219FB24E800A58201 /* DocumentController.swift */; };
-		AD7C0D3619FB250300A58201 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C0D3219FB24E800A58201 /* DocumentController.swift */; };
 		AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */; };
-		AD83DDBD19F9EA1F004EAA77 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
 		AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* DocumentCreation.xib */; };
 		AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8757E219FC2C760057B456 /* DocumentCreationController.swift */; };
-		AD8757E419FC2C760057B456 /* DocumentCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8757E219FC2C760057B456 /* DocumentCreationController.swift */; };
 		AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */; };
-		AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */; };
 		AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9454AB1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift */; };
 		AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
@@ -73,29 +61,21 @@
 		ADAE53311A17E2AA007135C0 /* Tools.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE53301A17E2AA007135C0 /* Tools.xib */; };
 		ADAE53321A17E2AA007135C0 /* Tools.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE53301A17E2AA007135C0 /* Tools.xib */; };
 		ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53331A17E36D007135C0 /* ToolsViewController.swift */; };
-		ADAE53351A17E36D007135C0 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53331A17E36D007135C0 /* ToolsViewController.swift */; };
 		ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53361A17E847007135C0 /* ChamferTool.swift */; };
-		ADAE53381A17E847007135C0 /* ChamferTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53361A17E847007135C0 /* ChamferTool.swift */; };
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
-		ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */; };
-		ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
-		ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
-		ADD01FCA1A2F9B1000C8712C /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
 		ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
 		ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
 		ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */; };
-		ADD01FD31A2FCEA400C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
+		ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */; };
+		ADDA76731A756CF200CCCC45 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
+		ADDA76761A756DF600CCCC45 /* blankImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76751A756DF600CCCC45 /* blankImage.png */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
-		ADE732F11A0573C400A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
 		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
-		ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
-		ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
 		ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */; };
-		ADE7B2FF1A107572005EDD11 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
 		ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3919E9A9350041AAB5 /* Document.swift */; };
 		ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3E19E9A9360041AAB5 /* Document.xcdatamodeld */; };
@@ -112,7 +92,6 @@
 		ADEE7BE319E9C5FC00588629 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE7BE219E9C5FC00588629 /* OpenGL.framework */; };
 		ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */; };
 		ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF4A0E81A01366500E47DA1 /* Layers.xib */; };
-		ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF4A0E41A01363600E47DA1 /* LayersViewController.swift */; };
 		ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF4A0E81A01366500E47DA1 /* Layers.xib */; };
 		ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */; };
 		ADFCB80B1A3923220016A49B /* light64.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFCB80A1A3923220016A49B /* light64.png */; };
@@ -322,6 +301,8 @@
 		ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelsViewController.swift; sourceTree = "<group>"; };
 		ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPicker.xib; sourceTree = "<group>"; };
+		ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadersCompileTest.swift; sourceTree = "<group>"; };
+		ADDA76751A756DF600CCCC45 /* blankImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blankImage.png; path = ParanormalTests/assets/blankImage.png; sourceTree = SOURCE_ROOT; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
@@ -375,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADDA76731A756CF200CCCC45 /* GPUImage.framework in Frameworks */,
 				AD2CDA441A7029E0007CA3B7 /* Nimble.framework in Frameworks */,
 				AD2CDA431A7029DB007CA3B7 /* Quick.framework in Frameworks */,
 			);
@@ -585,6 +567,22 @@
 			name = ColorPicker;
 			sourceTree = "<group>";
 		};
+		ADDA76601A756BB600CCCC45 /* GPUImageShaders */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */,
+			);
+			name = GPUImageShaders;
+			sourceTree = "<group>";
+		};
+		ADDA76741A756DEC00CCCC45 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA76751A756DF600CCCC45 /* blankImage.png */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +653,8 @@
 		ADE87F4D19E9A9360041AAB5 /* ParanormalTests */ = {
 			isa = PBXGroup;
 			children = (
+				ADDA76741A756DEC00CCCC45 /* assets */,
+				ADDA76601A756BB600CCCC45 /* GPUImageShaders */,
 				AD2CDA181A70292A007CA3B7 /* libs */,
 				AD9454A81A3CDE2D008CD31F /* Panels */,
 				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
@@ -970,6 +970,7 @@
 				AD17EEDC1A392E7B00FA4849 /* gem-empty.png in Resources */,
 				AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
+				ADDA76761A756DF600CCCC45 /* blankImage.png in Resources */,
 				AD6649851A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */,
 				ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADFCB80C1A3923220016A49B /* light64.png in Resources */,
@@ -993,12 +994,12 @@
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */,
-				ADD01FCA1A2F9B1000C8712C /* ColorPickerViewController.swift in Sources */,
 				AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */,
 				ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */,
 				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
 				ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
+				AD3BCEC51A74769500747A1A /* ColorPickerViewController.swift in Sources */,
 				770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */,
@@ -1007,6 +1008,7 @@
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
 				ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */,
 				772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */,
+				AD3BCEC61A74770200747A1A /* DepthToNormalFilter.swift in Sources */,
 				AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				AD6649901A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,
@@ -1014,7 +1016,6 @@
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
 				0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */,
 				AD66498D1A32BBCD00B52295 /* NoiseTool.swift in Sources */,
-				ADE7B2F71A1061F5005EDD11 /* DepthToNormalFilter.swift in Sources */,
 				AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1023,37 +1024,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD70F9731A338DA800141A64 /* ColorPickerViewController.swift in Sources */,
-				ADB329C719FB439100E3F9D2 /* AppDelegate.swift in Sources */,
-				0A27FC841A0564CF00999020 /* ImageEditorView.swift in Sources */,
-				AD7699A91A13F4F600ABDD2A /* PreviewViewController.swift in Sources */,
-				AD70F9721A3386C500141A64 /* PanelsViewController.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
-				ADE732F11A0573C400A1C743 /* Layer.swift in Sources */,
-				ADAE53381A17E847007135C0 /* ChamferTool.swift in Sources */,
-				ADF4A0EA1A01366B00E47DA1 /* LayersViewController.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
-				AD8757E419FC2C760057B456 /* DocumentCreationController.swift in Sources */,
 				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
-				ADC4E46C19F9EB1300678A89 /* WindowController.swift in Sources */,
-				77C2E4D11A094AB300991492 /* PreviewView.swift in Sources */,
-				0AB813461A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
-				ADE7B2FF1A107572005EDD11 /* ChamferFilter.swift in Sources */,
-				AD66498E1A32BBCD00B52295 /* NoiseTool.swift in Sources */,
-				770131311A0555A700C6CC9E /* PreviewScene.swift in Sources */,
-				ADC4E46D19F9EB1600678A89 /* PreviewSettings.swift in Sources */,
-				AD7C0D3619FB250300A58201 /* DocumentController.swift in Sources */,
-				ADE7B2F81A106359005EDD11 /* DepthToNormalFilter.swift in Sources */,
-				AD17EED91A392ABA00FA4849 /* PreviewViewDelegate.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
-				ADAE53351A17E36D007135C0 /* ToolsViewController.swift in Sources */,
-				772A098A1A05D18C000686E0 /* PreviewLayer.swift in Sources */,
 				AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */,
-				ADD01FD31A2FCEA400C8712C /* ViewControllerUtils.swift in Sources */,
-				AD898B8D19FC7AE2000FF6AF /* DocumentSettings.swift in Sources */,
+				ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */,
 				AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,
-				AD83DDBD19F9EA1F004EAA77 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,7 +1222,9 @@
 				);
 				INFOPLIST_FILE = ParanormalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paranormal.app/Contents/MacOS/Paranormal";
 			};
 			name = Debug;
@@ -1260,7 +1240,9 @@
 				);
 				INFOPLIST_FILE = ParanormalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paranormal.app/Contents/MacOS/Paranormal";
 			};
 			name = Release;

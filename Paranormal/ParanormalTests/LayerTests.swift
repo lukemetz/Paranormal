@@ -3,6 +3,7 @@ import XCTest
 import CoreGraphics
 import Nimble
 import Quick
+import Paranormal
 
 class LayerTests: QuickSpec {
     override func spec() {

@@ -3,16 +3,16 @@ import GPUImage
 
 let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
 
-class Document: NSPersistentDocument {
+public class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
 
-    var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
+    public var currentColor : NSColor = NSColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
 
-    var rootLayer : Layer? {
+    public var rootLayer : Layer? {
         return documentSettings?.rootLayer
     }
 
-    var currentLayer : Layer? {
+    public var currentLayer : Layer? {
         return rootLayer?.layers.objectAtIndex(0) as Layer?
     }
 
@@ -165,18 +165,18 @@ class Document: NSPersistentDocument {
         }
     }
 
-    override func windowControllerDidLoadNib(aController: NSWindowController) {
+    override public func windowControllerDidLoadNib(aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
         // Add any code here that needs to be executed once the windowController
         // has loaded the document's window.
 
     }
 
-    override class func autosavesInPlace() -> Bool {
+    override public class func autosavesInPlace() -> Bool {
         return false
     }
 
-    override func makeWindowControllers() {
+    override public func makeWindowControllers() {
         addWindowController(singleWindowController!)
     }
 }

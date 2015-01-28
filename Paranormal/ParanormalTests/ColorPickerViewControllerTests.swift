@@ -1,6 +1,7 @@
 import Cocoa
 import Quick
 import Nimble
+import Paranormal
 
 class ColorPickerViewControllerTests: QuickSpec {
 
