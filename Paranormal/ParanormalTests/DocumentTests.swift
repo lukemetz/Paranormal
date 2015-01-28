@@ -51,6 +51,17 @@ class DocumentTests: QuickSpec {
                     expect(layers?.count).to(equal(1))
                 }
             }
+            describe ("Initialization on Import") {
+                it ("Exports a the bear image") {
+                    let documentController = DocumentController()
+                    let url = NSBundle(forClass: DocumentTests.self)
+                        .URLForResource("bear", withExtension: "png")
+                    documentController.createDocumentFromUrl(url!)
+                    expect(documentController.documents.count).to(equal(2))
+                    let newDocument = documentController.documents[1] as? Document
+                    expect(newDocument?.documentSettings?.width).to(equal(161))
+                }
+            }
         }
     }
 }
