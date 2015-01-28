@@ -6,7 +6,7 @@ let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
 public class Document: NSPersistentDocument {
     var singleWindowController : WindowController?
 
-    public var currentColor : NSColor = NSColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+    public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
 
     public var rootLayer : Layer? {
         return documentSettings?.rootLayer

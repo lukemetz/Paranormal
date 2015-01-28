@@ -13,9 +13,6 @@ class EditorViewController : NSViewController {
     var mouseSwiped : Bool = false
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
 
-    var red : CGFloat = 0.0/255.0
-    var green : CGFloat =  0.0/255.0
-    var blue : CGFloat =  0.0/255.0
     var brush : CGFloat = 10.0
     var opacity : CGFloat = 1.0
     var viewSize : CGSize = CGSizeMake(0, 0)

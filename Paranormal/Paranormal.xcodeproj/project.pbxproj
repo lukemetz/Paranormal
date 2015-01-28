@@ -889,7 +889,7 @@
 		};
 		AD2D44971A389BE9004D1994 /* cocos2dJava.jar */ = {
 			isa = PBXReferenceProxy;
-			fileType = compiled.java.jar;
+			fileType = file;
 			path = cocos2dJava.jar;
 			remoteRef = AD2D44961A389BE9004D1994 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
