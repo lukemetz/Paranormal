@@ -62,6 +62,7 @@
 		ADAE53321A17E2AA007135C0 /* Tools.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE53301A17E2AA007135C0 /* Tools.xib */; };
 		ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53331A17E36D007135C0 /* ToolsViewController.swift */; };
 		ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53361A17E847007135C0 /* ChamferTool.swift */; };
+		ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */; };
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
@@ -296,6 +297,7 @@
 		ADAE53301A17E2AA007135C0 /* Tools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tools.xib; sourceTree = "<group>"; };
 		ADAE53331A17E36D007135C0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		ADAE53361A17E847007135C0 /* ChamferTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferTool.swift; sourceTree = "<group>"; };
+		ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerTests.swift; sourceTree = "<group>"; };
 		ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelsViewController.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
 				ADE87F4E19E9A9360041AAB5 /* Supporting Files */,
 				AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */,
+				ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */,
 			);
 			path = ParanormalTests;
 			sourceTree = "<group>";
@@ -886,7 +889,7 @@
 		};
 		AD2D44971A389BE9004D1994 /* cocos2dJava.jar */ = {
 			isa = PBXReferenceProxy;
-			fileType = compiled.java.jar;
+			fileType = file;
 			path = cocos2dJava.jar;
 			remoteRef = AD2D44961A389BE9004D1994 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1025,6 +1028,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
+				ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
 				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
