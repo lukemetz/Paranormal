@@ -20,7 +20,7 @@ public class DocumentController: NSDocumentController {
     }
 
     // Create a document with the url and switch to it.
-    func createDocumentFromUrl(baseUrl: NSURL) {
+    public func createDocumentFromUrl(baseUrl: NSURL) {
         var error : NSError?
         var document = self.makeUntitledDocumentOfType("Paranormal", error: &error)
             as Document

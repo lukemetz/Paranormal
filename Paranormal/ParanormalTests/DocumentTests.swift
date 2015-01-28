@@ -56,6 +56,18 @@ class DocumentTests: QuickSpec {
                     expect(document.currentColor.blueComponent).to(equal(1.0))
                 }
             }
+            describe ("Initialization on Import") {
+                it ("Imports a the bear image") {
+                    let documentController = DocumentController()
+                    let url = NSBundle(forClass: DocumentTests.self)
+                        .URLForResource("bear", withExtension: "png")
+                    documentController.createDocumentFromUrl(url!)
+                    expect(documentController.documents.count).to(equal(2))
+                    //import creates a second document
+                    let newDocument = documentController.documents[1] as? Document
+                    expect(newDocument?.documentSettings?.width).to(equal(161))
+                }
+            }
         }
     }
 }
