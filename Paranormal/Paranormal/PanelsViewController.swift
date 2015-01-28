@@ -2,13 +2,7 @@ import Foundation
 import Cocoa
 import AppKit
 
-class PanelsViewController: NSViewController {
-    var document: Document? {
-        didSet {
-            previewViewController?.document = document
-            colorPickerViewController?.document = document
-        }
-    }
+public class PanelsViewController: PNViewController {
 
     @IBOutlet weak var previewView: NSView!
     var previewViewController: PreviewViewController?
@@ -16,16 +10,16 @@ class PanelsViewController: NSViewController {
     @IBOutlet weak var colorPickerView: NSView!
     var colorPickerViewController: ColorPickerViewController?
 
-    override func loadView() {
+    override public func loadView() {
         super.loadView()
         previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
-        previewViewController?.document = document
+        subPNViewControllers.append(previewViewController)
         if let view = previewViewController?.view {
             ViewControllerUtils.insertSubviewIntoParent(previewView, child: view)
         }
 
         colorPickerViewController = ColorPickerViewController(nibName: "ColorPicker", bundle: nil)
-        colorPickerViewController?.document = document
+        subPNViewControllers.append(colorPickerViewController)
         if let view = colorPickerViewController?.view {
             ViewControllerUtils.insertSubviewIntoParent(colorPickerView, child: view)
         }

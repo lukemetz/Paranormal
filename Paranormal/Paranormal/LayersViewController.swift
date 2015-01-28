@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 
-class LayersViewController : NSViewController {
+class LayersViewController : PNViewController {
     weak var context : NSManagedObjectContext?
     @IBOutlet var treeController: NSTreeController!
 
@@ -20,7 +20,7 @@ class LayersViewController : NSViewController {
         super.init()
     }
 
-    required init?(coder: NSCoder) {
+    required override init?(coder: NSCoder) {
         super.init(coder:coder)
     }
 

@@ -2,9 +2,7 @@ import Foundation
 import Cocoa
 import AppKit
 
-class ToolsViewController: NSViewController {
-    var document: Document?
-
+public class ToolsViewController: PNViewController {
     @IBAction func chamferPressed(sender: NSButton) {
         let chamfer = ChamferTool()
         if let doc = document {

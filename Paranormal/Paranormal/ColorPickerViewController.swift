@@ -3,8 +3,7 @@ import Cocoa
 import AppKit
 import Darwin
 
-public class ColorPickerViewController: NSViewController {
-    public var document: Document?
+public class ColorPickerViewController: PNViewController {
     public var deg: Float32 = 0 {
         didSet(value) {
             updateColorOnDocument()
