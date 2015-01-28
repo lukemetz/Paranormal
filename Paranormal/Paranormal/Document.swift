@@ -75,36 +75,34 @@ public class Document: NSPersistentDocument {
     // TODO cache this
     var baseImage : NSImage? {
         if let path = documentSettings?.baseImage {
-            let image = NSImage(contentsOfFile: path)
-            if image == nil {
-                log.error("Tried to create image from path" + path + " but failed")
-                return nil
+            if let image = NSImage(contentsOfFile: path) {
+                return image
             }
-            return image
-        } else {
-            log.info("No base image specified. Using blank image.")
-            // If there is no base image, try to make a gray image.
-            if let docSettings = documentSettings? {
-                let width = docSettings.width
-                let height = docSettings.height
-
-                let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
-                let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-
-                var context = CGBitmapContextCreate(nil, UInt(width),
-                    UInt(height), 8, 0, colorSpace, bitmapInfo)
-                let color = CGColorCreateGenericRGB(0.9, 0.5, 0.5, 1.0)
-                CGContextSetFillColorWithColor(context, color)
-                let rect = CGRectMake(0, 0, CGFloat(height), CGFloat(width))
-                CGContextFillRect(context, rect)
-                let cgImage = CGBitmapContextCreateImage(context)
-
-                let size = NSSize(width: CGFloat(width), height: CGFloat(height))
-                return NSImage(CGImage: cgImage, size:size)
-            }
+            log.info("Tried to create image from path" + path + " but failed. Using default image.")
         }
+        // If there is no base image, try to make a gray image.
+        if let docSettings = documentSettings? {
+            let width = docSettings.width
+            let height = docSettings.height
 
-        return nil
+            let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+            var context = CGBitmapContextCreate(nil, UInt(width),
+                UInt(height), 8, 0, colorSpace, bitmapInfo)
+            let color = CGColorCreateGenericRGB(0.5, 0.5, 0.5, 1.0)
+            CGContextSetFillColorWithColor(context, color)
+            let rect = CGRectMake(0, 0, CGFloat(height), CGFloat(width))
+            CGContextFillRect(context, rect)
+            let cgImage = CGBitmapContextCreateImage(context)
+
+            let size = NSSize(width: CGFloat(width), height: CGFloat(height))
+            return NSImage(CGImage: cgImage, size:size)
+        }
+        else {
+            log.error("Failed to initialize document")
+            return nil
+        }
     }
 
     override init() {
