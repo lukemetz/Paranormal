@@ -51,7 +51,7 @@ class DocumentTests: QuickSpec {
                     expect(layers?.count).to(equal(1))
                 }
                 it("sets brush color to ZUP"){
-                    expect(document.currentColor.redComponent).to(equal(0.5))
+                expect(document.currentColor.redComponent).to(equal(0.5))
                     expect(document.currentColor.greenComponent).to(equal(0.5))
                     expect(document.currentColor.blueComponent).to(equal(1.0))
                 }
