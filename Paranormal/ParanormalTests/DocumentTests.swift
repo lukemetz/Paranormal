@@ -5,19 +5,19 @@ import Nimble
 class DocumentTests: QuickSpec {
     override func spec() {
         describe("Document") {
-            describe("Initialization") {
+            describe("initialization") {
                 var document : Document!
 
                 beforeEach {
                     document = Document(type: "Paranormal", error: nil)!
                 }
 
-                it("Does not leave anything in the undo stack") {
+                it("does not leave anything in the undo stack") {
                     document.windowControllerDidLoadNib(NSWindowController())
                     expect(document.undoManager?.canUndo).to(beFalsy())
                 }
 
-                it("Creates 1 Refraction entity") {
+                it("creates 1 Refraction entity") {
                     let refractionFetch = NSFetchRequest(entityName: "Refraction")
                     let refractionResult : NSArray? =
                         document.managedObjectContext
@@ -25,14 +25,14 @@ class DocumentTests: QuickSpec {
                     expect(refractionResult?.count).to(equal(1))
                 }
 
-                it("Creates 1 DocumentSettings entity") {
+                it("creates 1 DocumentSettings entity") {
                     let documentFetch = NSFetchRequest(entityName: "DocumentSettings")
                     let documentResult : NSArray? =
                     document.managedObjectContext.executeFetchRequest(documentFetch, error: nil)
                     expect(documentResult?.count).to(equal(1))
                 }
 
-                it("Creates 1 default layer entity") {
+                it("creates 1 default layer entity") {
                     let layerFetch = NSFetchRequest(entityName: "Layer")
                     let layerResult : NSArray? =
                     document.managedObjectContext.executeFetchRequest(layerFetch, error: nil)
@@ -40,7 +40,7 @@ class DocumentTests: QuickSpec {
                     expect(layerResult?.count).to(equal(2))
                 }
 
-                it("Check number of sublayers") {
+                it("checks number of sublayers") {
                     // TODO fix this so it takes advantage of subclasses
                     // Currently the test environment can do these dynamic casts from
                     // managedObjects to subclasses.
@@ -52,6 +52,11 @@ class DocumentTests: QuickSpec {
                     let layers = rootLayer.valueForKey("layers") as NSOrderedSet
 
                     expect(layers.count).to(equal(1))
+                }
+                it("sets brush color to ZUP"){
+                    expect(document.currentColor.redComponent).to(equal(0.5))
+                    expect(document.currentColor.greenComponent).to(equal(0.5))
+                    expect(document.currentColor.blueComponent).to(equal(1.0))
                 }
             }
         }

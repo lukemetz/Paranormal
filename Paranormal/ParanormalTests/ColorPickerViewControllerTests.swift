@@ -3,25 +3,26 @@ import Quick
 import Nimble
 
 class ColorPickerViewControllerTests: QuickSpec {
+
     override func spec() {
         describe("ColorPickerViewController") {
             func expectColorNear(color1: NSColor, color2: NSColor) {
+                let e = 0.00001
                 let r1 = Float(color1.redComponent)
                 let r2 = Float(color2.redComponent)
-                XCTAssertEqualWithAccuracy(r1, r2, 1e-5, "red component")
+                expect(r1).to(beCloseTo(r2, within: e))
 
                 let g1 = Float(color1.greenComponent)
                 let g2 = Float(color2.greenComponent)
-                XCTAssertEqualWithAccuracy(g1, g2, 1e-5, "green component")
-
+                expect(g1).to(beCloseTo(g2, within: e))
 
                 let b1 = Float(color1.blueComponent)
                 let b2 = Float(color2.blueComponent)
-                XCTAssertEqualWithAccuracy(b1, b2, 1e-5, "blue component")
+                expect(b1).to(beCloseTo(b2, within: e))
 
                 let a1 = Float(color1.alphaComponent)
                 let a2 = Float(color2.alphaComponent)
-                XCTAssertEqualWithAccuracy(a1, a2, 1e-5, "alpha component")
+                expect(a1).to(beCloseTo(a2, within: e))
             }
 
             it("converts colors from pitch direction to rgb") {

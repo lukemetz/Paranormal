@@ -549,6 +549,13 @@
 			name = GPUImageShaders;
 			sourceTree = "<group>";
 		};
+		ADABDABB1A7943B300B1B17A /* EditorTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = EditorTests;
+			sourceTree = "<group>";
+		};
 		ADAE532D1A17E27D007135C0 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +662,7 @@
 		ADE87F4D19E9A9360041AAB5 /* ParanormalTests */ = {
 			isa = PBXGroup;
 			children = (
+				ADABDABB1A7943B300B1B17A /* EditorTests */,
 				AD2CDA181A70292A007CA3B7 /* libs */,
 				AD9454A81A3CDE2D008CD31F /* Panels */,
 				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
@@ -886,7 +894,7 @@
 		};
 		AD2D44971A389BE9004D1994 /* cocos2dJava.jar */ = {
 			isa = PBXReferenceProxy;
-			fileType = compiled.java.jar;
+			fileType = file;
 			path = cocos2dJava.jar;
 			remoteRef = AD2D44961A389BE9004D1994 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
