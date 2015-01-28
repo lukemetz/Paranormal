@@ -16,7 +16,7 @@ public class Document: NSPersistentDocument {
         return rootLayer?.layers.objectAtIndex(0) as Layer?
     }
 
-    var documentSettings : DocumentSettings? {
+    public var documentSettings : DocumentSettings? {
         let fetch = NSFetchRequest(entityName: "DocumentSettings")
         var error : NSError?
         let documentSettings = managedObjectContext.executeFetchRequest(fetch, error: &error)
