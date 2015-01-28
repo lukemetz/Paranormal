@@ -11,8 +11,19 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         super.init()
     }
 
+    func removeLastItemFromEdit(selectorName : String) {
+        var edit = NSApplication.sharedApplication().mainMenu?.itemWithTitle("Edit")
+        if let count = edit?.submenu?.numberOfItems {
+            let lastItem = edit?.submenu?.itemAtIndex(count - 1)
+            if lastItem?.action == NSSelectorFromString(selectorName) {
+                edit?.submenu?.removeItemAtIndex(count - 1)
+            }
+        }
+    }
     public func applicationDidFinishLaunching(aNotification: NSNotification) {
         // At this point, the main menu is automatically loaded
+        self.removeLastItemFromEdit("orderFrontCharacterPalette:")
+        self.removeLastItemFromEdit("startDictation:")
     }
 
     public func applicationWillTerminate(aNotification: NSNotification) {
