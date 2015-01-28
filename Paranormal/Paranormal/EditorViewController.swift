@@ -3,7 +3,7 @@ import Cocoa
 import AppKit
 import CoreGraphics
 
-class EditorViewController : NSViewController {
+public class EditorViewController : PNViewController {
 
     @IBOutlet weak var editor: NSImageView!
     @IBOutlet weak var tempEditor: NSImageView!
@@ -17,7 +17,7 @@ class EditorViewController : NSViewController {
     var opacity : CGFloat = 1.0
     var viewSize : CGSize = CGSizeMake(0, 0)
 
-    var document: Document? {
+    override public var document: Document? {
         didSet {
             if editor != nil {
                 updateEditorWithDocument()
@@ -49,7 +49,7 @@ class EditorViewController : NSViewController {
         }
     }
 
-    override func loadView() {
+    override public func loadView() {
         super.loadView()
         updateEditorWithDocument()
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -95,7 +95,7 @@ class EditorViewController : NSViewController {
         return point
     }
 
-    override func mouseDown(theEvent: NSEvent) {
+    override public func mouseDown(theEvent: NSEvent) {
         mouseSwiped = false
 
         var locationInWindow = theEvent.locationInWindow
@@ -107,7 +107,7 @@ class EditorViewController : NSViewController {
         CGContextFillRect(tempContext, CGRectMake(0, 0, viewSize.width, viewSize.height))
     }
 
-    override func mouseDragged(theEvent: NSEvent) {
+    override public func mouseDragged(theEvent: NSEvent) {
         mouseSwiped = true
 
         var locationInWindow = theEvent.locationInWindow
@@ -121,7 +121,7 @@ class EditorViewController : NSViewController {
         lastPoint = currentPoint
     }
 
-    override func mouseUp(theEvent: NSEvent) {
+    override public func mouseUp(theEvent: NSEvent) {
         let currentPoint : CGPoint = pointToContext(theEvent.locationInWindow)
 
         drawLine(tempContext, currentPoint: currentPoint)
