@@ -20,7 +20,7 @@ public class DocumentController: NSDocumentController {
     }
 
     // Create a document with the url and switch to it.
-    func createDocumentFromUrl(baseUrl: NSURL) {
+    func createDocumentFromUrl(baseUrl: NSURL?) {
         var error : NSError?
         var document = self.makeUntitledDocumentOfType("Paranormal", error: &error)
             as Document
@@ -28,8 +28,7 @@ public class DocumentController: NSDocumentController {
             let alert = NSAlert(error: actualError)
             alert.runModal()
         }
-
-        document.documentSettings?.baseImage = baseUrl.path
+        document.documentSettings?.baseImage = baseUrl?.path
 
         let filter = ZUpInitializeFilter()
         if let image = document.baseImage {
