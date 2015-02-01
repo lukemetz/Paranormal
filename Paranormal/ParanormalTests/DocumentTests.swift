@@ -57,13 +57,11 @@ class DocumentTests: QuickSpec {
                 }
             }
             describe ("Initialization on Import") {
-                xit ("Imports a the bear image") {
+                it ("Imports a the bear image") {
                     let documentController = DocumentController()
                     let url = NSBundle(forClass: DocumentTests.self)
                         .URLForResource("bear", withExtension: "png")
 
-                        //.URLForResource("bear", withExtension: "png")
-                    //let url = NSBundle(forClass: DocumentTests.self).url
                     documentController.createDocumentFromUrl(url!)
                     expect(documentController.documents.count).to(equal(2))
                     //import creates a second document
