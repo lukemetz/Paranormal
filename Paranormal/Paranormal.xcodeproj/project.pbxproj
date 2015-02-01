@@ -42,6 +42,14 @@
 		AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */; };
+		AD85C67E1A7EBD6400DAE66F /* brick.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD85C6741A7EBD6400DAE66F /* brick.jpeg */; };
+		AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C6751A7EBD6400DAE66F /* gem-normal.png */; };
+		AD85C6801A7EBD6400DAE66F /* stone_normal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD85C6761A7EBD6400DAE66F /* stone_normal.jpg */; };
+		AD85C6811A7EBD6400DAE66F /* Worn Temple Wall - (Normal Map).png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C6771A7EBD6400DAE66F /* Worn Temple Wall - (Normal Map).png */; };
+		AD85C6821A7EBD6400DAE66F /* bear.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C6791A7EBD6400DAE66F /* bear.png */; };
+		AD85C6831A7EBD6400DAE66F /* gem-diffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C67A1A7EBD6400DAE66F /* gem-diffuse.png */; };
+		AD85C6841A7EBD6400DAE66F /* gem-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C67B1A7EBD6400DAE66F /* gem-empty.png */; };
+		AD85C6851A7EBD6400DAE66F /* olinO.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C67C1A7EBD6400DAE66F /* olinO.png */; };
 		AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* DocumentCreation.xib */; };
 		AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8757E219FC2C760057B456 /* DocumentCreationController.swift */; };
 		AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */; };
@@ -278,6 +286,14 @@
 		AD7C0D3219FB24E800A58201 /* DocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		AD83DDB619F81EA5004EAA77 /* Refraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refraction.swift; sourceTree = "<group>"; };
 		AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
+		AD85C6741A7EBD6400DAE66F /* brick.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brick.jpeg; sourceTree = "<group>"; };
+		AD85C6751A7EBD6400DAE66F /* gem-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gem-normal.png"; sourceTree = "<group>"; };
+		AD85C6761A7EBD6400DAE66F /* stone_normal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stone_normal.jpg; sourceTree = "<group>"; };
+		AD85C6771A7EBD6400DAE66F /* Worn Temple Wall - (Normal Map).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Worn Temple Wall - (Normal Map).png"; sourceTree = "<group>"; };
+		AD85C6791A7EBD6400DAE66F /* bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bear.png; path = ../../bear.png; sourceTree = "<group>"; };
+		AD85C67A1A7EBD6400DAE66F /* gem-diffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gem-diffuse.png"; sourceTree = "<group>"; };
+		AD85C67B1A7EBD6400DAE66F /* gem-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gem-empty.png"; sourceTree = "<group>"; };
+		AD85C67C1A7EBD6400DAE66F /* olinO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = olinO.png; sourceTree = "<group>"; };
 		AD8757DE19FC22C20057B456 /* DocumentCreation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentCreation.xib; sourceTree = "<group>"; };
 		AD8757E219FC2C760057B456 /* DocumentCreationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCreationController.swift; sourceTree = "<group>"; };
 		AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSettings.swift; sourceTree = "<group>"; };
@@ -460,6 +476,45 @@
 			path = Layers;
 			sourceTree = "<group>";
 		};
+		AD85C6621A7EBD3800DAE66F /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				AD85C6731A7EBD6400DAE66F /* Normal */,
+				AD85C6781A7EBD6400DAE66F /* Diffuse */,
+				AD85C67D1A7EBD6400DAE66F /* Background */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
+		AD85C6731A7EBD6400DAE66F /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				AD85C6741A7EBD6400DAE66F /* brick.jpeg */,
+				AD85C6751A7EBD6400DAE66F /* gem-normal.png */,
+				AD85C6761A7EBD6400DAE66F /* stone_normal.jpg */,
+				AD85C6771A7EBD6400DAE66F /* Worn Temple Wall - (Normal Map).png */,
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		AD85C6781A7EBD6400DAE66F /* Diffuse */ = {
+			isa = PBXGroup;
+			children = (
+				AD85C6791A7EBD6400DAE66F /* bear.png */,
+				AD85C67A1A7EBD6400DAE66F /* gem-diffuse.png */,
+				AD85C67B1A7EBD6400DAE66F /* gem-empty.png */,
+				AD85C67C1A7EBD6400DAE66F /* olinO.png */,
+			);
+			path = Diffuse;
+			sourceTree = "<group>";
+		};
+		AD85C67D1A7EBD6400DAE66F /* Background */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
 		AD898B8819FC78AB000FF6AF /* DocumentModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +671,7 @@
 				ADA963341A0C734F00AF22EB /* GPUImageShaders */,
 				ADA963331A0C6E6100AF22EB /* Resources */,
 				AD898B8819FC78AB000FF6AF /* DocumentModels */,
+				AD85C6621A7EBD3800DAE66F /* Examples */,
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
 				ADE87F3619E9A9350041AAB5 /* Info.plist */,
@@ -920,22 +976,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */,
 				AD04E9831A7EAC03007A717C /* checker.png in Resources */,
+				AD85C6821A7EBD6400DAE66F /* bear.png in Resources */,
 				AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
+				AD85C6801A7EBD6400DAE66F /* stone_normal.jpg in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
 				ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */,
 				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADFCB80B1A3923220016A49B /* light64.png in Resources */,
 				ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */,
+				AD85C6811A7EBD6400DAE66F /* Worn Temple Wall - (Normal Map).png in Resources */,
 				AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
+				AD85C6831A7EBD6400DAE66F /* gem-diffuse.png in Resources */,
+				AD85C67E1A7EBD6400DAE66F /* brick.jpeg in Resources */,
 				ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */,
+				AD85C6841A7EBD6400DAE66F /* gem-empty.png in Resources */,
 				AD70F96F1A33847300141A64 /* Panels.xib in Resources */,
 				ADAE53311A17E2AA007135C0 /* Tools.xib in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				AD6649841A32B4C500B52295 /* BlendReorientedNormals.fsh in Resources */,
 				AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */,
+				AD85C6851A7EBD6400DAE66F /* olinO.png in Resources */,
 				ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */,
 				ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */,
 			);
