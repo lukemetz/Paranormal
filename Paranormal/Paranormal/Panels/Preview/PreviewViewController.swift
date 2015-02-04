@@ -2,11 +2,11 @@ import Foundation
 import Appkit
 import GPUImage
 
-class PreviewViewController : NSViewController, PreviewViewDelegate {
+class PreviewViewController : PNViewController, PreviewViewDelegate {
     @IBOutlet weak var glView: PreviewView!
 
     var scene : PreviewScene?
-    var document : Document? {
+    override var document : Document? {
         didSet {
             updateComputedEditorImage(nil)
             updateCoreData(nil)

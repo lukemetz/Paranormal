@@ -5,13 +5,15 @@ public class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var mainView: NSView!
 
     @IBOutlet weak var panelsView: NSView!
-    var panelsViewController: PanelsViewController?
+    public var panelsViewController: PanelsViewController?
 
     @IBOutlet weak var toolsView: NSView!
-    var toolsViewController: ToolsViewController?
+    public var toolsViewController: ToolsViewController?
 
     @IBOutlet weak var editorView: NSView!
-    var editorViewController: EditorViewController?
+    public var editorViewController: EditorViewController?
+
+    var childViewControllers : [PNViewController?] = []
 
     override init(window: NSWindow?) {
         super.init(window:window)
@@ -23,30 +25,46 @@ public class WindowController: NSWindowController, NSWindowDelegate {
 
     override public func windowDidLoad() {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
-        editorViewController?.document = document as? Document
+        childViewControllers.append(editorViewController)
         if let view = editorViewController?.view {
-            ViewControllerUtils.insertSubviewIntoParent(editorView, child: view)
+            if editorView != nil {
+                ViewControllerUtils.insertSubviewIntoParent(editorView, child: view)
+            }
         }
 
         toolsViewController = ToolsViewController(nibName: "Tools", bundle: nil)
-        toolsViewController?.document = document as? Document
+        childViewControllers.append(toolsViewController)
         if let view = toolsViewController?.view {
-            ViewControllerUtils.insertSubviewIntoParent(toolsView, child: view)
+            if toolsView != nil {
+                ViewControllerUtils.insertSubviewIntoParent(toolsView, child: view)
+            }
         }
 
         panelsViewController = PanelsViewController(nibName: "Panels", bundle: nil)
-        panelsViewController?.document = document as? Document
-        if let view = panelsViewController?.view{
-            ViewControllerUtils.insertSubviewIntoParent(panelsView, child: view)
+        childViewControllers.append(panelsViewController)
+        if let view = panelsViewController?.view {
+            if panelsView != nil {
+                ViewControllerUtils.insertSubviewIntoParent(panelsView, child: view)
+            }
         }
+
+        setDocumentOnChildren()
     }
 
     required public init?(coder:NSCoder) {
         super.init(coder: coder)
     }
 
-    override init() {
+    override public init() {
         super.init()
+    }
+
+    func setDocumentOnChildren() {
+        if let doc = document as? Document {
+            for child in childViewControllers {
+                child?.document = doc
+            }
+        }
     }
 
     override public var document : AnyObject? {
@@ -54,11 +72,7 @@ public class WindowController: NSWindowController, NSWindowDelegate {
         // we are using a single window
         set(document) {
             super.document = document
-            if let doc = document as? Document {
-                editorViewController?.document = doc
-                toolsViewController?.document = doc
-                panelsViewController?.document = doc
-            }
+            setDocumentOnChildren()
         }
 
         get {
