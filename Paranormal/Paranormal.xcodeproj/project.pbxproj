@@ -70,6 +70,7 @@
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
+		ADB489EC1A829D12007C1412 /* PreviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB489EB1A829D12007C1412 /* PreviewViewControllerTests.swift */; };
 		ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */; };
 		ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
 		ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
@@ -311,6 +312,7 @@
 		ADAE53331A17E36D007135C0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		ADAE53361A17E847007135C0 /* ChamferTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferTool.swift; sourceTree = "<group>"; };
 		ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		ADB489EB1A829D12007C1412 /* PreviewViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewControllerTests.swift; sourceTree = "<group>"; };
 		ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerTests.swift; sourceTree = "<group>"; };
 		ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelsViewController.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 		AD9454A81A3CDE2D008CD31F /* Panels */ = {
 			isa = PBXGroup;
 			children = (
+				ADB489EA1A829D12007C1412 /* Preview */,
 				AD9454A91A3CDE38008CD31F /* ToolSettings */,
 			);
 			path = Panels;
@@ -592,6 +595,14 @@
 				AD66498C1A32BBCD00B52295 /* NoiseTool.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		ADB489EA1A829D12007C1412 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				ADB489EB1A829D12007C1412 /* PreviewViewControllerTests.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		ADBC406C1A2A7E700033B7C7 /* DocumentModels */ = {
@@ -1077,6 +1088,7 @@
 			files = (
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
 				ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */,
+				ADB489EC1A829D12007C1412 /* PreviewViewControllerTests.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
 				AD3BA2BD1A79779300C42D8C /* WindowControllerTests.swift in Sources */,
 				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
