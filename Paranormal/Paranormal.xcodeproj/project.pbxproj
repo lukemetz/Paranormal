@@ -28,6 +28,7 @@
 		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
 		AD3BCEC51A74769500747A1A /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */; };
 		AD3BCEC61A74770200747A1A /* DepthToNormalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */; };
+		AD5274E41A7972EA00EB8CFD /* PreviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5274E31A7972EA00EB8CFD /* PreviewViewControllerTests.swift */; };
 		AD54AF7F1A38A00700450175 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D44991A389BE9004D1994 /* libcocos2d-mac.a */; };
 		AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6295791A420615001252BC /* ZUpInitializeFilter.swift */; };
 		AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6295791A420615001252BC /* ZUpInitializeFilter.swift */; };
@@ -272,6 +273,7 @@
 		AD2CDA1F1A70293F007CA3B7 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = libs/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AD2CDA2E1A702954007CA3B7 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = libs/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AD2D44871A389BE8004D1994 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "libs/cocos2d-swift/cocos2d.xcodeproj"; sourceTree = "<group>"; };
+		AD5274E31A7972EA00EB8CFD /* PreviewViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewControllerTests.swift; sourceTree = "<group>"; };
 		AD55F0FB1A38943400BC3E1B /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = libs/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
 		AD6295791A420615001252BC /* ZUpInitializeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZUpInitializeFilter.swift; sourceTree = "<group>"; };
 		AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorientedNormals.fsh; sourceTree = "<group>"; };
@@ -411,6 +413,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AD5274D21A7972BE00EB8CFD /* PreviewTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD5274E31A7972EA00EB8CFD /* PreviewViewControllerTests.swift */,
+			);
+			name = PreviewTests;
+			sourceTree = "<group>";
+		};
 		AD55F0FC1A38943400BC3E1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +490,7 @@
 		AD9454A81A3CDE2D008CD31F /* Panels */ = {
 			isa = PBXGroup;
 			children = (
+				AD5274D21A7972BE00EB8CFD /* PreviewTests */,
 				AD9454A91A3CDE38008CD31F /* ToolSettings */,
 			);
 			name = Panels;
@@ -1036,6 +1047,7 @@
 				AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */,
 				ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */,
 				AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,
+				AD5274E41A7972EA00EB8CFD /* PreviewViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
