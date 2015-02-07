@@ -10,6 +10,8 @@
 #define Paranormal_Paranormal_Bridging_Header_h
 
 #define CC_EFFECTS_EXPERIMENTAL 1
+//#define CC_DIRECTOR_MAC_THREAD CC_MAC_USE_OWN_THREAD
+
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 

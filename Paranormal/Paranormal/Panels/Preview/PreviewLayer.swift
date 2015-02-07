@@ -6,16 +6,17 @@ class PreviewLayer: CCNode {
     var viewSize: CGSize
     var effect: CCEffectLighting?
 
-    override init() {
-        viewSize = CCDirector.sharedDirector().viewSize()
+    init(viewSize : NSSize) {
+        self.viewSize = viewSize
         super.init()
         userInteractionEnabled = true
-        createStaticExample()
+        ThreadUtils.runCocos { () -> Void in
+            self.createStaticExample()
+        }
     }
 
-    func spriteFrameForImage(image : NSImage) -> CCSpriteFrame! {
-        let source = CGImageSourceCreateWithData(image.TIFFRepresentation, nil)
-        let img = CGImageSourceCreateImageAtIndex(source, 0, nil)
+    private func spriteFrameForImage(image : NSImage) -> CCSpriteFrame! {
+        let img = image.CGImageForProposedRect(nil, context: nil, hints: nil)?.takeUnretainedValue()
 
         let texture : CCTexture = CCTexture(CGImage: img, contentScale: 1.0)
         let rect = CGRectMake(0.0, 0.0, image.size.width, image.size.height)
@@ -25,15 +26,16 @@ class PreviewLayer: CCNode {
     }
 
     func updateNormalMap(image : NSImage) {
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        ThreadUtils.runCocos { () -> Void in
             if let sprite = self.sprite? {
-                sprite.normalMapSpriteFrame = self.spriteFrameForImage(image)
+                let frame = self.spriteFrameForImage(image)
+                sprite.normalMapSpriteFrame = frame
             }
         }
     }
 
     func updateBaseImage(image : NSImage) {
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        ThreadUtils.runCocos { () -> Void in
             if let sprite = self.sprite? {
                 sprite.texture = self.spriteFrameForImage(image).texture
             }

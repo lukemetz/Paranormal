@@ -31,9 +31,10 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    func mergeTwoNormals(# base: NSImage, detail: NSImage) -> NSImage? {
-        // Apply the filter
-        let blend = BlendReorientedNormalsFilter()
+    private func mergeTwoNormals(# base: NSImage, detail: NSImage) -> NSImage? {
+        // TODO better compiling of layers.
+        let blend = BlendAddFilter()
+        //let blend = BlendReorientedNormalsFilter()
         let baseSource = GPUImagePicture(image: base)
         baseSource.addTarget(blend)
 
@@ -43,11 +44,10 @@ public class Document: NSPersistentDocument {
         blend.useNextFrameForImageCapture()
         baseSource.processImage()
         detailSource.processImage()
-
         return blend.imageFromCurrentFramebuffer()
     }
 
-    func combineLayer(parentLayer: Layer?) -> NSImage? {
+    private func combineLayer(parentLayer: Layer?) -> NSImage? {
         var accum : NSImage? = nil
         for layer in (parentLayer?.layers.array as [Layer]) {
             if accum == nil {
@@ -158,7 +158,7 @@ public class Document: NSPersistentDocument {
     }
 
     func updateCoreData(notification: NSNotification) {
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        ThreadUtils.runGPUImage { () -> Void in
             self.computedEditorImage = self.combineLayer(self.rootLayer)
         }
     }
