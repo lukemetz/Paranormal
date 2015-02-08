@@ -28,18 +28,18 @@ class PreviewLayer: CCNode {
 
     func updateNormalMap(image : NSImage) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            if let sprite = previewSprite? {
-                sprite.normalMapSpriteFrame = self.spriteFrameForImage(image)
+            if let sprite = self.previewSprite? {
+                sprite.normalMapSpriteFrame = PreviewLayer.spriteFrameForImage(image)
             } else {
-                initializeSprite(sprite)
+                self.initializeSprite(self.previewSprite)
             }
         }
     }
 
     func updateBaseImage(image : NSImage) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            if let sprite = previewSprite? {
-                sprite.texture = self.spriteFrameForImage(image).texture
+            if let sprite = self.previewSprite? {
+                sprite.texture = PreviewLayer.spriteFrameForImage(image).texture
             }
         }
     }
@@ -48,7 +48,7 @@ class PreviewLayer: CCNode {
 
     }
     
-    func initializeSprite(CCSprite newSprite) {
+    func initializeSprite(newSprite : CCSprite) {
         newSprite.position = CGPointMake(viewSize.width/2, viewSize.height/2)
         
     }
@@ -65,15 +65,15 @@ class PreviewLayer: CCNode {
 
         var normalMap: CCSpriteFrame = CCSpriteFrame(
             textureFilename:"gem-normal.png",
-            rectInPixels: CGRectMake(0, 0, sprite.contentSize.width, sprite.contentSize.height),
+            rectInPixels: CGRectMake(0, 0, previewSprite.contentSize.width, previewSprite.contentSize.height),
             rotated: false, offset: CGPointMake(0, 0), originalSize: viewSize)
         previewSprite.normalMapSpriteFrame = normalMap
 
-        resizeSpriteWithoutWarp(previewSprite, toWidth:Float(viewSize.width) - 50,
+        PreviewLayer.resizeSpriteWithoutWarp(previewSprite, toWidth:Float(viewSize.width) - 50,
             toHeight:Float(viewSize.height) - 50)
 
         var background: CCSprite = CCSprite(imageNamed:"checker.png")
-        resizeSprite(background, toWidth:Float(viewSize.width*2),
+        PreviewLayer.resizeSprite(background, toWidth:Float(viewSize.width*2),
             toHeight:Float(viewSize.height*2))
 
         let groups = ["group_name"]
@@ -84,7 +84,7 @@ class PreviewLayer: CCNode {
 
         let lightContainer = CCNode()
         lightContainer.position = CGPointMake(
-            previewSprite.contentSize.width/2, sprite.contentSize.height/2)
+            previewSprite.contentSize.width/2, previewSprite.contentSize.height/2)
 
         lightContainer.addChild(light)
 
