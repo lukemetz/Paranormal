@@ -13,7 +13,11 @@ class ShadersCompileTest : QuickSpec {
                 let path = NSBundle(forClass:
                     ShadersCompileTest.self).pathForResource("blankImage", ofType: "png")
                 let image = NSImage(contentsOfFile: path!)
-                let res_img = filter.imageByFilteringImage(image)
+                let picture = GPUImagePicture(image: image)
+                picture.addTarget(filter)
+                filter.useNextFrameForImageCapture()
+                picture.processImage()
+                let res_img = filter.imageFromCurrentFramebuffer()
                 expect(res_img).toNot(beNil())
             }
 
@@ -49,7 +53,11 @@ class ShadersCompileTest : QuickSpec {
             }
 
             it("BlendReorientedNormals compiles") {
-                test_single_input("BlendReorientedNormals")
+                test_two_input("BlendReorientedNormals")
+            }
+
+            it("BlendAdd compiles") {
+                test_two_input("BlendAdd")
             }
 
             it("MultiplyMaxAlpha compiles") {

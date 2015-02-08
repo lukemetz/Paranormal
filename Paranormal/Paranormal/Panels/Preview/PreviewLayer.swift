@@ -6,18 +6,19 @@ class PreviewLayer: CCNode {
     var viewSize: CGSize
     var effect: CCEffectLighting?
 
-    override init() {
-        viewSize = CCDirector.sharedDirector().viewSize()
+    init(viewSize : NSSize) {
+        self.viewSize = viewSize
         super.init()
         userInteractionEnabled = true
-        initializeLayer()
-        addRotatingLight()
-        initializeStaticExample()
+        ThreadUtils.runCocos { () -> Void in
+            initializeLayer()
+            addRotatingLight()
+            initializeStaticExample()
+        }
     }
 
     class func spriteFrameForImage(image : NSImage) -> CCSpriteFrame! {
-        let source = CGImageSourceCreateWithData(image.TIFFRepresentation, nil)
-        let img = CGImageSourceCreateImageAtIndex(source, 0, nil)
+        let img = image.CGImageForProposedRect(nil, context: nil, hints: nil)?.takeUnretainedValue()
 
         let texture : CCTexture = CCTexture(CGImage: img, contentScale: 1.0)
         let rect = CGRectMake(0.0, 0.0, image.size.width, image.size.height)
@@ -27,9 +28,10 @@ class PreviewLayer: CCNode {
     }
 
     func updateNormalMap(image : NSImage) {
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        ThreadUtils.runCocos { () -> Void in
             if let sprite = self.previewSprite? {
                 sprite.normalMapSpriteFrame = PreviewLayer.spriteFrameForImage(image)
+                sprite.normalMapSpriteFrame = frame
             } else {
                 self.initializeSprite(self.previewSprite)
             }
@@ -37,7 +39,7 @@ class PreviewLayer: CCNode {
     }
 
     func updateBaseImage(image : NSImage) {
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        ThreadUtils.runCocos { () -> Void in
             if let sprite = self.previewSprite? {
                 sprite.texture = PreviewLayer.spriteFrameForImage(image).texture
             }
@@ -62,6 +64,8 @@ class PreviewLayer: CCNode {
     }
     
     func createStaticExample() {
+        sprite = CCSprite(imageNamed:"gem-diffuse.png")
+        sprite.position = CGPointMake(viewSize.width/2, viewSize.height/2)
 
         var normalMap: CCSpriteFrame = CCSpriteFrame(
             textureFilename:"gem-normal.png",

@@ -7,6 +7,7 @@ public class Layer : NSManagedObject{
     @NSManaged public var imageData : NSData?
     @NSManaged public var layers : NSMutableOrderedSet
     @NSManaged public var parent : Layer
+    @NSManaged public var blendMode : Int16
 
     override public init(entity: NSEntityDescription,
         insertIntoManagedObjectContext context: NSManagedObjectContext?) {
@@ -66,9 +67,63 @@ public class Layer : NSManagedObject{
             layer.visible = true
             let index = layers.count
             layers.insertObject(layer, atIndex: index)
+            layer.parent = self
             return layer
         } else {
             return nil
         }
     }
+
+    public func removeLayer(layer : Layer) {
+        self.layers.removeObject(layer)
+        managedObjectContext?
+            .deleteObject(layer)
+    }
+
+    public func createEditLayer() -> Layer? {
+        if let context = managedObjectContext {
+            let layerDescription = NSEntityDescription.entityForName("Layer",
+                inManagedObjectContext: context)!
+            let layer = Layer(entity: layerDescription,
+                insertIntoManagedObjectContext: managedObjectContext)
+            layer.name = "Edit Layer"
+            layer.visible = true
+            let index = parent.layers.indexOfObject(self)
+            parent.layers.insertObject(layer, atIndex: index+1)
+            return layer
+        } else {
+            return nil
+        }
+    }
+
+    // TODO test me with image data accessors
+    public func combineLayerOntoSelf(layer : Layer) {
+
+        if let image = layer.toImage() {
+            let size = image.size
+            func toContext(layer : Layer) -> CGContext {
+                let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+                let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+                let context = CGBitmapContextCreate(nil, UInt(size.width),
+                    UInt(size.height),  8,  0 , colorSpace, bitmapInfo)
+
+                layer.drawToContext(context)
+                return context
+            }
+
+            let context = toContext(self)
+
+            let cgImage = image.CGImageForProposedRect(nil, context: nil, hints: nil)
+            let rect = CGRectMake(0, 0, size.width, size.height)
+            if let cgImageUnwrap = cgImage {
+                CGContextDrawImage(context, rect, cgImageUnwrap.takeUnretainedValue())
+
+                self.updateFromContext(context)
+                return
+            }
+        }
+        log.error("Failed to combine layer due to unexpected optional value")
+    }
 }
+

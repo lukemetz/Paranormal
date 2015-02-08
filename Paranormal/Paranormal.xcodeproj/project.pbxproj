@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* ImageEditorView.swift */; };
+		0A27FC831A0564CF00999020 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* EditorView.swift */; };
 		0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
 		770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
 		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
@@ -21,6 +21,7 @@
 		AD2CDA431A7029DB007CA3B7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2CDA381A702954007CA3B7 /* Quick.framework */; };
 		AD2CDA441A7029E0007CA3B7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2CDA2B1A70293F007CA3B7 /* Nimble.framework */; };
 		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
+		AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */; };
 		AD3BA2811A796FB300C42D8C /* PNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BA2801A796FB300C42D8C /* PNViewController.swift */; };
 		AD3BA2931A7970F100C42D8C /* PNViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */; };
 		AD3BA2BD1A79779300C42D8C /* WindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */; };
@@ -40,6 +41,10 @@
 		AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A31A13C91800ABDD2A /* Editor.xib */; };
 		AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
 		AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */; };
+		AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7862F01A85CB3100BA1E10 /* BlendAddFilter.swift */; };
+		AD7863121A86736100BA1E10 /* MultiplyMaxAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */; };
+		AD7863131A86736300BA1E10 /* BlendAdd.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */; };
+		AD7863141A86736800BA1E10 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
 		AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C0D3219FB24E800A58201 /* DocumentController.swift */; };
 		AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
@@ -52,6 +57,7 @@
 		AD85C6841A7EBD6400DAE66F /* gem-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C67B1A7EBD6400DAE66F /* gem-empty.png */; };
 		AD85C6851A7EBD6400DAE66F /* olinO.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C67C1A7EBD6400DAE66F /* olinO.png */; };
 		AD85C6871A7EBFD300DAE66F /* bear.png in Resources */ = {isa = PBXBuildFile; fileRef = AD85C6861A7EBFD300DAE66F /* bear.png */; };
+		AD85C69D1A7EFF6000DAE66F /* ThreadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD85C69C1A7EFF6000DAE66F /* ThreadUtils.swift */; };
 		AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8757DE19FC22C20057B456 /* DocumentCreation.xib */; };
 		AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8757E219FC2C760057B456 /* DocumentCreationController.swift */; };
 		AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */; };
@@ -59,6 +65,8 @@
 		AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD969B1919F09B5300A2F718 /* WindowController.swift */; };
 		AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		AD969B2019F0C98800A2F718 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
+		AD9FDCD71A85BAB300C6D974 /* ThreadUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */; };
+		AD9FDCE81A85C07D00C6D974 /* BlendMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FDCE71A85C07D00C6D974 /* BlendMode.swift */; };
 		ADA963271A0C6A0000AF22EB /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
 		ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
 		ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
@@ -188,13 +196,6 @@
 			remoteGlobalIDString = D2FEB74F194F6C9E00FC0574;
 			remoteInfo = cocos2dAndroid;
 		};
-		AD2D44961A389BE9004D1994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD2D44871A389BE8004D1994 /* cocos2d.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5BF3267A195F8D8800D9A51A;
-			remoteInfo = cocos2dJava;
-		};
 		AD2D44981A389BE9004D1994 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AD2D44871A389BE8004D1994 /* cocos2d.xcodeproj */;
@@ -261,7 +262,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A27FC821A0564CF00999020 /* ImageEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
+		0A27FC821A0564CF00999020 /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		0AB813441A0129FE0032FD6E /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		7701312F1A0555A700C6CC9E /* PreviewScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewScene.swift; sourceTree = "<group>"; };
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
@@ -287,6 +288,8 @@
 		AD7699A31A13C91800ABDD2A /* Editor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Editor.xib; sourceTree = "<group>"; };
 		AD7699A51A13F2CE00ABDD2A /* Preview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preview.xib; sourceTree = "<group>"; };
 		AD7699A71A13F31100ABDD2A /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		AD7862F01A85CB3100BA1E10 /* BlendAddFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendAddFilter.swift; sourceTree = "<group>"; };
+		AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendAdd.fsh; sourceTree = "<group>"; };
 		AD7C0D3219FB24E800A58201 /* DocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		AD83DDB619F81EA5004EAA77 /* Refraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refraction.swift; sourceTree = "<group>"; };
 		AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
@@ -298,6 +301,7 @@
 		AD85C67B1A7EBD6400DAE66F /* gem-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gem-empty.png"; sourceTree = "<group>"; };
 		AD85C67C1A7EBD6400DAE66F /* olinO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = olinO.png; sourceTree = "<group>"; };
 		AD85C6861A7EBFD300DAE66F /* bear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bear.png; sourceTree = "<group>"; };
+		AD85C69C1A7EFF6000DAE66F /* ThreadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadUtils.swift; sourceTree = "<group>"; };
 		AD8757DE19FC22C20057B456 /* DocumentCreation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentCreation.xib; sourceTree = "<group>"; };
 		AD8757E219FC2C760057B456 /* DocumentCreationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCreationController.swift; sourceTree = "<group>"; };
 		AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSettings.swift; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 		AD969B1919F09B5300A2F718 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewSettings.xib; sourceTree = "<group>"; };
 		AD969B1F19F0C98800A2F718 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
+		AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadUtilsTest.swift; sourceTree = "<group>"; };
+		AD9FDCE71A85C07D00C6D974 /* BlendMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendMode.swift; sourceTree = "<group>"; };
 		ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImageMac.xcodeproj; path = libs/GPUImage/framework/GPUImageMac.xcodeproj; sourceTree = "<group>"; };
 		ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ZUpInitialize.fsh; sourceTree = "<group>"; };
 		ADAE53301A17E2AA007135C0 /* Tools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tools.xib; sourceTree = "<group>"; };
@@ -418,7 +424,6 @@
 			children = (
 				AD2D44931A389BE9004D1994 /* libcocos2d.a */,
 				AD2D44951A389BE9004D1994 /* libcocos2dAndroid.a */,
-				AD2D44971A389BE9004D1994 /* cocos2dJava.jar */,
 				AD2D44991A389BE9004D1994 /* libcocos2d-mac.a */,
 			);
 			name = Products;
@@ -449,7 +454,7 @@
 		AD7699A01A13C84900ABDD2A /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				0A27FC821A0564CF00999020 /* ImageEditorView.swift */,
+				0A27FC821A0564CF00999020 /* EditorView.swift */,
 				0AB813441A0129FE0032FD6E /* EditorViewController.swift */,
 				AD7699A31A13C91800ABDD2A /* Editor.xib */,
 			);
@@ -524,6 +529,7 @@
 				AD83DDB619F81EA5004EAA77 /* Refraction.swift */,
 				AD898B8B19FC78C4000FF6AF /* DocumentSettings.swift */,
 				ADE732ED1A0572C900A1C743 /* Layer.swift */,
+				AD9FDCE71A85C07D00C6D974 /* BlendMode.swift */,
 			);
 			path = DocumentModels;
 			sourceTree = "<group>";
@@ -579,6 +585,7 @@
 				ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */,
 				AD6649831A32B4C500B52295 /* BlendReorientedNormals.fsh */,
 				ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */,
+				AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */,
 			);
 			path = GPUImageShaders;
 			sourceTree = "<group>";
@@ -641,8 +648,9 @@
 			children = (
 				ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */,
 				ADE7B2FB1A1071F1005EDD11 /* ChamferFilter.swift */,
-				AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */,
 				AD6295791A420615001252BC /* ZUpInitializeFilter.swift */,
+				AD66498F1A32BBF700B52295 /* BlendReorientedNormalsFilter.swift */,
+				AD7862F01A85CB3100BA1E10 /* BlendAddFilter.swift */,
 			);
 			path = GPUImageFilters;
 			sourceTree = "<group>";
@@ -671,8 +679,8 @@
 			isa = PBXGroup;
 			children = (
 				ADAE532D1A17E27D007135C0 /* Tools */,
-				AD7699A01A13C84900ABDD2A /* Editor */,
 				AD76999D1A13C81300ABDD2A /* Panels */,
+				AD7699A01A13C84900ABDD2A /* Editor */,
 				ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */,
 				ADA963341A0C734F00AF22EB /* GPUImageShaders */,
 				ADA963331A0C6E6100AF22EB /* Resources */,
@@ -692,6 +700,7 @@
 				AD8757E219FC2C760057B456 /* DocumentCreationController.swift */,
 				AD8757DE19FC22C20057B456 /* DocumentCreation.xib */,
 				AD3BA2801A796FB300C42D8C /* PNViewController.swift */,
+				AD85C69C1A7EFF6000DAE66F /* ThreadUtils.swift */,
 			);
 			path = Paranormal;
 			sourceTree = "<group>";
@@ -709,6 +718,7 @@
 				ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */,
 				AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */,
 				AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */,
+				AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */,
 			);
 			path = ParanormalTests;
 			sourceTree = "<group>";
@@ -933,13 +943,6 @@
 			remoteRef = AD2D44941A389BE9004D1994 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AD2D44971A389BE9004D1994 /* cocos2dJava.jar */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.jar;
-			path = cocos2dJava.jar;
-			remoteRef = AD2D44961A389BE9004D1994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		AD2D44991A389BE9004D1994 /* libcocos2d-mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -982,6 +985,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */,
 				AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */,
 				AD04E9831A7EAC03007A717C /* checker.png in Resources */,
 				AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */,
@@ -1017,6 +1021,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
+				AD7863121A86736100BA1E10 /* MultiplyMaxAlpha.fsh in Resources */,
 				AD1F336419FC2DA800BBC4DC /* DocumentCreation.xib in Resources */,
 				AD66498B1A32BB6300B52295 /* DepthToNormal.fsh in Resources */,
 				ADAE53321A17E2AA007135C0 /* Tools.xib in Resources */,
@@ -1029,6 +1034,8 @@
 				ADFCB80C1A3923220016A49B /* light64.png in Resources */,
 				ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */,
 				ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */,
+				AD7863141A86736800BA1E10 /* MaskAlpha.fsh in Resources */,
+				AD7863131A86736300BA1E10 /* BlendAdd.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,6 +1049,7 @@
 				77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */,
 				ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */,
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
+				AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */,
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */,
 				AD898B8C19FC78C4000FF6AF /* DocumentSettings.swift in Sources */,
@@ -1056,6 +1064,7 @@
 				AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */,
 				AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */,
 				AD3BA2811A796FB300C42D8C /* PNViewController.swift in Sources */,
+				AD85C69D1A7EFF6000DAE66F /* ThreadUtils.swift in Sources */,
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
 				ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */,
 				772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */,
@@ -1065,7 +1074,8 @@
 				AD6649901A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
-				0A27FC831A0564CF00999020 /* ImageEditorView.swift in Sources */,
+				0A27FC831A0564CF00999020 /* EditorView.swift in Sources */,
+				AD9FDCE81A85C07D00C6D974 /* BlendMode.swift in Sources */,
 				AD66498D1A32BBCD00B52295 /* NoiseTool.swift in Sources */,
 				AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
 			);
@@ -1080,6 +1090,7 @@
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
 				AD3BA2BD1A79779300C42D8C /* WindowControllerTests.swift in Sources */,
 				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
+				AD9FDCD71A85BAB300C6D974 /* ThreadUtilsTest.swift in Sources */,
 				AD3BA2931A7970F100C42D8C /* PNViewControllerTests.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,

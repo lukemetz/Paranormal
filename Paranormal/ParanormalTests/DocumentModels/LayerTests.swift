@@ -53,45 +53,75 @@ class LayerTests: QuickSpec {
             layer.name = "dummy layer"
             return layer
         }
+        describe("updateFromContext and drawToContext") {
+            it("Can copy data to and from a context") {
+                let layer = dummyLayer()
 
-        it("Can copy data to and from a context") {
-            let layer = dummyLayer()
+                let colorSpace = CGColorSpaceCreateDeviceRGB()
+                let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+                var context = CGBitmapContextCreate(nil, 5, 5, 8, 0, colorSpace, bitmapInfo)
 
-            let colorSpace = CGColorSpaceCreateDeviceRGB()
-            let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-            var context = CGBitmapContextCreate(nil, 5, 5, 8, 0, colorSpace, bitmapInfo)
+                let originalData = layer.imageData?.copy() as NSData
 
-            let originalData = layer.imageData?.copy() as NSData
+                CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(1, 1, 1, 1))
+                CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
 
-            CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(1, 1, 1, 1))
-            CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
+                layer.drawToContext(context)
+                layer.updateFromContext(context)
+                expect(layer.imageData).to(equal(originalData))
 
-            layer.drawToContext(context)
-            layer.updateFromContext(context)
-            expect(layer.imageData).to(equal(originalData))
+                CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(1, 0, 1, 1))
+                CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
+                layer.updateFromContext(context)
 
-            CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(1, 0, 1, 1))
-            CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
-            layer.updateFromContext(context)
+                expect(layer.imageData).toNot(equal(originalData))
 
-            expect(layer.imageData).toNot(equal(originalData))
+                CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(0, 0, 1, 1))
+                CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
+                layer.updateFromContext(context)
 
-            CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(0, 0, 1, 1))
-            CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
-            layer.updateFromContext(context)
-
-            expect(layer.imageData).to(equal(originalData))
+                expect(layer.imageData).to(equal(originalData))
+            }
         }
 
-        it("Adds a layer correctly") {
-            let dummy = dummyLayer()
-            let layer = dummy.addLayer()
-            // The set up creates 1 default layer entity
-            let layerFetch = NSFetchRequest(entityName: "Layer")
-            let layerResult : NSArray? =
-            managedObjectContext.executeFetchRequest(layerFetch, error: nil)
-            expect(layerResult?.count).to(equal(2))
-            expect(dummy.layers.count).to(equal(1))
+        describe("addLayer") {
+            it("Adds a layer correctly") {
+                let dummy = dummyLayer()
+                let layer = dummy.addLayer()
+                // The set up creates 1 default layer entity
+                let layerFetch = NSFetchRequest(entityName: "Layer")
+                let layerResult : NSArray? =
+                managedObjectContext.executeFetchRequest(layerFetch, error: nil)
+                expect(layerResult?.count).to(equal(2))
+                expect(dummy.layers.count).to(equal(1))
+                expect(layer?.parent).to(equal(dummy))
+            }
+        }
+
+        describe("removeLayer") {
+            it("Removes a layer") {
+                let dummy = dummyLayer()
+                let layer = dummy.addLayer()
+                dummy.removeLayer(layer!)
+
+                let layerFetch = NSFetchRequest(entityName: "Layer")
+                let layerResult : NSArray? =
+                managedObjectContext.executeFetchRequest(layerFetch, error: nil)
+                expect(layerResult?.count).to(equal(1))
+                expect(dummy.layers.count).to(equal(0))
+            }
+        }
+
+        describe ("createEditLayer") {
+            it ("Should create a layer above the current layer") {
+                let dummy = dummyLayer()
+                let layer = dummy.addLayer()
+                let layer_after = dummy.addLayer()
+                expect(dummy.layers.count).to(equal(2))
+                let editLayer = layer?.createEditLayer()
+                expect(dummy.layers.count).to(equal(3))
+                expect(dummy.layers.indexOfObject(editLayer!)).to(equal(1))
+            }
         }
     }
 }
