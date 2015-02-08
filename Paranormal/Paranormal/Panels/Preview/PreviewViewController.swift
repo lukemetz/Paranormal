@@ -27,23 +27,27 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
     }
 
     func updateComputedEditorImage(notification: NSNotification?) {
-        if let image = document?.computedExportImage {
-            currentPreviewLayer?.updateNormalMap(image)
+        ThreadUtils.runCocos { () -> Void in
+            if let image = self.document?.computedExportImage {
+                self.currentPreviewLayer?.updateNormalMap(image)
+            }
         }
     }
 
     func updateCoreData(notification: NSNotification?) {
-        if let baseImage = document?.baseImage {
-            currentPreviewLayer?.updateBaseImage(baseImage)
+        ThreadUtils.runCocos { () -> Void in
+            if let baseImage = self.document?.baseImage {
+                self.currentPreviewLayer?.updateBaseImage(baseImage)
+            }
         }
     }
 
     func previewViewDidLayout() {
         // Run this in the main thread as to not have conflicts with GPUImage
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        ThreadUtils.runCocos { () -> Void in
             if self.scene == nil {
                 let director = CCDirector.sharedDirector() as CCDirector!
-                director.view = self.glView as CCGLView
+                director.view = self.glView
 
                 // Set up share group to allow for gpu memory sharing
                 // Needed if sharing resources between GL contexts.
@@ -53,7 +57,7 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
 
                 self.scene = PreviewScene() // Non fail-able
 
-                let previewLayer = PreviewLayer()
+                let previewLayer = PreviewLayer(viewSize: director.viewSize())
                 self.scene?.addChild(previewLayer)
                 self.currentPreviewLayer = previewLayer
                 director.runWithScene(self.scene!)

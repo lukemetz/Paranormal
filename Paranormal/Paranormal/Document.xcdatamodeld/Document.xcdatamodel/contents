@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B17" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B17" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DocumentSettings" representedClassName="Paranormal.DocumentSettings" syncable="YES">
         <attribute name="baseImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" attributeType="Integer 16" defaultValueString="300" syncable="YES"/>
@@ -7,6 +7,7 @@
         <relationship name="rootLayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Layer" inverseName="reverseRootLayer" inverseEntity="Layer" syncable="YES"/>
     </entity>
     <entity name="Layer" representedClassName="Paranormal.Layer" syncable="YES">
+        <attribute name="blendMode" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visible" optional="YES" attributeType="Boolean" syncable="YES"/>

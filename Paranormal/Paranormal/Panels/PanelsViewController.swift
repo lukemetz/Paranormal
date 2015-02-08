@@ -12,10 +12,13 @@ public class PanelsViewController: PNViewController {
 
     override public func loadView() {
         super.loadView()
-        previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
-        subPNViewControllers.append(previewViewController)
-        if let view = previewViewController?.view {
-            ViewControllerUtils.insertSubviewIntoParent(previewView, child: view)
+        ThreadUtils.runCocos { () -> Void in
+            self.previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
+
+            self.subPNViewControllers.append(self.previewViewController)
+            if let view = self.previewViewController?.view {
+                ViewControllerUtils.insertSubviewIntoParent(self.previewView, child: view)
+            }
         }
 
         colorPickerViewController = ColorPickerViewController(nibName: "ColorPicker", bundle: nil)
