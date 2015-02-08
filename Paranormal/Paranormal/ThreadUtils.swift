@@ -3,13 +3,13 @@ import GPUImage
 
 // Class manages creating and execution of blocks to be run on new threads
 class ThreadWrap {
-    var block : () -> Void
-    init(block : () -> Void) {
-        self.block = block;
+    var closure : () -> Void
+    init(closure : () -> Void) {
+        self.closure = closure;
     }
 
     dynamic func threadMain() {
-        self.block()
+        self.closure()
     }
 
     func run() {
@@ -22,16 +22,16 @@ class ThreadWrap {
 }
 
 public class ThreadUtils {
-    public class func runGPUImage(block : () -> Void) {
-        let t = ThreadWrap(block)
+    public class func runGPUImage(closure : () -> Void) {
+        let t = ThreadWrap(closure)
         t.run()
     }
 
-    class func runCocos(block : () -> Void) {
+    class func runCocos(closure : () -> Void) {
         if NSThread.isMainThread() {
-            block()
+            closure()
         } else {
-            NSOperationQueue.mainQueue().addOperationWithBlock(block)
+            NSOperationQueue.mainQueue().addOperationWithBlock(closure)
         }
     }
 }
