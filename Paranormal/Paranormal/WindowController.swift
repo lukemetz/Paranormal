@@ -48,8 +48,11 @@ public class WindowController: NSWindowController, NSWindowDelegate {
             }
         }
 
+        let documentController = DocumentController.sharedDocumentController() as DocumentController
+        documentController.createDocumentFromUrl(nil)
         setDocumentOnChildren()
     }
+    
 
     required public init?(coder:NSCoder) {
         super.init(coder: coder)

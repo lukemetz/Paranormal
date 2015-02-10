@@ -24,7 +24,6 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         // At this point, the main menu is automatically loaded
         self.removeLastItemFromEdit("orderFrontCharacterPalette:")
         self.removeLastItemFromEdit("startDictation:")
-//        DocumentController.createDocumentFromUrl(nil);
     }
 
     public func applicationWillTerminate(aNotification: NSNotification) {

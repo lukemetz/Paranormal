@@ -11,10 +11,10 @@ class PreviewLayer: CCNode {
         super.init()
         userInteractionEnabled = true
         ThreadUtils.runCocos { () -> Void in
-//            self.initializeLayer()
-//            self.addRotatingLight()
-//            self.initializeStaticExample()
-            self.createStaticExample()
+            self.initializeLayer()
+            self.addRotatingLight()
+            self.initializeStaticExample()
+//            self.createStaticExample()
         }
     }
 
