@@ -11,9 +11,10 @@ class PreviewLayer: CCNode {
         super.init()
         userInteractionEnabled = true
         ThreadUtils.runCocos { () -> Void in
-            initializeLayer()
-            addRotatingLight()
-            initializeStaticExample()
+//            self.initializeLayer()
+//            self.addRotatingLight()
+//            self.initializeStaticExample()
+            self.createStaticExample()
         }
     }
 
@@ -30,10 +31,8 @@ class PreviewLayer: CCNode {
     func updateNormalMap(image : NSImage) {
         ThreadUtils.runCocos { () -> Void in
             if let sprite = self.previewSprite? {
-                sprite.normalMapSpriteFrame = PreviewLayer.spriteFrameForImage(image)
+                let frame = PreviewLayer.spriteFrameForImage(image)
                 sprite.normalMapSpriteFrame = frame
-            } else {
-                self.initializeSprite(self.previewSprite)
             }
         }
     }
@@ -47,11 +46,6 @@ class PreviewLayer: CCNode {
     }
 
     func initializeLayer() {
-
-    }
-    
-    func initializeSprite(newSprite : CCSprite) {
-        newSprite.position = CGPointMake(viewSize.width/2, viewSize.height/2)
         
     }
 
@@ -64,8 +58,8 @@ class PreviewLayer: CCNode {
     }
     
     func createStaticExample() {
-        sprite = CCSprite(imageNamed:"gem-diffuse.png")
-        sprite.position = CGPointMake(viewSize.width/2, viewSize.height/2)
+        previewSprite = CCSprite(imageNamed:"gem-diffuse.png")
+        previewSprite.position = CGPointMake(viewSize.width/2, viewSize.height/2)
 
         var normalMap: CCSpriteFrame = CCSpriteFrame(
             textureFilename:"gem-normal.png",
