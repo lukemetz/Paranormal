@@ -1,30 +1,55 @@
 import Foundation
 import GPUImage
 
-// Class manages creating and execution of blocks to be run on new threads
-class ThreadWrap {
-    var closure : () -> Void
-    init(closure : () -> Void) {
-        self.closure = closure;
+
+private let _ThreadUtilsShared = ThreadUtils()
+
+public class ThreadUtils : NSObject {
+    var gpuImageThread : NSThread?
+    var editClosures : [() -> Void] = []
+    var updateClosures : [() -> Void] = []
+    var lock : NSLock = NSLock()
+
+    override init() {
+        super.init()
+        gpuImageThread = NSThread(target: self,
+            selector: NSSelectorFromString("threadMain"), object: nil)
+        gpuImageThread?.start()
     }
 
     dynamic func threadMain() {
-        self.closure()
+        while(true) { // TODO turn this off
+            while (editClosures.count > 0) {
+                lock.lock()
+                let closure = editClosures.removeAtIndex(0)
+                lock.unlock()
+                closure()
+            }
+
+            while (updateClosures.count > 0) {
+                lock.lock()
+                let closure = updateClosures.removeLast()
+                updateClosures = []
+                lock.unlock()
+                closure()
+            }
+        }
     }
 
-    func run() {
-
-        let thread = NSThread(target: self,
-            selector: NSSelectorFromString("threadMain"), object: nil)
-        thread.start()
-        while (!thread.finished) {}
+    class var sharedInstance: ThreadUtils {
+        return _ThreadUtilsShared
     }
-}
 
-public class ThreadUtils {
-    public class func runGPUImage(closure : () -> Void) {
-        let t = ThreadWrap(closure)
-        t.run()
+    public class func runGPUImage(block : () -> Void) {
+        sharedInstance.lock.lock()
+        ThreadUtils.sharedInstance.updateClosures.append(block)
+        sharedInstance.lock.unlock()
+    }
+
+    public class func runGPUImageDestructive(block : () -> Void) {
+        sharedInstance.lock.lock()
+        ThreadUtils.sharedInstance.editClosures.append(block)
+        sharedInstance.lock.unlock()
     }
 
     class func runCocos(closure : () -> Void) {
