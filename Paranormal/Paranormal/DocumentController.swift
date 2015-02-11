@@ -18,6 +18,8 @@ public class DocumentController: NSDocumentController {
         }
 
         super.addDocument(document)
+
+        (document as? Document)?.computeDerivedData()
     }
 
     // Create a document with the url and switch to it.
@@ -25,6 +27,8 @@ public class DocumentController: NSDocumentController {
         var error : NSError?
         var document = self.makeUntitledDocumentOfType("Paranormal", error: &error)
             as Document
+        document.setUpDefaultDocument()
+
         if let actualError = error {
             let alert = NSAlert(error: actualError)
             alert.runModal()
