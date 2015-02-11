@@ -4,7 +4,7 @@ import GPUImage
 let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
 
 public class Document: NSPersistentDocument {
-    var singleWindowController : WindowController?
+    public var singleWindowController : WindowController?
 
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
 

@@ -2,6 +2,7 @@ import Cocoa
 import AppKit
 
 class PreviewScene: CCScene {
+
     override func onEnter() {
         super.onEnter()
         userInteractionEnabled = true

@@ -2,6 +2,7 @@ import Cocoa
 import Quick
 import Nimble
 import Paranormal
+import CoreGraphics
 
 class DocumentTests: QuickSpec {
     override func spec() {
@@ -56,17 +57,48 @@ class DocumentTests: QuickSpec {
                     expect(document.currentColor.blueComponent).to(equal(1.0))
                 }
             }
+
             describe ("Initialization on Import") {
-                it ("Imports a the bear image") {
-                    let documentController = DocumentController()
+                var documentController : DocumentController!
+
+                beforeEach {
+                    documentController = DocumentController()
                     let url = NSBundle(forClass: DocumentTests.self)
                         .URLForResource("bear", withExtension: "png")
 
                     documentController.createDocumentFromUrl(url!)
+                }
+
+                it ("Imports a bear image") {
                     expect(documentController.documents.count).to(equal(2))
                     //import creates a second document
                     let newDocument = documentController.documents[1] as? Document
                     expect(newDocument?.documentSettings?.width).to(equal(161))
+                }
+
+                it ("Initializes editor with ZUP in shape of bear") {
+
+                    let newDocument = documentController.documents[1] as? Document
+                    let editorController = newDocument?.singleWindowController?.editorViewController
+                        as EditorViewController?
+                    expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
+                    //w=161, h=156
+                    //check that corners ar transparent
+                    var color = editorController?.getPixelColor(0.0, 0.0) //top left
+                    expect(color?.alphaComponent).to(equal(0))
+                    color = editorController?.getPixelColor(160.0, 0.0) //top right
+                    expect(color?.alphaComponent).to(equal(0))
+                    color = editorController?.getPixelColor(0.0, 155.0) //bottom left
+                    expect(color?.alphaComponent).to(equal(0))
+                    color = editorController?.getPixelColor(160.0, 155.0) //bottom right
+                    expect(color?.alphaComponent).to(equal(0))
+
+                    color = editorController?.getPixelColor(105.0, 8.0) //the ear is init'd to ZUP
+                    expect(color?.alphaComponent).to(equal(255))
+                    expect(color?.redComponent).to(equal(128))
+                    expect(color?.greenComponent).to(equal(128))
+                    expect(color?.blueComponent).to(equal(255))
+
                 }
             }
         }

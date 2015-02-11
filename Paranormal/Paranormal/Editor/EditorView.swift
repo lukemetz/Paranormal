@@ -2,23 +2,23 @@ import Foundation
 import Cocoa
 import AppKit
 
-class EditorView : NSView {
+public class EditorView : NSView {
 
     @IBOutlet var delegate : EditorViewController?
 
-    override func mouseDown(theEvent: NSEvent) {
+    override public func mouseDown(theEvent: NSEvent) {
         let _ = self.delegate?.mouseDown(theEvent)
     }
 
-    override func mouseDragged(theEvent: NSEvent) {
+    override public func mouseDragged(theEvent: NSEvent) {
         let _ = self.delegate?.mouseDragged(theEvent)
     }
 
-    override func mouseUp(theEvent: NSEvent) {
+    override public func mouseUp(theEvent: NSEvent) {
         let _ = self.delegate?.mouseUp(theEvent)
     }
 
-    var image : NSImage? {
+    public var image : NSImage? {
         didSet {
             // Redraw view
             needsDisplay = true
@@ -27,7 +27,7 @@ class EditorView : NSView {
     var translate : CGVector = CGVectorMake(0, 0)
     var scale : CGVector = CGVectorMake(1, 1)
 
-    override func drawRect(dirtyRect: NSRect) {
+    override public func drawRect(dirtyRect: NSRect) {
         let context = NSGraphicsContext.currentContext()?.CGContext
         if let context = context {
             if let img = image {
