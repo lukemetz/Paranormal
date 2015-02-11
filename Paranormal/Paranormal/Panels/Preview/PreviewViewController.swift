@@ -49,12 +49,6 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
                 let director = CCDirector.sharedDirector() as CCDirector!
                 director.view = self.glView
 
-                // Set up share group to allow for gpu memory sharing
-                // Needed if sharing resources between GL contexts.
-                let shareGroup = CGLGetShareGroup(director.view.openGLContext.CGLContextObj)
-                let gpuImageContext = GPUImageContext.sharedImageProcessingContext()
-                gpuImageContext.useSharegroup(UnsafeMutablePointer(shareGroup))
-
                 self.scene = PreviewScene() // Non fail-able
 
                 let previewLayer = PreviewLayer(viewSize: director.viewSize())

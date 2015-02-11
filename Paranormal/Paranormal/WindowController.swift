@@ -47,9 +47,6 @@ public class WindowController: NSWindowController, NSWindowDelegate {
                 ViewControllerUtils.insertSubviewIntoParent(panelsView, child: view)
             }
         }
-
-        let documentController = DocumentController.sharedDocumentController() as DocumentController
-        documentController.createDocumentFromUrl(nil)
         setDocumentOnChildren()
     }
     
