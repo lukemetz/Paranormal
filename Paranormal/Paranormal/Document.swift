@@ -31,36 +31,6 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    private func mergeTwoNormals(# base: NSImage, detail: NSImage) -> NSImage? {
-        // TODO better compiling of layers.
-        let blend = BlendAddFilter()
-        //let blend = BlendReorientedNormalsFilter()
-        let baseSource = GPUImagePicture(image: base)
-        baseSource.addTarget(blend)
-
-        let detailSource = GPUImagePicture(image: detail)
-        detailSource.addTarget(blend)
-
-        blend.useNextFrameForImageCapture()
-        baseSource.processImage()
-        detailSource.processImage()
-        return blend.imageFromCurrentFramebuffer()
-    }
-
-    private func combineLayer(parentLayer: Layer?) -> NSImage? {
-        var accum : NSImage? = nil
-        for layer in (parentLayer?.layers.array as [Layer]) {
-            if accum == nil {
-                accum = layer.toImage()
-            } else {
-                if let detail = layer.toImage() {
-                    accum = mergeTwoNormals(base: accum!, detail: detail)
-                }
-            }
-        }
-        return accum
-    }
-
     var computedEditorImage : NSImage? {
         didSet {
             NSNotificationCenter.defaultCenter().postNotificationName(
@@ -134,14 +104,17 @@ public class Document: NSPersistentDocument {
         layer.name = "Root Layer"
         layer.visible = true
 
+        let width = documentSettings.width
+        let height = documentSettings.height
+        layer.fillWithEmpty(NSSize(width: Int(width), height: Int(height)))
+
         documentSettings.rootLayer = layer
 
         let defaultLayer = layer.addLayer()
         defaultLayer?.name = "Default Layer"
 
         // Set up default layer
-        let width = documentSettings.width
-        let height = documentSettings.height
+
         let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
         let context = CGBitmapContextCreate(nil, UInt(width),
@@ -159,7 +132,7 @@ public class Document: NSPersistentDocument {
 
     func updateCoreData(notification: NSNotification) {
         ThreadUtils.runGPUImage { () -> Void in
-            self.computedEditorImage = self.combineLayer(self.rootLayer)
+            self.computedEditorImage = self.rootLayer?.renderLayer()
         }
     }
 

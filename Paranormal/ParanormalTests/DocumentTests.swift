@@ -51,8 +51,18 @@ class DocumentTests: QuickSpec {
 
                     expect(layers?.count).to(equal(1))
                 }
+
+                it("Root layer should have imageData") {
+                    let documentFetch = NSFetchRequest(entityName: "DocumentSettings")
+                    let documentResult : NSArray? =
+                    document.managedObjectContext.executeFetchRequest(documentFetch, error: nil)
+                    let documentSettings = documentResult?[0] as DocumentSettings
+                    let root = documentSettings.rootLayer!
+                    expect(root.imageData).toNot(beNil())
+                }
+
                 it("sets brush color to ZUP"){
-                expect(document.currentColor.redComponent).to(equal(0.5))
+                    expect(document.currentColor.redComponent).to(equal(0.5))
                     expect(document.currentColor.greenComponent).to(equal(0.5))
                     expect(document.currentColor.blueComponent).to(equal(1.0))
                 }

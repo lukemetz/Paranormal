@@ -7,9 +7,9 @@
         <relationship name="rootLayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Layer" inverseName="reverseRootLayer" inverseEntity="Layer" syncable="YES"/>
     </entity>
     <entity name="Layer" representedClassName="Paranormal.Layer" syncable="YES">
-        <attribute name="blendMode" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawBlendMode" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="visible" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="layers" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Layer" inverseName="parent" inverseEntity="Layer" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Layer" inverseName="layers" inverseEntity="Layer" syncable="YES"/>
@@ -21,7 +21,7 @@
     </entity>
     <elements>
         <element name="DocumentSettings" positionX="-63" positionY="0" width="128" height="103"/>
-        <element name="Layer" positionX="133" positionY="0" width="128" height="133"/>
+        <element name="Layer" positionX="133" positionY="0" width="128" height="150"/>
         <element name="Refraction" positionX="97" positionY="-144" width="128" height="73"/>
     </elements>
 </model>
