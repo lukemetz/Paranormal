@@ -24,6 +24,26 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
             selector: "updateComputedEditorImage:",
             name: PNDocumentComputedEditorChanged,
             object: nil)
+
+        self.setupPreview()
+    }
+
+    func setupPreview() {
+        // Run this in the main thread as to not have conflicts with GPUImage
+        ThreadUtils.runCocos { () -> Void in
+            let director = CCDirector.sharedDirector() as CCDirector!
+            director.view = self.glView
+
+            self.scene = PreviewScene() // Non fail-able
+
+            let previewLayer = PreviewLayer(viewSize: director.viewSize())
+            self.scene?.addChild(previewLayer)
+            self.currentPreviewLayer = previewLayer
+            director.runWithScene(self.scene!)
+
+            // Hack to get cocos2d view to appear correctly.
+            director.view.reshape()
+        }
     }
 
     func updateComputedEditorImage(notification: NSNotification?) {
@@ -43,22 +63,6 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
     }
 
     func previewViewDidLayout() {
-        // Run this in the main thread as to not have conflicts with GPUImage
-        ThreadUtils.runCocos { () -> Void in
-            if self.scene == nil {
-                let director = CCDirector.sharedDirector() as CCDirector!
-                director.view = self.glView
 
-                self.scene = PreviewScene() // Non fail-able
-
-                let previewLayer = PreviewLayer(viewSize: director.viewSize())
-                self.scene?.addChild(previewLayer)
-                self.currentPreviewLayer = previewLayer
-                director.runWithScene(self.scene!)
-
-                // Hack to get cocos2d view to appear correctly.
-                director.view.reshape()
-            }
-        }
     }
 }

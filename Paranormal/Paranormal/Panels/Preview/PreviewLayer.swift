@@ -10,6 +10,24 @@ class PreviewLayer: CCNode {
         self.viewSize = viewSize
         super.init()
         userInteractionEnabled = true
+    }
+
+    // TODO: These can probably go on a utility class somewhere
+    class func spriteFrameForImage(image : NSImage) -> CCSpriteFrame! {
+        let texture = spriteTextureForImage(image)
+        let rect = CGRectMake(0.0, 0.0, image.size.width, image.size.height)
+        let spriteFrame = CCSpriteFrame(texture: texture, rectInPixels:rect,
+            rotated: false, offset: CGPointMake(0.0, 0.0), originalSize: image.size)
+        return spriteFrame
+    }
+    
+    class func spriteTextureForImage(image : NSImage) -> CCTexture! {
+        let img = image.CGImageForProposedRect(nil, context: nil, hints: nil)?.takeUnretainedValue()
+        let texture : CCTexture = CCTexture(CGImage: img, contentScale: 1.0)
+        return texture
+    }
+
+    private func runPreviewWithSprite() {
         ThreadUtils.runCocos { () -> Void in
 //            self.addChild(self.previewSprite)
             self.addRotatingLight()
@@ -17,17 +35,7 @@ class PreviewLayer: CCNode {
 //            self.createStaticExample()
         }
     }
-
-    class func spriteFrameForImage(image : NSImage) -> CCSpriteFrame! {
-        let img = image.CGImageForProposedRect(nil, context: nil, hints: nil)?.takeUnretainedValue()
-
-        let texture : CCTexture = CCTexture(CGImage: img, contentScale: 1.0)
-        let rect = CGRectMake(0.0, 0.0, image.size.width, image.size.height)
-        let spriteFrame = CCSpriteFrame(texture: texture, rectInPixels:rect,
-            rotated: false, offset: CGPointMake(0.0, 0.0), originalSize: image.size)
-        return spriteFrame
-    }
-
+    
     func updateNormalMap(image : NSImage) {
         ThreadUtils.runCocos { () -> Void in
             if let sprite = self.previewSprite? {
@@ -41,6 +49,10 @@ class PreviewLayer: CCNode {
         ThreadUtils.runCocos { () -> Void in
             if let sprite = self.previewSprite? {
                 sprite.texture = PreviewLayer.spriteFrameForImage(image).texture
+            } else {
+                // New document set, initialize sprite
+                self.previewSprite = CCSprite(texture: PreviewLayer.spriteTextureForImage(image))
+                self.runPreviewWithSprite()
             }
         }
     }
