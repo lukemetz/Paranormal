@@ -11,7 +11,8 @@ class DocumentTests: QuickSpec {
                 var document : Document!
 
                 beforeEach {
-                    document = Document(type: "Paranormal", error: nil)!
+                    document = DocumentController()
+                        .makeUntitledDocumentOfType("Paranormal", error: nil) as Document
                 }
 
                 it("does not leave anything in the undo stack") {
@@ -104,10 +105,10 @@ class DocumentTests: QuickSpec {
                     expect(color?.alphaComponent).to(equal(0))
 
                     color = editorController?.getPixelColor(105.0, 8.0) //the ear is init'd to ZUP
-                    expect(color?.alphaComponent).to(equal(255))
-                    expect(color?.redComponent).to(equal(128))
-                    expect(color?.greenComponent).to(equal(128))
-                    expect(color?.blueComponent).to(equal(255))
+                    expect(color?.alphaComponent).toEventually(equal(255))
+                    expect(color?.redComponent).toEventually(equal(128))
+                    expect(color?.greenComponent).toEventually(equal(128))
+                    expect(color?.blueComponent).toEventually(equal(255))
 
                 }
             }

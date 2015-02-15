@@ -78,10 +78,20 @@ public class Document: NSPersistentDocument {
     override init() {
         super.init()
 
-        setUpDefaultDocument()
-
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
             name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+    }
+
+    func updateCoreData(notification: NSNotification) {
+        if rootLayer != nil {
+            computeDerivedData()
+        }
+    }
+
+    func computeDerivedData() {
+        ThreadUtils.runGPUImage { () -> Void in
+            self.computedEditorImage = self.rootLayer?.renderLayer()
+        }
     }
 
     // Create a default document with correct managed objects.
@@ -130,11 +140,6 @@ public class Document: NSPersistentDocument {
         self.init()
     }
 
-    func updateCoreData(notification: NSNotification) {
-        ThreadUtils.runGPUImage { () -> Void in
-            self.computedEditorImage = self.rootLayer?.renderLayer()
-        }
-    }
 
     override public func windowControllerDidLoadNib(aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
