@@ -2,6 +2,7 @@ import Cocoa
 import Quick
 import Nimble
 import Paranormal
+import CoreGraphics
 
 class DocumentTests: QuickSpec {
     override func spec() {
@@ -10,7 +11,8 @@ class DocumentTests: QuickSpec {
                 var document : Document!
 
                 beforeEach {
-                    document = Document(type: "Paranormal", error: nil)!
+                    document = DocumentController()
+                        .makeUntitledDocumentOfType("Paranormal", error: nil) as Document
                 }
 
                 it("does not leave anything in the undo stack") {
@@ -50,23 +52,64 @@ class DocumentTests: QuickSpec {
 
                     expect(layers?.count).to(equal(1))
                 }
+
+                it("Root layer should have imageData") {
+                    let documentFetch = NSFetchRequest(entityName: "DocumentSettings")
+                    let documentResult : NSArray? =
+                    document.managedObjectContext.executeFetchRequest(documentFetch, error: nil)
+                    let documentSettings = documentResult?[0] as DocumentSettings
+                    let root = documentSettings.rootLayer!
+                    expect(root.imageData).toNot(beNil())
+                }
+
                 it("sets brush color to ZUP"){
-                expect(document.currentColor.redComponent).to(equal(0.5))
+                    expect(document.currentColor.redComponent).to(equal(0.5))
                     expect(document.currentColor.greenComponent).to(equal(0.5))
                     expect(document.currentColor.blueComponent).to(equal(1.0))
                 }
             }
+
             describe ("Initialization on Import") {
-                it ("Imports a the bear image") {
-                    let documentController = DocumentController()
+                var documentController : DocumentController!
+
+                beforeEach {
+                    documentController = DocumentController()
                     let url = NSBundle(forClass: DocumentTests.self)
                         .URLForResource("bear", withExtension: "png")
 
                     documentController.createDocumentFromUrl(url!)
+                }
+
+                it ("Imports a bear image") {
                     expect(documentController.documents.count).to(equal(2))
                     //import creates a second document
                     let newDocument = documentController.documents[1] as? Document
                     expect(newDocument?.documentSettings?.width).to(equal(161))
+                }
+
+                it ("Initializes editor with ZUP in shape of bear") {
+
+                    let newDocument = documentController.documents[1] as? Document
+                    let editorController = newDocument?.singleWindowController?.editorViewController
+                        as EditorViewController?
+                    expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
+                    //w=161, h=156
+                    //check that corners ar transparent
+                    var color = editorController?.getPixelColor(0.0, 0.0) //top left
+                    expect(color?.alphaComponent).to(equal(0))
+                    color = editorController?.getPixelColor(160.0, 0.0) //top right
+                    expect(color?.alphaComponent).to(equal(0))
+                    color = editorController?.getPixelColor(0.0, 155.0) //bottom left
+                    expect(color?.alphaComponent).to(equal(0))
+                    color = editorController?.getPixelColor(160.0, 155.0) //bottom right
+                    expect(color?.alphaComponent).to(equal(0))
+
+                    color = editorController?.getPixelColor(105.0, 8.0) //the ear is init'd to ZUP
+                    expect(color?.alphaComponent).toEventually(equal(255))
+                    expect(color?.redComponent).toEventually(equal(128))
+                    expect(color?.greenComponent).toEventually(equal(128))
+                    expect(color?.blueComponent).toEventually(equal(255))
+
                 }
             }
         }

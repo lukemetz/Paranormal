@@ -12,7 +12,6 @@ public class WindowController: NSWindowController, NSWindowDelegate {
 
     @IBOutlet weak var editorView: NSView!
     public var editorViewController: EditorViewController?
-
     var childViewControllers : [PNViewController?] = []
 
     override init(window: NSWindow?) {

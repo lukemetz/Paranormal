@@ -1,5 +1,6 @@
 import Foundation
 import Cocoa
+import GPUImage
 
 public class Layer : NSManagedObject{
     @NSManaged public var visible : Bool
@@ -7,7 +8,22 @@ public class Layer : NSManagedObject{
     @NSManaged public var imageData : NSData?
     @NSManaged public var layers : NSMutableOrderedSet
     @NSManaged public var parent : Layer
-    @NSManaged public var blendMode : Int16
+    @NSManaged private var rawBlendMode : Int16
+
+    public var blendMode : BlendMode {
+        get {
+            if let mode = BlendMode(rawValue: rawBlendMode) {
+                return mode
+            } else {
+                log.error("Bad blend mode from core data")
+                return BlendMode.Add
+            }
+        }
+
+        set(newVal) {
+            rawBlendMode = Int16(newVal.rawValue.value)
+        }
+    }
 
     override public init(entity: NSEntityDescription,
         insertIntoManagedObjectContext context: NSManagedObjectContext?) {
@@ -49,6 +65,19 @@ public class Layer : NSManagedObject{
         CGContextDrawImage(context, rect, cgImage)
     }
 
+    func fillWithEmpty(size: NSSize) {
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+        var context = CGBitmapContextCreate(nil, 5, 5, 8, 0, colorSpace, bitmapInfo)
+        CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(0, 0, 0, 0))
+        CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
+        let cgImage = CGBitmapContextCreateImage(context)
+
+        let nsImage = NSImage(CGImage: cgImage, size: size)
+
+        self.imageData = nsImage.TIFFRepresentation
+    }
+
     public func toImage() -> NSImage? {
         if let data = imageData {
             return NSImage(data: data)
@@ -68,6 +97,11 @@ public class Layer : NSManagedObject{
             let index = layers.count
             layers.insertObject(layer, atIndex: index)
             layer.parent = self
+            if let size = self.toImage()?.size {
+                layer.fillWithEmpty(size)
+            } else {
+                log.error("Parent layer does not have image data")
+            }
             return layer
         } else {
             return nil
@@ -90,6 +124,11 @@ public class Layer : NSManagedObject{
             layer.visible = true
             let index = parent.layers.indexOfObject(self)
             parent.layers.insertObject(layer, atIndex: index+1)
+            if let size = self.toImage()?.size {
+                layer.fillWithEmpty(size)
+            } else {
+                log.error("current layer to make edit does not have image data")
+            }
             return layer
         } else {
             return nil
@@ -124,6 +163,64 @@ public class Layer : NSManagedObject{
             }
         }
         log.error("Failed to combine layer due to unexpected optional value")
+    }
+
+    private func filterForBlendMode(blend: BlendMode) -> GPUImageFilter {
+        switch blend {
+        case .Add:
+            return BlendAddFilter()
+        case .Oriented:
+            return BlendReorientedNormalsFilter()
+        }
+    }
+
+    private func renderOutputNode() -> (GPUImageOutput, [GPUImagePicture]) {
+        let layersArray = layers.array as [Layer]
+        if layersArray.count == 0 {
+            // is a leaf node just grab the image
+            let baseImage = toImage()
+
+            let picture = GPUImagePicture(image: baseImage)
+            return (picture, [picture])
+        } else {
+            // Otherwise recursivly build the filter graph
+
+            let baseImage = layersArray[0].toImage()
+            let lastPicture = GPUImagePicture(image: baseImage)
+
+            var inputPictures : [GPUImagePicture] = [lastPicture]
+            var lastSource = lastPicture as GPUImageOutput
+
+            for (index, layer) in enumerate(layersArray[1..<layersArray.count]) {
+                var filter = filterForBlendMode(layer.blendMode)
+                lastSource.addTarget(filter)
+                let (currentSource, pictures) = layer.renderOutputNode()
+                inputPictures = pictures + inputPictures
+
+                currentSource.addTarget(filter)
+                lastSource.addTarget(filter)
+                // The output of the filter is the new next source
+                lastSource = filter
+            }
+            return (lastSource, inputPictures);
+        }
+    }
+
+    public func renderLayer() -> NSImage? {
+        // Never run this on the main thread as it will interfer with cocos2d
+        assert(NSThread.currentThread() != NSThread.mainThread())
+
+        let (outputSource, pictures) = renderOutputNode()
+        if pictures.count == 1 {
+            return layers[0].toImage()
+        } else {
+            outputSource.useNextFrameForImageCapture()
+            for pic in pictures {
+                pic.processImage()
+            }
+
+            return outputSource.imageFromCurrentFramebuffer()
+        }
     }
 }
 
