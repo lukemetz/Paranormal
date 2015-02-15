@@ -26,23 +26,33 @@ public class WindowController: NSWindowController, NSWindowDelegate {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
         childViewControllers.append(editorViewController)
         
-        toolsViewController = ToolsViewController(nibName: "Tools", bundle: nil)
-        childViewControllers.append(toolsViewController)
-        
         panelsViewController = PanelsViewController(nibName: "Panels", bundle: nil)
         childViewControllers.append(panelsViewController)
-        
+
+        toolsViewController = ToolsViewController(nibName: "Tools", bundle: nil)
+        childViewControllers.append(toolsViewController)
+
         setDocumentOnChildren()
         
-        for viewController in childViewControllers {
-            if let view = viewController?.view {
-                if editorView != nil {
-                    ViewControllerUtils.insertSubviewIntoParent(editorView, child: view)
-                }
+        if let view = editorViewController?.view {
+            if editorView != nil {
+                ViewControllerUtils.insertSubviewIntoParent(editorView, child: view)
             }
         }
+
+        if let view = toolsViewController?.view {
+            if toolsView != nil {
+                ViewControllerUtils.insertSubviewIntoParent(toolsView, child: view)
+            }
+        }
+
+        if let view = panelsViewController?.view {
+            if panelsView != nil {
+                ViewControllerUtils.insertSubviewIntoParent(panelsView, child: view)
+            }
+        }
+
     }
-    
 
     required public init?(coder:NSCoder) {
         super.init(coder: coder)
