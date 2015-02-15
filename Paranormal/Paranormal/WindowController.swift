@@ -25,7 +25,7 @@ public class WindowController: NSWindowController, NSWindowDelegate {
     override public func windowDidLoad() {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
         childViewControllers.append(editorViewController)
-        
+
         panelsViewController = PanelsViewController(nibName: "Panels", bundle: nil)
         childViewControllers.append(panelsViewController)
 
@@ -33,7 +33,7 @@ public class WindowController: NSWindowController, NSWindowDelegate {
         childViewControllers.append(toolsViewController)
 
         setDocumentOnChildren()
-        
+
         if let view = editorViewController?.view {
             if editorView != nil {
                 ViewControllerUtils.insertSubviewIntoParent(editorView, child: view)

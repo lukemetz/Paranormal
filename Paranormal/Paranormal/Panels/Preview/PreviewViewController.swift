@@ -39,7 +39,8 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
             let previewLayer = PreviewLayer(viewSize: director.viewSize())
             self.scene?.addChild(previewLayer)
             self.currentPreviewLayer = previewLayer
-            director.runWithScene(self.scene!)
+//            director.runWithScene(self.scene!)
+            director.presentScene(self.scene)
 
             // Hack to get cocos2d view to appear correctly.
             director.view.reshape()
