@@ -22,12 +22,19 @@ public class DocumentController: NSDocumentController {
         (document as? Document)?.computeDerivedData()
     }
 
+    public override func makeUntitledDocumentOfType(typeName: String,
+        error outError: NSErrorPointer) -> AnyObject? {
+
+        let document = super.makeUntitledDocumentOfType(typeName, error: outError) as Document
+        document.setUpDefaultDocument()
+        return document
+    }
+
     // Create a document with the url and switch to it.
     public func createDocumentFromUrl(baseUrl: NSURL?) {
         var error : NSError?
         var document = self.makeUntitledDocumentOfType("Paranormal", error: &error)
             as Document
-        document.setUpDefaultDocument()
 
         if let actualError = error {
             let alert = NSAlert(error: actualError)
@@ -46,7 +53,7 @@ public class DocumentController: NSDocumentController {
                 document.documentSettings?.width = bitmap.pixelsWide
                 document.documentSettings?.height = bitmap.pixelsHigh
 
-                ThreadUtils.runGPUImage { () -> Void in
+                ThreadUtils.runGPUImageDestructive { () -> Void in
                     let filter = ZUpInitializeFilter()
 
                     let source = GPUImagePicture(image: image)
