@@ -6,7 +6,13 @@ let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
 public class Document: NSPersistentDocument {
     public var singleWindowController : WindowController?
 
+    // User preferences / user facing data
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
+    public var editorZoomPercent : Float = 100 {
+        didSet {
+            singleWindowController?.editorViewController?.updateScale(editorZoomPercent / 100.0)
+        }
+    }
 
     public var rootLayer : Layer? {
         return documentSettings?.rootLayer

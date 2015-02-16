@@ -176,5 +176,12 @@ class LayerTests: QuickSpec {
                 expect(ran).toEventually(beTrue())
             }
         }
+
+        describe("size") {
+            it("returns the zie of the layer") {
+                let dummy = dummyLayer()
+                expect(dummy.size).to(equal(NSSize(width: 5, height: 5)))
+            }
+        }
     }
 }
