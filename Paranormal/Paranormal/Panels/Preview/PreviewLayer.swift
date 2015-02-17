@@ -3,8 +3,9 @@ import AppKit
 
 class PreviewLayer: CCNode {
     var previewSprite : CCSprite!
-    var viewSize: CGSize
-    var effect: CCEffectLighting?
+    var viewSize : CGSize
+    var effect : CCEffectLighting?
+    let borderSize : CGSize = CGSize(width: 10, height: 10)
 
     init(viewSize : NSSize) {
         self.viewSize = viewSize
@@ -15,8 +16,17 @@ class PreviewLayer: CCNode {
     private func runPreviewWithSprite(previewSprite: CCSprite) {
         ThreadUtils.runCocos { () -> Void in
             previewSprite.position = CGPointMake(self.viewSize.width/2, self.viewSize.height/2)
-            PreviewSpriteUtils.resizeSpriteWithoutWarp(previewSprite,
-                toWidth:Float(self.viewSize.width) - 50, toHeight:Float(self.viewSize.height) - 50)
+            PreviewSpriteUtils.resizeSpriteWithoutWarp(
+                previewSprite,
+                toWidth: self.viewSize.width - self.borderSize.width * 2,
+                toHeight: self.viewSize.height - self.borderSize.height * 2)
+
+            let background = CCSprite(imageNamed: "checker.png")
+            PreviewSpriteUtils.resizeSprite(
+                background,
+                toWidth: self.viewSize.width * 2,
+                toHeight: self.viewSize.height * 2)
+            self.addChild(background)
             self.addChild(previewSprite)
             self.addRotatingLight()
         }
@@ -55,9 +65,9 @@ class PreviewLayer: CCNode {
         lightContainer.position = CGPointMake(
             previewSprite.contentSize.width/2, previewSprite.contentSize.height/2)
 
-        lightContainer.addChild(light)
-
         previewSprite.addChild(lightContainer)
+
+        lightContainer.addChild(light)
 
         let sunIcon: CCSprite = CCSprite(imageNamed: "light64.png")
         sunIcon.contentSize = CGSizeMake(32.0, 32.0)

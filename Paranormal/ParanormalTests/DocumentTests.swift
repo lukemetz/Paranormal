@@ -91,6 +91,9 @@ class DocumentTests: QuickSpec {
                     expect(newDocument?.documentSettings?.width).to(equal(161))
                 }
 
+                // Bug 88400728: This test has a race condition involving the editor controller
+                // not initializing the image before the colors are extracted.
+                // TODO: Stop skipping this test.
                 xit ("Initializes editor with ZUP in shape of bear") {
 
                     let newDocument = documentController.documents[0] as? Document
@@ -98,7 +101,7 @@ class DocumentTests: QuickSpec {
                         as EditorViewController?
                     expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
                     //w=161, h=156
-                    //check that corners ar transparent
+                    //check that corners are transparent
                     var color = editorController?.getPixelColor(0.0, 0.0) //top left
                     expect(color?.alphaComponent).to(equal(0))
                     color = editorController?.getPixelColor(160.0, 0.0) //top right
