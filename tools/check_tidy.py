@@ -42,9 +42,10 @@ def check_tidy():
 
     file_names = []
     for directory, subdirectory, files in os.walk('.'):
-        searchRegex = '.*\.swift'
-        if not re.search('/libs/', directory):
-            file_names.extend([os.path.join(directory, fname) for fname in files if re.search(searchRegex, fname)])
+        searchRegex = '.*\.(swift|fsh|h)'
+        if not re.search('/libs/', directory) and not re.search('\.git', directory):
+            file_names.extend([os.path.join(directory, fname) for fname in files
+                if re.search(searchRegex, fname)])
 
     current_name = ""
     current_contents = ""
