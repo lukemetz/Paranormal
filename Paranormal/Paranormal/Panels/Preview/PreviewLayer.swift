@@ -2,33 +2,40 @@ import Cocoa
 import AppKit
 
 class PreviewLayer: CCNode {
-    var sprite : CCSprite!
-    var viewSize: CGSize
-    var effect: CCEffectLighting?
+    var previewSprite : CCSprite!
+    var viewSize : CGSize
+    var effect : CCEffectLighting?
+    let borderSize : CGSize = CGSize(width: 10, height: 10)
 
     init(viewSize : NSSize) {
         self.viewSize = viewSize
         super.init()
         userInteractionEnabled = true
-        ThreadUtils.runCocos { () -> Void in
-            self.createStaticExample()
-        }
     }
 
-    private func spriteFrameForImage(image : NSImage) -> CCSpriteFrame! {
-        let img = image.CGImageForProposedRect(nil, context: nil, hints: nil)?.takeUnretainedValue()
+    private func runPreviewWithSprite(previewSprite: CCSprite) {
+        ThreadUtils.runCocos { () -> Void in
+            previewSprite.position = CGPointMake(self.viewSize.width/2, self.viewSize.height/2)
+            PreviewSpriteUtils.resizeSpriteWithoutWarp(
+                previewSprite,
+                toWidth: self.viewSize.width - self.borderSize.width * 2,
+                toHeight: self.viewSize.height - self.borderSize.height * 2)
 
-        let texture : CCTexture = CCTexture(CGImage: img, contentScale: 1.0)
-        let rect = CGRectMake(0.0, 0.0, image.size.width, image.size.height)
-        let spriteFrame = CCSpriteFrame(texture: texture, rectInPixels:rect,
-            rotated: false, offset: CGPointMake(0.0, 0.0), originalSize: image.size)
-        return spriteFrame
+            let background = CCSprite(imageNamed: "checker.png")
+            PreviewSpriteUtils.resizeSprite(
+                background,
+                toWidth: self.viewSize.width * 2,
+                toHeight: self.viewSize.height * 2)
+            self.addChild(background)
+            self.addChild(previewSprite)
+            self.addRotatingLight()
+        }
     }
 
     func updateNormalMap(image : NSImage) {
         ThreadUtils.runCocos { () -> Void in
-            if let sprite = self.sprite? {
-                let frame = self.spriteFrameForImage(image)
+            if let sprite = self.previewSprite? {
+                let frame = PreviewSpriteUtils.spriteFrameForImage(image)
                 sprite.normalMapSpriteFrame = frame
             }
         }
@@ -36,42 +43,31 @@ class PreviewLayer: CCNode {
 
     func updateBaseImage(image : NSImage) {
         ThreadUtils.runCocos { () -> Void in
-            if let sprite = self.sprite? {
-                sprite.texture = self.spriteFrameForImage(image).texture
+            if let sprite = self.previewSprite? {
+                sprite.texture = PreviewSpriteUtils.spriteFrameForImage(image).texture
+            } else {
+                // New document set, initialize sprite
+                self.previewSprite =
+                    CCSprite(texture: PreviewSpriteUtils.spriteTextureForImage(image))
+                self.runPreviewWithSprite(self.previewSprite)
             }
         }
     }
 
-    func createStaticExample() {
-        sprite = CCSprite(imageNamed:"gem-diffuse.png")
-        sprite.position = CGPointMake(viewSize.width/2, viewSize.height/2)
-
-        var normalMap: CCSpriteFrame = CCSpriteFrame(
-            textureFilename:"gem-normal.png",
-            rectInPixels: CGRectMake(0, 0, sprite.contentSize.width, sprite.contentSize.height),
-            rotated: false, offset: CGPointMake(0, 0), originalSize: viewSize)
-        sprite.normalMapSpriteFrame = normalMap
-
-        resizeSpriteWithoutWarp(sprite, toWidth:Float(viewSize.width) - 50,
-            toHeight:Float(viewSize.height) - 50)
-
-        var background: CCSprite = CCSprite(imageNamed:"checker.png")
-        resizeSprite(background, toWidth:Float(viewSize.width*2),
-            toHeight:Float(viewSize.height*2))
-
+    func addRotatingLight() {
         let groups = ["group_name"]
         let light = CCLightNode(type: CCLightType.Point, groups: groups,
             color: CCColor.whiteColor(), intensity: 0.5)
-        light.position.x = sprite.contentSize.width / 2.0
+        light.position.x = previewSprite.contentSize.width / 2.0
         light.anchorPoint = CGPointMake(0.5, 0.5)
 
         let lightContainer = CCNode()
         lightContainer.position = CGPointMake(
-            sprite.contentSize.width/2, sprite.contentSize.height/2)
+            previewSprite.contentSize.width/2, previewSprite.contentSize.height/2)
+
+        previewSprite.addChild(lightContainer)
 
         lightContainer.addChild(light)
-
-        sprite.addChild(lightContainer)
 
         let sunIcon: CCSprite = CCSprite(imageNamed: "light64.png")
         sunIcon.contentSize = CGSizeMake(32.0, 32.0)
@@ -83,22 +79,7 @@ class PreviewLayer: CCNode {
         let action = CCActionRotateBy.actionWithDuration(2, angle: 180) as CCActionInterval
         lightContainer.runAction(CCActionRepeatForever(action: action))
 
-        sprite.effect = effect!
-        self.addChild(background)
-        self.addChild(sprite)
-    }
-
-    // This should be moved to a move logical place
-    func resizeSprite(sprite: CCSprite, toWidth: Float, toHeight: Float) {
-        sprite.scaleX = toWidth / Float(sprite.contentSize.width)
-        sprite.scaleY = toHeight / Float(sprite.contentSize.height)
-    }
-
-    func resizeSpriteWithoutWarp(sprite: CCSprite, toWidth: Float, toHeight: Float) {
-        let scale = min(toWidth / Float(sprite.contentSize.width),
-            toHeight / Float(sprite.contentSize.height))
-        sprite.scaleX = scale
-        sprite.scaleY = scale
+        previewSprite.effect = effect!
     }
 
     func ccKeyDown(event: NSEvent) -> Bool {
