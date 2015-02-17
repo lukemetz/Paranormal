@@ -6,7 +6,6 @@ import sys
 from tools.check_tidy import check_tidy
 
 def tidy():
-    check_tidy_command = "python ./tools/tidy.py"
     err = check_tidy()
     return err
 
@@ -26,7 +25,8 @@ def run_check(check):
     if exit_code is 0:
         print colors.OKGREEN + check.__name__ + ' succeeded!\n' + colors.ENDC
     else:
-        print colors.FAIL + check.__name__ + ' failed with exit code ' + str(exit_code) + '. Aborting.\n'
+        print (colors.FAIL + check.__name__ + ' failed with exit code ' + str(exit_code)
+            + '. Aborting.\n')
     return exit_code
 
 def run(command):
@@ -53,7 +53,10 @@ class colors:
 if __name__ == "__main__":
     successes = []
     for check in all_checks:
-        successes.append(run_check(check) is 0)
+        if run_check(check) is 0:
+            successes.append(True)
+        else:
+            sys.exit(1)
 
     print colors.OKBLUE + "Summary:" + colors.ENDC
     print '\n'.join([
