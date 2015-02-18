@@ -59,12 +59,11 @@ class PanToolTests: QuickSpec {
                     // The editorview now translates its points to give you back in transformed
                     panTool.mouseDraggedAtPoint(NSPoint(x:40, y:40),
                         editorViewController: editorViewController!)
-
-                    expect(editorView!.translate).to(equal(CGVector(dx: 60.0, dy: 420)))
+                    expect(editorView!.translate).to(equal(CGVector(dx: 40.0, dy: 220)))
                     panTool.mouseUpAtPoint(NSPoint(x:20, y:20),
                         editorViewController: editorViewController!)
 
-                    expect(editorView!.translate).to(equal(CGVector(dx: 100, dy: 820)))
+                    expect(editorView!.translate).to(equal(CGVector(dx: 20, dy: 200)))
                 }
             }
         }

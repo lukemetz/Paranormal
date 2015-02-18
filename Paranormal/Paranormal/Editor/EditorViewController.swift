@@ -48,7 +48,7 @@ public class EditorViewController : PNViewController {
 
     func pointToContext(point: CGPoint) -> CGPoint {
         var point = editor.convertPoint(point, fromView: nil)
-        return point
+        return editor.applicationToImage(point)
     }
 
     override public func mouseDown(theEvent: NSEvent) {

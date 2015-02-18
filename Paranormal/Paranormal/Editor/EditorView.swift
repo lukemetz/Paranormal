@@ -54,20 +54,16 @@ public class EditorView : NSView {
     }
 
     public func applicationToImage(aPoint: CGPoint) -> CGPoint {
-        return self.convertPoint(aPoint, fromView: nil)
-    }
+        let unTranslate = NSPoint(x: aPoint.x - translate.dx, y: aPoint.y - translate.dy)
 
-    public override func convertPoint(aPoint: NSPoint, fromView aView: NSView?) -> NSPoint {
-        let base = super.convertPoint(aPoint, fromView: aView)
-        let unScale = NSPoint(x: base.x * 1.0 / scale.dx, y: base.y * 1.0/scale.dy)
-        let unTranslate = NSPoint(x: unScale.x - translate.dx, y: unScale.y - translate.dy)
-        return unTranslate
+        let unScale = NSPoint(x: unTranslate.x / scale.dx, y: unTranslate.y / scale.dy)
+        return unScale
     }
 
     public func imageToApplication(aPoint: CGPoint) -> CGPoint {
-        let unTranslate = NSPoint(x: aPoint.x + translate.dx, y: aPoint.y + translate.dy)
-        let unScale = NSPoint(x: unTranslate.x * scale.dx, y: unTranslate.y * scale.dy)
+        let unScale = NSPoint(x: aPoint.x * scale.dx, y: aPoint.y * scale.dy)
+        let unTranslate = NSPoint(x: unScale.x + translate.dx, y: unScale.y + translate.dy)
 
-        return unScale
+        return unTranslate
     }
 }
