@@ -21,7 +21,7 @@ class PanToolTests: QuickSpec {
 
             context("editorViewController scale is set to 1") {
                 beforeEach() {
-                    let _ = editorViewController?.updateScale(1.0)
+                    let _ = editorViewController?.updateZoom(1.0)
                 }
 
                 it("translate the editorView translation field") {
@@ -44,7 +44,7 @@ class PanToolTests: QuickSpec {
 
             context("editorViewController scale is set to 2") {
                 beforeEach() {
-                    let _ = editorViewController?.updateScale(2.0)
+                    let _ = editorViewController?.updateZoom(2.0)
                 }
 
                 it("translate the editorView translation field") {

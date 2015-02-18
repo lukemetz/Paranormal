@@ -10,7 +10,7 @@ public class Document: NSPersistentDocument {
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
     public var editorZoomPercent : Float = 100 {
         didSet {
-            singleWindowController?.editorViewController?.updateScale(editorZoomPercent / 100.0)
+            singleWindowController?.editorViewController?.updateZoom(editorZoomPercent / 100.0)
         }
     }
 

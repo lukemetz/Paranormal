@@ -25,7 +25,7 @@ public class EditorViewController : PNViewController {
         return document?.currentLayer
     }
 
-    public func updateScale(editorScale : Float) {
+    public func updateZoom(editorScale : Float) {
         editor.scale = CGVector(dx: CGFloat(editorScale), dy: CGFloat(editorScale))
     }
 
