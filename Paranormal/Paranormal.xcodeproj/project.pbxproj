@@ -72,13 +72,18 @@
 		ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
 		ADA963371A0C738100AF22EB /* ZUpInitialize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */; };
 		ADAE53311A17E2AA007135C0 /* Tools.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE53301A17E2AA007135C0 /* Tools.xib */; };
-		ADAE53321A17E2AA007135C0 /* Tools.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE53301A17E2AA007135C0 /* Tools.xib */; };
 		ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53331A17E36D007135C0 /* ToolsViewController.swift */; };
 		ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE53361A17E847007135C0 /* ChamferTool.swift */; };
 		ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */; };
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
+		ADB62A871A912DB8003FCB27 /* EditorActiveTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62A861A912DB8003FCB27 /* EditorActiveTool.swift */; };
+		ADB62A981A912E53003FCB27 /* BrushTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62A971A912E53003FCB27 /* BrushTool.swift */; };
+		ADB62AAE1A913856003FCB27 /* PanTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62AAD1A913856003FCB27 /* PanTool.swift */; };
+		ADB62AC21A913D04003FCB27 /* PanToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62ABF1A9138D9003FCB27 /* PanToolTests.swift */; };
+		ADB62AC51A9150BC003FCB27 /* EditorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62AC41A9150BC003FCB27 /* EditorViewTests.swift */; };
+		ADB62AC71A91B5D8003FCB27 /* ToolsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62AC61A91B5D8003FCB27 /* ToolsViewControllerTests.swift */; };
 		ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */; };
 		ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
 		ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
@@ -319,6 +324,12 @@
 		ADAE53331A17E36D007135C0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		ADAE53361A17E847007135C0 /* ChamferTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferTool.swift; sourceTree = "<group>"; };
 		ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		ADB62A861A912DB8003FCB27 /* EditorActiveTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorActiveTool.swift; sourceTree = "<group>"; };
+		ADB62A971A912E53003FCB27 /* BrushTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushTool.swift; sourceTree = "<group>"; };
+		ADB62AAD1A913856003FCB27 /* PanTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanTool.swift; sourceTree = "<group>"; };
+		ADB62ABF1A9138D9003FCB27 /* PanToolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanToolTests.swift; sourceTree = "<group>"; };
+		ADB62AC41A9150BC003FCB27 /* EditorViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewTests.swift; sourceTree = "<group>"; };
+		ADB62AC61A91B5D8003FCB27 /* ToolsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewControllerTests.swift; sourceTree = "<group>"; };
 		ADBC40691A2A7E6B0033B7C7 /* LayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerTests.swift; sourceTree = "<group>"; };
 		ADD01FC91A2F9B1000C8712C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelsViewController.swift; sourceTree = "<group>"; };
@@ -600,8 +611,28 @@
 				ADAE53331A17E36D007135C0 /* ToolsViewController.swift */,
 				ADAE53361A17E847007135C0 /* ChamferTool.swift */,
 				AD66498C1A32BBCD00B52295 /* NoiseTool.swift */,
+				ADB62A861A912DB8003FCB27 /* EditorActiveTool.swift */,
+				ADB62A971A912E53003FCB27 /* BrushTool.swift */,
+				ADB62AAD1A913856003FCB27 /* PanTool.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		ADB62ABE1A91389B003FCB27 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ADB62ABF1A9138D9003FCB27 /* PanToolTests.swift */,
+				ADB62AC61A91B5D8003FCB27 /* ToolsViewControllerTests.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		ADB62AC31A915080003FCB27 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				ADB62AC41A9150BC003FCB27 /* EditorViewTests.swift */,
+			);
+			path = Editor;
 			sourceTree = "<group>";
 		};
 		ADBC406C1A2A7E700033B7C7 /* DocumentModels */ = {
@@ -711,10 +742,12 @@
 		ADE87F4D19E9A9360041AAB5 /* ParanormalTests */ = {
 			isa = PBXGroup;
 			children = (
+				ADB62AC31A915080003FCB27 /* Editor */,
+				ADB62ABE1A91389B003FCB27 /* Tools */,
+				AD9454A81A3CDE2D008CD31F /* Panels */,
 				ADDA76741A756DEC00CCCC45 /* assets */,
 				ADDA76601A756BB600CCCC45 /* GPUImageShaders */,
 				AD2CDA181A70292A007CA3B7 /* libs */,
-				AD9454A81A3CDE2D008CD31F /* Panels */,
 				ADBC406C1A2A7E700033B7C7 /* DocumentModels */,
 				ADE87F4E19E9A9360041AAB5 /* Supporting Files */,
 				AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */,
@@ -1027,7 +1060,6 @@
 				AD7863121A86736100BA1E10 /* MultiplyMaxAlpha.fsh in Resources */,
 				AD1F336419FC2DA800BBC4DC /* DocumentCreation.xib in Resources */,
 				AD66498B1A32BB6300B52295 /* DepthToNormal.fsh in Resources */,
-				ADAE53321A17E2AA007135C0 /* Tools.xib in Resources */,
 				AD85C6871A7EBFD300DAE66F /* bear.png in Resources */,
 				AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */,
 				ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */,
@@ -1061,6 +1093,7 @@
 				ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
 				AD3BCEC51A74769500747A1A /* ColorPickerViewController.swift in Sources */,
+				ADB62A871A912DB8003FCB27 /* EditorActiveTool.swift in Sources */,
 				770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */,
@@ -1068,6 +1101,7 @@
 				AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */,
 				AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */,
 				AD3BA2811A796FB300C42D8C /* PNViewController.swift in Sources */,
+				ADB62AAE1A913856003FCB27 /* PanTool.swift in Sources */,
 				AD85C69D1A7EFF6000DAE66F /* ThreadUtils.swift in Sources */,
 				ADE87F3A19E9A9350041AAB5 /* Document.swift in Sources */,
 				ADE7B2FC1A1071F1005EDD11 /* ChamferFilter.swift in Sources */,
@@ -1075,6 +1109,7 @@
 				AD3BCEC61A74770200747A1A /* DepthToNormalFilter.swift in Sources */,
 				AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
+				ADB62A981A912E53003FCB27 /* BrushTool.swift in Sources */,
 				AD6649901A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
 				AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */,
@@ -1089,8 +1124,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB62AC21A913D04003FCB27 /* PanToolTests.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
 				ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */,
+				ADB62AC51A9150BC003FCB27 /* EditorViewTests.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
 				AD3BA2BD1A79779300C42D8C /* WindowControllerTests.swift in Sources */,
 				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
@@ -1098,6 +1135,7 @@
 				AD3BA2931A7970F100C42D8C /* PNViewControllerTests.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
+				ADB62AC71A91B5D8003FCB27 /* ToolsViewControllerTests.swift in Sources */,
 				AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */,
 				ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */,
 				AD6649911A32BBF700B52295 /* BlendReorientedNormalsFilter.swift in Sources */,

@@ -25,6 +25,15 @@ public class Layer : NSManagedObject{
         }
     }
 
+    public var size : NSSize {
+        if let img = toImage() {
+            return img.size
+        } else {
+            log.error("Cannot get size of layer. Returning nonsense size.")
+            return NSSize()
+        }
+    }
+
     override public init(entity: NSEntityDescription,
         insertIntoManagedObjectContext context: NSManagedObjectContext?) {
 

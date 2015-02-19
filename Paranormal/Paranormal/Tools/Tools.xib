@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -17,13 +17,23 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Fe-AjZ">
-                    <rect key="frame" x="8" y="328" width="48" height="48"/>
+                    <rect key="frame" x="7" y="69" width="48" height="48"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="chamfer" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="yqn-zB-0Pw">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="chamferPressed:" target="-2" id="YX2-sN-siu"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-Kl-P0V">
+                    <rect key="frame" x="7" y="328" width="48" height="48"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSColorPanel" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="TFa-Fa-LGC">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="brushPressed:" target="-2" id="lr3-n3-Ob6"/>
                     </connections>
                 </button>
                 <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-Zi-RZv">
@@ -33,7 +43,7 @@
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-Es-LLJ">
-                    <rect key="frame" x="7" y="281" width="48" height="48"/>
+                    <rect key="frame" x="8" y="11" width="48" height="48"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="texture" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WrH-6T-F5G">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -42,11 +52,23 @@
                         <action selector="noisePressed:" target="-2" id="nwY-Bx-3FF"/>
                     </connections>
                 </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
+                    <rect key="frame" x="8" y="281" width="48" height="48"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSCaution" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="291" y="248"/>
         </customView>
     </objects>
     <resources>
+        <image name="NSCaution" width="32" height="32"/>
+        <image name="NSColorPanel" width="32" height="32"/>
         <image name="chamfer" width="1024.0799560546875" height="1024.0799560546875"/>
         <image name="texture" width="511.92001342773438" height="511.92001342773438"/>
     </resources>
