@@ -70,6 +70,8 @@ def check_tidy():
                     err = report_err("XXX is no longer necessary, use FIXME")
                 match = re.match(r'^.*//\s*(NOTE.*)$', line)
 
+            if not line.endswith('\n'):
+                err = report_err("No newline at end of file")
             if check_tab and (line.find('\t') != -1 and
                 fileinput.filename().find("Makefile") == -1):
                 err = report_err("tab character")
