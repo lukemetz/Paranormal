@@ -54,7 +54,7 @@ public class BrushTool : NSObject, EditorActiveTool {
 
         if let color = editorViewController.color {
             if let size = editorViewController.brushSize {
-                drawLine(editorContext, currentPoint: point, color: color, size: size)
+                drawLine(editorContext, currentPoint: point, color: color, size: CGFloat(size))
             }
         }
 
@@ -68,7 +68,7 @@ public class BrushTool : NSObject, EditorActiveTool {
     public func mouseUpAtPoint(point : NSPoint, editorViewController: EditorViewController) {
         if let color = editorViewController.color {
             if let size = editorViewController.brushSize {
-                drawLine(editorContext, currentPoint: point, color: color, size: size)
+                drawLine(editorContext, currentPoint: point, color: color, size: CGFloat(size))
             }
         }
 

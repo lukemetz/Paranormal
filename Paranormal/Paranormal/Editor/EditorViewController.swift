@@ -25,12 +25,12 @@ public class EditorViewController : PNViewController {
         return document?.currentLayer
     }
 
-    public var brushSize : CGFloat? {
-        return document?.currentBrushSize
+    public var brushSize : Float? {
+        return document?.brushSize
     }
 
-    public var brushOpacity : CGFloat? {
-        return document?.currentBrushOpacity
+    public var brushOpacity : Float? {
+        return document?.brushOpacity
     }
 
     public func updateZoom(editorScale : Float) {

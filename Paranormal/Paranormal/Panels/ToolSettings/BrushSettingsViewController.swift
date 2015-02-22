@@ -18,24 +18,24 @@ public class BrushSettingsViewController: PNViewController {
     }
 
 
-    public var brushSize: CGFloat = 4 {
+    public var brushSize: Float = 4 {
         didSet(value) {
             updateBrushSize()
         }
     }
 
-    public var brushOpacity: CGFloat = 100 {
+    public var brushOpacity: Float = 100 {
         didSet(value) {
             updateBrushOpacity()
         }
     }
 
     func updateBrushSize() {
-        document?.currentBrushSize = brushSize
+        document?.brushSize = brushSize
     }
 
     func updateBrushOpacity() {
-        document?.currentBrushOpacity = brushOpacity
+        document?.brushOpacity = brushOpacity
     }
 
 }
