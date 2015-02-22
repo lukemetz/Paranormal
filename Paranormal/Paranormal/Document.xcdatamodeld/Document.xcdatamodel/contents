@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B17" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DocumentSettings" representedClassName="Paranormal.DocumentSettings" syncable="YES">
         <attribute name="baseImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" attributeType="Integer 16" defaultValueString="300" syncable="YES"/>
@@ -9,7 +9,10 @@
     <entity name="Layer" representedClassName="Paranormal.Layer" syncable="YES">
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="opacity" attributeType="Float" minValueString="0" maxValueString="1" defaultValueString="1" syncable="YES"/>
+
         <attribute name="rawBlendMode" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+
         <attribute name="visible" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="layers" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Layer" inverseName="parent" inverseEntity="Layer" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Layer" inverseName="layers" inverseEntity="Layer" syncable="YES"/>
@@ -21,7 +24,10 @@
     </entity>
     <elements>
         <element name="DocumentSettings" positionX="-63" positionY="0" width="128" height="103"/>
+        <element name="Layer" positionX="133" positionY="0" width="128" height="165"/>
+
         <element name="Layer" positionX="133" positionY="0" width="128" height="150"/>
+
         <element name="Refraction" positionX="97" positionY="-144" width="128" height="73"/>
     </elements>
 </model>

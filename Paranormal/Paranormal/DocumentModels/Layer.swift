@@ -8,6 +8,7 @@ public class Layer : NSManagedObject{
     @NSManaged public var imageData : NSData?
     @NSManaged public var layers : NSMutableOrderedSet
     @NSManaged public var parent : Layer
+    @NSManaged public var opacity : Float
     @NSManaged private var rawBlendMode : Int16
 
     public var blendMode : BlendMode {
@@ -146,32 +147,35 @@ public class Layer : NSManagedObject{
 
     // TODO test me with image data accessors
     public func combineLayerOntoSelf(layer : Layer) {
+        ThreadUtils.runGPUImageDestructive {
+            if let overlayImage = layer.toImage() {
+                if let baseImage = self.toImage() {
+                    let overlayPicture = GPUImagePicture(image: overlayImage)
+                    let basePicture = GPUImagePicture(image: baseImage)
+                    let filter = self.filterForBlendMode(layer.blendMode)
+                    if let blendAddFilter = filter as? BlendAddFilter {
+                        blendAddFilter.setOpacity(layer.opacity)
+                    }
+                    basePicture.addTarget(filter)
+                    overlayPicture.addTarget(filter)
+                    filter.useNextFrameForImageCapture()
+                    basePicture.processImage()
+                    overlayPicture.processImage()
+                    let combinedImage = filter.imageFromCurrentFramebuffer()
 
-        if let image = layer.toImage() {
-            let size = image.size
-            func toContext(layer : Layer) -> CGContext {
-                let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
-                let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-
-                let context = CGBitmapContextCreate(nil, UInt(size.width),
-                    UInt(size.height),  8,  0 , colorSpace, bitmapInfo)
-
-                layer.drawToContext(context)
-                return context
+                    if combinedImage != nil
+                        && combinedImage.size.width > 0
+                        && combinedImage.size.height > 0 {
+                        self.imageData = combinedImage.TIFFRepresentation
+                        self.parent.removeLayer(layer)
+                    } else {
+                        log.error("Failed to get valid image from GPUImage framebuffer.")
+                    }
+                    return
+                }
             }
-
-            let context = toContext(self)
-
-            let cgImage = image.CGImageForProposedRect(nil, context: nil, hints: nil)
-            let rect = CGRectMake(0, 0, size.width, size.height)
-            if let cgImageUnwrap = cgImage {
-                CGContextDrawImage(context, rect, cgImageUnwrap.takeUnretainedValue())
-
-                self.updateFromContext(context)
-                return
-            }
+            log.error("Failed to combine layer due to unexpected optional value.")
         }
-        log.error("Failed to combine layer due to unexpected optional value")
     }
 
     private func filterForBlendMode(blend: BlendMode) -> GPUImageFilter {
@@ -202,12 +206,14 @@ public class Layer : NSManagedObject{
 
             for (index, layer) in enumerate(layersArray[1..<layersArray.count]) {
                 var filter = filterForBlendMode(layer.blendMode)
-                lastSource.addTarget(filter)
+                if let blendAdd = filter as? BlendAddFilter {
+                    blendAdd.setOpacity(layer.opacity)
+                }
                 let (currentSource, pictures) = layer.renderOutputNode()
                 inputPictures = pictures + inputPictures
 
-                currentSource.addTarget(filter)
                 lastSource.addTarget(filter)
+                currentSource.addTarget(filter)
                 // The output of the filter is the new next source
                 lastSource = filter
             }

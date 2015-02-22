@@ -7,8 +7,8 @@ public class PanelsViewController: PNViewController {
     @IBOutlet weak var previewView: NSView!
     var previewViewController: PreviewViewController?
 
-    @IBOutlet weak var colorPickerView: NSView!
-    var colorPickerViewController: ColorPickerViewController?
+    @IBOutlet weak var brushSettingsView: NSView!
+    var brushSettingsViewController: BrushSettingsViewController?
 
     override public func loadView() {
         super.loadView()
@@ -21,10 +21,11 @@ public class PanelsViewController: PNViewController {
             }
         }
 
-        colorPickerViewController = ColorPickerViewController(nibName: "ColorPicker", bundle: nil)
-        subPNViewControllers.append(colorPickerViewController)
-        if let view = colorPickerViewController?.view {
-            ViewControllerUtils.insertSubviewIntoParent(colorPickerView, child: view)
+        brushSettingsViewController =
+            BrushSettingsViewController(nibName: "BrushSettings", bundle: nil)
+        subPNViewControllers.append(brushSettingsViewController)
+        if let view = brushSettingsViewController?.view {
+            ViewControllerUtils.insertSubviewIntoParent(brushSettingsView, child: view)
         }
     }
 }
