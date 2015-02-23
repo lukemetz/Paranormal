@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PanelsViewController" customModule="Paranormal" customModuleProvider="target">
             <connections>
-                <outlet property="colorPickerView" destination="a2g-mm-lLe" id="bfv-iV-R3k"/>
+                <outlet property="brushSettingsView" destination="a2g-mm-lLe" id="YvT-Zh-PhU"/>
                 <outlet property="previewView" destination="mLz-4K-EY3" id="0YL-Oc-EKm"/>
                 <outlet property="view" destination="c22-O7-iKe" id="fAf-1b-Of3"/>
             </connections>
@@ -25,13 +25,13 @@
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="a2g-mm-lLe">
-                    <rect key="frame" x="0.0" y="123" width="242" height="194"/>
+                    <rect key="frame" x="0.0" y="0.0" width="242" height="317"/>
                 </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="a2g-mm-lLe" firstAttribute="trailing" secondItem="mLz-4K-EY3" secondAttribute="trailing" id="20X-eS-u3G"/>
                 <constraint firstItem="mLz-4K-EY3" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Ag4-Jo-b10"/>
-                <constraint firstAttribute="bottom" secondItem="a2g-mm-lLe" secondAttribute="bottom" constant="123" id="Smp-TZ-E4D"/>
+                <constraint firstAttribute="bottom" secondItem="a2g-mm-lLe" secondAttribute="bottom" id="Smp-TZ-E4D"/>
                 <constraint firstItem="a2g-mm-lLe" firstAttribute="leading" secondItem="mLz-4K-EY3" secondAttribute="leading" id="i8Q-nb-lUv"/>
                 <constraint firstItem="mLz-4K-EY3" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="l9w-xX-1SU"/>
                 <constraint firstAttribute="trailing" secondItem="mLz-4K-EY3" secondAttribute="trailing" id="pTg-9U-PT0"/>

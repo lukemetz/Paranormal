@@ -25,17 +25,15 @@ public class BrushTool : NSObject, EditorActiveTool {
         }
     }
 
-    func drawLine(wrapContext: CGContext?, currentPoint: CGPoint, color: NSColor) {
-        if let context = wrapContext {
-            CGContextMoveToPoint(context, lastPoint.x, lastPoint.y)
-            CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
-            CGContextSetLineCap(context, kCGLineCapRound)
-            CGContextSetLineWidth(context, brush)
-            CGContextSetRGBStrokeColor(context,
-                color.redComponent, color.greenComponent, color.blueComponent, 1.0)
-            CGContextSetBlendMode(context, kCGBlendModeNormal)
-            CGContextStrokePath(context)
-        }
+    func drawLine(context: CGContext?, currentPoint: CGPoint, color: NSColor, size: CGFloat) {
+        CGContextMoveToPoint(context, lastPoint.x, lastPoint.y)
+        CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
+        CGContextSetLineCap(context, kCGLineCapRound)
+        CGContextSetLineWidth(context, size)
+        CGContextSetRGBStrokeColor(context,
+            color.redComponent, color.greenComponent, color.blueComponent, 1.0)
+        CGContextSetBlendMode(context, kCGBlendModeNormal)
+        CGContextStrokePath(context)
     }
 
     public func mouseDownAtPoint(point : NSPoint, editorViewController: EditorViewController) {
@@ -45,6 +43,9 @@ public class BrushTool : NSObject, EditorActiveTool {
 
         mouseSwiped = false
         editLayer = editorViewController.currentLayer?.createEditLayer()
+        if let brushOpacity = editorViewController.brushOpacity {
+            editLayer?.opacity = Float(brushOpacity)
+        }
         lastPoint = point
     }
 
@@ -52,7 +53,9 @@ public class BrushTool : NSObject, EditorActiveTool {
         mouseSwiped = true
 
         if let color = editorViewController.color {
-            drawLine(editorContext, currentPoint: point, color: color)
+            if let size = editorViewController.brushSize {
+                drawLine(editorContext, currentPoint: point, color: color, size: CGFloat(size))
+            }
         }
 
         if let context = editorContext {
@@ -64,7 +67,9 @@ public class BrushTool : NSObject, EditorActiveTool {
 
     public func mouseUpAtPoint(point : NSPoint, editorViewController: EditorViewController) {
         if let color = editorViewController.color {
-            drawLine(editorContext, currentPoint: point, color: color)
+            if let size = editorViewController.brushSize {
+                drawLine(editorContext, currentPoint: point, color: color, size: CGFloat(size))
+            }
         }
 
         if let context = editorContext {
@@ -73,7 +78,6 @@ public class BrushTool : NSObject, EditorActiveTool {
 
         if let layer = editLayer {
             editorViewController.currentLayer?.combineLayerOntoSelf(layer)
-            editorViewController.currentLayer?.parent.removeLayer(layer)
         }
 
         editLayer = nil

@@ -8,6 +8,8 @@ public class Document: NSPersistentDocument {
 
     // User preferences / user facing data
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
+    public var brushSize : Float = 4
+    public var brushOpacity : Float = 1.0
     public var editorZoomPercent : Float = 100 {
         didSet {
             singleWindowController?.editorViewController?.updateZoom(editorZoomPercent / 100.0)

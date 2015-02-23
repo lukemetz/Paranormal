@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ToolSettingsViewController" customModule="Paranormal" customModuleProvider="target">
+            <connections>
+                <outlet property="colorPickerView" destination="Qit-Pb-4az" id="ePM-L1-KEL"/>
+                <outlet property="view" destination="c22-O7-iKe" id="9JV-hd-g7q"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="226" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-Pb-4az">
+                    <rect key="frame" x="0.0" y="138" width="226" height="134"/>
+                </customView>
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxb-M3-ank">
+                    <rect key="frame" x="99" y="44" width="96" height="21"/>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="K4d-MY-SEN">
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.brushOpacity" id="nrP-od-QlZ"/>
+                        </connections>
+                    </sliderCell>
+                </slider>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84G-rB-rHj">
+                    <rect key="frame" x="24" y="91" width="30" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Size" id="MWq-5K-bbF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PUv-jL-eLz">
+                    <rect key="frame" x="26" y="46" width="52" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Opacity" id="PVl-3z-NeG">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUF-sP-UxZ">
+                    <rect key="frame" x="99" y="89" width="96" height="21"/>
+                    <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="50" doubleValue="4.6993749999999999" tickMarkPosition="above" sliderType="linear" id="Hze-KM-0fY">
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.brushSize" id="F7F-wJ-EGd"/>
+                        </connections>
+                    </sliderCell>
+                </slider>
+            </subviews>
+            <point key="canvasLocation" x="353" y="272"/>
+        </customView>
+        <userDefaultsController representsSharedInstance="YES" id="FFa-gn-s1x"/>
+    </objects>
+</document>
