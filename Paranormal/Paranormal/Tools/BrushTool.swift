@@ -46,6 +46,11 @@ public class BrushTool : NSObject, EditorActiveTool {
         if let brushOpacity = editorViewController.brushOpacity {
             editLayer?.opacity = Float(brushOpacity)
         }
+
+        if let context = editorContext {
+            editLayer?.drawToContext(context)
+        }
+
         lastPoint = point
     }
 
