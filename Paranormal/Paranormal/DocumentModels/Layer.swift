@@ -69,7 +69,6 @@ public class Layer : NSManagedObject{
         let width = CGImageGetWidth(cgImage)
         let height = CGImageGetHeight(cgImage)
         let rect = CGRectMake(0.0, 0.0, CGFloat(width), CGFloat(height))
-
         CGContextClearRect(context, rect)
 
         CGContextDrawImage(context, rect, cgImage)
@@ -78,9 +77,9 @@ public class Layer : NSManagedObject{
     func fillWithEmpty(size: NSSize) {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-        var context = CGBitmapContextCreate(nil, 5, 5, 8, 0, colorSpace, bitmapInfo)
-        CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(0, 0, 0, 0))
-        CGContextFillRect(context, CGRectMake(0, 0, 5, 5))
+        var context = CGBitmapContextCreate(nil, UInt(size.width), UInt(size.height),
+            8, 0, colorSpace, bitmapInfo)
+        CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height))
         let cgImage = CGBitmapContextCreateImage(context)
 
         let nsImage = NSImage(CGImage: cgImage, size: size)
