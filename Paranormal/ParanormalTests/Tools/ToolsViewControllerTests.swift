@@ -25,12 +25,21 @@ class ToolsViewControllerTests: QuickSpec {
                 windowController?.editorViewController?.activeEditorTool = nil
             }
 
-            describe("brushPressed") {
-                it("sets the active tool on the editorViewController to be a BrushTool") {
-                    windowController?.toolsViewController?.brushPressed(NSButton())
+            describe("angleBrushPressed") {
+                it("sets the active tool on the editorViewController to be an AngleBrushTool") {
+                    windowController?.toolsViewController?.angleBrushPressed(NSButton())
 
                     let activeTool = windowController?.editorViewController?.activeEditorTool
-                    expect(activeTool as? BrushTool).toNot(beNil())
+                    expect(activeTool as? AngleBrushTool).toNot(beNil())
+                }
+            }
+
+            describe("flattenBrushPressed") {
+                it("sets the active tool on the editorViewController to be a FlattenBrushTool") {
+                    windowController?.toolsViewController?.flattenBrushPressed(NSButton())
+
+                    let activeTool = windowController?.editorViewController?.activeEditorTool
+                    expect(activeTool as? FlattenBrushTool).toNot(beNil())
                 }
             }
 

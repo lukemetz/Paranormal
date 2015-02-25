@@ -21,9 +21,15 @@ public class ToolsViewController: PNViewController {
         }
     }
 
-    @IBAction public func brushPressed(sender: NSButton) {
+    @IBAction public func flattenBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.activeEditorTool = FlattenBrushTool()
+        }
+    }
+
+    @IBAction public func angleBrushPressed(sender: NSButton) {
+        if let doc = document {
+            editorViewController?.activeEditorTool = AngleBrushTool()
         }
     }
 

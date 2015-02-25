@@ -45,14 +45,13 @@ uniform float opacity;
 
 void main() {
     vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
-    vec4 flattenRaise = texture2D(inputImageTexture2, textureCoordinate);
+    vec4 flattenColor = texture2D(inputImageTexture2, textureCoordinate);
 
-    float factor = flattenRaise.a * opacity;
+    float factor = flattenColor.a * opacity;
 
     vec3 norm = colorToNormal(baseColor);
 
-    vec3 target = vec3(0.0, 0.0, 1.0);
-    vec3 transformedNormal = slerp(norm, target, factor);
+    vec3 transformedNormal = slerp(norm, zUpNormal, factor);
 
     vec4 outputColor;
     outputColor = normalToColor(transformedNormal, baseColor.a);
