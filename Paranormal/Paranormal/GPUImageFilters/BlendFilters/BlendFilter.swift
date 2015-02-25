@@ -2,14 +2,13 @@ import Foundation
 import GPUImage
 import OpenGL
 
-class BlendAddFilter :  GPUImageTwoInputFilter {
-    func setOpacity (opacity : Float) {
-        setFloat(GLfloat(opacity), forUniformName: "opacity")
+class BlendFilter :  GPUImageTwoInputFilter {
+    init(shaderName: String) {
+        super.init(fragmentShaderFromFile: shaderName)
     }
 
-    override init() {
-        super.init(fragmentShaderFromFile: "BlendAdd")
-        setOpacity(1.0)
+    func setOpacity(opacity : Float) {
+        setFloat(GLfloat(opacity), forUniformName: "opacity")
     }
 
     override init!(fragmentShaderFromString fragmentShaderString: String!) {
@@ -18,8 +17,8 @@ class BlendAddFilter :  GPUImageTwoInputFilter {
 
     override init!(vertexShaderFromString vertexShaderString: String!,
         fragmentShaderFromString fragmentShaderString: String!) {
-
             super.init(vertexShaderFromString: vertexShaderString,
                 fragmentShaderFromString: fragmentShaderString)
     }
 }
+

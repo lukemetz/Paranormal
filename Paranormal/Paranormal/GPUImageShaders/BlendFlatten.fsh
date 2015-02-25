@@ -38,26 +38,23 @@ vec3 slerp(vec3 fromVector, vec3 toVector, float mixRatio) {
 }
 
 varying vec2 textureCoordinate;
+
 uniform sampler2D inputImageTexture;
 uniform sampler2D inputImageTexture2;
 uniform float opacity;
 
 void main() {
     vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
-    vec4 overlayColor = texture2D(inputImageTexture2, textureCoordinate);
-    // overlayColor has anti-aliasing opacity which mixes it with black.
-    // For now we're just killing that with a floor.
-    float mixRatio = floor(overlayColor.a) * opacity;
+    vec4 flattenRaise = texture2D(inputImageTexture2, textureCoordinate);
 
-    if (mixRatio < epsilon) {
-        gl_FragColor = baseColor;
-    } else if (mixRatio > (1.0 - epsilon)) {
-        gl_FragColor = overlayColor;
-    } else {
-        vec3 baseNormal = colorToNormal(baseColor);
-        vec3 overlayNormal = colorToNormal(overlayColor);
-        vec3 outputNormal = slerp(baseNormal, overlayNormal, mixRatio);
+    float factor = flattenRaise.a * opacity;
 
-        gl_FragColor = normalToColor(outputNormal, baseColor.a);
-    }
+    vec3 norm = colorToNormal(baseColor);
+
+    vec3 target = vec3(0.0, 0.0, 1.0);
+    vec3 transformedNormal = slerp(norm, target, factor);
+
+    vec4 outputColor;
+    outputColor = normalToColor(transformedNormal, baseColor.a);
+    gl_FragColor = outputColor;
 }
