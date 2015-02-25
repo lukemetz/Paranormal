@@ -2,9 +2,9 @@ import Foundation
 import GPUImage
 import OpenGL
 
-class BlendReorientedNormalsFilter :  GPUImageTwoInputFilter {
-    override init() {
-        super.init(fragmentShaderFromFile: "BlendReorientedNormals")
+class BlendFlattenFilter :  BlendFilter {
+    init() {
+        super.init(shaderName: "BlendFlatten")
     }
 
     override init!(fragmentShaderFromString fragmentShaderString: String!) {
@@ -13,7 +13,6 @@ class BlendReorientedNormalsFilter :  GPUImageTwoInputFilter {
 
     override init!(vertexShaderFromString vertexShaderString: String!,
         fragmentShaderFromString fragmentShaderString: String!) {
-
             super.init(vertexShaderFromString: vertexShaderString,
                 fragmentShaderFromString: fragmentShaderString)
     }

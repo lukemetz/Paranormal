@@ -60,6 +60,10 @@ class ShadersCompileTest : QuickSpec {
                 test_two_input("BlendAdd")
             }
 
+            it("BlendFlatten compiles") {
+                test_two_input("BlendFlatten")
+            }
+
             it("MultiplyMaxAlpha compiles") {
                 test_two_input("MultiplyMaxAlpha")
             }

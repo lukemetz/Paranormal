@@ -33,7 +33,17 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="brushPressed:" target="-2" id="lr3-n3-Ob6"/>
+                        <action selector="angleBrushPressed:" target="-2" id="24z-XA-5dv"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qry-RV-Qb6">
+                    <rect key="frame" x="8" y="281" width="48" height="48"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSColumnViewTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="aBu-ls-hcA">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="flattenBrushPressed:" target="-2" id="Qp7-y5-FrD"/>
                     </connections>
                 </button>
                 <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-Zi-RZv">
@@ -53,7 +63,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
-                    <rect key="frame" x="8" y="281" width="48" height="48"/>
+                    <rect key="frame" x="8" y="234" width="48" height="48"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSCaution" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -69,6 +79,7 @@
     <resources>
         <image name="NSCaution" width="32" height="32"/>
         <image name="NSColorPanel" width="32" height="32"/>
+        <image name="NSColumnViewTemplate" width="16" height="10"/>
         <image name="chamfer" width="1024.0799560546875" height="1024.0799560546875"/>
         <image name="texture" width="511.92001342773438" height="511.92001342773438"/>
     </resources>

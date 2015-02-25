@@ -183,6 +183,8 @@ public class Layer : NSManagedObject{
             return BlendAddFilter()
         case .Oriented:
             return BlendReorientedNormalsFilter()
+        case .Flatten:
+            return BlendFlattenFilter()
         }
     }
 
@@ -205,8 +207,8 @@ public class Layer : NSManagedObject{
 
             for (index, layer) in enumerate(layersArray[1..<layersArray.count]) {
                 var filter = filterForBlendMode(layer.blendMode)
-                if let blendAdd = filter as? BlendAddFilter {
-                    blendAdd.setOpacity(layer.opacity)
+                if let blendFilter = filter as? BlendFilter {
+                    blendFilter.setOpacity(layer.opacity)
                 }
                 let (currentSource, pictures) = layer.renderOutputNode()
                 inputPictures = pictures + inputPictures
