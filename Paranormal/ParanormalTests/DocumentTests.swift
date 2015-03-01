@@ -91,34 +91,35 @@ class DocumentTests: QuickSpec {
                     expect(newDocument?.documentSettings?.width).to(equal(161))
                 }
 
-                // Bug 88400728: This test has a race condition involving the editor controller
-                // not initializing the image before the colors are extracted.
-                // TODO: Stop skipping this test.
-                xit ("Initializes editor with ZUP in shape of bear") {
-
+                it ("Initializes editor with ZUP in shape of bear") {
                     let newDocument = documentController.documents[0] as? Document
                     let editorController = newDocument?.singleWindowController?.editorViewController
                         as EditorViewController?
+
+                    // Kick the editor a couple times to make sure
+                    // everything has been updated properly
                     expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
+                    expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
+                    newDocument?.computeDerivedData()
+                    expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
+                    expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
+
                     //w=161, h=156
                     //check that corners are transparent
                     var color = editorController?.getPixelColor(0.0, 0.0) //top left
                     expect(color?.alphaComponent).to(equal(0))
-                    color = editorController?.getPixelColor(160.0, 0.0) //top right
-                    expect(color?.alphaComponent).to(equal(0))
+
                     color = editorController?.getPixelColor(0.0, 155.0) //bottom left
                     expect(color?.alphaComponent).to(equal(0))
+
                     color = editorController?.getPixelColor(160.0, 155.0) //bottom right
                     expect(color?.alphaComponent).to(equal(0))
 
-                    expect(editorController?.getPixelColor(105.0, 8.0)?.alphaComponent)
-                        .toEventually(equal(255))
-                    expect(editorController?.getPixelColor(105.0, 8.0)?.redComponent)
-                        .toEventually(equal(128))
-                    expect(editorController?.getPixelColor(105.0, 8.0)?.greenComponent)
-                        .toEventually(equal(128))
-                    expect(editorController?.getPixelColor(105.0, 8.0)?.blueComponent)
-                        .toEventually(equal(255))
+                    color = editorController?.getPixelColor(105.0, 8.0)
+                    expect(color?.alphaComponent).to(equal(255))
+                    expect(color?.redComponent).to(equal(128))
+                    expect(color?.greenComponent).to(equal(128))
+                    expect(color?.blueComponent).to(equal(255))
                 }
             }
         }

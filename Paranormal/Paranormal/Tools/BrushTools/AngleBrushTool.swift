@@ -4,7 +4,7 @@ import Foundation
 
 public class AngleBrushTool : BrushTool {
 
-    override init() {
+    public override init() {
         super.init()
     }
 

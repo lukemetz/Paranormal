@@ -39,7 +39,7 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    var computedEditorImage : NSImage? {
+    public var computedEditorImage : NSImage? {
         didSet {
             NSNotificationCenter.defaultCenter().postNotificationName(
                 PNDocumentComputedEditorChanged, object: self.computedEditorImage)
@@ -96,7 +96,7 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    func computeDerivedData() {
+    public func computeDerivedData() {
         ThreadUtils.runGPUImage { () -> Void in
             self.computedEditorImage = self.rootLayer?.renderLayer()
         }

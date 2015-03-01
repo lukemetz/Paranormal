@@ -8,6 +8,7 @@ public class ThreadUtils : NSObject {
     var gpuImageThread : NSThread?
     var editClosures : [() -> Void] = []
     var updateClosures : [() -> Void] = []
+    var doneProcessing : Bool = true
     var lock : NSLock = NSLock()
 
     override init() {
@@ -20,6 +21,7 @@ public class ThreadUtils : NSObject {
     dynamic func threadMain() {
         while(true) { // TODO turn this off
             while (editClosures.count > 0) {
+                doneProcessing = false
                 lock.lock()
                 let closure = editClosures.removeAtIndex(0)
                 lock.unlock()
@@ -27,12 +29,14 @@ public class ThreadUtils : NSObject {
             }
 
             while (updateClosures.count > 0) {
+                doneProcessing = false
                 lock.lock()
                 let closure = updateClosures.removeLast()
                 updateClosures = []
                 lock.unlock()
                 closure()
             }
+            doneProcessing = true
         }
     }
 
@@ -41,12 +45,14 @@ public class ThreadUtils : NSObject {
     }
 
     public class func runGPUImage(block : () -> Void) {
+        ThreadUtils.sharedInstance.doneProcessing = false
         sharedInstance.lock.lock()
         ThreadUtils.sharedInstance.updateClosures.append(block)
         sharedInstance.lock.unlock()
     }
 
     public class func runGPUImageDestructive(block : () -> Void) {
+        ThreadUtils.sharedInstance.doneProcessing = false
         sharedInstance.lock.lock()
         ThreadUtils.sharedInstance.editClosures.append(block)
         sharedInstance.lock.unlock()
@@ -58,5 +64,9 @@ public class ThreadUtils : NSObject {
         } else {
             NSOperationQueue.mainQueue().addOperationWithBlock(closure)
         }
+    }
+
+    public class func doneProcessingGPUImage() -> Bool {
+        return sharedInstance.doneProcessing;
     }
 }
