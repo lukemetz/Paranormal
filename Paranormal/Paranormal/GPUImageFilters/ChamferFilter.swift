@@ -1,31 +1,32 @@
 import Foundation
 import GPUImage
-import OpenGL
 
-class ChamferFilter : GPUImageFilterGroup {
+class ChamferFilter : GPUImageFilter {
+
+    var depth : Float = 0.2
+    var radius : Float = 10.0
+
     override init() {
-        super.init()
+        super.init(fragmentShaderFromFile: "Chamfer")
+    }
 
-        let alphaMask = GPUImageFilter(fragmentShaderFromFile: "MaskAlpha")
-        self.addFilter(alphaMask)
+    override init!(fragmentShaderFromString fragmentShaderString: String!) {
+        super.init(fragmentShaderFromString: fragmentShaderString)
+    }
 
-        let blurFilter = GPUImageGaussianBlurFilter()
-        blurFilter.blurRadiusInPixels = 10.0;
-        self.addFilter(blurFilter)
+    override init!(vertexShaderFromString vertexShaderString: String!,
+            fragmentShaderFromString fragmentShaderString: String!) {
+        super.init(vertexShaderFromString: vertexShaderString,
+            fragmentShaderFromString: fragmentShaderString)
+    }
 
-        let multiply = GPUImageTwoInputFilter(fragmentShaderFromFile: "MultiplyMaxAlpha")
-        self.addFilter(multiply)
-
-        let depthToNormal = DepthToNormalFilter()
-        self.addFilter(depthToNormal)
-
-        alphaMask.addTarget(blurFilter)
-        blurFilter.addTarget(multiply)
-        alphaMask.addTarget(multiply)
-
-        multiply.addTarget(depthToNormal)
-        initialFilters = [alphaMask]
-        terminalFilter = depthToNormal
+    override func setupFilterForSize(filterFrameSize: CGSize) {
+        super.setupFilterForSize(filterFrameSize)
+        ThreadUtils.runGPUImage { () -> Void in
+            self.setFloat(GLfloat(1.0/filterFrameSize.height), forUniformName: "texelHeight")
+            self.setFloat(GLfloat(1.0/filterFrameSize.width), forUniformName: "texelWidth")
+            self.setFloat(GLfloat(self.depth), forUniformName: "depth")
+            self.setFloat(GLfloat(self.radius), forUniformName: "radius")
+        }
     }
 }
-
