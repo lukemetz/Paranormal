@@ -79,26 +79,4 @@ public class EditorViewController : PNViewController {
 
         activeEditorTool?.mouseUpAtPoint(point, editorViewController: self)
     }
-
-    public func getPixelColor(x: CGFloat, _ y: CGFloat) -> NSColor? {
-        let pos : CGPoint = CGPointMake(x, y)
-        if let documentSettings = document?.documentSettings {
-            if let image = editor.image {
-                var imageRect:CGRect = CGRectMake(0, 0, image.size.width, image.size.height)
-                var imageRef = image.CGImageForProposedRect(&imageRect, context: nil, hints: nil)
-                let width = CGFloat(documentSettings.width)
-
-                let dataProvider : CGDataProvider! =
-                CGImageGetDataProvider(imageRef?.takeUnretainedValue())
-                var pixelData = CGDataProviderCopyData(dataProvider)
-                var data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-                var index: Int = ((Int(width) * Int(pos.y)) + Int(pos.x)) * 4
-
-                let color = NSColor(red: CGFloat(data[index]), green: CGFloat(data[index+1]),
-                    blue: CGFloat(data[index+2]), alpha: CGFloat(data[index+3]))
-                return color
-            }
-        }
-        return nil
-    }
 }

@@ -95,6 +95,8 @@
 		ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */; };
 		ADDA76731A756CF200CCCC45 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
 		ADDA76761A756DF600CCCC45 /* blankImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76751A756DF600CCCC45 /* blankImage.png */; };
+		ADDFF98E1A9E5F8B009FF720 /* AngleBrushToolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98D1A9E5F8B009FF720 /* AngleBrushToolTest.swift */; };
+		ADDFF9901A9E690D009FF720 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
 		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
@@ -348,6 +350,8 @@
 		ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPicker.xib; sourceTree = "<group>"; };
 		ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadersCompileTest.swift; sourceTree = "<group>"; };
 		ADDA76751A756DF600CCCC45 /* blankImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blankImage.png; path = ParanormalTests/assets/blankImage.png; sourceTree = SOURCE_ROOT; };
+		ADDFF98D1A9E5F8B009FF720 /* AngleBrushToolTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleBrushToolTest.swift; sourceTree = "<group>"; };
+		ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageHelper.swift; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
@@ -656,6 +660,7 @@
 		ADB62ABE1A91389B003FCB27 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				ADDFF97D1A9E5F52009FF720 /* BrushTools */,
 				ADB62ABF1A9138D9003FCB27 /* PanToolTests.swift */,
 				ADB62AC61A91B5D8003FCB27 /* ToolsViewControllerTests.swift */,
 			);
@@ -712,6 +717,14 @@
 				ADDA76751A756DF600CCCC45 /* blankImage.png */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		ADDFF97D1A9E5F52009FF720 /* BrushTools */ = {
+			isa = PBXGroup;
+			children = (
+				ADDFF98D1A9E5F8B009FF720 /* AngleBrushToolTest.swift */,
+			);
+			path = BrushTools;
 			sourceTree = "<group>";
 		};
 		ADE7B2F51A1061D6005EDD11 /* GPUImageFilters */ = {
@@ -791,6 +804,7 @@
 				AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */,
 				AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */,
 				AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */,
+				ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */,
 			);
 			path = ParanormalTests;
 			sourceTree = "<group>";
@@ -1169,6 +1183,7 @@
 			files = (
 				ADB62AC21A913D04003FCB27 /* PanToolTests.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
+				ADDFF9901A9E690D009FF720 /* NSImageHelper.swift in Sources */,
 				ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */,
 				ADB62AC51A9150BC003FCB27 /* EditorViewTests.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
@@ -1176,6 +1191,7 @@
 				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
 				AD9FDCD71A85BAB300C6D974 /* ThreadUtilsTest.swift in Sources */,
 				AD3BA2931A7970F100C42D8C /* PNViewControllerTests.swift in Sources */,
+				ADDFF98E1A9E5F8B009FF720 /* AngleBrushToolTest.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
 				ADB62AC71A91B5D8003FCB27 /* ToolsViewControllerTests.swift in Sources */,

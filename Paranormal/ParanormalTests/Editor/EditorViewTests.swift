@@ -14,6 +14,7 @@ class EditorViewTests: QuickSpec {
                 editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
                 editorView = editorViewController?.view as? EditorView
             }
+
             describe("Point Transforms") {
                 it ("imageToApplication and applicationToImage are inverses") {
                     editorView.scale = CGVector(dx: 2, dy: 2)
