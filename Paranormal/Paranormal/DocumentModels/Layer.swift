@@ -154,7 +154,6 @@ public class Layer : NSManagedObject{
                     let filter = self.filterForBlendMode(layer.blendMode)
                     if let blendFilter = filter as? BlendFilter {
                         blendFilter.setOpacity(layer.opacity)
-                        println(("Opacity", layer.opacity))
                     }
                     basePicture.addTarget(filter)
                     overlayPicture.addTarget(filter)
