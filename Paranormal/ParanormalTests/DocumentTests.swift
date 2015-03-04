@@ -106,20 +106,26 @@ class DocumentTests: QuickSpec {
 
                     //w=161, h=156
                     //check that corners are transparent
-                    var color = editorController?.getPixelColor(0.0, 0.0) //top left
-                    expect(color?.alphaComponent).to(equal(0))
+                    let editorImage = editorController?.editor.image
 
-                    color = editorController?.getPixelColor(0.0, 155.0) //bottom left
-                    expect(color?.alphaComponent).to(equal(0))
+                    var color = NSImageHelper.getPixelColor(editorImage!,
+                        pos: NSPoint(x: 0.0, y: 0.0)) //lower left
+                    expect(color.alphaComponent).to(equal(0))
 
-                    color = editorController?.getPixelColor(160.0, 155.0) //bottom right
-                    expect(color?.alphaComponent).to(equal(0))
+                    color = NSImageHelper.getPixelColor(editorImage!,
+                        pos: NSPoint(x: 0.0, y: 155.0)) //upper left
+                    expect(color.alphaComponent).to(equal(0))
 
-                    color = editorController?.getPixelColor(105.0, 8.0)
-                    expect(color?.alphaComponent).to(equal(255))
-                    expect(color?.redComponent).to(equal(128))
-                    expect(color?.greenComponent).to(equal(128))
-                    expect(color?.blueComponent).to(equal(255))
+                    color = NSImageHelper.getPixelColor(editorImage!,
+                        pos: NSPoint(x: 160.0, y: 155.0)) //upper right
+                    expect(color.alphaComponent).to(equal(0))
+
+                    color = NSImageHelper.getPixelColor(editorImage!,
+                        pos: NSPoint(x: 105.0, y: 8.0))
+                    expect(color.alphaComponent).to(equal(255))
+                    expect(color.redComponent).to(equal(128))
+                    expect(color.greenComponent).to(equal(128))
+                    expect(color.blueComponent).to(equal(255))
                 }
             }
         }
