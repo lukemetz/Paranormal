@@ -15,9 +15,9 @@ public class PanTool : NSObject, EditorActiveTool {
         let applicationPoint = editorViewController.editor.imageToApplication(point)
         let dx = (applicationPoint.x - lastPoint.x)
         let dy = (applicationPoint.y - lastPoint.y)
-        let oldTrans = editorViewController.editor.translate
-        let newTrans = CGVector(dx: oldTrans.dx + dx, dy: oldTrans.dy + dy)
-        editorViewController.editor.translate = newTrans
+
+        editorViewController.translateView(dx, dy)
+
         lastPoint = applicationPoint
     }
 

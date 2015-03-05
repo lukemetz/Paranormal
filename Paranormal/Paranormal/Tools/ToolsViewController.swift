@@ -38,4 +38,10 @@ public class ToolsViewController: PNViewController {
             editorViewController?.activeEditorTool = PanTool()
         }
     }
+
+    @IBAction public func zoomPressed(sender: NSButton) {
+        if let doc = document {
+            editorViewController?.activeEditorTool = ZoomTool()
+        }
+    }
 }

@@ -17,8 +17,9 @@ class EditorViewTests: QuickSpec {
 
             describe("Point Transforms") {
                 it ("imageToApplication and applicationToImage are inverses") {
-                    editorView.scale = CGVector(dx: 2, dy: 2)
-                    editorView.translate = CGVector(dx: 10, dy: 10)
+                    let translate = CGAffineTransformTranslate(CGAffineTransformIdentity, 10, 10)
+                    let transform = CGAffineTransformScale(translate, 2, 2)
+                    editorView.transform = transform
 
                     let image = CGPoint(x: 20, y: 32)
                     let application = editorView.imageToApplication(image)

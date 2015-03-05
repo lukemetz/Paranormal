@@ -64,7 +64,7 @@
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
                     <rect key="frame" x="8" y="234" width="48" height="48"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSCaution" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pan" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -72,15 +72,26 @@
                         <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
                     </connections>
                 </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-gn-GzJ">
+                    <rect key="frame" x="8" y="187" width="48" height="48"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="zoom" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="szf-Os-xvP">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="zoomPressed:" target="-2" id="atX-DL-y5T"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="291" y="248"/>
         </customView>
     </objects>
     <resources>
-        <image name="NSCaution" width="32" height="32"/>
         <image name="NSColorPanel" width="32" height="32"/>
         <image name="NSColumnViewTemplate" width="16" height="10"/>
         <image name="chamfer" width="1024.0799560546875" height="1024.0799560546875"/>
+        <image name="pan" width="30.719999313354492" height="30.719999313354492"/>
         <image name="texture" width="511.92001342773438" height="511.92001342773438"/>
+        <image name="zoom" width="30.719999313354492" height="30.719999313354492"/>
     </resources>
 </document>

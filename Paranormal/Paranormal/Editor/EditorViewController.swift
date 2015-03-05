@@ -33,8 +33,47 @@ public class EditorViewController : PNViewController {
         return document?.brushOpacity
     }
 
-    public func updateZoom(editorScale : Float) {
-        editor.scale = CGVector(dx: CGFloat(editorScale), dy: CGFloat(editorScale))
+    public var zoom : Float {
+        let t = editor.transform
+        let sx = sqrt(t.a * t.a + t.c * t.c)
+        let sy = sqrt(t.b * t.b + t.d * t.d)
+        if abs(sx - sy) > 1e-6 {
+            log.error("XY zoom are off. You are no longer viewing a square image.")
+        }
+        return Float(sx)
+    }
+
+    public func zoomAroundImageSpacePoint(point : NSPoint, scale : CGFloat) {
+        let applicationPoint = editor.imageToApplication(point)
+
+        let centerTrans = CGAffineTransformTranslate(CGAffineTransformIdentity,
+            -applicationPoint.x, -applicationPoint.y)
+
+        var trans = CGAffineTransformConcat(editor.transform, centerTrans)
+
+        let scale = CGAffineTransformScale(CGAffineTransformIdentity, scale, scale)
+        trans = CGAffineTransformConcat(trans, scale)
+
+        let backTrans = CGAffineTransformTranslate(CGAffineTransformIdentity,
+            applicationPoint.x, applicationPoint.y)
+
+        trans = CGAffineTransformConcat(trans, backTrans)
+        editor.transform = trans
+
+        NSNotificationCenter.defaultCenter()
+            .postNotificationName(PNNotificationZoomChanged,
+                object: nil, userInfo: ["zoom" : zoom])
+    }
+
+    public func setZoomAroundApplicationSpacePoint(point : NSPoint, scale : CGFloat) {
+        let imagePoint = editor.applicationToImage(point)
+        let delta = scale / CGFloat(zoom)
+        zoomAroundImageSpacePoint(imagePoint, scale: delta)
+    }
+
+    public func translateView(dx : CGFloat, _ dy : CGFloat) {
+        let t = CGAffineTransformTranslate(CGAffineTransformIdentity, dx, dy);
+        editor.transform = CGAffineTransformConcat(editor.transform, t)
     }
 
     override public func loadView() {
