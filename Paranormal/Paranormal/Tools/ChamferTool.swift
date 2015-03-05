@@ -5,9 +5,9 @@ import Appkit
 
 class ChamferTool {
     func perform(document: Document) {
-        // Run this in the main thread as to not have conflicts with GPUImage
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            if let image = document.baseImage {
+        ThreadUtils.runGPUImageDestructive { () -> Void in
+                if let imageData = document.currentLayer?.imageData {
+                let image = NSImage(data: imageData)
                 // Apply the filter
                 let chamfer = ChamferFilter()
 

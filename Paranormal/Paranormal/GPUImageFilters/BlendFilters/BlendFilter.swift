@@ -21,4 +21,3 @@ class BlendFilter :  GPUImageTwoInputFilter {
                 fragmentShaderFromString: fragmentShaderString)
     }
 }
-

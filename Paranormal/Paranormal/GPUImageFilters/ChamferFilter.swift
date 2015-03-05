@@ -3,8 +3,8 @@ import GPUImage
 
 class ChamferFilter : GPUImageFilter {
 
-    var depth : Float = 0.2
-    var radius : Float = 10.0
+    var depth : Float = 20.0
+    var radius : Float = 30.0
 
     override init() {
         super.init(fragmentShaderFromFile: "Chamfer")
@@ -22,11 +22,15 @@ class ChamferFilter : GPUImageFilter {
 
     override func setupFilterForSize(filterFrameSize: CGSize) {
         super.setupFilterForSize(filterFrameSize)
-        ThreadUtils.runGPUImage { () -> Void in
-            self.setFloat(GLfloat(1.0/filterFrameSize.height), forUniformName: "texelHeight")
-            self.setFloat(GLfloat(1.0/filterFrameSize.width), forUniformName: "texelWidth")
-            self.setFloat(GLfloat(self.depth), forUniformName: "depth")
-            self.setFloat(GLfloat(self.radius), forUniformName: "radius")
+        if (filterFrameSize != CGSizeZero) {
+            ThreadUtils.runGPUImageDestructive { () -> Void in
+                self.setFloat(GLfloat(1.0/filterFrameSize.height), forUniformName: "texelHeight")
+                self.setFloat(GLfloat(1.0/filterFrameSize.width), forUniformName: "texelWidth")
+                self.setFloat(GLfloat(self.depth), forUniformName: "depth")
+                self.setFloat(GLfloat(self.radius), forUniformName: "radius")
+            }
+        } else {
+            log.warning("setUpFilter for chamfer recieved zero size")
         }
     }
 }
