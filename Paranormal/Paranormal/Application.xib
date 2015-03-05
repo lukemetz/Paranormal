@@ -12,6 +12,7 @@
                 <outlet property="panelsView" destination="mR4-zi-C0S" id="Iki-lx-rdO"/>
                 <outlet property="toolsView" destination="gYp-f6-dFS" id="vY9-4S-rmi"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
+                <outlet property="zoomField" destination="jee-yJ-cfu" id="uoT-g6-39j"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -63,7 +64,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="value" keyPath="self.document.editorZoomPercent" id="Cu1-VC-tra"/>
+                                    <action selector="zoomSetFromGUI:" target="-2" id="ASK-5J-xs5"/>
                                 </connections>
                             </textField>
                         </subviews>

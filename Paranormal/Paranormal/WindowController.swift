@@ -1,6 +1,8 @@
 import Foundation
 import Cocoa
 
+public let PNNotificationZoomChanged = "PNNotificationZoomChanged"
+
 public class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var mainView: NSView!
 
@@ -14,12 +16,33 @@ public class WindowController: NSWindowController, NSWindowDelegate {
     public var editorViewController: EditorViewController?
     var childViewControllers : [PNViewController?] = []
 
+    @IBOutlet public weak var zoomField: NSTextField!
+
     override init(window: NSWindow?) {
         super.init(window:window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "zoomUpdated:",
+            name: PNNotificationZoomChanged, object: nil)
     }
 
     override public func awakeFromNib() {
         super.awakeFromNib()
+    }
+
+    func zoomUpdated(notification: NSNotification) {
+        zoomField.floatValue = (notification.userInfo?["zoom"] as Float)*100
+    }
+
+    @IBAction public func zoomSetFromGUI(sender: NSTextField) {
+        let zoomAmount = sender.floatValue / 100.0
+        if let editViewCont = editorViewController {
+            let center = CGPoint(x: editViewCont.editor.frame.width / 2.0,
+                y: editViewCont.editor.frame.height / 2.0)
+            editViewCont.setZoomAroundApplicationSpacePoint(center, scale: CGFloat(zoomAmount))
+        }
+
+        NSNotificationCenter.defaultCenter()
+            .postNotificationName(PNNotificationZoomChanged,
+                object: nil, userInfo: ["zoom" : zoomAmount])
     }
 
     override public func windowDidLoad() {

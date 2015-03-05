@@ -25,15 +25,8 @@ public class EditorView : NSView {
         }
     }
 
-    public var translate : CGVector = CGVectorMake(0, 0) {
+    public var transform : CGAffineTransform = CGAffineTransformIdentity {
         didSet {
-            // Redraw view
-            needsDisplay = true
-        }
-    }
-    public var scale : CGVector = CGVectorMake(1, 1) {
-        didSet {
-            // Redraw view
             needsDisplay = true
         }
     }
@@ -43,8 +36,7 @@ public class EditorView : NSView {
         if let context = context {
             if let img = image {
                 let drawImg = image?.CGImageForProposedRect(nil, context: nil, hints: nil)
-                CGContextTranslateCTM(context, translate.dx, translate.dy)
-                CGContextScaleCTM(context, scale.dx, scale.dy)
+                CGContextConcatCTM(context, transform)
                 CGContextDrawImage(context,
                                    CGRectMake(0,0,img.size.width, img.size.height),
                                    drawImg?.takeUnretainedValue())
@@ -54,16 +46,10 @@ public class EditorView : NSView {
     }
 
     public func applicationToImage(aPoint: CGPoint) -> CGPoint {
-        let unTranslate = NSPoint(x: aPoint.x - translate.dx, y: aPoint.y - translate.dy)
-
-        let unScale = NSPoint(x: unTranslate.x / scale.dx, y: unTranslate.y / scale.dy)
-        return unScale
+        return CGPointApplyAffineTransform(aPoint, CGAffineTransformInvert(transform))
     }
 
     public func imageToApplication(aPoint: CGPoint) -> CGPoint {
-        let unScale = NSPoint(x: aPoint.x * scale.dx, y: aPoint.y * scale.dy)
-        let unTranslate = NSPoint(x: unScale.x + translate.dx, y: unScale.y + translate.dy)
-
-        return unTranslate
+        return CGPointApplyAffineTransform(aPoint, transform)
     }
 }
