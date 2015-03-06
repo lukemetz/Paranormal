@@ -181,8 +181,10 @@ public class Layer : NSManagedObject{
         switch blend {
         case .Add:
             return BlendAddFilter()
+        case .Tilt:
+            return BlendReorientTextureFilter()
         case .Tilted:
-            return BlendReorientedNormalsFilter()
+            return BlendReorientTextureFilter()
         case .Flatten:
             return BlendFlattenFilter()
         }

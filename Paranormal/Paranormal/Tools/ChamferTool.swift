@@ -19,12 +19,11 @@ class ChamferTool {
 
                 let resultImage = chamfer.imageFromCurrentFramebuffer()
 
-//                document.currentLayer?.imageData = resultImage.TIFFRepresentation
-                if let layer = document.rootLayer?.addLayer() {
-                    layer.imageData = resultImage?.TIFFRepresentation
-                    layer.blendMode = BlendMode.Tilted
-                }
-
+                document.currentLayer?.imageData = resultImage.TIFFRepresentation
+//                if let layer = document.rootLayer?.addLayer() {
+//                    layer.imageData = resultImage?.TIFFRepresentation
+//                    layer.blendMode = BlendMode.Tilted
+//                }
             }
         }
     }
