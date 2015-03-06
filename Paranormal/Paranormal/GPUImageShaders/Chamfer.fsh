@@ -9,7 +9,7 @@ const float normalZero = 0.5;
 const float epsilon = 0.001; // less than half 1/255
 const vec3 zUpNormal = vec3(0.0, 0.0, 1.0);
 
-int MAXRAD = int(ceil(radius)); // Pixels squared
+int MAXRAD = int(ceil(radius)); // Pixels
 float MAXD = float(MAXRAD * MAXRAD) + epsilon; // Pixels squared
 
 vec4 normalToColor(vec3 normal, float alpha) {
@@ -26,68 +26,64 @@ float squaredDistance(int x, int y) {
     return float((x * x) + (y * y));
 }
 
-float squaredDistance(int x, int y, float alpha) {
-    float dist = 0.5 - alpha;
-    return (squaredDistance(x, y) +
-            dist * float(x + y) +
-            dist * dist);
-}
-
-// Get nearest zero-alpha pixel in a radius x radius square
-// x and y are in percent
+// Find the direction toward and distance to nearest edge
 // returns vec3(dx, dy, dist)
-vec2 averageZero(float x, float y) {
+vec3 findEdge(float x, float y) {
     vec2 total = vec2(0.0, 0.0);
     float count = 0.0;
     int dx, dy; // Pixels
     float xSample, ySample; // Percent
-    float weight, dSquared;
+    float weight;
+    float dSquared; // Pixels squared
+    float minD = MAXD; // Pixels squared
+
     for (dx = -MAXRAD; dx <= MAXRAD; dx++) {
         for (dy = -MAXRAD; dy <= MAXRAD; dy++) {
             dSquared = squaredDistance(dx, dy);
             if (dSquared < MAXD) {
                 xSample = x + (texelWidth  * float(dx)); // Percent
                 ySample = y + (texelHeight * float(dy)); // Percent
-                if (xSample > 0.0 && xSample < 1.0 / texelWidth &&
-                    ySample > 0.0 && ySample < 1.0 / texelHeight) {
+                if (xSample > 0.0 && xSample < 1.0 &&
+                    ySample > 0.0 && ySample < 1.0) {
                     weight = 1.0 - texture2D(inputImageTexture, vec2(xSample, ySample)).a;
                 } else {
                     weight = 1.0;
                 }
                 if (weight > epsilon) {
+                    minD = min(minD, dSquared);
                     total += weight * vec2(dx, -dy); // Negative to get the output normal right
                     count += weight;
                 }
             }
         }
     }
-    return total / count;
+    return vec3(total / count, sqrt(minD));
 }
 
 void main() {
     vec3 outputNormal;
     vec4 outputColor;
     vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
-    if (texelWidth > 1.0) {
-        // The first time this is called, there's an issue where the texel width is not set.
-        // Known bug 89581006: Chamfer button takes two clicks to apply
-        // For now, we skip this case and return the original.
-        gl_FragColor = baseColor;
-    } else {
-        float x = textureCoordinate.x; // Percent
-        float y = textureCoordinate.y; // Percent
-        vec2 edgePoint = averageZero(x, y);
-        float dist = length(edgePoint);
 
-        if (dist < epsilon) {
-            outputNormal = zUpNormal;
+    float x = textureCoordinate.x; // Percent
+    float y = textureCoordinate.y; // Percent
+    vec3 edge = findEdge(x, y);
+    vec2 edgePoint = edge.xy;
+    float edgeDist = edge.z;
+
+    vec2 direction = normalize(edgePoint);
+
+    if (edgeDist < radius) {
+        vec3 chamferedNormal = normalize(vec3(direction, depth / radius));
+        if (radius - edgeDist < 1.0) { // anti-alias the transition region
+            outputNormal = normalize(mix(zUpNormal, chamferedNormal, radius - edgeDist));
         } else {
-            vec2 direction = normalize(edgePoint);
-            outputNormal = normalize(vec3(direction.x, direction.y, depth / radius));
+            outputNormal = chamferedNormal;
         }
-
-        outputColor = normalToColor(outputNormal, baseColor.a);
-
-        gl_FragColor = outputColor;
+    } else {
+        outputNormal = zUpNormal;
     }
+    outputColor = normalToColor(outputNormal, baseColor.a);
+
+    gl_FragColor = outputColor;
 }

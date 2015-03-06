@@ -14,7 +14,7 @@ class NoiseTool {
                 if let layer = document.rootLayer?.addLayer() {
                     layer.imageData = image?.TIFFRepresentation
                     layer.name = "Noise Layer"
-                    layer.blendMode = BlendMode.Oriented
+                    layer.blendMode = BlendMode.Tilted
                 }
             }
         }
