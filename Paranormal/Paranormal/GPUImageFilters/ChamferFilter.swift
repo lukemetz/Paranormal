@@ -3,8 +3,8 @@ import GPUImage
 
 class ChamferFilter : GPUImageFilter {
 
-    var depth : Float = 20.0
-    var radius : Float = 30.0
+    var depth : Float = 15.0
+    var radius : Float = 20.0
 
     override init() {
         super.init(fragmentShaderFromFile: "Chamfer")

@@ -36,11 +36,12 @@ float squaredDistance(int x, int y, float alpha) {
 // Get nearest zero-alpha pixel in a radius x radius square
 // x and y are in percent
 // returns vec3(dx, dy, dist)
-vec3 closestZero(float x, float y) {
-    vec3 nearest = vec3(0, 0, MAXD);
+vec2 averageZero(float x, float y) {
+    vec2 total = vec2(0.0, 0.0);
+    float count = 0.0;
     int dx, dy; // Pixels
     float xSample, ySample; // Percent
-    float alpha, dSquared;
+    float weight, dSquared;
     for (dx = -MAXRAD; dx <= MAXRAD; dx++) {
         for (dy = -MAXRAD; dy <= MAXRAD; dy++) {
             dSquared = squaredDistance(dx, dy);
@@ -49,20 +50,18 @@ vec3 closestZero(float x, float y) {
                 ySample = y + (texelHeight * float(dy)); // Percent
                 if (xSample > 0.0 && xSample < 1.0 / texelWidth &&
                     ySample > 0.0 && ySample < 1.0 / texelHeight) {
-                    alpha = texture2D(inputImageTexture, vec2(xSample, ySample)).a;
-                    if (alpha < 1.0 - epsilon) {
-                        dSquared = squaredDistance(dx, dy, alpha);
-                    } else {
-                        dSquared = MAXD;
-                    }
+                    weight = 1.0 - texture2D(inputImageTexture, vec2(xSample, ySample)).a;
+                } else {
+                    weight = 1.0;
                 }
-                if (dSquared < nearest.z) {
-                    nearest = vec3(dx, dy, dSquared);
+                if (weight > epsilon) {
+                    total += weight * vec2(dx, -dy); // Negative to get the output normal right
+                    count += weight;
                 }
             }
         }
     }
-    return vec3(nearest.x, -nearest.y, sqrt(nearest.z)); // Negative to get the output normal right
+    return total / count;
 }
 
 void main() {
@@ -77,14 +76,13 @@ void main() {
     } else {
         float x = textureCoordinate.x; // Percent
         float y = textureCoordinate.y; // Percent
-        vec3 nearest = closestZero(x, y);
-    
-        if (nearest.z > float(MAXRAD)) {
+        vec2 edgePoint = averageZero(x, y);
+        float dist = length(edgePoint);
+
+        if (dist < epsilon) {
             outputNormal = zUpNormal;
-//        } else if (nearest.z < epsilon) {
-//            outputNormal = vec3(1.0, 0.0, 0.0);
         } else {
-            vec2 direction = normalize(vec2(nearest.x, nearest.y));
+            vec2 direction = normalize(edgePoint);
             outputNormal = normalize(vec3(direction.x, direction.y, depth / radius));
         }
 
