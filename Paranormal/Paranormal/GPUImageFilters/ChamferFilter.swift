@@ -22,15 +22,12 @@ class ChamferFilter : GPUImageFilter {
 
     override func setupFilterForSize(filterFrameSize: CGSize) {
         super.setupFilterForSize(filterFrameSize)
-        if (filterFrameSize != CGSizeZero) {
-            ThreadUtils.runGPUImageDestructive { () -> Void in
-                self.setFloat(GLfloat(1.0/filterFrameSize.height), forUniformName: "texelHeight")
-                self.setFloat(GLfloat(1.0/filterFrameSize.width), forUniformName: "texelWidth")
-                self.setFloat(GLfloat(self.depth), forUniformName: "depth")
-                self.setFloat(GLfloat(self.radius), forUniformName: "radius")
-            }
-        } else {
-            log.warning("setUpFilter for chamfer recieved zero size")
+        runSynchronouslyOnVideoProcessingQueue {
+            GPUImageContext.setActiveShaderProgram(self.valueForKey("filterProgram") as GLProgram!)
+            self.setFloat(GLfloat(1.0/filterFrameSize.height), forUniformName: "texelHeight")
+            self.setFloat(GLfloat(1.0/filterFrameSize.width), forUniformName: "texelWidth")
+            self.setFloat(GLfloat(self.depth), forUniformName: "depth")
+            self.setFloat(GLfloat(self.radius), forUniformName: "radius")
         }
     }
 }
