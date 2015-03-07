@@ -6,7 +6,7 @@ import Appkit
 class ChamferTool {
     func perform(document: Document) {
         ThreadUtils.runGPUImageDestructive { () -> Void in
-                if let imageData = document.currentLayer?.imageData {
+            if let imageData = document.currentLayer?.imageData {
                 let image = NSImage(data: imageData)
                 // Apply the filter
                 let chamfer = ChamferFilter()
@@ -19,11 +19,14 @@ class ChamferTool {
 
                 let resultImage = chamfer.imageFromCurrentFramebuffer()
 
-                document.currentLayer?.imageData = resultImage.TIFFRepresentation
-//                if let layer = document.rootLayer?.addLayer() {
-//                    layer.imageData = resultImage?.TIFFRepresentation
-//                    layer.blendMode = BlendMode.Tilted
-//                }
+                // Combine chamfer onto working layer as tilt operation
+                if let currentLayer = document.currentLayer {
+                    if let newLayer = document.rootLayer?.addLayer() {
+                        newLayer.imageData = resultImage?.TIFFRepresentation
+                        newLayer.blendMode = BlendMode.Tilt
+                        currentLayer.combineLayerOntoSelf(newLayer)
+                    }
+                }
             }
         }
     }

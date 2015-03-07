@@ -19,6 +19,7 @@
 		774CA9611A7ED29B006B0D7B /* chamfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA95F1A7ED29B006B0D7B /* chamfer.png */; };
 		774CA9731A7F3CCD006B0D7B /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA9721A7F3CCD006B0D7B /* texture.png */; };
 		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
+		77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */; };
 		AD04E9831A7EAC03007A717C /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = AD04E9821A7EAC03007A717C /* checker.png */; };
 		AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
@@ -287,6 +288,7 @@
 		774CA95F1A7ED29B006B0D7B /* chamfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chamfer.png; sourceTree = "<group>"; };
 		774CA9721A7F3CCD006B0D7B /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendTiltFilter.swift; sourceTree = "<group>"; };
 		AD04E9821A7EAC03007A717C /* checker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checker.png; sourceTree = "<group>"; };
 		AD059C791A38CB7C002A52DD /* cocos2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cocos2d.h; path = "libs/cocos2d-swift/cocos2d/cocos2d.h"; sourceTree = "<group>"; };
 		AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSpriteUtils.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				AD7862F01A85CB3100BA1E10 /* BlendAddFilter.swift */,
 				ADEF49101A9A85A500AE0597 /* BlendFlattenFilter.swift */,
 				AD3FAF1C1A9BBC2200BFA982 /* BlendFilter.swift */,
+				77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */,
 			);
 			path = BlendFilters;
 			sourceTree = "<group>";
@@ -1165,6 +1168,7 @@
 				AD9FDCE81A85C07D00C6D974 /* BlendMode.swift in Sources */,
 				AD3FAF1D1A9BBC2200BFA982 /* BlendFilter.swift in Sources */,
 				AD66498D1A32BBCD00B52295 /* NoiseTool.swift in Sources */,
+				77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */,
 				AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
