@@ -152,9 +152,7 @@ public class Layer : NSManagedObject{
                     let overlayPicture = GPUImagePicture(image: overlayImage)
                     let basePicture = GPUImagePicture(image: baseImage)
                     let filter = self.filterForBlendMode(layer.blendMode)
-                    if let blendFilter = filter as? BlendFilter {
-                        blendFilter.setOpacity(layer.opacity)
-                    }
+                    filter.setOpacity(layer.opacity)
                     filter.setInputs(top: overlayPicture, base: basePicture)
                     filter.useNextFrameForImageCapture()
                     basePicture.processImage()
