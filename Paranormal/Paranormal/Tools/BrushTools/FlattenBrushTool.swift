@@ -4,7 +4,7 @@ import Foundation
 
 public class FlattenBrushTool : BrushTool {
 
-    override init() {
+    override public init() {
         super.init()
     }
 

@@ -13,7 +13,7 @@ vec3 colorToNormal(vec4 color) {
 }
 
 vec4 normalToColor(vec3 normal, float alpha) {
-    return vec4((normalZero + (0.5 * normal)), alpha);
+    return vec4((normalZero + (0.5 * normal)) - epsilon, alpha);
 }
 
 vec3 slerp(vec3 fromVector, vec3 toVector, float mixRatio) {
