@@ -1,5 +1,5 @@
-const float normalZero = 0.5;
 const float epsilon = 0.001; // less than half 1/255
+const float normalZero = 127.0/255.0 + epsilon;
 const vec3 zUpNormal = vec3(0.0, 0.0, 1.0);
 
 float angle(vec3 a, vec3 b) {
@@ -13,7 +13,7 @@ vec3 colorToNormal(vec4 color) {
 }
 
 vec4 normalToColor(vec3 normal, float alpha) {
-    return vec4((normalZero + (0.5 * normal)) - epsilon, alpha);
+    return vec4((normalZero + (0.5 * normal)), alpha);
 }
 
 vec3 slerp(vec3 fromVector, vec3 toVector, float mixRatio) {

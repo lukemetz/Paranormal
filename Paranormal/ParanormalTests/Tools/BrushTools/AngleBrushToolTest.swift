@@ -51,31 +51,19 @@ class AngleBrushToolTest: QuickSpec {
 
                     var color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 0, y:0))
-                    expect(color.redComponent).to(equal(127))
-                    expect(color.greenComponent).to(equal(127))
-                    expect(color.blueComponent).to(equal(255))
-                    expect(color.alphaComponent).to(equal(255))
+                    expect(color).to(beColor(127, 127, 255, 255))
 
                     color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 40, y:40))
-                    expect(color.redComponent).to(equal(255))
-                    expect(color.greenComponent).to(equal(128))
-                    expect(color.blueComponent).to(equal(128))
-                    expect(color.alphaComponent).to(equal(255))
+                    expect(color).to(beColor(255, 128, 128, 255))
 
                     color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 40, y:42))
-                    expect(color.redComponent).to(equal(255))
-                    expect(color.greenComponent).to(equal(128))
-                    expect(color.blueComponent).to(equal(128))
-                    expect(color.alphaComponent).to(equal(255))
+                    expect(color).to(beColor(255, 128, 128, 255))
 
                     color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 40, y:46))
-                    expect(color.redComponent).to(equal(127))
-                    expect(color.greenComponent).to(equal(127))
-                    expect(color.blueComponent).to(equal(255))
-                    expect(color.alphaComponent).to(equal(255))
+                    expect(color).to(beColor(127, 127, 255, 255))
                 }
             }
 
@@ -101,17 +89,11 @@ class AngleBrushToolTest: QuickSpec {
 
                 var color = NSImageHelper.getPixelColor(image!,
                     pos: NSPoint(x: 0, y:0))
-                expect(color.redComponent).to(equal(127))
-                expect(color.greenComponent).to(equal(127))
-                expect(color.blueComponent).to(equal(255))
-                expect(color.alphaComponent).to(equal(255))
+                expect(color).to(beColor(127, 127, 255, 255))
 
                 color = NSImageHelper.getPixelColor(image!,
                     pos: NSPoint(x: 40, y:40))
-                expect(color.redComponent).to(equal(218))
-                expect(color.greenComponent).to(equal(127))
-                expect(color.blueComponent).to(equal(218))
-                expect(color.alphaComponent).to(equal(255))
+                expect(color).to(beColor(218, 127, 218, 255))
             }
         }
     }

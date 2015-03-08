@@ -25,6 +25,7 @@
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17EED11A39294D00FA4849 /* PreviewViewDelegate.swift */; };
 		AD19D9DF1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19D9DE1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift */; };
+		AD19D9F01AACE04300C2A4B1 /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19D9EF1AACE04300C2A4B1 /* Matchers.swift */; };
 		AD1CE5C61AA764D900AA53F7 /* pan.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1CE5C41AA764D900AA53F7 /* pan.png */; };
 		AD1CE5C71AA764D900AA53F7 /* zoom.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1CE5C51AA764D900AA53F7 /* zoom.png */; };
 		AD1CE5D81AA7653700AA53F7 /* ZoomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1CE5D71AA7653700AA53F7 /* ZoomTool.swift */; };
@@ -302,6 +303,7 @@
 		AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSettings.swift; sourceTree = "<group>"; };
 		AD17EED11A39294D00FA4849 /* PreviewViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewDelegate.swift; sourceTree = "<group>"; };
 		AD19D9DE1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlattenBrushToolTests.swift; sourceTree = "<group>"; };
+		AD19D9EF1AACE04300C2A4B1 /* Matchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchers.swift; sourceTree = "<group>"; };
 		AD1CE5C41AA764D900AA53F7 /* pan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pan.png; sourceTree = "<group>"; };
 		AD1CE5C51AA764D900AA53F7 /* zoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom.png; sourceTree = "<group>"; };
 		AD1CE5D71AA7653700AA53F7 /* ZoomTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTool.swift; sourceTree = "<group>"; };
@@ -828,6 +830,7 @@
 				AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */,
 				AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */,
 				ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */,
+				AD19D9EF1AACE04300C2A4B1 /* Matchers.swift */,
 			);
 			path = ParanormalTests;
 			sourceTree = "<group>";
@@ -1227,6 +1230,7 @@
 				ADB62AC71A91B5D8003FCB27 /* ToolsViewControllerTests.swift in Sources */,
 				AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */,
 				ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */,
+				AD19D9F01AACE04300C2A4B1 /* Matchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
