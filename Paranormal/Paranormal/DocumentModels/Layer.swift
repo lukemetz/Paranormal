@@ -155,8 +155,7 @@ public class Layer : NSManagedObject{
                     if let blendFilter = filter as? BlendFilter {
                         blendFilter.setOpacity(layer.opacity)
                     }
-                    basePicture.addTarget(filter)
-                    overlayPicture.addTarget(filter)
+                    filter.setInputs(top: overlayPicture, base: basePicture)
                     filter.useNextFrameForImageCapture()
                     basePicture.processImage()
                     overlayPicture.processImage()
@@ -177,12 +176,14 @@ public class Layer : NSManagedObject{
         }
     }
 
-    private func filterForBlendMode(blend: BlendMode) -> GPUImageFilter {
+    private func filterForBlendMode(blend: BlendMode) -> BlendFilter {
         switch blend {
         case .Add:
             return BlendAddFilter()
-        case .Oriented:
-            return BlendReorientedNormalsFilter()
+        case .Tilt:
+            return BlendTiltFilter()
+        case .Tilted:
+            return BlendReorientTextureFilter()
         case .Flatten:
             return BlendFlattenFilter()
         }
@@ -207,14 +208,11 @@ public class Layer : NSManagedObject{
 
             for (index, layer) in enumerate(layersArray[1..<layersArray.count]) {
                 var filter = filterForBlendMode(layer.blendMode)
-                if let blendFilter = filter as? BlendFilter {
-                    blendFilter.setOpacity(layer.opacity)
-                }
+                filter.setOpacity(layer.opacity)
                 let (currentSource, pictures) = layer.renderOutputNode()
                 inputPictures = pictures + inputPictures
 
-                lastSource.addTarget(filter)
-                currentSource.addTarget(filter)
+                filter.setInputs(top: currentSource, base: lastSource)
                 // The output of the filter is the new next source
                 lastSource = filter
             }

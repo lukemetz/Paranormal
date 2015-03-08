@@ -52,8 +52,8 @@ class ShadersCompileTest : QuickSpec {
                 test_single_input("DepthToNormal")
             }
 
-            it("BlendReorientedNormals compiles") {
-                test_two_input("BlendReorientedNormals")
+            it("BlendReorientTexture compiles") {
+                test_two_input("BlendReorientTexture")
             }
 
             it("BlendAdd compiles") {
