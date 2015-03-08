@@ -10,7 +10,7 @@ public class ToolsViewController: PNViewController {
     @IBOutlet weak var zoom: NSButton!
     @IBOutlet weak var flatten: NSButton!
 
-    var buttons: [NSButton] { return [smooth, brush, pan, flatten] }
+    var buttons: [NSButton] { return [smooth, brush, pan, flatten, zoom] }
 
     private func turnoff( buttons: [NSButton]){
         for button in buttons{
@@ -72,6 +72,7 @@ public class ToolsViewController: PNViewController {
         if let doc = document {
             editorViewController?.activeEditorTool = PanTool()
         }
+        selectButton( sender )
     }
 
     @IBAction public func zoomPressed(sender: NSButton) {
