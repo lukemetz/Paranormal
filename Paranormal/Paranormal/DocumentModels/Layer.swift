@@ -155,7 +155,7 @@ public class Layer : NSManagedObject{
                     if let blendAddFilter = filter as? BlendAddFilter {
                         blendAddFilter.setOpacity(layer.opacity)
                     }
-                    filter.setInputs(overlayPicture, base: basePicture)
+                    filter.setInputs(top: overlayPicture, base: basePicture)
                     filter.useNextFrameForImageCapture()
                     basePicture.processImage()
                     overlayPicture.processImage()
@@ -212,7 +212,7 @@ public class Layer : NSManagedObject{
                 let (currentSource, pictures) = layer.renderOutputNode()
                 inputPictures = pictures + inputPictures
 
-                filter.setInputs(currentSource, base: lastSource)
+                filter.setInputs(top: currentSource, base: lastSource)
                 // The output of the filter is the new next source
                 lastSource = filter
             }

@@ -25,7 +25,7 @@ class BlendFilter : GPUImageFilterGroup {
         }
     }
 
-    func setInputs(top: GPUImageOutput, base: GPUImageOutput) {
+    func setInputs(#top: GPUImageOutput, base: GPUImageOutput) {
         base.addTarget(self, atTextureLocation: 0)
         top.addTarget(self, atTextureLocation: 1)
     }

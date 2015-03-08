@@ -7,7 +7,7 @@ class BlendTiltFilter : BlendFilter {
         super.init(shaderName: "BlendReorient")
     }
 
-    override func setInputs(top: GPUImageOutput, base: GPUImageOutput) {
+    override func setInputs(#top: GPUImageOutput, base: GPUImageOutput) {
         // Reverse the blendReorient filter's inputs
         base.addTarget(self, atTextureLocation: 1)
         top.addTarget(self, atTextureLocation: 0)
