@@ -3,6 +3,8 @@ import Cocoa
 import AppKit
 import CoreGraphics
 
+let PNScrollMultiplier : CGFloat = 2.0
+
 public class EditorViewController : PNViewController {
 
     @IBOutlet public weak var editor: EditorView!
@@ -117,5 +119,18 @@ public class EditorViewController : PNViewController {
         let point = pointToContext(theEvent.locationInWindow)
 
         activeEditorTool?.mouseUpAtPoint(point, editorViewController: self)
+    }
+
+    override public func magnifyWithEvent(event: NSEvent) {
+        let viewSpace = editor.convertPoint(event.locationInWindow, fromView: nil)
+        let imageSpace = editor.applicationToImage(viewSpace)
+        let amount = 1 + event.magnification
+
+        zoomAroundImageSpacePoint(imageSpace, scale: amount)
+    }
+
+    public override func scrollWheel(theEvent: NSEvent) {
+        translateView(theEvent.deltaX * PNScrollMultiplier,
+                      -theEvent.deltaY * PNScrollMultiplier)
     }
 }
