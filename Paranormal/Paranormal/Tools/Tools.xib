@@ -32,16 +32,6 @@
                         <action selector="angleBrushPressed:" target="-2" id="24z-XA-5dv"/>
                     </connections>
                 </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qry-RV-Qb6">
-                    <rect key="frame" x="8" y="281" width="48" height="48"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSColumnViewTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="aBu-ls-hcA">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="flattenBrushPressed:" target="-2" id="Qp7-y5-FrD"/>
-                    </connections>
-                </button>
                 <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-Zi-RZv">
                     <rect key="frame" x="61" y="0.0" width="5" height="376"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -66,16 +56,6 @@
                     </buttonCell>
                     <connections>
                         <action selector="flattenBrushPressed:" target="-2" id="1I6-Ow-h4O"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
-                    <rect key="frame" x="8" y="273" width="48" height="48"/>
-                    <buttonCell key="cell" type="square" alternateTitle="smooth" bezelStyle="shadowlessSquare" image="NSEnterFullScreenTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="was-yP-kHm">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="smoothPressed:" target="-2" id="C5O-F2-Ksb"/>
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
@@ -106,6 +86,16 @@
                     </buttonCell>
                     <connections>
                         <action selector="chamferPressed:" target="-2" id="YX2-sN-siu"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
+                    <rect key="frame" x="8" y="273" width="48" height="48"/>
+                    <buttonCell key="cell" type="square" alternateTitle="smooth" bezelStyle="shadowlessSquare" image="NSEnterFullScreenTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="was-yP-kHm">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="smoothPressed:" target="-2" id="C5O-F2-Ksb"/>
                     </connections>
                 </button>
             </subviews>
