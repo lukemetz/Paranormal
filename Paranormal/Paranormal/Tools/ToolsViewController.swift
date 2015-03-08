@@ -3,6 +3,39 @@ import Cocoa
 import AppKit
 
 public class ToolsViewController: PNViewController {
+
+    @IBOutlet weak var smooth: NSButton!
+    @IBOutlet weak var brush: NSButton!
+    @IBOutlet weak var pan: NSButton!
+    @IBOutlet weak var zoom: NSButton!
+    @IBOutlet weak var flatten: NSButton!
+
+    var buttons: [NSButton] { return [smooth, brush, pan, flatten] }
+
+    private func turnoff( buttons: [NSButton]){
+        for button in buttons{
+            button.state = 0
+        }
+    }
+
+    private func keepSelectedState (button: NSButton, buttonlist: [NSButton]){
+        if (button.state == 1) {
+            turnoff( buttonlist )
+        }else if (button.state == 0) {
+            button.state = 1
+            turnoff( buttonlist )
+        }
+    }
+
+    public func selectButton( button : NSButton ){
+        var rest = buttons.filter { $0 != button }
+        keepSelectedState(button, buttonlist: rest)
+    }
+
+    @IBAction func smoothPressed(sender: NSButton) {
+        selectButton( sender )
+    }
+
     var editorViewController : EditorViewController? {
         return document?.singleWindowController?.editorViewController?
     }
@@ -25,12 +58,14 @@ public class ToolsViewController: PNViewController {
         if let doc = document {
             editorViewController?.activeEditorTool = FlattenBrushTool()
         }
+        selectButton( sender )
     }
 
     @IBAction public func angleBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.activeEditorTool = AngleBrushTool()
         }
+        selectButton( sender )
     }
 
     @IBAction public func panPressed(sender: NSButton) {
@@ -43,5 +78,7 @@ public class ToolsViewController: PNViewController {
         if let doc = document {
             editorViewController?.activeEditorTool = ZoomTool()
         }
+        selectButton( sender )
     }
+
 }
