@@ -122,10 +122,7 @@ class DocumentTests: QuickSpec {
 
                     color = NSImageHelper.getPixelColor(editorImage!,
                         pos: NSPoint(x: 105.0, y: 8.0))
-                    expect(color.alphaComponent).to(equal(255))
-                    expect(color.redComponent).to(equal(127))
-                    expect(color.greenComponent).to(equal(127))
-                    expect(color.blueComponent).to(equal(255))
+                    expect(color).to(beColor(127, 127, 255, 255))
                 }
             }
         }
