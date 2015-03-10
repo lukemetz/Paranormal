@@ -3,44 +3,16 @@ import Foundation
 import Foundation
 
 public class BrushTool : NSObject, EditorActiveTool {
-
-    var editorContext : CGContext?
-    var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
     var editLayer : Layer?
+    var drawingKernel : DrawingKernel?
 
     override init() {
         super.init()
     }
 
-    func lazySetupContext(size : CGSize) {
-        if editorContext == nil {
-            let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
-            let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-            editorContext = CGBitmapContextCreate(nil, UInt(size.width),
-                UInt(size.height),  8,  0 , colorSpace, bitmapInfo)
-        }
-    }
-
-    func drawLine(context: CGContext?, currentPoint: CGPoint, color: NSColor, size: CGFloat) {
-        CGContextMoveToPoint(context, lastPoint.x, lastPoint.y)
-        CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y)
-        CGContextSetLineCap(context, kCGLineCapRound)
-        CGContextSetLineWidth(context, size)
-        CGContextSetRGBStrokeColor(context,
-            color.redComponent, color.greenComponent, color.blueComponent, 1.0)
-        CGContextSetBlendMode(context, kCGBlendModeNormal)
-        CGContextStrokePath(context)
-    }
-
-    func drawStep(point : NSPoint, editorViewController: EditorViewController) {
-        if let color = editorViewController.color {
-            if let size = editorViewController.brushSize {
-                drawLine(editorContext, currentPoint: point, color: color, size: CGFloat(size))
-            }
-        }
-
-        if let context = editorContext {
-            editLayer?.updateFromContext(context)
+    func lazySetupKernel(size : CGSize) {
+        if drawingKernel == nil {
+            drawingKernel = CGDrawingKernel(size: size)
         }
     }
 
@@ -49,7 +21,7 @@ public class BrushTool : NSObject, EditorActiveTool {
 
     public func mouseDownAtPoint(point : NSPoint, editorViewController: EditorViewController) {
         if let currentLayer = editorViewController.currentLayer {
-            lazySetupContext(currentLayer.size)
+            lazySetupKernel(currentLayer.size)
         }
 
         editLayer = editorViewController.currentLayer?.createEditLayer()
@@ -58,28 +30,36 @@ public class BrushTool : NSObject, EditorActiveTool {
             editLayer?.opacity = Float(brushOpacity)
         }
 
-        if let context = editorContext {
-            editLayer?.drawToContext(context)
-        }
-
         initializeEditLayer()
 
-        lastPoint = point
+        drawingKernel?.startDraw() { (image) -> () in
+            self.editLayer?.imageData = image.TIFFRepresentation
+            return
+        }
     }
 
     public func mouseDraggedAtPoint(point : NSPoint, editorViewController: EditorViewController) {
-        drawStep(point, editorViewController: editorViewController)
-
-        lastPoint = point
+        if let brushSize = editorViewController.brushSize {
+            if let color = editorViewController.color {
+                let b = Brush(size: CGFloat(brushSize), color: color)
+                drawingKernel?.addPoint(point, brush: b)
+            }
+        }
     }
 
     public func mouseUpAtPoint(point : NSPoint, editorViewController: EditorViewController) {
-        drawStep(point, editorViewController: editorViewController)
-
-        if let layer = editLayer {
-            editorViewController.currentLayer?.combineLayerOntoSelf(layer)
+        if let brushSize = editorViewController.brushSize {
+            if let color = editorViewController.color {
+                let b = Brush(size: CGFloat(brushSize), color: color)
+                drawingKernel?.addPoint(point, brush: b)
+            }
         }
 
-        editLayer = nil
+        drawingKernel?.stopDraw() {
+            if let layer = self.editLayer {
+                editorViewController.currentLayer?.combineLayerOntoSelf(layer)
+            }
+            self.editLayer = nil
+        }
     }
 }
