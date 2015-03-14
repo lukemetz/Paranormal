@@ -3,7 +3,7 @@ const float epsilon = 0.001; // less than half 1/255
 const vec3 zUpNormal = vec3(0.0, 0.0, 1.0);
 
 float angle(vec3 a, vec3 b) {
-    return acos(dot(a, b) / (length(a) * length (b)));
+    return acos(dot(a, b) / (length(a) * length(b)));
 }
 
 vec3 colorToNormal(vec4 color) {
@@ -37,6 +37,10 @@ vec3 slerp(vec3 fromVector, vec3 toVector, float mixRatio) {
     return slerpVector;
 }
 
+vec3 lerp(vec3 fromVector, vec3 toVector, float mixRatio) {
+    return normalize(fromVector * (1.0 - mixRatio) + toVector * mixRatio);
+}
+
 varying vec2 textureCoordinate;
 uniform sampler2D inputImageTexture;
 uniform sampler2D inputImageTexture2;
@@ -47,7 +51,7 @@ void main() {
     vec4 overlayColor = texture2D(inputImageTexture2, textureCoordinate);
     // overlayColor has anti-aliasing opacity which mixes it with black.
     // For now we're just killing that with a floor.
-    float mixRatio = floor(overlayColor.a) * opacity;
+    float mixRatio = overlayColor.a * opacity;
 
     if (mixRatio < epsilon) {
         gl_FragColor = baseColor;
@@ -56,7 +60,7 @@ void main() {
     } else {
         vec3 baseNormal = colorToNormal(baseColor);
         vec3 overlayNormal = colorToNormal(overlayColor);
-        vec3 outputNormal = slerp(baseNormal, overlayNormal, mixRatio);
+        vec3 outputNormal = lerp(baseNormal, overlayNormal, mixRatio);
 
         gl_FragColor = normalToColor(outputNormal, baseColor.a);
     }

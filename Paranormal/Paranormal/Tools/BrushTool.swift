@@ -3,8 +3,8 @@ import Foundation
 import Foundation
 
 public class BrushTool : NSObject, EditorActiveTool {
-    var editLayer : Layer?
-    var drawingKernel : DrawingKernel?
+    public var editLayer : Layer?
+    public var drawingKernel : DrawingKernel?
 
     override init() {
         super.init()
@@ -12,7 +12,7 @@ public class BrushTool : NSObject, EditorActiveTool {
 
     func lazySetupKernel(size : CGSize) {
         if drawingKernel == nil {
-            drawingKernel = CGDrawingKernel(size: size)
+            drawingKernel = GLDrawingKernel(size: size)
         }
     }
 
@@ -25,7 +25,6 @@ public class BrushTool : NSObject, EditorActiveTool {
         }
 
         editLayer = editorViewController.currentLayer?.createEditLayer()
-
         if let brushOpacity = editorViewController.brushOpacity {
             editLayer?.opacity = Float(brushOpacity)
         }
@@ -33,7 +32,10 @@ public class BrushTool : NSObject, EditorActiveTool {
         initializeEditLayer()
 
         drawingKernel?.startDraw() { (image) -> () in
-            self.editLayer?.imageData = image.TIFFRepresentation
+            self.editLayer?.managedObjectContext?.performBlock({ () -> Void in
+                self.editLayer?.imageData = image.TIFFRepresentation
+                return
+            })
             return
         }
     }
@@ -56,10 +58,19 @@ public class BrushTool : NSObject, EditorActiveTool {
         }
 
         drawingKernel?.stopDraw() {
-            if let layer = self.editLayer {
-                editorViewController.currentLayer?.combineLayerOntoSelf(layer)
-            }
-            self.editLayer = nil
+            self.editLayer?.managedObjectContext?.performBlock({ () -> Void in
+                if let layer = self.editLayer {
+                    editorViewController.currentLayer?.combineLayerOntoSelf(layer)
+                }
+                self.editLayer = nil
+                return
+            })
+            return
         }
+    }
+
+    // Call when no longer using the tool.
+    public func stopUsingTool() {
+        drawingKernel?.destroy()
     }
 }

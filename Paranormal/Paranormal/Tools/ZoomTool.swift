@@ -16,4 +16,7 @@ public class ZoomTool : NSObject, EditorActiveTool {
 
     public func mouseDraggedAtPoint(point : NSPoint, editorViewController: EditorViewController) {
     }
+
+    public func stopUsingTool() {
+    }
 }

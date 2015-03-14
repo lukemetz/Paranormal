@@ -81,6 +81,13 @@ public class Document: NSPersistentDocument {
     override init() {
         super.init()
 
+        let coordinator = managedObjectContext.persistentStoreCoordinator;
+
+        managedObjectContext =  NSManagedObjectContext(concurrencyType:
+            NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+        managedObjectContext.persistentStoreCoordinator = coordinator
+        managedObjectContext.undoManager = undoManager
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
             name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }

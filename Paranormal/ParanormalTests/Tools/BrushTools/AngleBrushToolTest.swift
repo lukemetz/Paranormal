@@ -43,6 +43,7 @@ class AngleBrushToolTest: QuickSpec {
 
                     tool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                         editorViewController: editorViewController)
+                    expect(tool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                     // kick the editor and document into updating
                     document?.computeDerivedData()
@@ -81,6 +82,8 @@ class AngleBrushToolTest: QuickSpec {
 
                 tool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                     editorViewController: editorViewController)
+                tool.stopUsingTool()
+                expect(tool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                 // kick the editor and document into updating
                 document?.computeDerivedData()
