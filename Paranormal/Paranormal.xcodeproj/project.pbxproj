@@ -122,6 +122,8 @@
 		ADB329C219FB437F00E3F9D2 /* PreviewSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1D19F0A0D400A2F718 /* PreviewSettings.xib */; };
 		ADB329C519FB438600E3F9D2 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD969B1F19F0C98800A2F718 /* Application.xib */; };
 		ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE87F4319E9A9360041AAB5 /* MainMenu.xib */; };
+		ADB349681AB79DA5009BD66F /* AutomaticGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = ADB349661AB79DA5009BD66F /* AutomaticGeneration.mm */; };
+		ADB349791AB79E9E009BD66F /* AutomaticGenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB349781AB79E9E009BD66F /* AutomaticGenerationTests.swift */; };
 		ADB62A871A912DB8003FCB27 /* EditorActiveTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62A861A912DB8003FCB27 /* EditorActiveTool.swift */; };
 		ADB62A981A912E53003FCB27 /* BrushTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62A971A912E53003FCB27 /* BrushTool.swift */; };
 		ADB62AAE1A913856003FCB27 /* PanTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB62AAD1A913856003FCB27 /* PanTool.swift */; };
@@ -418,6 +420,9 @@
 		ADAE53301A17E2AA007135C0 /* Tools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tools.xib; sourceTree = "<group>"; };
 		ADAE53331A17E36D007135C0 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		ADAEBEE61A7941B500BFEF6A /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		ADB349661AB79DA5009BD66F /* AutomaticGeneration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AutomaticGeneration.mm; sourceTree = "<group>"; };
+		ADB349671AB79DA5009BD66F /* AutomaticGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomaticGeneration.h; sourceTree = "<group>"; };
+		ADB349781AB79E9E009BD66F /* AutomaticGenerationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticGenerationTests.swift; sourceTree = "<group>"; };
 		ADB62A861A912DB8003FCB27 /* EditorActiveTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorActiveTool.swift; sourceTree = "<group>"; };
 		ADB62A971A912E53003FCB27 /* BrushTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushTool.swift; sourceTree = "<group>"; };
 		ADB62AAD1A913856003FCB27 /* PanTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanTool.swift; sourceTree = "<group>"; };
@@ -903,6 +908,8 @@
 		ADE87F3419E9A9350041AAB5 /* Paranormal */ = {
 			isa = PBXGroup;
 			children = (
+				ADB349661AB79DA5009BD66F /* AutomaticGeneration.mm */,
+				ADB349671AB79DA5009BD66F /* AutomaticGeneration.h */,
 				AD36CE8B1AAF586100FC947D /* DrawingKernel */,
 				ADAE532D1A17E27D007135C0 /* Tools */,
 				775D6F631AC1E30E00B60B01 /* Operations */,
@@ -949,6 +956,7 @@
 				AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */,
 				AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */,
 				AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */,
+				ADB349781AB79E9E009BD66F /* AutomaticGenerationTests.swift */,
 				ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */,
 				AD19D9EF1AACE04300C2A4B1 /* Matchers.swift */,
 			);
@@ -1301,6 +1309,8 @@
 				775D6F7E1AC1E43F00B60B01 /* SharpenTool.swift in Sources */,
 				77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */,
 				775D6E011AC135CC00B60B01 /* BlandEmphasizeFilter.swift in Sources */,
+				ADB349681AB79DA5009BD66F /* AutomaticGeneration.mm in Sources */,
+				ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */,
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */,
 				849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */,
@@ -1379,6 +1389,7 @@
 				ADDFF98E1A9E5F8B009FF720 /* AngleBrushToolTest.swift in Sources */,
 				AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */,
 				AD73B24B19FB1B04008B509C /* Document.xcdatamodeld in Sources */,
+				ADB349791AB79E9E009BD66F /* AutomaticGenerationTests.swift in Sources */,
 				ADB62AC71A91B5D8003FCB27 /* ToolsViewControllerTests.swift in Sources */,
 				AD9454AC1A3CDEA1008CD31F /* ColorPickerViewControllerTests.swift in Sources */,
 				ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */,
@@ -1462,6 +1473,7 @@
 					"libs/cocos2d-swift/cocos2d/**",
 					"libs/cocos2d-swift/external/ObjectAL/**",
 					"libs/cocos2d-swift/cocos2d-ui/**",
+					libs/eigen,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1510,6 +1522,7 @@
 					"libs/cocos2d-swift/cocos2d/**",
 					"libs/cocos2d-swift/external/ObjectAL/**",
 					"libs/cocos2d-swift/cocos2d-ui/**",
+					libs/eigen,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
