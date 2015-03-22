@@ -17,6 +17,10 @@ vec4 normalToColor(vec3 normal, float alpha) {
 }
 
 vec3 slerp(vec3 fromVector, vec3 toVector, float mixRatio) {
+    if (distance(fromVector, toVector) < epsilon) {
+        return fromVector;
+    }
+
     // Gemetric formula from http://en.wikipedia.org/wiki/Slerp
 
     float theta = angle(fromVector, toVector);
@@ -37,10 +41,6 @@ vec3 slerp(vec3 fromVector, vec3 toVector, float mixRatio) {
     return slerpVector;
 }
 
-vec3 lerp(vec3 fromVector, vec3 toVector, float mixRatio) {
-    return normalize(fromVector * (1.0 - mixRatio) + toVector * mixRatio);
-}
-
 varying vec2 textureCoordinate;
 uniform sampler2D inputImageTexture;
 uniform sampler2D inputImageTexture2;
@@ -49,18 +49,16 @@ uniform float opacity;
 void main() {
     vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
     vec4 overlayColor = texture2D(inputImageTexture2, textureCoordinate);
-    // overlayColor has anti-aliasing opacity which mixes it with black.
-    // For now we're just killing that with a floor.
     float mixRatio = overlayColor.a * opacity;
 
     if (mixRatio < epsilon) {
         gl_FragColor = baseColor;
     } else if (mixRatio > (1.0 - epsilon)) {
-        gl_FragColor = overlayColor;
+        gl_FragColor = vec4(overlayColor.rgb, baseColor.a);
     } else {
         vec3 baseNormal = colorToNormal(baseColor);
         vec3 overlayNormal = colorToNormal(overlayColor);
-        vec3 outputNormal = lerp(baseNormal, overlayNormal, mixRatio);
+        vec3 outputNormal = slerp(baseNormal, overlayNormal, mixRatio);
 
         gl_FragColor = normalToColor(outputNormal, baseColor.a);
     }

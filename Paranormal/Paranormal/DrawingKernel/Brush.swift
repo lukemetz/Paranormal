@@ -9,6 +9,6 @@ public class Brush {
     init(size: CGFloat, color: NSColor) {
         self.size = size
         self.color = color
-        self.hardness = 0.1;
+        self.hardness = 0.9;
     }
 }

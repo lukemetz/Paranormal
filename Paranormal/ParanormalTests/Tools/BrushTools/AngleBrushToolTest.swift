@@ -59,7 +59,7 @@ class AngleBrushToolTest: QuickSpec {
                     expect(color).to(beColor(255, 128, 128, 255))
 
                     color = NSImageHelper.getPixelColor(image!,
-                        pos: NSPoint(x: 40, y:42))
+                        pos: NSPoint(x: 40, y:41))
                     expect(color).to(beColor(255, 128, 128, 255))
 
                     color = NSImageHelper.getPixelColor(image!,
