@@ -68,8 +68,33 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         openGLContext.clearDrawable()
     }
 
-    // Must only be called on the GLDrawingThread
-    func setupOpenGL() {
+    func createShaderProgram() {
+        // Compile shaders and create glsl program
+        let vertexShader : GLuint = glCreateShader(GLenum(GL_VERTEX_SHADER))
+        let vertPath = NSBundle.mainBundle().pathForResource("GLDrawingKernelVsh",
+            ofType: "vsh")!
+        let vertSource = NSString(contentsOfFile: vertPath,
+            encoding: NSUTF8StringEncoding, error: nil)!
+        glShaderSource(vertexShader, 1, [vertSource.UTF8String],
+            [GLint(Int32(vertSource.length))])
+        glCompileShader(vertexShader)
+
+        let fragPath = NSBundle.mainBundle().pathForResource("GLDrawingKernelFsh",
+            ofType: "fsh")!
+        let fragmentShader : GLuint = glCreateShader(GLenum(GL_FRAGMENT_SHADER))
+        let fragSource = NSString(contentsOfFile: fragPath,
+            encoding: NSUTF8StringEncoding, error: nil)!
+        glShaderSource(fragmentShader, 1, [fragSource.UTF8String],
+            [GLint(Int32(fragSource.length))])
+        glCompileShader(fragmentShader)
+
+        program = glCreateProgram()
+        glAttachShader(program, vertexShader)
+        glAttachShader(program, fragmentShader)
+        glLinkProgram(program)
+    }
+
+    func setupOffscreenRendering() {
         let glPFAttributes:[NSOpenGLPixelFormatAttribute] = [
             UInt32(NSOpenGLPFAAccelerated),
             UInt32(NSOpenGLPFADoubleBuffer),
@@ -114,37 +139,9 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         if Int32(status) != GL_FRAMEBUFFER_COMPLETE_EXT {
             log.error("Could not setup framebuffer")
         }
+    }
 
-        // Set up view and clear
-        glViewport(0, 0, GLsizei(width), GLsizei(height))
-        glClearColor(0.0, 0.0, 0.0, 0.0)
-        glClear(GLenum(GL_COLOR_BUFFER_BIT))
-
-        // Compile shaders and create glsl program
-        let vertexShader : GLuint = glCreateShader(GLenum(GL_VERTEX_SHADER))
-        let vertPath = NSBundle.mainBundle().pathForResource("GLDrawingKernelVsh",
-            ofType: "vsh")!
-        let vertSource = NSString(contentsOfFile: vertPath,
-            encoding: NSUTF8StringEncoding, error: nil)!
-        glShaderSource(vertexShader, 1, [vertSource.UTF8String],
-            [GLint(Int32(vertSource.length))])
-        glCompileShader(vertexShader)
-
-        let fragPath = NSBundle.mainBundle().pathForResource("GLDrawingKernelFsh",
-            ofType: "fsh")!
-        let fragmentShader : GLuint = glCreateShader(GLenum(GL_FRAGMENT_SHADER))
-        let fragSource = NSString(contentsOfFile: fragPath,
-            encoding: NSUTF8StringEncoding, error: nil)!
-        glShaderSource(fragmentShader, 1, [fragSource.UTF8String],
-            [GLint(Int32(fragSource.length))])
-        glCompileShader(fragmentShader)
-
-        program = glCreateProgram()
-        glAttachShader(program, vertexShader)
-        glAttachShader(program, fragmentShader)
-        glLinkProgram(program)
-        glUseProgram(program)
-
+    func setupUniforms() {
         // Get uniforms
         scaleUniform = glGetUniformLocation(program, ("scale" as NSString).UTF8String)
         if scaleUniform < 0 {
@@ -165,6 +162,9 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         if hardnessUniform < 0 {
             log.error("Error in getting color uniform")
         }
+    }
+
+    func setupVerticies() {
 
         // Set up verticies
         glGenVertexArrays(1, &vertexArray)
@@ -188,22 +188,40 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         glBufferData(GLenum(GL_ARRAY_BUFFER), vertexData.count * sizeof(GLfloat.self),
             vertexData, GLenum(GL_DYNAMIC_DRAW))
 
-        let trialPosLocation = glGetAttribLocation(program, ("pos" as NSString).UTF8String)
-        if trialPosLocation < 0 {
-            log.error("Failed to get pos attribute location")
+        let triangleVertexPosition = glGetAttribLocation(program,
+            ("vertex_position" as NSString).UTF8String)
+        if triangleVertexPosition < 0 {
+            log.error("Failed to get vertex_pos attribute location")
         }
 
-        let posIndex = GLuint(trialPosLocation)
+        let posIndex = GLuint(triangleVertexPosition)
         glEnableVertexAttribArray(posIndex)
         glVertexAttribPointer(posIndex, 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE),
             0, UnsafePointer.null())
 
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), 0)
+    }
+
+    // Must only be called on the GLDrawingThread
+    func setupOpenGL() {
+        setupOffscreenRendering()
+
+        // Set up view and clear
+        let height = UInt(imageSize.height)
+        let width = UInt(imageSize.width)
+        glViewport(0, 0, GLsizei(width), GLsizei(height))
+        glClearColor(0.0, 0.0, 0.0, 0.0)
+        glClear(GLenum(GL_COLOR_BUFFER_BIT))
+
+        createShaderProgram()
+
+        setupUniforms()
+
+        setupVerticies()
 
         // Transparency support.
         glEnable(GLenum(GL_BLEND))
         glBlendEquationSeparate(GLenum(GL_FUNC_ADD), GLenum(GL_MAX))
-
     }
 
     // Must only be called on the GLDrawingThread
