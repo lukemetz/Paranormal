@@ -56,28 +56,28 @@ public class ToolsViewController: PNViewController {
 
     @IBAction public func flattenBrushPressed(sender: NSButton) {
         if let doc = document {
-            editorViewController?.activeEditorTool = FlattenBrushTool()
+            editorViewController?.changeActiveTool(FlattenBrushTool())
         }
         selectButton( sender )
     }
 
     @IBAction public func angleBrushPressed(sender: NSButton) {
         if let doc = document {
-            editorViewController?.activeEditorTool = AngleBrushTool()
+            editorViewController?.changeActiveTool(AngleBrushTool())
         }
         selectButton( sender )
     }
 
     @IBAction public func panPressed(sender: NSButton) {
         if let doc = document {
-            editorViewController?.activeEditorTool = PanTool()
+            editorViewController?.changeActiveTool(PanTool())
         }
         selectButton( sender )
     }
 
     @IBAction public func zoomPressed(sender: NSButton) {
         if let doc = document {
-            editorViewController?.activeEditorTool = ZoomTool()
+            editorViewController?.changeActiveTool(ZoomTool())
         }
         selectButton( sender )
     }

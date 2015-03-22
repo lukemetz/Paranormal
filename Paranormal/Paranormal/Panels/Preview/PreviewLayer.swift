@@ -57,8 +57,9 @@ class PreviewLayer: CCNode {
     func addRotatingLight() {
         let groups = ["group_name"]
         let light = CCLightNode(type: CCLightType.Point, groups: groups,
-            color: CCColor.whiteColor(), intensity: 0.5)
+            color: CCColor.whiteColor(), intensity: 0.3)
         light.position.x = previewSprite.contentSize.width / 2.0
+        light.depth = 100.0;
         light.anchorPoint = CGPointMake(0.5, 0.5)
 
         let lightContainer = CCNode()
@@ -74,7 +75,7 @@ class PreviewLayer: CCNode {
         light.addChild(sunIcon)
 
         effect = CCEffectLighting(groups: groups,
-            specularColor: CCColor.whiteColor(), shininess:0.5)
+            specularColor: CCColor.whiteColor(), shininess:0.01)
 
         let action = CCActionRotateBy.actionWithDuration(2, angle: 180) as CCActionInterval
         lightContainer.runAction(CCActionRepeatForever(action: action))

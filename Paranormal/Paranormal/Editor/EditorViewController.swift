@@ -45,6 +45,11 @@ public class EditorViewController : PNViewController {
         return Float(sx)
     }
 
+    public func changeActiveTool(tool : EditorActiveTool?) {
+        activeEditorTool?.stopUsingTool()
+        activeEditorTool = tool
+    }
+
     public func zoomAroundImageSpacePoint(point : NSPoint, scale : CGFloat) {
         let applicationPoint = editor.imageToApplication(point)
 

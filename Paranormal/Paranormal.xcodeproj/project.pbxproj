@@ -39,6 +39,11 @@
 		AD36CE9C1AAF588B00FC947D /* DrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */; };
 		AD36CE9E1AAF5DBD00FC947D /* CGDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */; };
 		AD36CEA01AAF669F00FC947D /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9F1AAF669F00FC947D /* Brush.swift */; };
+		AD36CEA51AAF6B4300FC947D /* GLDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CEA41AAF6B4300FC947D /* GLDrawingKernel.swift */; };
+		AD36CEAC1AB0965000FC947D /* GLDrawingKernelVsh.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */; };
+		AD36CEAD1AB0965000FC947D /* GLDrawingKernelFsh.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */; };
+		AD36CEAE1AB09BE700FC947D /* GLDrawingKernelVsh.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */; };
+		AD36CEAF1AB09BE700FC947D /* GLDrawingKernelFsh.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */; };
 		AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */; };
 		AD3BA2811A796FB300C42D8C /* PNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BA2801A796FB300C42D8C /* PNViewController.swift */; };
 		AD3BA2931A7970F100C42D8C /* PNViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */; };
@@ -319,6 +324,9 @@
 		AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingKernel.swift; sourceTree = "<group>"; };
 		AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGDrawingKernel.swift; sourceTree = "<group>"; };
 		AD36CE9F1AAF669F00FC947D /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
+		AD36CEA41AAF6B4300FC947D /* GLDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLDrawingKernel.swift; sourceTree = "<group>"; };
+		AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelVsh.vsh; sourceTree = "<group>"; };
+		AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelFsh.fsh; sourceTree = "<group>"; };
 		AD3BA2801A796FB300C42D8C /* PNViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNViewController.swift; sourceTree = "<group>"; };
 		AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNViewControllerTests.swift; sourceTree = "<group>"; };
 		AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowControllerTests.swift; sourceTree = "<group>"; };
@@ -494,11 +502,22 @@
 		AD36CE8B1AAF586100FC947D /* DrawingKernel */ = {
 			isa = PBXGroup;
 			children = (
+				AD36CEA11AAF6AC700FC947D /* GLDrawingKernel */,
 				AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */,
 				AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */,
 				AD36CE9F1AAF669F00FC947D /* Brush.swift */,
 			);
 			path = DrawingKernel;
+			sourceTree = "<group>";
+		};
+		AD36CEA11AAF6AC700FC947D /* GLDrawingKernel */ = {
+			isa = PBXGroup;
+			children = (
+				AD36CEA41AAF6B4300FC947D /* GLDrawingKernel.swift */,
+				AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */,
+				AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */,
+			);
+			path = GLDrawingKernel;
 			sourceTree = "<group>";
 		};
 		AD3FAF0C1A9BBB9200BFA982 /* BlendFilters */ = {
@@ -1114,6 +1133,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD36CEAE1AB09BE700FC947D /* GLDrawingKernelVsh.vsh in Resources */,
+				AD36CEAF1AB09BE700FC947D /* GLDrawingKernelFsh.fsh in Resources */,
 				AD1CE5C71AA764D900AA53F7 /* zoom.png in Resources */,
 				AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */,
 				AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */,
@@ -1154,6 +1175,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD36CEAC1AB0965000FC947D /* GLDrawingKernelVsh.vsh in Resources */,
+				AD36CEAD1AB0965000FC947D /* GLDrawingKernelFsh.fsh in Resources */,
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
 				AD7863121A86736100BA1E10 /* MultiplyMaxAlpha.fsh in Resources */,
 				AD1F336419FC2DA800BBC4DC /* DocumentCreation.xib in Resources */,
@@ -1200,6 +1223,7 @@
 				AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */,
 				AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */,
 				AD36CE9E1AAF5DBD00FC947D /* CGDrawingKernel.swift in Sources */,
+				AD36CEA51AAF6B4300FC947D /* GLDrawingKernel.swift in Sources */,
 				0AB0ED0E1A8BC212009E2B49 /* BrushSettingsViewController.swift in Sources */,
 				AD3BA2811A796FB300C42D8C /* PNViewController.swift in Sources */,
 				ADB62AAE1A913856003FCB27 /* PanTool.swift in Sources */,
