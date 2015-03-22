@@ -12,6 +12,7 @@
 		0AB0ED0E1A8BC212009E2B49 /* BrushSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0ED0D1A8BC212009E2B49 /* BrushSettingsViewController.swift */; };
 		0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
 		770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
+		772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772427941A9BDE1600F1E462 /* EditorViewMode.swift */; };
 		77193BA31AAA121800B60E11 /* BlendReorient.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 77193BA21AAA121800B60E11 /* BlendReorient.fsh */; };
 		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
 		774B84341AA67CB3006770E4 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B84331AA67CB3006770E4 /* ChamferFilter.swift */; };
@@ -297,6 +298,7 @@
 		0AB0ED0D1A8BC212009E2B49 /* BrushSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSettingsViewController.swift; sourceTree = "<group>"; };
 		0AB813441A0129FE0032FD6E /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		7701312F1A0555A700C6CC9E /* PreviewScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewScene.swift; sourceTree = "<group>"; };
+		772427941A9BDE1600F1E462 /* EditorViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewMode.swift; sourceTree = "<group>"; };
 		77193BA21AAA121800B60E11 /* BlendReorient.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorient.fsh; sourceTree = "<group>"; };
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		774B84331AA67CB3006770E4 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 			children = (
 				0A27FC821A0564CF00999020 /* EditorView.swift */,
 				0AB813441A0129FE0032FD6E /* EditorViewController.swift */,
+				772427941A9BDE1600F1E462 /* EditorViewMode.swift */,
 				AD7699A31A13C91800ABDD2A /* Editor.xib */,
 			);
 			path = Editor;
@@ -1244,6 +1247,7 @@
 				AD36CEA01AAF669F00FC947D /* Brush.swift in Sources */,
 				AD1CE5D81AA7653700AA53F7 /* ZoomTool.swift in Sources */,
 				0A27FC831A0564CF00999020 /* EditorView.swift in Sources */,
+				772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */,
 				AD9FDCE81A85C07D00C6D974 /* BlendMode.swift in Sources */,
 				AD3FAF1D1A9BBC2200BFA982 /* BlendFilter.swift in Sources */,
 				AD66498D1A32BBCD00B52295 /* NoiseTool.swift in Sources */,

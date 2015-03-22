@@ -87,9 +87,12 @@ public class EditorViewController : PNViewController {
         super.loadView()
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "updateComputedEditorImage:",
-            name: PNDocumentComputedEditorChanged,
+            name: PNDocumentNormalImageChanged,
             object: nil)
-
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "updateComputedEditorImage:",
+            name: PNPreviewNeedsRedraw,
+            object: nil)
         activeEditorTool = BrushTool()
     }
 

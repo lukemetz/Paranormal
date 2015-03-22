@@ -1,12 +1,14 @@
 import Cocoa
 import GPUImage
 
-let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
+let PNDocumentNormalImageChanged = "PNDocumentNormalImageChanged"
+let PNPreviewNeedsRedraw = "PNPreviewNeedsRedraw"
 
 public class Document: NSPersistentDocument {
     public var singleWindowController : WindowController?
 
     // User preferences / user facing data
+    public var editorViewMode = EditorViewMode.Normal
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
     public var brushSize : Float = 4
     public var brushOpacity : Float = 1.0
@@ -34,15 +36,29 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    public var computedEditorImage : NSImage? {
+    public var computedNormalImage : NSImage? {
         didSet {
             NSNotificationCenter.defaultCenter().postNotificationName(
-                PNDocumentComputedEditorChanged, object: self.computedEditorImage)
+                PNDocumentNormalImageChanged, object: self.computedNormalImage)
         }
     }
 
-    var computedExportImage : NSImage? {
-        return computedEditorImage
+    var computedPreviewImage : NSImage? {
+        var previewcontroller = singleWindowController?.panelsViewController?.previewViewController
+        return previewcontroller?.renderedPreviewImage()
+    }
+
+    var computedEditorImage : NSImage? {
+        switch self.editorViewMode {
+        case .Normal:
+            return computedNormalImage
+        case .Preview:
+            return computedPreviewImage
+        }
+    }
+
+    public var computedExportImage : NSImage? {
+        return computedNormalImage
     }
 
     // TODO cache this
@@ -100,7 +116,7 @@ public class Document: NSPersistentDocument {
 
     public func computeDerivedData() {
         ThreadUtils.runGPUImage { () -> Void in
-            self.computedEditorImage = self.rootLayer?.renderLayer()
+            self.computedNormalImage = self.rootLayer?.renderLayer()
         }
     }
 

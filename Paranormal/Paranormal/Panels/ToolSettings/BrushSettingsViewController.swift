@@ -37,5 +37,4 @@ public class BrushSettingsViewController: PNViewController {
     func updateBrushOpacity() {
         document?.brushOpacity = brushOpacity
     }
-
 }
