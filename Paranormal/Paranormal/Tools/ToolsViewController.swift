@@ -13,18 +13,15 @@ public class ToolsViewController: PNViewController {
     var buttons: [NSButton] { return [smooth, brush, pan, flatten, zoom] }
 
     private func turnoff( buttons: [NSButton]){
-        for button in buttons{
-            button.state = 0
+        for button in buttons {
+            button.bordered = false
         }
     }
 
     private func keepSelectedState (button: NSButton, buttonlist: [NSButton]){
-        if (button.state == 1) {
-            turnoff( buttonlist )
-        }else if (button.state == 0) {
-            button.state = 1
-            turnoff( buttonlist )
-        }
+        button.bordered = true
+        button.state = 1
+        turnoff(buttonlist)
     }
 
     public func selectButton( button : NSButton ){

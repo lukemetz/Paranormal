@@ -21,6 +21,12 @@
 		774CA9731A7F3CCD006B0D7B /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA9721A7F3CCD006B0D7B /* texture.png */; };
 		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */; };
+		77D501CA1ABF9CF200B4728D /* tilt.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C41ABF9CF200B4728D /* tilt.png */; };
+		77D501CB1ABF9CF200B4728D /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C51ABF9CF200B4728D /* plane.png */; };
+		77D501CC1ABF9CF200B4728D /* sharpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C61ABF9CF200B4728D /* sharpen.png */; };
+		77D501CD1ABF9CF200B4728D /* smooth.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C71ABF9CF200B4728D /* smooth.png */; };
+		77D501CE1ABF9CF200B4728D /* flatten.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C81ABF9CF200B4728D /* flatten.png */; };
+		77D501CF1ABF9CF200B4728D /* emphasize.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C91ABF9CF200B4728D /* emphasize.png */; };
 		AD04E9831A7EAC03007A717C /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = AD04E9821A7EAC03007A717C /* checker.png */; };
 		AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
@@ -307,6 +313,12 @@
 		774CA9721A7F3CCD006B0D7B /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendTiltFilter.swift; sourceTree = "<group>"; };
+		77D501C41ABF9CF200B4728D /* tilt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt.png; sourceTree = "<group>"; };
+		77D501C51ABF9CF200B4728D /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
+		77D501C61ABF9CF200B4728D /* sharpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharpen.png; sourceTree = "<group>"; };
+		77D501C71ABF9CF200B4728D /* smooth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smooth.png; sourceTree = "<group>"; };
+		77D501C81ABF9CF200B4728D /* flatten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatten.png; sourceTree = "<group>"; };
+		77D501C91ABF9CF200B4728D /* emphasize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emphasize.png; sourceTree = "<group>"; };
 		AD04E9821A7EAC03007A717C /* checker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checker.png; sourceTree = "<group>"; };
 		AD059C791A38CB7C002A52DD /* cocos2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cocos2d.h; path = "libs/cocos2d-swift/cocos2d/cocos2d.h"; sourceTree = "<group>"; };
 		AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSpriteUtils.swift; sourceTree = "<group>"; };
@@ -682,6 +694,12 @@
 				774CA95F1A7ED29B006B0D7B /* chamfer.png */,
 				AD04E9821A7EAC03007A717C /* checker.png */,
 				ADFCB80A1A3923220016A49B /* light64.png */,
+				77D501C41ABF9CF200B4728D /* tilt.png */,
+				77D501C51ABF9CF200B4728D /* plane.png */,
+				77D501C61ABF9CF200B4728D /* sharpen.png */,
+				77D501C71ABF9CF200B4728D /* smooth.png */,
+				77D501C81ABF9CF200B4728D /* flatten.png */,
+				77D501C91ABF9CF200B4728D /* emphasize.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1136,16 +1154,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D501CD1ABF9CF200B4728D /* smooth.png in Resources */,
 				AD36CEAE1AB09BE700FC947D /* GLDrawingKernelVsh.vsh in Resources */,
 				AD36CEAF1AB09BE700FC947D /* GLDrawingKernelFsh.fsh in Resources */,
 				AD1CE5C71AA764D900AA53F7 /* zoom.png in Resources */,
+				77D501CE1ABF9CF200B4728D /* flatten.png in Resources */,
 				AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */,
 				AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */,
 				AD04E9831A7EAC03007A717C /* checker.png in Resources */,
 				AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				AD85C6801A7EBD6400DAE66F /* stone_normal.jpg in Resources */,
+				77D501CC1ABF9CF200B4728D /* sharpen.png in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
+				77D501CB1ABF9CF200B4728D /* plane.png in Resources */,
 				ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */,
 				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADFCB80B1A3923220016A49B /* light64.png in Resources */,
@@ -1156,6 +1178,7 @@
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				AD85C6831A7EBD6400DAE66F /* gem-diffuse.png in Resources */,
 				AD85C67E1A7EBD6400DAE66F /* brick.jpeg in Resources */,
+				77D501CA1ABF9CF200B4728D /* tilt.png in Resources */,
 				ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */,
 				0AB0ECFD1A8BC1EA009E2B49 /* BrushSettings.xib in Resources */,
 				AD85C6841A7EBD6400DAE66F /* gem-empty.png in Resources */,
@@ -1169,6 +1192,7 @@
 				AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */,
 				77193BA31AAA121800B60E11 /* BlendReorient.fsh in Resources */,
 				AD85C6851A7EBD6400DAE66F /* olinO.png in Resources */,
+				77D501CF1ABF9CF200B4728D /* emphasize.png in Resources */,
 				ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */,
 				ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */,
 			);
