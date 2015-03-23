@@ -64,7 +64,7 @@ class FlattenBrushToolTests: QuickSpec {
                     // kick the editor and document into updating
                     document?.computeDerivedData()
                     expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                    let image = document?.computedEditorImage
+                    let image = document?.computedNormalImage
 
                     var color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 0, y:0))
@@ -94,7 +94,7 @@ class FlattenBrushToolTests: QuickSpec {
                     // kick the editor and document into updating
                     document?.computeDerivedData()
                     expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                    let image = document?.computedEditorImage
+                    let image = document?.computedNormalImage
 
                     var color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 0, y:0))
