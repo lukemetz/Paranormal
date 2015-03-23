@@ -81,7 +81,7 @@ public class Document: NSPersistentDocument {
                 UInt(height), 8, 0, colorSpace, bitmapInfo)
             let color = CGColorCreateGenericRGB(0.5, 0.5, 0.5, 1.0)
             CGContextSetFillColorWithColor(context, color)
-            let rect = CGRectMake(0, 0, CGFloat(height), CGFloat(width))
+            let rect = CGRectMake(0, 0, CGFloat(width), CGFloat(height))
             CGContextFillRect(context, rect)
             let cgImage = CGBitmapContextCreateImage(context)
 
