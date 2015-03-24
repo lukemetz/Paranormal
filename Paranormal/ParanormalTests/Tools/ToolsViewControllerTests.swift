@@ -18,12 +18,12 @@ class ToolsViewControllerTests: QuickSpec {
 
             var buttons : [NSButton?]!
 
-            var expectOnlyButtonSelected : (NSButton?) -> Void = {(button) in
-                for x in buttons {
-                    if (x == button) {
-                        expect(x?.state).to(equal(1))
+            var expectOnlyButtonSelected : (NSButton?) -> Void = {(currentbutton) in
+                for button in buttons {
+                    if (button == currentbutton) {
+                        expect(button?.bordered).to(beTrue())
                     }else{
-                        expect(x?.state).to(equal(0))
+                        expect(button?.bordered).to(beFalse())
                     }
                 }
             }
