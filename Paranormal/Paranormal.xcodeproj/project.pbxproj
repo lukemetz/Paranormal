@@ -26,6 +26,9 @@
 		775D6DF71AC122F100B60B01 /* sharpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 775D6DF11AC122F100B60B01 /* sharpen.png */; };
 		775D6DF81AC122F100B60B01 /* smooth.png in Resources */ = {isa = PBXBuildFile; fileRef = 775D6DF21AC122F100B60B01 /* smooth.png */; };
 		775D6DF91AC122F100B60B01 /* tilt.png in Resources */ = {isa = PBXBuildFile; fileRef = 775D6DF31AC122F100B60B01 /* tilt.png */; };
+		775D6DFD1AC1339700B60B01 /* EmphasizeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6DFC1AC1339700B60B01 /* EmphasizeTool.swift */; };
+		775D6DFF1AC134C700B60B01 /* BlendEmphasize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 775D6DFE1AC134C700B60B01 /* BlendEmphasize.fsh */; };
+		775D6E011AC135CC00B60B01 /* BlandEmphasizeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6E001AC135CC00B60B01 /* BlandEmphasizeFilter.swift */; };
 		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */; };
 		849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */; };
@@ -324,6 +327,9 @@
 		775D6DF11AC122F100B60B01 /* sharpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sharpen.png; path = Paranormal/Resources/sharpen.png; sourceTree = SOURCE_ROOT; };
 		775D6DF21AC122F100B60B01 /* smooth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smooth.png; path = Paranormal/Resources/smooth.png; sourceTree = SOURCE_ROOT; };
 		775D6DF31AC122F100B60B01 /* tilt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tilt.png; path = Paranormal/Resources/tilt.png; sourceTree = SOURCE_ROOT; };
+		775D6DFC1AC1339700B60B01 /* EmphasizeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphasizeTool.swift; sourceTree = "<group>"; };
+		775D6DFE1AC134C700B60B01 /* BlendEmphasize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendEmphasize.fsh; sourceTree = "<group>"; };
+		775D6E001AC135CC00B60B01 /* BlandEmphasizeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlandEmphasizeFilter.swift; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendTiltFilter.swift; sourceTree = "<group>"; };
 		849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLDrawingKernel.swift; sourceTree = "<group>"; };
@@ -531,6 +537,7 @@
 		AD2D80C71A9A7D03002F92F2 /* BrushTools */ = {
 			isa = PBXGroup;
 			children = (
+				775D6DFC1AC1339700B60B01 /* EmphasizeTool.swift */,
 				AD2D80B61A9A79A6002F92F2 /* FlattenBrushTool.swift */,
 				AD2D80C81A9A7FD2002F92F2 /* AngleBrushTool.swift */,
 				84A36EB41AACD6B60010CF47 /* SmoothTool.swift */,
@@ -559,6 +566,7 @@
 				AD3FAF1C1A9BBC2200BFA982 /* BlendFilter.swift */,
 				77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */,
 				84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */,
+				775D6E001AC135CC00B60B01 /* BlandEmphasizeFilter.swift */,
 			);
 			path = BlendFilters;
 			sourceTree = "<group>";
@@ -733,6 +741,7 @@
 				ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */,
 				AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */,
 				ADEF49211A9A85E100AE0597 /* BlendFlatten.fsh */,
+				775D6DFE1AC134C700B60B01 /* BlendEmphasize.fsh */,
 			);
 			path = GPUImageShaders;
 			sourceTree = "<group>";
@@ -1207,6 +1216,7 @@
 				AD85C6841A7EBD6400DAE66F /* gem-empty.png in Resources */,
 				774CA9611A7ED29B006B0D7B /* chamfer.png in Resources */,
 				AD70F96F1A33847300141A64 /* Panels.xib in Resources */,
+				775D6DFF1AC134C700B60B01 /* BlendEmphasize.fsh in Resources */,
 				ADAE53311A17E2AA007135C0 /* Tools.xib in Resources */,
 				AD1CE5C61AA764D900AA53F7 /* pan.png in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
@@ -1253,6 +1263,7 @@
 			files = (
 				77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */,
 				ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */,
+				775D6E011AC135CC00B60B01 /* BlandEmphasizeFilter.swift in Sources */,
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */,
 				849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */,
@@ -1297,6 +1308,7 @@
 				AD36CEA01AAF669F00FC947D /* Brush.swift in Sources */,
 				AD1CE5D81AA7653700AA53F7 /* ZoomTool.swift in Sources */,
 				0A27FC831A0564CF00999020 /* EditorView.swift in Sources */,
+				775D6DFD1AC1339700B60B01 /* EmphasizeTool.swift in Sources */,
 				772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */,
 				AD9FDCE81A85C07D00C6D974 /* BlendMode.swift in Sources */,
 				AD3FAF1D1A9BBC2200BFA982 /* BlendFilter.swift in Sources */,

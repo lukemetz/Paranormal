@@ -118,7 +118,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="zoomPressed:" target="-2" id="S2f-hl-u0n"/>
+                        <action selector="emphasizePressed:" target="-2" id="8gN-4e-GNj"/>
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">

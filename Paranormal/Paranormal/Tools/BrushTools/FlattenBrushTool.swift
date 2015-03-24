@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 public class FlattenBrushTool : BrushTool {
 
     override public init() {

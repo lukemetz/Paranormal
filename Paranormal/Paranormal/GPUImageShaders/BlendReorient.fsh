@@ -1,26 +1,26 @@
-// Heavily inspired by
-// http://blog.selfshadow.com/publications/blending-in-detail/
-
 varying vec2 textureCoordinate;
 
 uniform sampler2D inputImageTexture;
 uniform sampler2D inputImageTexture2;
+const float normalZero = 127.0 / 255.0;
 uniform float opacity;
 
-vec3 decodeNormal(vec4 color) {
-    return color.xyz * 2.0 - 1.0;
+vec3 colorToNormal(vec4 color) {
+    return vec3(2.0 * (color.r - normalZero),
+                2.0 * (color.g - normalZero),
+                2.0 * (color.b - normalZero));
 }
 
-vec3 encodeNormal(vec3 normal) {
-    return normal * 0.5 + 0.5;
+vec4 normalToColor(vec3 normal, float alpha) {
+    return vec4((normalZero + (0.5 * normal)), alpha);
 }
 
 void main() {
     vec4 outputColor;
     vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
     vec4 detailColor = texture2D(inputImageTexture2, textureCoordinate);
-    vec3 n1 = decodeNormal(baseColor);
-    vec3 n2 = decodeNormal(detailColor);
+    vec3 n1 = colorToNormal(baseColor);
+    vec3 n2 = colorToNormal(detailColor);
 
     float hx1 = -(n1.x / n1.z);
     float hy1 = -(n1.y / n1.z);
@@ -36,7 +36,6 @@ void main() {
     vec3 yVector = vec3(0.0, 1.0, hy);
     vec3 result = normalize(cross(xVector, yVector));
 
-    outputColor.xyz = encodeNormal(result);
-    outputColor.a = 1.0;
+    outputColor = normalToColor(result, baseColor.a);
     gl_FragColor = outputColor;
 }

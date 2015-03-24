@@ -67,6 +67,14 @@ public class ToolsViewController: PNViewController {
         selectButton( sender )
     }
 
+    @IBAction func emphasizePressed(sender: NSButton) {
+        if let doc = document {
+            editorViewController?.changeActiveTool(EmphasizeTool())
+            doc.setActiveEditorTool(ActiveTool.Emphasize)
+        }
+        selectButton( sender )
+    }
+    
     @IBAction public func angleBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(AngleBrushTool())

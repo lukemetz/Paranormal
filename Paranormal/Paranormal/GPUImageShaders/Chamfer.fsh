@@ -5,7 +5,7 @@ uniform float texelWidth;
 uniform float texelHeight;
 uniform float depth;
 uniform float radius; // Pixels
-const float normalZero = 0.5;
+const float normalZero = 127.0 / 255.0;
 const float epsilon = 0.001; // less than half 1/255
 const vec3 zUpNormal = vec3(0.0, 0.0, 1.0);
 

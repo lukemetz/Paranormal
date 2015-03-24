@@ -186,6 +186,8 @@ public class Layer : NSManagedObject{
             return BlendFlattenFilter()
         case .Smooth:
             return BlendSmoothFilter()
+        case .Emphasize:
+            return BlendEmphasizeFilter()
         }
     }
 
