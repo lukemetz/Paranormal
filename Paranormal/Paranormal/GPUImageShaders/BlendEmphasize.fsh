@@ -1,3 +1,5 @@
+// TODO: Refactor this so that it uses the same code as Flatten
+
 const float epsilon = 0.001; // less than half 1/255
 const float normalZero = 127.0/255.0;
 
@@ -19,9 +21,9 @@ uniform float opacity;
 
 void main() {
     vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
-    vec4 flattenColor = texture2D(inputImageTexture2, textureCoordinate);
+    vec4 emphasizeColor = texture2D(inputImageTexture2, textureCoordinate);
 
-    float factor = 1.0 - 0.9 * (flattenColor.a * opacity);
+    float factor = 1.0 + 9.0 * (emphasizeColor.a * opacity);
     vec3 norm = colorToNormal(baseColor);
     vec4 outputColor;
     if (norm.z < epsilon) {

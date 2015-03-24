@@ -2,8 +2,10 @@ import Foundation
 
 public enum BlendMode : Int16 {
     case Add = 0
-    case Tilt = 1
-    case Tilted = 2
-    case Flatten = 3
-    case Smooth = 4
+    case Tilt
+    case Tilted
+    case Flatten
+    case Emphasize
+    case Smooth
+    case Sharpen
 }

@@ -1,12 +1,12 @@
 import Foundation
 
-public class FlattenBrushTool : BrushTool {
+public class EmphasizeTool : BrushTool {
 
     override public init() {
         super.init()
     }
 
     override func initializeEditLayer() {
-        editLayer?.blendMode = .Flatten
+        editLayer?.blendMode = .Emphasize
     }
 }
