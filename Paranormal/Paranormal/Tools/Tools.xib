@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ToolsViewController" customModule="Paranormal" customModuleProvider="target">
@@ -39,7 +39,7 @@
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
-                    <rect key="frame" x="8" y="333" width="48" height="48"/>
+                    <rect key="frame" x="8" y="322" width="48" height="48"/>
                     <buttonCell key="cell" type="square" alternateTitle="profile" bezelStyle="shadowlessSquare" image="flatten" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Fkr-0k-YHv">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -48,18 +48,8 @@
                         <action selector="flattenBrushPressed:" target="-2" id="1I6-Ow-h4O"/>
                     </connections>
                 </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
-                    <rect key="frame" x="8" y="240" width="47" height="47"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pan" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
-                    </connections>
-                </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-gn-GzJ">
-                    <rect key="frame" x="8" y="286" width="48" height="48"/>
+                    <rect key="frame" x="8" y="270" width="48" height="48"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="zoom" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="szf-Os-xvP">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -69,7 +59,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
-                    <rect key="frame" x="8" y="380" width="48" height="48"/>
+                    <rect key="frame" x="8" y="375" width="48" height="48"/>
                     <buttonCell key="cell" type="square" alternateTitle="smooth" bezelStyle="shadowlessSquare" image="smooth" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="was-yP-kHm">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -96,6 +86,16 @@
                     </buttonCell>
                     <connections>
                         <action selector="chamferPressed:" target="-2" id="YX2-sN-siu"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
+                    <rect key="frame" x="8" y="218" width="47" height="47"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pan" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
                     </connections>
                 </button>
             </subviews>
