@@ -6,7 +6,7 @@ class GaussianChamferFilter : GPUImageFilterGroup {
     override init() {
         super.init()
 
-        let alphaMask = GPUImageFilter(fragmentShaderFromFile: "MaskAlpha")
+        let alphaMask = GPUImageFilter(fragmentShaderFromFile: "AlphaToBlack")
         self.addFilter(alphaMask)
 
         let blurFilter = GPUImageGaussianBlurFilter()

@@ -184,6 +184,8 @@ public class Layer : NSManagedObject{
             return BlendReorientTextureFilter()
         case .Flatten:
             return BlendFlattenFilter()
+        case .Smooth:
+            return BlendSmoothFilter()
         }
     }
 

@@ -11,8 +11,8 @@ class PNViewControllerTests: QuickSpec {
                 var c1 = PNViewController()
                 var c2 = PNViewController()
                 var c3 = PNViewController()
-                c1.subPNViewControllers.append(c2)
-                c2.subPNViewControllers.append(c3)
+                c1.addViewController(c2)
+                c2.addViewController(c3)
 
                 expect(c1.document).to(beNil())
                 expect(c2.document).to(beNil())

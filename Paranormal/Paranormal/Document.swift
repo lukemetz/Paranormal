@@ -10,8 +10,9 @@ public class Document: NSPersistentDocument {
     // User preferences / user facing data
     public var editorViewMode = EditorViewMode.Normal
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
-    public var brushSize : Float = 4
+    public var brushSize : Float = 30.0
     public var brushOpacity : Float = 1.0
+    public var gaussianRadius : Float = 30
 
     public var rootLayer : Layer? {
         return documentSettings?.rootLayer
@@ -181,4 +182,10 @@ public class Document: NSPersistentDocument {
     override public func makeWindowControllers() {
         addWindowController(singleWindowController!)
     }
+
+    public func setActiveEditorTool(tool : ActiveTool) {
+        var pvc : PanelsViewController? = singleWindowController?.panelsViewController?
+        pvc?.toolSettingsViewController?.displayActiveEditorToolSettings(tool)
+    }
+
 }
