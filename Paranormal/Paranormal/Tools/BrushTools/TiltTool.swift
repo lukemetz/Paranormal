@@ -1,7 +1,7 @@
 import Foundation
 
 public class TiltTool: BrushTool {
-    
+
     public override init() {
         super.init()
     }

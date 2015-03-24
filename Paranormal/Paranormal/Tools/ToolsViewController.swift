@@ -74,7 +74,7 @@ public class ToolsViewController: PNViewController {
         }
         selectButton( sender )
     }
-    
+
     @IBAction public func angleBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(AngleBrushTool())
