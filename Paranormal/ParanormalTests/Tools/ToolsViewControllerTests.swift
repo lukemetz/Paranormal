@@ -42,7 +42,7 @@ class ToolsViewControllerTests: QuickSpec {
                 windowController?.editorViewController?.activeEditorTool = nil
 
                 smooth = windowController?.toolsViewController?.smooth
-                plane = windowController?.toolsViewController?.brush
+                plane = windowController?.toolsViewController?.plane
                 pan = windowController?.toolsViewController?.pan
                 zoom = windowController?.toolsViewController?.zoom
                 flatten = windowController?.toolsViewController?.flatten
