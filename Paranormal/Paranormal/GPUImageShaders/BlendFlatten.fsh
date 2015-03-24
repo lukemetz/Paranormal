@@ -1,10 +1,5 @@
 const float epsilon = 0.001; // less than half 1/255
 const float normalZero = 127.0/255.0 + epsilon;
-const vec3 zUpNormal = vec3(0.0, 0.0, 1.0);
-
-float angle(vec3 a, vec3 b) {
-    return acos(dot(a, b) / (length(a) * length (b)));
-}
 
 vec3 colorToNormal(vec4 color) {
     return vec3(2.0 * (color.r - normalZero),
@@ -14,27 +9,6 @@ vec3 colorToNormal(vec4 color) {
 
 vec4 normalToColor(vec3 normal, float alpha) {
     return vec4((normalZero + (0.5 * normal)), alpha);
-}
-
-vec3 slerp(vec3 fromVector, vec3 toVector, float mixRatio) {
-    // Gemetric formula from http://en.wikipedia.org/wiki/Slerp
-
-    float theta = angle(fromVector, toVector);
-    float sinTheta = sin(theta);
-
-
-    float toPortion   = sin(theta * mixRatio) / sinTheta;
-    float fromPortion = sin(theta * (1.0 - mixRatio)) / sinTheta;
-
-    vec3 slerpVector = normalize(fromVector * fromPortion + toVector * toPortion);
-
-    // In situations where the vectors are nearly opposites, we sometimes get a
-    // negative z-value. In these cases the conjugate is just as valid, so we return
-    // that instead.
-    if (slerpVector[2] < 0.0) {
-        slerpVector[2] = -slerpVector[2];
-    }
-    return slerpVector;
 }
 
 varying vec2 textureCoordinate;
@@ -47,13 +21,19 @@ void main() {
     vec4 baseColor = texture2D(inputImageTexture, textureCoordinate);
     vec4 flattenColor = texture2D(inputImageTexture2, textureCoordinate);
 
-    float factor = flattenColor.a * opacity;
-
+    float factor = 1.0 - flattenColor.a * opacity;
     vec3 norm = colorToNormal(baseColor);
-
-    vec3 transformedNormal = slerp(norm, zUpNormal, factor);
-
     vec4 outputColor;
-    outputColor = normalToColor(transformedNormal, baseColor.a);
+    if (norm.z < epsilon) {
+        outputColor = baseColor;
+    } else {
+        float width = length(norm.xy) / norm.z;
+        float flattenedWidth = width * factor;
+
+        vec2 direction = normalize(norm.xy);
+        vec3 transformedNormal = normalize(vec3(flattenedWidth * direction, 1.0));
+
+        outputColor = normalToColor(transformedNormal, baseColor.a);
+    }
     gl_FragColor = outputColor;
 }

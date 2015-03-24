@@ -4,13 +4,17 @@ import AppKit
 
 public class ToolsViewController: PNViewController {
 
+    @IBOutlet public weak var plane: NSButton!
+    @IBOutlet public weak var emphasize: NSButton!
+    @IBOutlet public weak var flatten: NSButton!
     @IBOutlet public weak var smooth: NSButton!
-    @IBOutlet public weak var brush: NSButton!
+    @IBOutlet public weak var sharpen: NSButton!
+    @IBOutlet public weak var tilt: NSButton!
     @IBOutlet public weak var pan: NSButton!
     @IBOutlet public weak var zoom: NSButton!
-    @IBOutlet public weak var flatten: NSButton!
 
-    var buttons: [NSButton] { return [smooth, brush, pan, flatten, zoom] }
+    var buttons: [NSButton] { return [
+        plane, emphasize, flatten, smooth, sharpen, tilt, pan, zoom] }
 
     private func turnoff( buttons: [NSButton]){
         for button in buttons {
@@ -18,15 +22,14 @@ public class ToolsViewController: PNViewController {
         }
     }
 
-    private func keepSelectedState (button: NSButton, buttonlist: [NSButton]){
+    private func keepSelectedState (button: NSButton){
+        turnoff(buttons)
         button.bordered = true
         button.state = 1
-        turnoff(buttonlist)
     }
 
     public func selectButton( button : NSButton ){
-        var rest = buttons.filter { $0 != button }
-        keepSelectedState(button, buttonlist: rest)
+        keepSelectedState(button)
     }
 
     @IBAction func smoothPressed(sender: NSButton) {
@@ -59,7 +62,7 @@ public class ToolsViewController: PNViewController {
     @IBAction public func flattenBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(FlattenBrushTool())
-            document?.setActiveEditorTool(ActiveTool.Flatten)
+            doc.setActiveEditorTool(ActiveTool.Flatten)
         }
         selectButton( sender )
     }
@@ -67,7 +70,15 @@ public class ToolsViewController: PNViewController {
     @IBAction public func angleBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(AngleBrushTool())
-            document?.setActiveEditorTool(ActiveTool.Plane)
+            doc.setActiveEditorTool(ActiveTool.Plane)
+        }
+        selectButton( sender )
+    }
+
+    @IBAction public func tiltPressed(sender: NSButton) {
+        if let doc = document {
+            editorViewController?.changeActiveTool(TiltTool())
+            doc.setActiveEditorTool(ActiveTool.Tilt)
         }
         selectButton( sender )
     }
@@ -75,7 +86,7 @@ public class ToolsViewController: PNViewController {
     @IBAction public func panPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(PanTool())
-            document?.setActiveEditorTool(ActiveTool.Pan)
+            doc.setActiveEditorTool(ActiveTool.Pan)
         }
         selectButton( sender )
     }

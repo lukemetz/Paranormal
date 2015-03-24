@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ToolsViewController" customModule="Paranormal" customModuleProvider="target">
             <connections>
-                <outlet property="brush" destination="dZH-Kl-P0V" id="5EX-zC-LVZ"/>
+                <outlet property="emphasize" destination="8U9-0Z-mg3" id="uEq-uN-GEf"/>
                 <outlet property="flatten" destination="UBv-l1-hx9" id="Dge-Ia-38m"/>
                 <outlet property="pan" destination="abj-1n-C0G" id="aff-rb-ocR"/>
+                <outlet property="plane" destination="dZH-Kl-P0V" id="c2J-2a-Rk7"/>
                 <outlet property="profile" destination="UBv-l1-hx9" id="PTN-J4-PKV"/>
+                <outlet property="sharpen" destination="sVH-VN-Wzk" id="Mtj-bc-h9e"/>
                 <outlet property="smooth" destination="G1T-WH-uEZ" id="KhZ-A1-Lht"/>
+                <outlet property="tilt" destination="oel-oc-iba" id="gQ1-ng-OY1"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Wrq-ks-jNx"/>
                 <outlet property="zoom" destination="nbi-gn-GzJ" id="GUl-IH-Rlf"/>
             </connections>
@@ -19,11 +22,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="64" height="483"/>
+            <rect key="frame" x="0.0" y="0.0" width="50" height="508"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-Kl-P0V">
-                    <rect key="frame" x="8" y="427" width="48" height="48"/>
+                    <rect key="frame" x="5" y="460" width="40" height="40"/>
                     <buttonCell key="cell" type="square" alternateTitle="plane" bezelStyle="shadowlessSquare" image="plane" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TFa-Fa-LGC">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -33,13 +36,13 @@
                     </connections>
                 </button>
                 <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-Zi-RZv">
-                    <rect key="frame" x="61" y="107" width="5" height="376"/>
+                    <rect key="frame" x="61" y="132" width="5" height="376"/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
-                    <rect key="frame" x="8" y="322" width="48" height="48"/>
+                    <rect key="frame" x="5" y="373" width="40" height="40"/>
                     <buttonCell key="cell" type="square" alternateTitle="profile" bezelStyle="shadowlessSquare" image="flatten" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Fkr-0k-YHv">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -48,18 +51,8 @@
                         <action selector="flattenBrushPressed:" target="-2" id="1I6-Ow-h4O"/>
                     </connections>
                 </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-gn-GzJ">
-                    <rect key="frame" x="8" y="270" width="48" height="48"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="zoom" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="szf-Os-xvP">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="zoomPressed:" target="-2" id="atX-DL-y5T"/>
-                    </connections>
-                </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
-                    <rect key="frame" x="8" y="375" width="48" height="48"/>
+                    <rect key="frame" x="5" y="330" width="40" height="40"/>
                     <buttonCell key="cell" type="square" alternateTitle="smooth" bezelStyle="shadowlessSquare" image="smooth" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="was-yP-kHm">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -69,7 +62,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-Es-LLJ">
-                    <rect key="frame" x="9" y="20" width="48" height="48"/>
+                    <rect key="frame" x="5" y="7" width="40" height="40"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="texture" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WrH-6T-F5G">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -79,7 +72,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Fe-AjZ">
-                    <rect key="frame" x="8" y="67" width="48" height="48"/>
+                    <rect key="frame" x="5" y="61" width="40" height="40"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="chamfer" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="yqn-zB-0Pw">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -88,8 +81,48 @@
                         <action selector="chamferPressed:" target="-2" id="YX2-sN-siu"/>
                     </connections>
                 </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-gn-GzJ">
+                    <rect key="frame" x="5" y="201" width="40" height="40"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="zoom" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="szf-Os-xvP">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="zoomPressed:" target="-2" id="atX-DL-y5T"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oel-oc-iba">
+                    <rect key="frame" x="5" y="244" width="40" height="40"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tilt" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="FJQ-tx-Prr">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="tiltPressed:" target="-2" id="xgM-HT-ywb"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVH-VN-Wzk">
+                    <rect key="frame" x="5" y="287" width="40" height="40"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="viF-NY-h2k">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="zoomPressed:" target="-2" id="bC5-pv-Uwx"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8U9-0Z-mg3">
+                    <rect key="frame" x="5" y="417" width="40" height="40"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="emphasize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="XZU-PB-Vat">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="zoomPressed:" target="-2" id="S2f-hl-u0n"/>
+                    </connections>
+                </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
-                    <rect key="frame" x="8" y="218" width="47" height="47"/>
+                    <rect key="frame" x="5" y="158" width="40" height="40"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pan" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -99,16 +132,19 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="-16" y="257.5"/>
+            <point key="canvasLocation" x="-23" y="270"/>
         </customView>
     </objects>
     <resources>
         <image name="chamfer" width="512" height="512"/>
+        <image name="emphasize" width="512" height="512"/>
         <image name="flatten" width="512" height="512"/>
         <image name="pan" width="57" height="57"/>
         <image name="plane" width="512" height="512"/>
+        <image name="sharpen" width="512" height="512"/>
         <image name="smooth" width="512" height="512"/>
         <image name="texture" width="512" height="512"/>
+        <image name="tilt" width="512" height="512"/>
         <image name="zoom" width="57" height="57"/>
     </resources>
 </document>
