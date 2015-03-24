@@ -1,3 +1,5 @@
+// TODO: Refactor this so that it uses the same code as Flatten
+
 const float epsilon = 0.001; // less than half 1/255
 const float normalZero = 127.0/255.0;
 

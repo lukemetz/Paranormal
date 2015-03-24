@@ -29,6 +29,8 @@
 		775D6DFD1AC1339700B60B01 /* EmphasizeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6DFC1AC1339700B60B01 /* EmphasizeTool.swift */; };
 		775D6DFF1AC134C700B60B01 /* BlendEmphasize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 775D6DFE1AC134C700B60B01 /* BlendEmphasize.fsh */; };
 		775D6E011AC135CC00B60B01 /* BlandEmphasizeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6E001AC135CC00B60B01 /* BlandEmphasizeFilter.swift */; };
+		775D6E711AC1D10E00B60B01 /* SharpenTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6E701AC1D10E00B60B01 /* SharpenTool.swift */; };
+		775D6E821AC1D1F100B60B01 /* BlendSharpenFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6E811AC1D1F100B60B01 /* BlendSharpenFilter.swift */; };
 		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */; };
 		849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */; };
@@ -330,6 +332,8 @@
 		775D6DFC1AC1339700B60B01 /* EmphasizeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphasizeTool.swift; sourceTree = "<group>"; };
 		775D6DFE1AC134C700B60B01 /* BlendEmphasize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendEmphasize.fsh; sourceTree = "<group>"; };
 		775D6E001AC135CC00B60B01 /* BlandEmphasizeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlandEmphasizeFilter.swift; sourceTree = "<group>"; };
+		775D6E701AC1D10E00B60B01 /* SharpenTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharpenTool.swift; sourceTree = "<group>"; };
+		775D6E811AC1D1F100B60B01 /* BlendSharpenFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendSharpenFilter.swift; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendTiltFilter.swift; sourceTree = "<group>"; };
 		849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLDrawingKernel.swift; sourceTree = "<group>"; };
@@ -542,6 +546,7 @@
 				AD2D80C81A9A7FD2002F92F2 /* AngleBrushTool.swift */,
 				84A36EB41AACD6B60010CF47 /* SmoothTool.swift */,
 				775D6DDD1AC11F2300B60B01 /* TiltTool.swift */,
+				775D6E701AC1D10E00B60B01 /* SharpenTool.swift */,
 			);
 			path = BrushTools;
 			sourceTree = "<group>";
@@ -566,6 +571,7 @@
 				AD3FAF1C1A9BBC2200BFA982 /* BlendFilter.swift */,
 				77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */,
 				84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */,
+				775D6E811AC1D1F100B60B01 /* BlendSharpenFilter.swift */,
 				775D6E001AC135CC00B60B01 /* BlandEmphasizeFilter.swift */,
 			);
 			path = BlendFilters;
@@ -1265,6 +1271,7 @@
 				ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */,
 				775D6E011AC135CC00B60B01 /* BlandEmphasizeFilter.swift in Sources */,
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
+				775D6E711AC1D10E00B60B01 /* SharpenTool.swift in Sources */,
 				AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */,
 				849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */,
 				AD36CE9C1AAF588B00FC947D /* DrawingKernel.swift in Sources */,
@@ -1317,6 +1324,7 @@
 				77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */,
 				775D6DDE1AC11F2300B60B01 /* TiltTool.swift in Sources */,
 				AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
+				775D6E821AC1D1F100B60B01 /* BlendSharpenFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

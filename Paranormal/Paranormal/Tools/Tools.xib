@@ -12,7 +12,7 @@
                 <outlet property="pan" destination="abj-1n-C0G" id="aff-rb-ocR"/>
                 <outlet property="plane" destination="dZH-Kl-P0V" id="c2J-2a-Rk7"/>
                 <outlet property="profile" destination="UBv-l1-hx9" id="PTN-J4-PKV"/>
-                <outlet property="sharpen" destination="sVH-VN-Wzk" id="Mtj-bc-h9e"/>
+                <outlet property="sharpen" destination="Osi-sh-y7Z" id="PeX-Lu-kbF"/>
                 <outlet property="smooth" destination="G1T-WH-uEZ" id="KhZ-A1-Lht"/>
                 <outlet property="tilt" destination="oel-oc-iba" id="gQ1-ng-OY1"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Wrq-ks-jNx"/>
@@ -35,12 +35,6 @@
                         <action selector="angleBrushPressed:" target="-2" id="24z-XA-5dv"/>
                     </connections>
                 </button>
-                <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-Zi-RZv">
-                    <rect key="frame" x="61" y="132" width="5" height="376"/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
                     <rect key="frame" x="5" y="373" width="40" height="40"/>
                     <buttonCell key="cell" type="square" alternateTitle="profile" bezelStyle="shadowlessSquare" image="flatten" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Fkr-0k-YHv">
@@ -88,7 +82,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="zoomPressed:" target="-2" id="atX-DL-y5T"/>
+                        <action selector="zoomPressed:" target="-2" id="bBn-fS-hbP"/>
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oel-oc-iba">
@@ -107,9 +101,6 @@
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="zoomPressed:" target="-2" id="bC5-pv-Uwx"/>
-                    </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8U9-0Z-mg3">
                     <rect key="frame" x="5" y="417" width="40" height="40"/>
@@ -129,6 +120,16 @@
                     </buttonCell>
                     <connections>
                         <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-sh-y7Z">
+                    <rect key="frame" x="5" y="287" width="40" height="40"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ASq-Ba-qZF">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="sharpenPressed:" target="-2" id="d83-8i-DdY"/>
                     </connections>
                 </button>
             </subviews>

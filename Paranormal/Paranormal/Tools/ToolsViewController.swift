@@ -32,11 +32,20 @@ public class ToolsViewController: PNViewController {
         keepSelectedState(button)
     }
 
+    // TODO: Refactor all of these to use the same function, using one argument (ActiveTool)
     @IBAction func smoothPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.activeEditorTool = SmoothTool()
-            document?.setActiveEditorTool(ActiveTool.Smooth)
+            doc.setActiveEditorTool(ActiveTool.Smooth)
 
+        }
+        selectButton( sender )
+    }
+
+    @IBAction func sharpenPressed(sender: NSButton) {
+        if let doc = document {
+            editorViewController?.activeEditorTool = SharpenTool()
+            doc.setActiveEditorTool(ActiveTool.Sharpen)
         }
         selectButton( sender )
     }
@@ -99,12 +108,11 @@ public class ToolsViewController: PNViewController {
         selectButton( sender )
     }
 
-    @IBAction public func zoomPressed(sender: NSButton) {
+    @IBAction func zoomPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(ZoomTool())
             document?.setActiveEditorTool(ActiveTool.Zoom)
         }
         selectButton( sender )
     }
-
 }
