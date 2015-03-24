@@ -28,7 +28,4 @@ public class PanTool : NSObject, EditorActiveTool {
     public func mouseUpAtPoint(point : NSPoint, editorViewController: EditorViewController) {
         transform(point, editorViewController)
     }
-
-    public func stopUsingTool() {
-    }
 }

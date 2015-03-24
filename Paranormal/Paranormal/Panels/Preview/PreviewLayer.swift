@@ -3,97 +3,32 @@ import AppKit
 
 class PreviewLayer: CCNode {
     var previewSprite : CCSprite!
-    var background : CCSprite?
-    var container : CCNode?
-    var lightContainer : CCNode? // TODO: Support having a list of different lights
-    var light : CCLightNode?
-    var lightIcon : CCSprite?
     var viewSize : CGSize
-    var sceneSize : CGSize!
-    let padding = 0.2
     var effect : CCEffectLighting?
-    let scheduler = CCScheduler()
+    let borderSize : CGSize = CGSize(width: 10, height: 10)
 
     init(viewSize : NSSize) {
         self.viewSize = viewSize
         super.init()
-        self.anchorPoint = CGPointMake(0.0, 0.0)
         userInteractionEnabled = true
     }
 
-    func renderedPreviewImage() -> NSImage? {
-        return PreviewSpriteUtils.renderedImageForSprite(self.previewSprite)
-    }
-
-    private func beginPreviewWithSprite(sprite: CCSprite) {
+    private func runPreviewWithSprite(previewSprite: CCSprite) {
         ThreadUtils.runCocos { () -> Void in
-            self.updateSceneSize()
+            previewSprite.position = CGPointMake(self.viewSize.width/2, self.viewSize.height/2)
+            PreviewSpriteUtils.resizeSpriteWithoutWarp(
+                previewSprite,
+                toWidth: self.viewSize.width - self.borderSize.width * 2,
+                toHeight: self.viewSize.height - self.borderSize.height * 2)
 
-            self.background = CCSprite(imageNamed: "checker.png")
-            self.addChild(self.background)
-
-            self.container = CCNode() // non-failable
-            self.addChild(self.container)
-
-            self.container!.addChild(sprite)
-
-            self.addRotatingLight(self.container!)
-
-            self.updateNodePositions()
-
-            // Schedules a redraw of the current preview view, per frame
-            self.scheduler.scheduleTarget(self)
-        }
-    }
-
-    func updateNodePositions() {
-        self.updateSceneSize()
-        let spriteSize = self.previewSprite.contentSize
-
-        if let container = self.container {
-            container.position = CGPointMake(
-            sceneSize.width  / 2 - spriteSize.width  / 2,
-            sceneSize.height / 2 - spriteSize.height / 2)
-        }
-        if let background = self.background {
-            background.anchorPoint = CGPointMake(0.5, 0.5)
-            background.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2)
-            PreviewSpriteUtils.resizeSprite(background,
-                toWidth:  self.sceneSize.width  * 2,
-                toHeight: self.sceneSize.height * 2)
-        }
-        if let sprite = self.previewSprite {
-            sprite.anchorPoint = CGPointMake(0.0, 0.0)
-            sprite.position = CGPointMake(0.0, 0.0)
-        }
-        if let lightContainer = self.lightContainer {
-            lightContainer.position = CGPointMake(spriteSize.width / 2, spriteSize.height / 2)
-        }
-        if let light = self.light {
-            light.anchorPoint = CGPointMake(0.5, 0.5)
-            light.position = CGPointMake(0.0, previewSprite.contentSize.width * 0.6)
-        }
-        if let lightIcon = self.lightIcon {
-            let lightSize = sceneSize.width * 0.15
-            lightIcon.scale = Float(lightSize / lightIcon.contentSize.width)
-        }
-    }
-
-    func updateSceneSize() {
-        var sceneAspectRatio = viewSize.width / viewSize.height
-        var widthRestricted: Bool = (
-            previewSprite.contentSize.width  / viewSize.width >
-            previewSprite.contentSize.height / viewSize.height)
-        if widthRestricted {
-            let sceneWidth = previewSprite.contentSize.width * CGFloat(1.0 + self.padding)
-            sceneSize = CGSizeMake(sceneWidth,
-                sceneWidth / sceneAspectRatio)
-            self.scale = Float(self.viewSize.width / sceneWidth)
-        } else {
-            let sceneHeight = previewSprite.contentSize.height * CGFloat(1.0 + self.padding)
-            sceneSize = CGSizeMake(sceneHeight * sceneAspectRatio,
-                sceneHeight)
-            self.scale = Float(self.viewSize.height / sceneHeight)
+            let background = CCSprite(imageNamed: "checker.png")
+            PreviewSpriteUtils.resizeSprite(
+                background,
+                toWidth: self.viewSize.width * 2,
+                toHeight: self.viewSize.height * 2)
+            self.addChild(background)
+            self.addChild(previewSprite)
+            self.addRotatingLight()
         }
     }
 
@@ -109,53 +44,42 @@ class PreviewLayer: CCNode {
     func updateBaseImage(image : NSImage) {
         ThreadUtils.runCocos { () -> Void in
             if let sprite = self.previewSprite? {
-                if let parent = sprite.parent {
-                    // TODO: Deal with children (for now, there are none)
-                    parent.removeChild(sprite, cleanup: true)
-                    self.previewSprite = CCSprite(
-                        texture: PreviewSpriteUtils.spriteTextureForImage(image))
-                    parent.addChild(self.previewSprite)
-                } else {
-                    log.error("Attempting to change a sprite which has not been added to the scene")
-                }
-                if let effect = self.effect {
-                    self.previewSprite.effect = effect
-                }
-                self.updateNodePositions()
+                sprite.texture = PreviewSpriteUtils.spriteFrameForImage(image).texture
             } else {
-                // New session begun, initialize sprite
-                let sprite = CCSprite(texture: PreviewSpriteUtils.spriteTextureForImage(image))
-                self.previewSprite = sprite
-                self.beginPreviewWithSprite(self.previewSprite)
+                // New document set, initialize sprite
+                self.previewSprite =
+                    CCSprite(texture: PreviewSpriteUtils.spriteTextureForImage(image))
+                self.runPreviewWithSprite(self.previewSprite)
             }
         }
     }
 
-    func addRotatingLight(container: CCNode) {
+    func addRotatingLight() {
         let groups = ["group_name"]
-        self.lightContainer = CCNode() // non-failable
-        container.addChild(lightContainer, z: 1)
+        let light = CCLightNode(type: CCLightType.Point, groups: groups,
+            color: CCColor.whiteColor(), intensity: 0.5)
+        light.position.x = previewSprite.contentSize.width / 2.0
+        light.anchorPoint = CGPointMake(0.5, 0.5)
 
-        self.light = CCLightNode(type: CCLightType.Point, groups: groups,
-            color: CCColor.whiteColor(), intensity: 0.3)
-        light!.depth = 100.0
-        lightContainer!.addChild(light) // non-failable
+        let lightContainer = CCNode()
+        lightContainer.position = CGPointMake(
+            previewSprite.contentSize.width/2, previewSprite.contentSize.height/2)
 
-        self.lightIcon = CCSprite(imageNamed: "light64.png")
-        light!.addChild(lightIcon)
+        previewSprite.addChild(lightContainer)
+
+        lightContainer.addChild(light)
+
+        let sunIcon: CCSprite = CCSprite(imageNamed: "light64.png")
+        sunIcon.contentSize = CGSizeMake(32.0, 32.0)
+        light.addChild(sunIcon)
 
         effect = CCEffectLighting(groups: groups,
-            specularColor: CCColor.whiteColor(), shininess:0.01)
+            specularColor: CCColor.whiteColor(), shininess:0.5)
 
         let action = CCActionRotateBy.actionWithDuration(2, angle: 180) as CCActionInterval
-        lightContainer!.runAction(CCActionRepeatForever(action: action))
+        lightContainer.runAction(CCActionRepeatForever(action: action))
 
         previewSprite.effect = effect!
-    }
-
-    override func update(delta: CCTime) {
-        NSNotificationCenter.defaultCenter().postNotificationName(
-            PNPreviewNeedsRedraw, object: nil)
     }
 
     func ccKeyDown(event: NSEvent) -> Bool {

@@ -3,7 +3,7 @@ import Cocoa
 import AppKit
 import CoreGraphics
 
-let PNScrollMultiplier : CGFloat = 3.0
+let PNScrollMultiplier : CGFloat = 2.0
 
 public class EditorViewController : PNViewController {
 
@@ -15,13 +15,6 @@ public class EditorViewController : PNViewController {
         didSet {
             if editor != nil {
                 activeEditorTool = BrushTool()
-                if let container = editor.superview {
-                    if let settings = document?.documentSettings {
-                        editor.transform = CGAffineTransformMakeTranslation(
-                            (container.bounds.size.width  - CGFloat(settings.width )) / 2,
-                            (container.bounds.size.height - CGFloat(settings.height)) / 2)
-                    }
-                }
             }
         }
     }
@@ -50,11 +43,6 @@ public class EditorViewController : PNViewController {
             log.error("XY zoom are off. You are no longer viewing a square image.")
         }
         return Float(sx)
-    }
-
-    public func changeActiveTool(tool : EditorActiveTool?) {
-        activeEditorTool?.stopUsingTool()
-        activeEditorTool = tool
     }
 
     public func zoomAroundImageSpacePoint(point : NSPoint, scale : CGFloat) {
@@ -94,12 +82,9 @@ public class EditorViewController : PNViewController {
         super.loadView()
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "updateComputedEditorImage:",
-            name: PNDocumentNormalImageChanged,
+            name: PNDocumentComputedEditorChanged,
             object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "updateComputedEditorImage:",
-            name: PNPreviewNeedsRedraw,
-            object: nil)
+
         activeEditorTool = BrushTool()
     }
 

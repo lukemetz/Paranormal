@@ -1,14 +1,12 @@
 import Cocoa
 import GPUImage
 
-let PNDocumentNormalImageChanged = "PNDocumentNormalImageChanged"
-let PNPreviewNeedsRedraw = "PNPreviewNeedsRedraw"
+let PNDocumentComputedEditorChanged = "PNDocumentComptedEditorChanged"
 
 public class Document: NSPersistentDocument {
     public var singleWindowController : WindowController?
 
     // User preferences / user facing data
-    public var editorViewMode = EditorViewMode.Normal
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
     public var brushSize : Float = 4
     public var brushOpacity : Float = 1.0
@@ -36,29 +34,15 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    public var computedNormalImage : NSImage? {
+    public var computedEditorImage : NSImage? {
         didSet {
             NSNotificationCenter.defaultCenter().postNotificationName(
-                PNDocumentNormalImageChanged, object: self.computedNormalImage)
+                PNDocumentComputedEditorChanged, object: self.computedEditorImage)
         }
     }
 
-    var computedPreviewImage : NSImage? {
-        var previewcontroller = singleWindowController?.panelsViewController?.previewViewController
-        return previewcontroller?.renderedPreviewImage()
-    }
-
-    var computedEditorImage : NSImage? {
-        switch self.editorViewMode {
-        case .Normal:
-            return computedNormalImage
-        case .Preview:
-            return computedPreviewImage
-        }
-    }
-
-    public var computedExportImage : NSImage? {
-        return computedNormalImage
+    var computedExportImage : NSImage? {
+        return computedEditorImage
     }
 
     // TODO cache this
@@ -81,7 +65,7 @@ public class Document: NSPersistentDocument {
                 UInt(height), 8, 0, colorSpace, bitmapInfo)
             let color = CGColorCreateGenericRGB(0.5, 0.5, 0.5, 1.0)
             CGContextSetFillColorWithColor(context, color)
-            let rect = CGRectMake(0, 0, CGFloat(width), CGFloat(height))
+            let rect = CGRectMake(0, 0, CGFloat(height), CGFloat(width))
             CGContextFillRect(context, rect)
             let cgImage = CGBitmapContextCreateImage(context)
 
@@ -97,13 +81,6 @@ public class Document: NSPersistentDocument {
     override init() {
         super.init()
 
-        let coordinator = managedObjectContext.persistentStoreCoordinator;
-
-        managedObjectContext =  NSManagedObjectContext(concurrencyType:
-            NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
-        managedObjectContext.persistentStoreCoordinator = coordinator
-        managedObjectContext.undoManager = undoManager
-
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
             name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
@@ -116,7 +93,7 @@ public class Document: NSPersistentDocument {
 
     public func computeDerivedData() {
         ThreadUtils.runGPUImage { () -> Void in
-            self.computedNormalImage = self.rootLayer?.renderLayer()
+            self.computedEditorImage = self.rootLayer?.renderLayer()
         }
     }
 

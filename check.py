@@ -26,7 +26,7 @@ def run_check(check):
         print colors.OKGREEN + check.__name__ + ' succeeded!\n' + colors.ENDC
     else:
         print (colors.FAIL + check.__name__ + ' failed with exit code ' + str(exit_code)
-            + '. Aborting.\n' + colors.ENDC)
+            + '. Aborting.\n')
     return exit_code
 
 def run(command):

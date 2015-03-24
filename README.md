@@ -3,11 +3,11 @@ Paranormal
 
 Awesome normal map editor for Mac OS X
 
-Run the following before building in xcode:
+Run the following before building in xcode.
+
 git submodule update --init --recursive
 
-Before pull requesting, run to ensure all tests pass:
-./check.py
+Before pull requesting run run ./check.bash to ensure all tests pass.
 
 git commit for all changes <br /> 
 git checkout master <br /> 

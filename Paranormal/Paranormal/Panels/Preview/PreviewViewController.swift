@@ -4,7 +4,6 @@ import GPUImage
 
 class PreviewViewController : PNViewController, PreviewViewDelegate {
     @IBOutlet weak var glView: PreviewView!
-    var currentPreviewLayer: PreviewLayer?
 
     var scene : PreviewScene?
     override var document : Document? {
@@ -13,17 +12,17 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
             updateCoreData(nil)
         }
     }
-
-    func renderedPreviewImage() -> NSImage? {
-        return self.currentPreviewLayer?.renderedPreviewImage()
-    }
+    var currentPreviewLayer: PreviewLayer?
 
     override func loadView() {
         super.loadView()
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "updateComputedEditorImage:",
-            name: PNDocumentNormalImageChanged,
+            name: PNDocumentComputedEditorChanged,
             object: nil)
 
         self.setupPreview()
@@ -41,6 +40,9 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
             self.scene?.addChild(previewLayer)
             self.currentPreviewLayer = previewLayer
             director.presentScene(self.scene!)
+
+            // Hack to get cocos2d view to appear correctly.
+            director.view.reshape()
         }
     }
 

@@ -49,8 +49,7 @@ class WindowControllerTests : QuickSpec {
                         })
 
                         windowController.zoomSetFromGUI(windowController.zoomField)
-                        let date = NSDate(timeIntervalSinceNow: 0.1)
-                        NSRunLoop.currentRunLoop().runUntilDate(date)
+
                         expect(ranNotification).toEventually(beTrue(()))
                     }
                 }

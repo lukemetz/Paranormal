@@ -13,10 +13,10 @@ public func beColor(expectR : UInt, expectG : UInt, expectB : UInt, expectA : UI
                     (UInt(colorUnwrap.redComponent), UInt(colorUnwrap.greenComponent),
                     UInt(colorUnwrap.blueComponent), UInt(colorUnwrap.alphaComponent))
 
-                return abs(gotR - expectR) <= 1 &&
-                       abs(gotG - expectG) <= 1 &&
-                       abs(gotB - expectB) <= 1 &&
-                       abs(gotA - expectA) <= 1
+                return gotR == expectR &&
+                       gotG == expectG &&
+                       gotB == expectB &&
+                       gotA == expectA
             }
         }
         return false

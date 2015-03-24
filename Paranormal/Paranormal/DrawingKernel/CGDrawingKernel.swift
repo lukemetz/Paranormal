@@ -19,11 +19,6 @@ class CGDrawingKernel: DrawingKernel {
         updateFunc = update
     }
 
-    func doneDrawing() -> Bool {
-        // This kernel is blocking so always true
-        return true
-    }
-
     func addPoint(point : CGPoint, brush : Brush) {
         if let context = editorContext {
             if let lp = lastPoint {
@@ -58,8 +53,5 @@ class CGDrawingKernel: DrawingKernel {
         editorContext = nil
         lastPoint = nil
         updateFunc = nil
-    }
-
-    func destroy() {
     }
 }
