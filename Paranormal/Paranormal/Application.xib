@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WindowController" customModule="Paranormal" customModuleProvider="target">
@@ -22,7 +22,7 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="khZ-mA-o3D">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="163" y="199" width="729" height="532"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="LMU-Ob-Gbw">
                 <rect key="frame" x="0.0" y="0.0" width="729" height="532"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -54,6 +54,29 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZFW-x9-hDf">
+                                <rect key="frame" x="97" y="1" width="171" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="HD6-fg-gAg">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Normal Map" width="82" selected="YES"/>
+                                        <segment label="Preview" width="82" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="setEditorViewMode:" target="-2" id="px7-rM-3U7"/>
+                                </connections>
+                            </segmentedControl>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfF-SF-XUy">
+                                <rect key="frame" x="272" y="4" width="122" height="18"/>
+                                <buttonCell key="cell" type="check" title="Light Movement" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="J31-0D-wfs">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="lightToggled:" target="-2" id="REB-nN-EaI"/>
+                                </connections>
+                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jee-yJ-cfu">
                                 <rect key="frame" x="55" y="5" width="38" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="100" id="H93-3M-gJu">
@@ -69,19 +92,6 @@
                                     <action selector="zoomSetFromGUI:" target="-2" id="ASK-5J-xs5"/>
                                 </connections>
                             </textField>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZFW-x9-hDf">
-                                <rect key="frame" x="97" y="1" width="171" height="24"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="HD6-fg-gAg">
-                                    <font key="font" metaFont="system"/>
-                                    <segments>
-                                        <segment label="Normal Map" width="82" selected="YES"/>
-                                        <segment label="Preview" width="82" tag="1"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="setEditorViewMode:" target="-2" id="px7-rM-3U7"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="pt9-tW-0NY"/>

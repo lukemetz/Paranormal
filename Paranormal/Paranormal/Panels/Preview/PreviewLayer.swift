@@ -13,6 +13,7 @@ class PreviewLayer: CCNode {
     let padding = 0.2
     var effect : CCEffectLighting?
     let scheduler = CCScheduler()
+    var rotateAction : CCAction!
 
     init(viewSize : NSSize) {
         self.viewSize = viewSize
@@ -147,8 +148,9 @@ class PreviewLayer: CCNode {
         effect = CCEffectLighting(groups: groups,
             specularColor: CCColor.whiteColor(), shininess:0.01)
 
-        let action = CCActionRotateBy.actionWithDuration(2, angle: 180) as CCActionInterval
-        lightContainer!.runAction(CCActionRepeatForever(action: action))
+        let actionInterval = CCActionRotateBy.actionWithDuration(2, angle: 180) as CCActionInterval
+        rotateAction = CCActionRepeatForever(action: actionInterval)
+        lightContainer!.runAction(rotateAction)
 
         previewSprite.effect = effect!
     }
@@ -156,6 +158,14 @@ class PreviewLayer: CCNode {
     override func update(delta: CCTime) {
         NSNotificationCenter.defaultCenter().postNotificationName(
             PNPreviewNeedsRedraw, object: nil)
+    }
+
+    func stopAnimation() {
+        lightContainer?.stopAction(rotateAction)
+    }
+
+    func resumeAnimation() {
+        lightContainer?.runAction(rotateAction)
     }
 
     func ccKeyDown(event: NSEvent) -> Bool {

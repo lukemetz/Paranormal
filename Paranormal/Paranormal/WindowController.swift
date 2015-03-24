@@ -56,6 +56,19 @@ public class WindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
+
+    @IBAction func lightToggled(sender: NSButton) {
+        if let doc = document as? Document {
+            let panelsViewController = doc.singleWindowController?.panelsViewController?
+            let previewViewController = panelsViewController?.previewViewController
+            if sender.integerValue == 0 {
+                previewViewController?.currentPreviewLayer?.stopAnimation()
+            } else {
+                previewViewController?.currentPreviewLayer?.resumeAnimation()
+            }
+        }
+    }
+
     override public func windowDidLoad() {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
         childViewControllers.append(editorViewController)
