@@ -5,9 +5,11 @@ uniform float texelWidth;
 uniform float texelHeight;
 uniform float depth;
 uniform float radius; // Pixels
+uniform float shape;
 const float normalZero = 127.0 / 255.0;
 const float epsilon = 0.001; // less than half 1/255
 const vec3 zUpNormal = vec3(0.0, 0.0, 1.0);
+const float PI = 3.14159265359;
 
 int MAXRAD = int(ceil(radius)); // Pixels
 float MAXD = float(MAXRAD * MAXRAD) + epsilon; // Pixels squared
@@ -74,7 +76,10 @@ void main() {
     vec2 direction = normalize(edgePoint);
 
     if (edgeDist < radius) {
-        vec3 chamferedNormal = normalize(vec3(direction, depth / radius));
+        float unitDist = clamp((edgeDist / radius), epsilon, 1.0 - epsilon);
+        float normalHeight = tan(PI / 4.0 * (1.0 + (shape * unitDist)));
+        vec3 chamferedNormal = normalize(vec3(direction, normalHeight / depth));
+
         if (radius - edgeDist < 1.0) { // anti-alias the transition region
             outputNormal = normalize(mix(zUpNormal, chamferedNormal, radius - edgeDist));
         } else {

@@ -13,6 +13,9 @@ public class ToolsViewController: PNViewController {
     @IBOutlet public weak var pan: NSButton!
     @IBOutlet public weak var zoom: NSButton!
 
+    // On the object to make sure the controller isn't released
+    var chamferDialogController : ChamferDialogController?
+
     var buttons: [NSButton] { return [
         plane, emphasize, flatten, smooth, sharpen, tilt, pan, zoom] }
 
@@ -55,9 +58,16 @@ public class ToolsViewController: PNViewController {
     }
 
     @IBAction public func chamferPressed(sender: NSButton) {
-        let chamfer = ChamferTool()
         if let doc = document {
-            chamfer.perform(doc)
+            let chamfer = ChamferTool(document: doc)
+            if let window = doc.singleWindowController?.window {
+                chamferDialogController = ChamferDialogController(
+                    parentWindow: window, tool: chamfer)
+                if let chamferDialog : NSWindow = chamferDialogController?.window {
+                    NSApp.beginSheet(chamferDialog, modalForWindow: window,
+                        modalDelegate: self, didEndSelector: nil, contextInfo: nil)
+                }
+            }
         }
     }
 

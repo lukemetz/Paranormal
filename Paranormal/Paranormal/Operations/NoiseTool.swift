@@ -11,10 +11,13 @@ class NoiseTool {
         panel.beginWithCompletionHandler { (_) -> Void in
             if let url = panel.URL {
                 let image = NSImage(contentsOfURL: url)
-                if let layer = document.rootLayer?.addLayer() {
-                    layer.imageData = image?.TIFFRepresentation
-                    layer.name = "Noise Layer"
-                    layer.blendMode = BlendMode.Tilted
+                if let currentLayer = document.currentLayer {
+                    if let newLayer = document.rootLayer?.addLayer() {
+                        newLayer.imageData = image?.TIFFRepresentation
+                        newLayer.name = "Noise Layer"
+                        newLayer.blendMode = BlendMode.Tilted
+                        currentLayer.combineLayerOntoSelf(newLayer)
+                    }
                 }
             }
         }

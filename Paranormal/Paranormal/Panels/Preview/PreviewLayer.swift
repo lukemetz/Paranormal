@@ -138,7 +138,7 @@ class PreviewLayer: CCNode {
 
         self.light = CCLightNode(type: CCLightType.Point, groups: groups,
             color: CCColor.whiteColor(), intensity: 0.3)
-        light!.depth = 100.0
+        light!.depth = 20.0
         lightContainer!.addChild(light) // non-failable
 
         self.lightIcon = CCSprite(imageNamed: "light64.png")
