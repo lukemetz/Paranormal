@@ -76,7 +76,7 @@ class FlattenBrushToolTests: QuickSpec {
                     expect(color).to(beColor(127, 127, 255, 255))
                 }
 
-                it("With opacity") {
+                xit("With opacity") {
                     document?.brushSize = 5.0;
                     document?.brushOpacity = 0.5;
                     let flattenTool = FlattenBrushTool()
