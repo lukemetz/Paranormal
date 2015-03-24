@@ -4,11 +4,11 @@ import AppKit
 
 public class ToolsViewController: PNViewController {
 
-    @IBOutlet weak var smooth: NSButton!
-    @IBOutlet weak var brush: NSButton!
-    @IBOutlet weak var pan: NSButton!
-    @IBOutlet weak var zoom: NSButton!
-    @IBOutlet weak var flatten: NSButton!
+    @IBOutlet public weak var smooth: NSButton!
+    @IBOutlet public weak var brush: NSButton!
+    @IBOutlet public weak var pan: NSButton!
+    @IBOutlet public weak var zoom: NSButton!
+    @IBOutlet public weak var flatten: NSButton!
 
     var buttons: [NSButton] { return [smooth, brush, pan, flatten, zoom] }
 
