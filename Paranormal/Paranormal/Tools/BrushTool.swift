@@ -38,6 +38,7 @@ public class BrushTool : NSObject, EditorActiveTool {
             })
             return
         }
+        editorViewController.document?.managedObjectContext.undoManager?.beginUndoGrouping()
     }
 
     public func mouseDraggedAtPoint(point : NSPoint, editorViewController: EditorViewController) {
@@ -58,11 +59,12 @@ public class BrushTool : NSObject, EditorActiveTool {
         }
 
         drawingKernel?.stopDraw() {
-            self.editLayer?.managedObjectContext?.performBlock({ () -> Void in
+            self.editLayer?.managedObjectContext?.performBlockAndWait({ () -> Void in
                 if let layer = self.editLayer {
                     editorViewController.currentLayer?.combineLayerOntoSelf(layer)
                 }
                 self.editLayer = nil
+                editorViewController.document?.managedObjectContext.undoManager?.endUndoGrouping()
                 return
             })
             return
