@@ -9,6 +9,7 @@ class FlattenBrushToolTests: QuickSpec {
             var editorViewController : EditorViewController!
             var document : Document?
             var editorView : EditorView?
+            var flattenTool : FlattenBrushTool!
             var angleTool : AngleBrushTool!
 
             beforeEach {
@@ -24,6 +25,8 @@ class FlattenBrushToolTests: QuickSpec {
 
                 editorViewController.document = document
 
+                editorViewController?.activeEditorTool = FlattenBrushTool()
+                flattenTool = editorViewController.activeEditorTool! as FlattenBrushTool
                 angleTool = AngleBrushTool()
                 expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
             }
@@ -40,8 +43,6 @@ class FlattenBrushToolTests: QuickSpec {
                         editorViewController: editorViewController)
                     angleTool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                         editorViewController: editorViewController)
-                    angleTool?.stopUsingTool()
-                    expect(angleTool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                     document?.computeDerivedData()
                     expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
@@ -49,7 +50,6 @@ class FlattenBrushToolTests: QuickSpec {
 
                 it("Without opacity") {
                     document?.brushSize = 5.0;
-                    let flattenTool = FlattenBrushTool()
 
                     flattenTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
@@ -57,14 +57,13 @@ class FlattenBrushToolTests: QuickSpec {
                         editorViewController: editorViewController)
                     flattenTool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                         editorViewController: editorViewController)
-                    flattenTool.stopUsingTool()
-                    expect(flattenTool.drawingKernel?.doneDrawing()).toEventually(beTrue())
-                    expect(flattenTool.editLayer).toEventually(beNil())
 
                     // kick the editor and document into updating
                     document?.computeDerivedData()
                     expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                    let image = document?.computedNormalImage
+                    let image = document?.computedEditorImage
+
+                    NSImageHelper.writeToFile(image!, path: "/Users/scope/Desktop/test_num1.png")
 
                     var color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 0, y:0))
@@ -78,23 +77,20 @@ class FlattenBrushToolTests: QuickSpec {
                 it("With opacity") {
                     document?.brushSize = 5.0;
                     document?.brushOpacity = 0.5;
-                    let flattenTool = FlattenBrushTool()
 
                     flattenTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
+
                     flattenTool.mouseDraggedAtPoint(NSPoint(x: 60, y: 60),
                         editorViewController: editorViewController)
+
                     flattenTool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                         editorViewController: editorViewController)
-                    flattenTool.stopUsingTool()
-
-                    expect(flattenTool.drawingKernel?.doneDrawing()).toEventually(beTrue())
-                    expect(flattenTool.editLayer).toEventually(beNil())
 
                     // kick the editor and document into updating
                     document?.computeDerivedData()
                     expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                    let image = document?.computedNormalImage
+                    let image = document?.computedEditorImage
 
                     var color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 0, y:0))

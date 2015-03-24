@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -7,11 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WindowController" customModule="Paranormal" customModuleProvider="target">
             <connections>
-                <outlet property="EditorModeToggle" destination="HD6-fg-gAg" id="aom-sm-GdI"/>
                 <outlet property="editorView" destination="Lpj-m4-ypl" id="QVH-jh-c67"/>
                 <outlet property="mainView" destination="LMU-Ob-Gbw" id="usj-BD-CjJ"/>
                 <outlet property="panelsView" destination="mR4-zi-C0S" id="Iki-lx-rdO"/>
-                <outlet property="setEditorViewMode" destination="ZFW-x9-hDf" id="gsQ-Ch-8k1"/>
                 <outlet property="toolsView" destination="gYp-f6-dFS" id="vY9-4S-rmi"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
                 <outlet property="zoomField" destination="jee-yJ-cfu" id="uoT-g6-39j"/>
@@ -22,7 +20,7 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="khZ-mA-o3D">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="163" y="199" width="729" height="532"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="LMU-Ob-Gbw">
                 <rect key="frame" x="0.0" y="0.0" width="729" height="532"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -40,14 +38,14 @@
                         </constraints>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-m4-ypl" userLabel="Editor">
-                        <rect key="frame" x="63" y="28" width="420" height="475"/>
+                        <rect key="frame" x="63" y="20" width="420" height="483"/>
                         <animations/>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="tHU-eL-O8M" userLabel="Status bar">
-                        <rect key="frame" x="63" y="0.0" width="666" height="27"/>
+                        <rect key="frame" x="63" y="0.0" width="666" height="20"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijm-2D-4po">
-                                <rect key="frame" x="7" y="5" width="44" height="17"/>
+                                <rect key="frame" x="6" y="3" width="44" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zoom:" id="zyb-2H-aed">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -55,7 +53,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jee-yJ-cfu">
-                                <rect key="frame" x="55" y="5" width="38" height="17"/>
+                                <rect key="frame" x="50" y="2" width="38" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="100" id="H93-3M-gJu">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="a1a-5l-rf2">
                                         <real key="minimum" value="0.0"/>
@@ -69,26 +67,13 @@
                                     <action selector="zoomSetFromGUI:" target="-2" id="ASK-5J-xs5"/>
                                 </connections>
                             </textField>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZFW-x9-hDf">
-                                <rect key="frame" x="97" y="1" width="171" height="24"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="HD6-fg-gAg">
-                                    <font key="font" metaFont="system"/>
-                                    <segments>
-                                        <segment label="Normal Map" width="82" selected="YES"/>
-                                        <segment label="Preview" width="82" tag="1"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="setEditorViewMode:" target="-2" id="px7-rM-3U7"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="27" id="pt9-tW-0NY"/>
+                            <constraint firstAttribute="height" constant="20" id="pt9-tW-0NY"/>
                         </constraints>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="mR4-zi-C0S" userLabel="Sidebar">
-                        <rect key="frame" x="482" y="28" width="247" height="475"/>
+                        <rect key="frame" x="482" y="20" width="247" height="483"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="247" id="jp0-fG-uuW"/>
                         </constraints>
@@ -106,7 +91,7 @@
                     <constraint firstItem="gYp-f6-dFS" firstAttribute="top" secondItem="LMU-Ob-Gbw" secondAttribute="top" constant="29" id="XsV-5V-P3Y"/>
                     <constraint firstItem="gYp-f6-dFS" firstAttribute="bottom" secondItem="tHU-eL-O8M" secondAttribute="bottom" id="Y7F-nH-fuk"/>
                     <constraint firstItem="Lpj-m4-ypl" firstAttribute="top" secondItem="gYp-f6-dFS" secondAttribute="top" id="g5s-0G-iWs"/>
-                    <constraint firstAttribute="bottom" secondItem="Lpj-m4-ypl" secondAttribute="bottom" constant="28" id="glc-r5-YZv"/>
+                    <constraint firstAttribute="bottom" secondItem="Lpj-m4-ypl" secondAttribute="bottom" constant="20" id="glc-r5-YZv"/>
                     <constraint firstItem="mR4-zi-C0S" firstAttribute="trailing" secondItem="tHU-eL-O8M" secondAttribute="trailing" id="iuF-tX-apl"/>
                     <constraint firstItem="D3t-Tj-Maq" firstAttribute="leading" secondItem="LMU-Ob-Gbw" secondAttribute="leading" id="jCz-Ly-8Oh"/>
                     <constraint firstAttribute="trailing" secondItem="Lpj-m4-ypl" secondAttribute="trailing" constant="246" id="sDC-MK-fZ4"/>

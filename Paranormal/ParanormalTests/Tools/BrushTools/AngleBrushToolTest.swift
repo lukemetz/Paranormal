@@ -43,12 +43,11 @@ class AngleBrushToolTest: QuickSpec {
 
                     tool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                         editorViewController: editorViewController)
-                    expect(tool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                     // kick the editor and document into updating
                     document?.computeDerivedData()
                     expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                    let image = document?.computedExportImage
+                    let image = document?.computedEditorImage
 
                     var color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 0, y:0))
@@ -59,7 +58,7 @@ class AngleBrushToolTest: QuickSpec {
                     expect(color).to(beColor(255, 128, 128, 255))
 
                     color = NSImageHelper.getPixelColor(image!,
-                        pos: NSPoint(x: 40, y:41))
+                        pos: NSPoint(x: 40, y:42))
                     expect(color).to(beColor(255, 128, 128, 255))
 
                     color = NSImageHelper.getPixelColor(image!,
@@ -82,13 +81,11 @@ class AngleBrushToolTest: QuickSpec {
 
                 tool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                     editorViewController: editorViewController)
-                tool.stopUsingTool()
-                expect(tool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                 // kick the editor and document into updating
                 document?.computeDerivedData()
                 expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                let image = document?.computedExportImage
+                let image = document?.computedEditorImage
 
                 var color = NSImageHelper.getPixelColor(image!,
                     pos: NSPoint(x: 0, y:0))
