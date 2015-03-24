@@ -7,8 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PanelsViewController" customModule="Paranormal" customModuleProvider="target">
             <connections>
-                <outlet property="brushSettingsView" destination="a2g-mm-lLe" id="YvT-Zh-PhU"/>
                 <outlet property="previewView" destination="mLz-4K-EY3" id="0YL-Oc-EKm"/>
+                <outlet property="toolSettingsView" destination="a2g-mm-lLe" id="I4g-gu-MxZ"/>
                 <outlet property="view" destination="c22-O7-iKe" id="fAf-1b-Of3"/>
             </connections>
         </customObject>
@@ -24,7 +24,7 @@
                         <constraint firstAttribute="height" constant="207" id="g2x-KV-aqd"/>
                     </constraints>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="a2g-mm-lLe">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="a2g-mm-lLe" userLabel="Tool Settings">
                     <rect key="frame" x="0.0" y="0.0" width="247" height="317"/>
                 </customView>
             </subviews>

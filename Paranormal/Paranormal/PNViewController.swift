@@ -16,4 +16,9 @@ public class PNViewController : NSViewController {
             setDocumentRecursive(document)
         }
     }
+
+    public func addViewController(viewController : PNViewController?) {
+        subPNViewControllers.append(viewController)
+        setDocumentRecursive(document)
+    }
 }

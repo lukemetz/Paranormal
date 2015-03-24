@@ -7,25 +7,25 @@ public class PanelsViewController: PNViewController {
     @IBOutlet weak var previewView: NSView!
     var previewViewController: PreviewViewController?
 
-    @IBOutlet weak var brushSettingsView: NSView!
-    var brushSettingsViewController: BrushSettingsViewController?
+    @IBOutlet weak var toolSettingsView: NSView!
+    public var toolSettingsViewController: ToolSettingsViewController?
 
     override public func loadView() {
         super.loadView()
         ThreadUtils.runCocos { () -> Void in
             self.previewViewController = PreviewViewController(nibName: "Preview", bundle: nil)
 
-            self.subPNViewControllers.append(self.previewViewController)
+            self.addViewController(self.previewViewController)
             if let view = self.previewViewController?.view {
                 ViewControllerUtils.insertSubviewIntoParent(self.previewView, child: view)
             }
         }
 
-        brushSettingsViewController =
-            BrushSettingsViewController(nibName: "BrushSettings", bundle: nil)
-        subPNViewControllers.append(brushSettingsViewController)
-        if let view = brushSettingsViewController?.view {
-            ViewControllerUtils.insertSubviewIntoParent(brushSettingsView, child: view)
+        toolSettingsViewController =
+            ToolSettingsViewController(nibName: "ToolSettings", bundle: nil)
+        addViewController(toolSettingsViewController)
+        if let view = toolSettingsViewController?.view {
+            ViewControllerUtils.insertSubviewIntoParent(toolSettingsView, child: view)
         }
     }
 }

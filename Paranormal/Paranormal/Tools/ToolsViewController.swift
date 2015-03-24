@@ -30,6 +30,11 @@ public class ToolsViewController: PNViewController {
     }
 
     @IBAction func smoothPressed(sender: NSButton) {
+        if let doc = document {
+            editorViewController?.activeEditorTool = SmoothTool()
+            document?.setActiveEditorTool(ActiveTool.Smooth)
+
+        }
         selectButton( sender )
     }
 
@@ -54,6 +59,7 @@ public class ToolsViewController: PNViewController {
     @IBAction public func flattenBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(FlattenBrushTool())
+            document?.setActiveEditorTool(ActiveTool.Flatten)
         }
         selectButton( sender )
     }
@@ -61,6 +67,7 @@ public class ToolsViewController: PNViewController {
     @IBAction public func angleBrushPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(AngleBrushTool())
+            document?.setActiveEditorTool(ActiveTool.Plane)
         }
         selectButton( sender )
     }
@@ -68,6 +75,7 @@ public class ToolsViewController: PNViewController {
     @IBAction public func panPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(PanTool())
+            document?.setActiveEditorTool(ActiveTool.Pan)
         }
         selectButton( sender )
     }
@@ -75,6 +83,7 @@ public class ToolsViewController: PNViewController {
     @IBAction public func zoomPressed(sender: NSButton) {
         if let doc = document {
             editorViewController?.changeActiveTool(ZoomTool())
+            document?.setActiveEditorTool(ActiveTool.Zoom)
         }
         selectButton( sender )
     }

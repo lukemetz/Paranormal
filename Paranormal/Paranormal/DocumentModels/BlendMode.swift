@@ -5,4 +5,5 @@ public enum BlendMode : Int16 {
     case Tilt = 1
     case Tilted = 2
     case Flatten = 3
+    case Smooth = 4
 }

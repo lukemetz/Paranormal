@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0A27FC831A0564CF00999020 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27FC821A0564CF00999020 /* EditorView.swift */; };
-		0AB0ECFD1A8BC1EA009E2B49 /* BrushSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0ECFC1A8BC1EA009E2B49 /* BrushSettings.xib */; };
-		0AB0ED0E1A8BC212009E2B49 /* BrushSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0ED0D1A8BC212009E2B49 /* BrushSettingsViewController.swift */; };
+		0AB0ECFD1A8BC1EA009E2B49 /* PlaneToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0ECFC1A8BC1EA009E2B49 /* PlaneToolSettings.xib */; };
+		0AB0ED0E1A8BC212009E2B49 /* ActiveToolSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0ED0D1A8BC212009E2B49 /* ActiveToolSettingsViewController.swift */; };
 		0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB813441A0129FE0032FD6E /* EditorViewController.swift */; };
 		770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701312F1A0555A700C6CC9E /* PreviewScene.swift */; };
-		772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772427941A9BDE1600F1E462 /* EditorViewMode.swift */; };
 		77193BA31AAA121800B60E11 /* BlendReorient.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 77193BA21AAA121800B60E11 /* BlendReorient.fsh */; };
+		772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772427941A9BDE1600F1E462 /* EditorViewMode.swift */; };
 		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
 		774B84341AA67CB3006770E4 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B84331AA67CB3006770E4 /* ChamferFilter.swift */; };
 		774B84361AA67DEB006770E4 /* Chamfer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 774B84351AA67DEB006770E4 /* Chamfer.fsh */; };
@@ -21,12 +21,16 @@
 		774CA9731A7F3CCD006B0D7B /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA9721A7F3CCD006B0D7B /* texture.png */; };
 		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */; };
-		77D501CA1ABF9CF200B4728D /* tilt.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C41ABF9CF200B4728D /* tilt.png */; };
-		77D501CB1ABF9CF200B4728D /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C51ABF9CF200B4728D /* plane.png */; };
-		77D501CC1ABF9CF200B4728D /* sharpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C61ABF9CF200B4728D /* sharpen.png */; };
-		77D501CD1ABF9CF200B4728D /* smooth.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C71ABF9CF200B4728D /* smooth.png */; };
-		77D501CE1ABF9CF200B4728D /* flatten.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C81ABF9CF200B4728D /* flatten.png */; };
-		77D501CF1ABF9CF200B4728D /* emphasize.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D501C91ABF9CF200B4728D /* emphasize.png */; };
+		849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */; };
+		849CE6DA1AC052460033CD3A /* GLDrawingKernelFsh.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 849CE6D71AC052460033CD3A /* GLDrawingKernelFsh.fsh */; };
+		849CE6DB1AC052460033CD3A /* GLDrawingKernelVsh.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 849CE6D81AC052460033CD3A /* GLDrawingKernelVsh.vsh */; };
+		849CE6EC1AC081710033CD3A /* ActiveTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE6EB1AC081710033CD3A /* ActiveTool.swift */; };
+		84A36EB51AACD6B60010CF47 /* SmoothTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EB41AACD6B60010CF47 /* SmoothTool.swift */; };
+		84A36EC61AACD8B00010CF47 /* BlendSmoothFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */; };
+		84A36EC81AACDAC60010CF47 /* ReplaceAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */; };
+		84A36ECA1AAE0E5A0010CF47 /* ToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A36EC91AAE0E5A0010CF47 /* ToolSettings.xib */; };
+		84A36ECC1AAE10F20010CF47 /* ToolSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36ECB1AAE10F20010CF47 /* ToolSettingsViewController.swift */; };
+		84A36ECE1AAE62540010CF47 /* SmoothToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A36ECD1AAE62540010CF47 /* SmoothToolSettings.xib */; };
 		AD04E9831A7EAC03007A717C /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = AD04E9821A7EAC03007A717C /* checker.png */; };
 		AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
@@ -46,11 +50,6 @@
 		AD36CE9C1AAF588B00FC947D /* DrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */; };
 		AD36CE9E1AAF5DBD00FC947D /* CGDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */; };
 		AD36CEA01AAF669F00FC947D /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9F1AAF669F00FC947D /* Brush.swift */; };
-		AD36CEA51AAF6B4300FC947D /* GLDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CEA41AAF6B4300FC947D /* GLDrawingKernel.swift */; };
-		AD36CEAC1AB0965000FC947D /* GLDrawingKernelVsh.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */; };
-		AD36CEAD1AB0965000FC947D /* GLDrawingKernelFsh.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */; };
-		AD36CEAE1AB09BE700FC947D /* GLDrawingKernelVsh.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */; };
-		AD36CEAF1AB09BE700FC947D /* GLDrawingKernelFsh.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */; };
 		AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */; };
 		AD3BA2811A796FB300C42D8C /* PNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BA2801A796FB300C42D8C /* PNViewController.swift */; };
 		AD3BA2931A7970F100C42D8C /* PNViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */; };
@@ -72,7 +71,7 @@
 		AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7862F01A85CB3100BA1E10 /* BlendAddFilter.swift */; };
 		AD7863121A86736100BA1E10 /* MultiplyMaxAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */; };
 		AD7863131A86736300BA1E10 /* BlendAdd.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */; };
-		AD7863141A86736800BA1E10 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
+		AD7863141A86736800BA1E10 /* AlphaToBlack.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */; };
 		AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C0D3219FB24E800A58201 /* DocumentController.swift */; };
 		AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
@@ -121,7 +120,7 @@
 		ADDFF98E1A9E5F8B009FF720 /* AngleBrushToolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98D1A9E5F8B009FF720 /* AngleBrushToolTest.swift */; };
 		ADDFF9901A9E690D009FF720 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
-		ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */; };
+		ADE7B2EE1A102CB6005EDD11 /* AlphaToBlack.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */; };
 		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
 		ADE7B2FC1A1071F1005EDD11 /* GaussianChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7B2FB1A1071F1005EDD11 /* GaussianChamferFilter.swift */; };
 		ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */; };
@@ -300,12 +299,12 @@
 
 /* Begin PBXFileReference section */
 		0A27FC821A0564CF00999020 /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
-		0AB0ECFC1A8BC1EA009E2B49 /* BrushSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrushSettings.xib; sourceTree = "<group>"; };
-		0AB0ED0D1A8BC212009E2B49 /* BrushSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSettingsViewController.swift; sourceTree = "<group>"; };
+		0AB0ECFC1A8BC1EA009E2B49 /* PlaneToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaneToolSettings.xib; sourceTree = "<group>"; };
+		0AB0ED0D1A8BC212009E2B49 /* ActiveToolSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveToolSettingsViewController.swift; sourceTree = "<group>"; };
 		0AB813441A0129FE0032FD6E /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		7701312F1A0555A700C6CC9E /* PreviewScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewScene.swift; sourceTree = "<group>"; };
-		772427941A9BDE1600F1E462 /* EditorViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewMode.swift; sourceTree = "<group>"; };
 		77193BA21AAA121800B60E11 /* BlendReorient.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorient.fsh; sourceTree = "<group>"; };
+		772427941A9BDE1600F1E462 /* EditorViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewMode.swift; sourceTree = "<group>"; };
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		774B84331AA67CB3006770E4 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
 		774B84351AA67DEB006770E4 /* Chamfer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Chamfer.fsh; path = Paranormal/GPUImageShaders/Chamfer.fsh; sourceTree = SOURCE_ROOT; };
@@ -313,12 +312,16 @@
 		774CA9721A7F3CCD006B0D7B /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendTiltFilter.swift; sourceTree = "<group>"; };
-		77D501C41ABF9CF200B4728D /* tilt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt.png; sourceTree = "<group>"; };
-		77D501C51ABF9CF200B4728D /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
-		77D501C61ABF9CF200B4728D /* sharpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharpen.png; sourceTree = "<group>"; };
-		77D501C71ABF9CF200B4728D /* smooth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smooth.png; sourceTree = "<group>"; };
-		77D501C81ABF9CF200B4728D /* flatten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatten.png; sourceTree = "<group>"; };
-		77D501C91ABF9CF200B4728D /* emphasize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emphasize.png; sourceTree = "<group>"; };
+		849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLDrawingKernel.swift; sourceTree = "<group>"; };
+		849CE6D71AC052460033CD3A /* GLDrawingKernelFsh.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelFsh.fsh; sourceTree = "<group>"; };
+		849CE6D81AC052460033CD3A /* GLDrawingKernelVsh.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelVsh.vsh; sourceTree = "<group>"; };
+		849CE6EB1AC081710033CD3A /* ActiveTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTool.swift; sourceTree = "<group>"; };
+		84A36EB41AACD6B60010CF47 /* SmoothTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothTool.swift; sourceTree = "<group>"; };
+		84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendSmoothFilter.swift; sourceTree = "<group>"; };
+		84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ReplaceAlpha.fsh; sourceTree = "<group>"; };
+		84A36EC91AAE0E5A0010CF47 /* ToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolSettings.xib; sourceTree = "<group>"; };
+		84A36ECB1AAE10F20010CF47 /* ToolSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolSettingsViewController.swift; sourceTree = "<group>"; };
+		84A36ECD1AAE62540010CF47 /* SmoothToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmoothToolSettings.xib; sourceTree = "<group>"; };
 		AD04E9821A7EAC03007A717C /* checker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checker.png; sourceTree = "<group>"; };
 		AD059C791A38CB7C002A52DD /* cocos2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cocos2d.h; path = "libs/cocos2d-swift/cocos2d/cocos2d.h"; sourceTree = "<group>"; };
 		AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSpriteUtils.swift; sourceTree = "<group>"; };
@@ -338,9 +341,6 @@
 		AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingKernel.swift; sourceTree = "<group>"; };
 		AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGDrawingKernel.swift; sourceTree = "<group>"; };
 		AD36CE9F1AAF669F00FC947D /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
-		AD36CEA41AAF6B4300FC947D /* GLDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLDrawingKernel.swift; sourceTree = "<group>"; };
-		AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelVsh.vsh; sourceTree = "<group>"; };
-		AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelFsh.fsh; sourceTree = "<group>"; };
 		AD3BA2801A796FB300C42D8C /* PNViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNViewController.swift; sourceTree = "<group>"; };
 		AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNViewControllerTests.swift; sourceTree = "<group>"; };
 		AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowControllerTests.swift; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 		ADDFF98D1A9E5F8B009FF720 /* AngleBrushToolTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleBrushToolTest.swift; sourceTree = "<group>"; };
 		ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageHelper.swift; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
-		ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MaskAlpha.fsh; sourceTree = "<group>"; };
+		ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AlphaToBlack.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
 		ADE7B2F61A1061F5005EDD11 /* DepthToNormalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthToNormalFilter.swift; sourceTree = "<group>"; };
 		ADE7B2FB1A1071F1005EDD11 /* GaussianChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaussianChamferFilter.swift; sourceTree = "<group>"; };
@@ -461,6 +461,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		849CE6D51AC052460033CD3A /* GLDrawingKernel */ = {
+			isa = PBXGroup;
+			children = (
+				849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */,
+				849CE6D71AC052460033CD3A /* GLDrawingKernelFsh.fsh */,
+				849CE6D81AC052460033CD3A /* GLDrawingKernelVsh.vsh */,
+			);
+			path = GLDrawingKernel;
+			sourceTree = "<group>";
+		};
 		AD2CDA181A70292A007CA3B7 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +519,7 @@
 			children = (
 				AD2D80B61A9A79A6002F92F2 /* FlattenBrushTool.swift */,
 				AD2D80C81A9A7FD2002F92F2 /* AngleBrushTool.swift */,
+				84A36EB41AACD6B60010CF47 /* SmoothTool.swift */,
 			);
 			path = BrushTools;
 			sourceTree = "<group>";
@@ -516,22 +527,12 @@
 		AD36CE8B1AAF586100FC947D /* DrawingKernel */ = {
 			isa = PBXGroup;
 			children = (
-				AD36CEA11AAF6AC700FC947D /* GLDrawingKernel */,
+				849CE6D51AC052460033CD3A /* GLDrawingKernel */,
 				AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */,
 				AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */,
 				AD36CE9F1AAF669F00FC947D /* Brush.swift */,
 			);
 			path = DrawingKernel;
-			sourceTree = "<group>";
-		};
-		AD36CEA11AAF6AC700FC947D /* GLDrawingKernel */ = {
-			isa = PBXGroup;
-			children = (
-				AD36CEA41AAF6B4300FC947D /* GLDrawingKernel.swift */,
-				AD36CEA81AB0956E00FC947D /* GLDrawingKernelVsh.vsh */,
-				AD36CEAA1AB095BE00FC947D /* GLDrawingKernelFsh.fsh */,
-			);
-			path = GLDrawingKernel;
 			sourceTree = "<group>";
 		};
 		AD3FAF0C1A9BBB9200BFA982 /* BlendFilters */ = {
@@ -542,6 +543,7 @@
 				ADEF49101A9A85A500AE0597 /* BlendFlattenFilter.swift */,
 				AD3FAF1C1A9BBC2200BFA982 /* BlendFilter.swift */,
 				77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */,
+				84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */,
 			);
 			path = BlendFilters;
 			sourceTree = "<group>";
@@ -694,12 +696,6 @@
 				774CA95F1A7ED29B006B0D7B /* chamfer.png */,
 				AD04E9821A7EAC03007A717C /* checker.png */,
 				ADFCB80A1A3923220016A49B /* light64.png */,
-				77D501C41ABF9CF200B4728D /* tilt.png */,
-				77D501C51ABF9CF200B4728D /* plane.png */,
-				77D501C61ABF9CF200B4728D /* sharpen.png */,
-				77D501C71ABF9CF200B4728D /* smooth.png */,
-				77D501C81ABF9CF200B4728D /* flatten.png */,
-				77D501C91ABF9CF200B4728D /* emphasize.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -709,7 +705,8 @@
 			children = (
 				774B84351AA67DEB006770E4 /* Chamfer.fsh */,
 				ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */,
-				ADE7B2ED1A102CB6005EDD11 /* MaskAlpha.fsh */,
+				ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */,
+				84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */,
 				77193BA21AAA121800B60E11 /* BlendReorient.fsh */,
 				ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */,
 				ADF9E1851A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh */,
@@ -766,8 +763,11 @@
 			isa = PBXGroup;
 			children = (
 				ADD01FC61A2F9A0300C8712C /* ColorPicker */,
-				0AB0ECFC1A8BC1EA009E2B49 /* BrushSettings.xib */,
-				0AB0ED0D1A8BC212009E2B49 /* BrushSettingsViewController.swift */,
+				84A36EC91AAE0E5A0010CF47 /* ToolSettings.xib */,
+				84A36ECB1AAE10F20010CF47 /* ToolSettingsViewController.swift */,
+				0AB0ECFC1A8BC1EA009E2B49 /* PlaneToolSettings.xib */,
+				0AB0ED0D1A8BC212009E2B49 /* ActiveToolSettingsViewController.swift */,
+				84A36ECD1AAE62540010CF47 /* SmoothToolSettings.xib */,
 			);
 			path = ToolSettings;
 			sourceTree = "<group>";
@@ -866,6 +866,7 @@
 				AD8757DE19FC22C20057B456 /* DocumentCreation.xib */,
 				AD3BA2801A796FB300C42D8C /* PNViewController.swift */,
 				AD85C69C1A7EFF6000DAE66F /* ThreadUtils.swift */,
+				849CE6EB1AC081710033CD3A /* ActiveTool.swift */,
 			);
 			path = Paranormal;
 			sourceTree = "<group>";
@@ -1154,47 +1155,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77D501CD1ABF9CF200B4728D /* smooth.png in Resources */,
-				AD36CEAE1AB09BE700FC947D /* GLDrawingKernelVsh.vsh in Resources */,
-				AD36CEAF1AB09BE700FC947D /* GLDrawingKernelFsh.fsh in Resources */,
 				AD1CE5C71AA764D900AA53F7 /* zoom.png in Resources */,
-				77D501CE1ABF9CF200B4728D /* flatten.png in Resources */,
 				AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */,
 				AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */,
 				AD04E9831A7EAC03007A717C /* checker.png in Resources */,
 				AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				AD85C6801A7EBD6400DAE66F /* stone_normal.jpg in Resources */,
-				77D501CC1ABF9CF200B4728D /* sharpen.png in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
-				77D501CB1ABF9CF200B4728D /* plane.png in Resources */,
 				ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */,
 				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADFCB80B1A3923220016A49B /* light64.png in Resources */,
 				ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */,
+				84A36ECE1AAE62540010CF47 /* SmoothToolSettings.xib in Resources */,
 				AD85C6811A7EBD6400DAE66F /* Worn Temple Wall - (Normal Map).png in Resources */,
 				AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */,
 				774CA9731A7F3CCD006B0D7B /* texture.png in Resources */,
 				ADE87F4519E9A9360041AAB5 /* MainMenu.xib in Resources */,
 				AD85C6831A7EBD6400DAE66F /* gem-diffuse.png in Resources */,
+				84A36EC81AACDAC60010CF47 /* ReplaceAlpha.fsh in Resources */,
 				AD85C67E1A7EBD6400DAE66F /* brick.jpeg in Resources */,
-				77D501CA1ABF9CF200B4728D /* tilt.png in Resources */,
-				ADE7B2EE1A102CB6005EDD11 /* MaskAlpha.fsh in Resources */,
-				0AB0ECFD1A8BC1EA009E2B49 /* BrushSettings.xib in Resources */,
+				ADE7B2EE1A102CB6005EDD11 /* AlphaToBlack.fsh in Resources */,
+				0AB0ECFD1A8BC1EA009E2B49 /* PlaneToolSettings.xib in Resources */,
 				AD85C6841A7EBD6400DAE66F /* gem-empty.png in Resources */,
 				774CA9611A7ED29B006B0D7B /* chamfer.png in Resources */,
 				AD70F96F1A33847300141A64 /* Panels.xib in Resources */,
 				ADAE53311A17E2AA007135C0 /* Tools.xib in Resources */,
 				AD1CE5C61AA764D900AA53F7 /* pan.png in Resources */,
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
+				849CE6DA1AC052460033CD3A /* GLDrawingKernelFsh.fsh in Resources */,
 				ADEF49221A9A85E100AE0597 /* BlendFlatten.fsh in Resources */,
 				774B84361AA67DEB006770E4 /* Chamfer.fsh in Resources */,
 				AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */,
 				77193BA31AAA121800B60E11 /* BlendReorient.fsh in Resources */,
 				AD85C6851A7EBD6400DAE66F /* olinO.png in Resources */,
-				77D501CF1ABF9CF200B4728D /* emphasize.png in Resources */,
 				ADF4A0E91A01366500E47DA1 /* Layers.xib in Resources */,
 				ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */,
+				849CE6DB1AC052460033CD3A /* GLDrawingKernelVsh.vsh in Resources */,
+				84A36ECA1AAE0E5A0010CF47 /* ToolSettings.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1202,8 +1200,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD36CEAC1AB0965000FC947D /* GLDrawingKernelVsh.vsh in Resources */,
-				AD36CEAD1AB0965000FC947D /* GLDrawingKernelFsh.fsh in Resources */,
 				ADB329C519FB438600E3F9D2 /* Application.xib in Resources */,
 				AD7863121A86736100BA1E10 /* MultiplyMaxAlpha.fsh in Resources */,
 				AD1F336419FC2DA800BBC4DC /* DocumentCreation.xib in Resources */,
@@ -1216,7 +1212,7 @@
 				ADFCB80C1A3923220016A49B /* light64.png in Resources */,
 				ADB329C619FB438B00E3F9D2 /* MainMenu.xib in Resources */,
 				ADF4A0EB1A01366F00E47DA1 /* Layers.xib in Resources */,
-				AD7863141A86736800BA1E10 /* MaskAlpha.fsh in Resources */,
+				AD7863141A86736800BA1E10 /* AlphaToBlack.fsh in Resources */,
 				AD7863131A86736300BA1E10 /* BlendAdd.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1232,6 +1228,7 @@
 				ADAE53371A17E847007135C0 /* ChamferTool.swift in Sources */,
 				AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */,
 				AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */,
+				849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */,
 				AD36CE9C1AAF588B00FC947D /* DrawingKernel.swift in Sources */,
 				AD2D80B71A9A79A6002F92F2 /* FlattenBrushTool.swift in Sources */,
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
@@ -1240,18 +1237,19 @@
 				ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */,
 				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
 				ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */,
+				84A36ECC1AAE10F20010CF47 /* ToolSettingsViewController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
 				AD3BCEC51A74769500747A1A /* ColorPickerViewController.swift in Sources */,
 				ADB62A871A912DB8003FCB27 /* EditorActiveTool.swift in Sources */,
 				770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */,
+				84A36EC61AACD8B00010CF47 /* BlendSmoothFilter.swift in Sources */,
 				AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */,
 				AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */,
 				AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */,
+				0AB0ED0E1A8BC212009E2B49 /* ActiveToolSettingsViewController.swift in Sources */,
 				AD36CE9E1AAF5DBD00FC947D /* CGDrawingKernel.swift in Sources */,
-				AD36CEA51AAF6B4300FC947D /* GLDrawingKernel.swift in Sources */,
-				0AB0ED0E1A8BC212009E2B49 /* BrushSettingsViewController.swift in Sources */,
 				AD3BA2811A796FB300C42D8C /* PNViewController.swift in Sources */,
 				ADB62AAE1A913856003FCB27 /* PanTool.swift in Sources */,
 				AD85C69D1A7EFF6000DAE66F /* ThreadUtils.swift in Sources */,
@@ -1260,6 +1258,7 @@
 				ADEF49111A9A85A500AE0597 /* BlendFlattenFilter.swift in Sources */,
 				772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */,
 				AD3BCEC61A74770200747A1A /* DepthToNormalFilter.swift in Sources */,
+				84A36EB51AACD6B60010CF47 /* SmoothTool.swift in Sources */,
 				AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				ADB62A981A912E53003FCB27 /* BrushTool.swift in Sources */,
@@ -1274,6 +1273,7 @@
 				772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */,
 				AD9FDCE81A85C07D00C6D974 /* BlendMode.swift in Sources */,
 				AD3FAF1D1A9BBC2200BFA982 /* BlendFilter.swift in Sources */,
+				849CE6EC1AC081710033CD3A /* ActiveTool.swift in Sources */,
 				AD66498D1A32BBCD00B52295 /* NoiseTool.swift in Sources */,
 				77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */,
 				AD62957A1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
