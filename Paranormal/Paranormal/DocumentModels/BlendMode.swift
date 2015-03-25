@@ -8,4 +8,5 @@ public enum BlendMode : Int16 {
     case Emphasize
     case Smooth
     case Sharpen
+    case Invert
 }

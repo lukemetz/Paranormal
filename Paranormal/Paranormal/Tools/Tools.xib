@@ -122,6 +122,16 @@
                         <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
                     </connections>
                 </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-Pr-RMv">
+                    <rect key="frame" x="5" y="114" width="40" height="40"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="invert" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="DZ6-3N-teJ">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="invertPressed:" target="-2" id="w5a-hg-q2O"/>
+                    </connections>
+                </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-sh-y7Z">
                     <rect key="frame" x="5" y="287" width="40" height="40"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ASq-Ba-qZF">
@@ -140,6 +150,7 @@
         <image name="chamfer" width="512" height="512"/>
         <image name="emphasize" width="512" height="512"/>
         <image name="flatten" width="512" height="512"/>
+        <image name="invert" width="57" height="57"/>
         <image name="pan" width="57" height="57"/>
         <image name="plane" width="512" height="512"/>
         <image name="sharpen" width="512" height="512"/>
