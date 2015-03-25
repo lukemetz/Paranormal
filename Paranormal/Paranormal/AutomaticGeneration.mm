@@ -1,6 +1,6 @@
 #import "AutomaticGeneration.h"
 #import <AppKit/AppKit.h>
-#import <Cocoa/Cocoa.h>
+
 
 
 #include <Eigen/Dense>
@@ -13,15 +13,46 @@
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
-
 @implementation AutomaticGeneration
++ (NSBitmapImageRep *) getBitmapRep: (NSImage *) img {
+
+    NSImageRep * first_rep = img.representations[0];
+    NSBitmapImageRep *rep = [[NSBitmapImageRep alloc]
+                             initWithBitmapDataPlanes:NULL
+                             pixelsWide: first_rep.pixelsWide
+                             pixelsHigh: first_rep.pixelsHigh
+                             bitsPerSample:8
+                             samplesPerPixel:4
+                             hasAlpha:YES
+                             isPlanar:NO
+                             colorSpaceName:NSDeviceRGBColorSpace
+                             bytesPerRow: first_rep.pixelsWide * 4
+                             bitsPerPixel:4*8];
+    rep.size = img.size;
+
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:
+     [NSGraphicsContext graphicsContextWithBitmapImageRep:rep]];
+
+    [img drawAtPoint:NSMakePoint(0, 0)
+             fromRect:NSZeroRect
+            operation:NSCompositeSourceOver
+             fraction:1.0];
+
+    [NSGraphicsContext restoreGraphicsState];
+    return rep;
+}
+
 + (NSImage *) generatePossionHeightMap: (NSImage *) input {
     NSLog(@"%@", input);
-    NSBitmapImageRep * rep = input.representations[0];
 
+    NSBitmapImageRep * rep = [AutomaticGeneration getBitmapRep: input];
+    NSLog(@"%@", rep);
     NSLog(@"%p", [rep bitmapData]);
     NSLog(@"%d", [rep bytesPerRow]);
-    NSLog(@"%d", [rep bytesPerPlane]);
+    NSLog(@"%d", [rep bitsPerPixel]);
+    NSLog(@"pixels wise and high %d %d", rep.pixelsWide , rep.pixelsHigh);
+
 
     if (rep.bitsPerPixel != 4 * 8) {
         NSLog(@"Error: Only supports 8 bit RGBA images");
@@ -50,8 +81,14 @@ using Eigen::VectorXd;
 
     int size = Img.rows() * Img.cols();
     Eigen::SparseMatrix<double> A(size, size);
+    A.reserve(size * 5);
+
     VectorXd B = VectorXd::Zero(size);
     std::cout << "Debug size" << size << std::endl;
+
+    typedef Eigen::Triplet<double> Trip;
+    std::vector<Trip> triplet;
+    triplet.reserve(size * 5);
 
     float dirichlet_boundary = 0.0;
     float dx2 = (1.0 / size);
@@ -63,7 +100,9 @@ using Eigen::VectorXd;
             long idx = (i + 0)*(Img.cols()) + j + 0;
             // On the 1 px boarder around the image
             if (Img(i, j) == 0.0) {
-                A.insert(idx, idx) = 1.0;
+//                A.insert(idx, idx) = 1.0;
+                triplet.push_back(Trip(idx, idx, 1.0));
+
                 B(idx) = dirichlet_boundary;
             } else {
                 long idx_px = (i + 1)*(Img.cols()) + j + 0;
@@ -73,16 +112,22 @@ using Eigen::VectorXd;
 
                 // Encoding matrix for poisson's equation
                 // See http://en.wikipedia.org/wiki/Discrete_Poisson_equation
-                A.insert(idx, idx) = 4.0;
-                A.insert(idx, idx_py) = -1.0;
-                A.insert(idx, idx_ny) = -1.0;
-                A.insert(idx, idx_px) = -1.0;
-                A.insert(idx, idx_nx) = -1.0;
+                triplet.push_back(Trip(idx, idx, 4.0));
+                triplet.push_back(Trip(idx, idx_py, -1.0));
+                triplet.push_back(Trip(idx, idx_ny, -1.0));
+                triplet.push_back(Trip(idx, idx_px, -1.0));
+                triplet.push_back(Trip(idx, idx_nx, -1.0));
+//                A.insert(idx, idx) = 4.0;
+//                A.insert(idx, idx_py) = -1.0;
+//                A.insert(idx, idx_ny) = -1.0;
+//                A.insert(idx, idx_px) = -1.0;
+//                A.insert(idx, idx_nx) = -1.0;
                 B(idx) = dx2*g;
             }
         }
     }
-
+    NSLog(@"Setting from triplet");
+    A.setFromTriplets(triplet.begin(), triplet.end());
     std::cout << "Inverting matrix" << std::endl;
     //VectorXd X = A.colPivHouseholderQr().solve(B);
     A.makeCompressed();
@@ -110,6 +155,8 @@ using Eigen::VectorXd;
             float height = X[idx];
 
             int didx = (j * width + i) * 4;
+            //int didx = (j * width + i) * 4;
+
             data[didx+0] = (int) (height * 255);
             data[didx+1] = (int) (height * 255);
             data[didx+2] = (int) (height * 255);

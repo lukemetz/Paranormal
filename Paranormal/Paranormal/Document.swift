@@ -64,7 +64,7 @@ public class Document: NSPersistentDocument {
     }
 
     // TODO cache this
-    var baseImage : NSImage? {
+    public var baseImage : NSImage? {
         if let path = documentSettings?.baseImage {
             if let image = NSImage(contentsOfFile: path) {
                 return image

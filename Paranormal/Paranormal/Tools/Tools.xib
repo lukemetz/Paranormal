@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ToolsViewController" customModule="Paranormal" customModuleProvider="target">
@@ -132,6 +132,16 @@
                         <action selector="sharpenPressed:" target="-2" id="d83-8i-DdY"/>
                     </connections>
                 </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cPY-5I-MBb">
+                    <rect key="frame" x="5" y="100" width="40" height="40"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="gem-diffuse" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="uCB-8a-zZM">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="automaticPressed:" target="-2" id="agg-Xv-Jcr"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="-23" y="270"/>
         </customView>
@@ -140,6 +150,7 @@
         <image name="chamfer" width="512" height="512"/>
         <image name="emphasize" width="512" height="512"/>
         <image name="flatten" width="512" height="512"/>
+        <image name="gem-diffuse" width="221" height="221"/>
         <image name="pan" width="57" height="57"/>
         <image name="plane" width="512" height="512"/>
         <image name="sharpen" width="512" height="512"/>
