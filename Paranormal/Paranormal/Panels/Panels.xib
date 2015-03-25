@@ -15,17 +15,17 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="247" height="471"/>
+            <rect key="frame" x="0.0" y="0.0" width="241" height="471"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="mLz-4K-EY3" userLabel="Preview">
-                    <rect key="frame" x="0.0" y="264" width="247" height="207"/>
+                    <rect key="frame" x="0.0" y="264" width="241" height="207"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="207" id="g2x-KV-aqd"/>
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="a2g-mm-lLe" userLabel="Tool Settings">
-                    <rect key="frame" x="0.0" y="0.0" width="247" height="264"/>
+                    <rect key="frame" x="0.0" y="0.0" width="241" height="264"/>
                 </customView>
             </subviews>
             <constraints>

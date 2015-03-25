@@ -10,6 +10,7 @@ public class ToolsViewController: PNViewController {
     @IBOutlet public weak var smooth: NSButton!
     @IBOutlet public weak var sharpen: NSButton!
     @IBOutlet public weak var tilt: NSButton!
+    @IBOutlet public weak var invert: NSButton!
     @IBOutlet public weak var pan: NSButton!
     @IBOutlet public weak var zoom: NSButton!
 
@@ -17,7 +18,7 @@ public class ToolsViewController: PNViewController {
     var chamferDialogController : ChamferDialogController?
 
     var buttons: [NSButton] { return [
-        plane, emphasize, flatten, smooth, sharpen, tilt, pan, zoom] }
+        plane, emphasize, flatten, smooth, sharpen, tilt, pan, zoom, invert] }
 
     private func turnoff( buttons: [NSButton]){
         for button in buttons {
