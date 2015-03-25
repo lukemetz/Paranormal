@@ -42,6 +42,10 @@ public class EditorViewController : PNViewController {
         return document?.brushOpacity
     }
 
+    public var brushHardness : Float? {
+        return document?.brushHardness
+    }
+
     public var zoom : Float {
         let t = editor.transform
         let sx = sqrt(t.a * t.a + t.c * t.c)

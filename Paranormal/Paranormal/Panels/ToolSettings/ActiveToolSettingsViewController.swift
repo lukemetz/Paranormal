@@ -31,6 +31,12 @@ public class ActiveToolSettingsViewController: PNViewController {
         }
     }
 
+    public var brushHardness: Float = 0.9 {
+        didSet(value) {
+            document?.brushHardness = brushHardness
+        }
+    }
+
     public var gaussianRadius: Float = 10.0 {
         didSet(value) {
             document?.gaussianRadius = gaussianRadius

@@ -26,7 +26,7 @@
                 </textField>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qk2-Dj-V8H">
                     <rect key="frame" x="112" y="96" width="96" height="20"/>
-                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="56.088541666666671" tickMarkPosition="above" sliderType="linear" id="Q6a-92-rs0">
+                    <sliderCell key="cell" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="Q6a-92-rs0">
                         <connections>
                             <binding destination="-2" name="value" keyPath="self.brushSize" id="MVT-wa-u1h"/>
                         </connections>
@@ -48,25 +48,25 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXi-4G-zUZ">
-                    <rect key="frame" x="112" y="27" width="96" height="20"/>
-                    <sliderCell key="cell" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="I2d-II-ix7">
-                        <connections>
-                            <binding destination="-2" name="value" keyPath="self.brushHardness" id="WBe-24-El4"/>
-                        </connections>
-                    </sliderCell>
-                </slider>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emv-Bd-aHw">
-                    <rect key="frame" x="18" y="29" width="63" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hardness" id="RDX-fd-aiM">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-sS-X8Y">
+                    <rect key="frame" x="43" y="235" width="155" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Emphasize Tool Settings" id="RTp-2T-wpa">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUp-b7-XZp">
-                    <rect key="frame" x="45" y="242" width="136" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Smooth Tool Settings" id="7pu-kF-ljl">
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdI-ZZ-ieu">
+                    <rect key="frame" x="112" y="25" width="96" height="20"/>
+                    <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="94.260416666666671" tickMarkPosition="above" sliderType="linear" id="OvU-wJ-Hav">
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.brushHardness" id="xs6-gj-Nt0"/>
+                        </connections>
+                    </sliderCell>
+                </slider>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LGE-oq-6rn">
+                    <rect key="frame" x="18" y="27" width="63" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hardness" id="Vo9-g1-DHt">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

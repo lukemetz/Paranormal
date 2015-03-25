@@ -6,9 +6,9 @@ public class Brush {
     var color : NSColor
     var hardness : CGFloat
 
-    init(size: CGFloat, color: NSColor) {
+    init(size: CGFloat, color: NSColor, hardness: CGFloat) {
         self.size = size
         self.color = color
-        self.hardness = 0.9;
+        self.hardness = hardness;
     }
 }

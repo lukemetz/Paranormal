@@ -14,22 +14,19 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="226" height="260"/>
+            <rect key="frame" x="0.0" y="0.0" width="226" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-Pb-4az">
-                    <rect key="frame" x="0.0" y="88" width="226" height="134"/>
-                </customView>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxb-M3-ank">
-                    <rect key="frame" x="112" y="35" width="96" height="20"/>
-                    <sliderCell key="cell" state="on" alignment="left" maxValue="1" doubleValue="0.36567708333333332" tickMarkPosition="above" sliderType="linear" id="K4d-MY-SEN">
+                    <rect key="frame" x="112" y="42" width="96" height="20"/>
+                    <sliderCell key="cell" alignment="left" maxValue="1" doubleValue="0.025312500000000002" tickMarkPosition="above" sliderType="linear" id="K4d-MY-SEN">
                         <connections>
                             <binding destination="-2" name="value" keyPath="self.brushOpacity" id="nrP-od-QlZ"/>
                         </connections>
                     </sliderCell>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84G-rB-rHj">
-                    <rect key="frame" x="18" y="65" width="30" height="17"/>
+                    <rect key="frame" x="18" y="70" width="30" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Size" id="MWq-5K-bbF">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -37,7 +34,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PUv-jL-eLz">
-                    <rect key="frame" x="18" y="37" width="57" height="17"/>
+                    <rect key="frame" x="18" y="44" width="57" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Strength" id="PVl-3z-NeG">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -45,39 +42,42 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUF-sP-UxZ">
-                    <rect key="frame" x="112" y="63" width="96" height="20"/>
+                    <rect key="frame" x="112" y="68" width="96" height="20"/>
                     <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="50" doubleValue="30" tickMarkPosition="above" sliderType="linear" id="Hze-KM-0fY">
                         <connections>
                             <binding destination="-2" name="value" keyPath="self.brushSize" id="F7F-wJ-EGd"/>
                         </connections>
                     </sliderCell>
                 </slider>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08P-ut-QvM">
-                    <rect key="frame" x="52" y="229" width="123" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Plane Tool Settings" id="AmU-SN-hNU">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Bm-SrC">
+                    <rect key="frame" x="60" y="239" width="107" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tilt Tool Settings" id="xFI-3G-cHP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Nb-fF-NhU">
-                    <rect key="frame" x="112" y="10" width="96" height="20"/>
-                    <sliderCell key="cell" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="Qgt-ZQ-ctX">
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dzq-0B-9Sa">
+                    <rect key="frame" x="112" y="15" width="96" height="20"/>
+                    <sliderCell key="cell" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="HUB-K2-Trx">
                         <connections>
-                            <binding destination="-2" name="value" keyPath="self.brushHardness" id="LW5-Ys-ylb"/>
+                            <binding destination="-2" name="value" keyPath="self.brushHardness" id="jgB-Lr-Imx"/>
                         </connections>
                     </sliderCell>
                 </slider>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1p4-WQ-i0H">
-                    <rect key="frame" x="18" y="12" width="63" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hardness" id="zo0-0h-GLz">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oP-u7-fYP">
+                    <rect key="frame" x="18" y="17" width="63" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hardness" id="mSY-AW-NWw">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-Pb-4az">
+                    <rect key="frame" x="0.0" y="91" width="226" height="134"/>
+                </customView>
             </subviews>
-            <point key="canvasLocation" x="353" y="268.5"/>
+            <point key="canvasLocation" x="353" y="272"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="FFa-gn-s1x"/>
     </objects>

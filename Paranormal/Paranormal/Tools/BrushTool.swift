@@ -44,8 +44,11 @@ public class BrushTool : NSObject, EditorActiveTool {
     public func mouseDraggedAtPoint(point : NSPoint, editorViewController: EditorViewController) {
         if let brushSize = editorViewController.brushSize {
             if let color = editorViewController.color {
-                let b = Brush(size: CGFloat(brushSize), color: color)
-                drawingKernel?.addPoint(point, brush: b)
+                if let hardness = editorViewController.brushHardness {
+                    let b =
+                    Brush(size: CGFloat(brushSize), color: color, hardness: CGFloat(hardness))
+                    drawingKernel?.addPoint(point, brush: b)
+                }
             }
         }
     }
@@ -53,8 +56,11 @@ public class BrushTool : NSObject, EditorActiveTool {
     public func mouseUpAtPoint(point : NSPoint, editorViewController: EditorViewController) {
         if let brushSize = editorViewController.brushSize {
             if let color = editorViewController.color {
-                let b = Brush(size: CGFloat(brushSize), color: color)
-                drawingKernel?.addPoint(point, brush: b)
+                if let hardness = editorViewController.brushHardness {
+                    let b =
+                    Brush(size: CGFloat(brushSize), color: color, hardness: CGFloat(hardness))
+                    drawingKernel?.addPoint(point, brush: b)
+                }
             }
         }
 

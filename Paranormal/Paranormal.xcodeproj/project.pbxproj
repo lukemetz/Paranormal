@@ -41,6 +41,10 @@
 		849CE6DA1AC052460033CD3A /* GLDrawingKernelFsh.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 849CE6D71AC052460033CD3A /* GLDrawingKernelFsh.fsh */; };
 		849CE6DB1AC052460033CD3A /* GLDrawingKernelVsh.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 849CE6D81AC052460033CD3A /* GLDrawingKernelVsh.vsh */; };
 		849CE6EC1AC081710033CD3A /* ActiveTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE6EB1AC081710033CD3A /* ActiveTool.swift */; };
+		849CE72A1AC1CDDF0033CD3A /* FlattenToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE7291AC1CDDF0033CD3A /* FlattenToolSettings.xib */; };
+		849CE73B1AC212A70033CD3A /* SharpenToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73A1AC212A70033CD3A /* SharpenToolSettings.xib */; };
+		849CE73D1AC212F80033CD3A /* TiltToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73C1AC212F80033CD3A /* TiltToolSettings.xib */; };
+		849CE73F1AC2133B0033CD3A /* EmphasizeToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73E1AC2133B0033CD3A /* EmphasizeToolSettings.xib */; };
 		84A36EB51AACD6B60010CF47 /* SmoothTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EB41AACD6B60010CF47 /* SmoothTool.swift */; };
 		84A36EC61AACD8B00010CF47 /* BlendSmoothFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */; };
 		84A36EC81AACDAC60010CF47 /* ReplaceAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */; };
@@ -346,6 +350,10 @@
 		849CE6D71AC052460033CD3A /* GLDrawingKernelFsh.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelFsh.fsh; sourceTree = "<group>"; };
 		849CE6D81AC052460033CD3A /* GLDrawingKernelVsh.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLDrawingKernelVsh.vsh; sourceTree = "<group>"; };
 		849CE6EB1AC081710033CD3A /* ActiveTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTool.swift; sourceTree = "<group>"; };
+		849CE7291AC1CDDF0033CD3A /* FlattenToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlattenToolSettings.xib; sourceTree = "<group>"; };
+		849CE73A1AC212A70033CD3A /* SharpenToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharpenToolSettings.xib; sourceTree = "<group>"; };
+		849CE73C1AC212F80033CD3A /* TiltToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TiltToolSettings.xib; sourceTree = "<group>"; };
+		849CE73E1AC2133B0033CD3A /* EmphasizeToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmphasizeToolSettings.xib; sourceTree = "<group>"; };
 		84A36EB41AACD6B60010CF47 /* SmoothTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothTool.swift; sourceTree = "<group>"; };
 		84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendSmoothFilter.swift; sourceTree = "<group>"; };
 		84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ReplaceAlpha.fsh; sourceTree = "<group>"; };
@@ -812,11 +820,15 @@
 			isa = PBXGroup;
 			children = (
 				ADD01FC61A2F9A0300C8712C /* ColorPicker */,
-				84A36EC91AAE0E5A0010CF47 /* ToolSettings.xib */,
 				84A36ECB1AAE10F20010CF47 /* ToolSettingsViewController.swift */,
-				0AB0ECFC1A8BC1EA009E2B49 /* PlaneToolSettings.xib */,
-				0AB0ED0D1A8BC212009E2B49 /* ActiveToolSettingsViewController.swift */,
+				84A36EC91AAE0E5A0010CF47 /* ToolSettings.xib */,
 				84A36ECD1AAE62540010CF47 /* SmoothToolSettings.xib */,
+				849CE73A1AC212A70033CD3A /* SharpenToolSettings.xib */,
+				849CE7291AC1CDDF0033CD3A /* FlattenToolSettings.xib */,
+				849CE73E1AC2133B0033CD3A /* EmphasizeToolSettings.xib */,
+				0AB0ECFC1A8BC1EA009E2B49 /* PlaneToolSettings.xib */,
+				849CE73C1AC212F80033CD3A /* TiltToolSettings.xib */,
+				0AB0ED0D1A8BC212009E2B49 /* ActiveToolSettingsViewController.swift */,
 			);
 			path = ToolSettings;
 			sourceTree = "<group>";
@@ -1208,9 +1220,11 @@
 				AD1CE5C71AA764D900AA53F7 /* zoom.png in Resources */,
 				AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */,
 				AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */,
+				849CE73F1AC2133B0033CD3A /* EmphasizeToolSettings.xib in Resources */,
 				AD04E9831A7EAC03007A717C /* checker.png in Resources */,
 				775D6DF51AC122F100B60B01 /* flatten.png in Resources */,
 				AD7699A41A13C91800ABDD2A /* Editor.xib in Resources */,
+				849CE72A1AC1CDDF0033CD3A /* FlattenToolSettings.xib in Resources */,
 				AD969B2019F0C98800A2F718 /* Application.xib in Resources */,
 				775D6DF81AC122F100B60B01 /* smooth.png in Resources */,
 				AD85C6801A7EBD6400DAE66F /* stone_normal.jpg in Resources */,
@@ -1222,8 +1236,10 @@
 				ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */,
 				84A36ECE1AAE62540010CF47 /* SmoothToolSettings.xib in Resources */,
 				AD85C6811A7EBD6400DAE66F /* Worn Temple Wall - (Normal Map).png in Resources */,
+				849CE73D1AC212F80033CD3A /* TiltToolSettings.xib in Resources */,
 				775D6DF41AC122F100B60B01 /* emphasize.png in Resources */,
 				AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */,
+				849CE73B1AC212A70033CD3A /* SharpenToolSettings.xib in Resources */,
 				774CA9731A7F3CCD006B0D7B /* texture.png in Resources */,
 				775D6DF91AC122F100B60B01 /* tilt.png in Resources */,
 				775D6DF71AC122F100B60B01 /* sharpen.png in Resources */,
