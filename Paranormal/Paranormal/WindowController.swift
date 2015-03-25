@@ -18,6 +18,8 @@ public class WindowController: NSWindowController, NSWindowDelegate {
 
     @IBOutlet public weak var zoomField: NSTextField!
 
+    @IBOutlet weak var debug: NSImageView!
+
     override init(window: NSWindow?) {
         super.init(window:window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "zoomUpdated:",

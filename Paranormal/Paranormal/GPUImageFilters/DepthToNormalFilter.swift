@@ -22,9 +22,11 @@ class DepthToNormalFilter : GPUImageFilter {
 
     override func setupFilterForSize(filterFrameSize: CGSize) {
         super.setupFilterForSize(filterFrameSize)
-
-        setFloat(GLfloat(1.0/filterFrameSize.height), forUniformName: "texelHeight")
-        setFloat(GLfloat(1.0/filterFrameSize.width), forUniformName: "texelWidth")
-        setFloat(GLfloat(depth), forUniformName: "depth")
+        runSynchronouslyOnVideoProcessingQueue {
+            GPUImageContext.setActiveShaderProgram(self.valueForKey("filterProgram") as GLProgram!)
+            self.setFloat(GLfloat(1.0/filterFrameSize.height), forUniformName: "texelHeight")
+            self.setFloat(GLfloat(1.0/filterFrameSize.width), forUniformName: "texelWidth")
+            self.setFloat(GLfloat(self.depth), forUniformName: "depth")
+        }
     }
 }
