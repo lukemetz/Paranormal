@@ -24,17 +24,9 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qk2-Dj-V8H">
-                    <rect key="frame" x="112" y="96" width="96" height="20"/>
-                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="56.088541666666671" tickMarkPosition="above" sliderType="linear" id="Q6a-92-rs0">
-                        <connections>
-                            <binding destination="-2" name="value" keyPath="self.brushSize" id="MVT-wa-u1h"/>
-                        </connections>
-                    </sliderCell>
-                </slider>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XGJ-Lc-H9Z">
                     <rect key="frame" x="112" y="62" width="96" height="20"/>
-                    <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="94.260416666666671" tickMarkPosition="above" sliderType="linear" id="REA-9F-LnZ">
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="45.875" tickMarkPosition="above" sliderType="linear" id="REA-9F-LnZ">
                         <connections>
                             <binding destination="-2" name="value" keyPath="self.brushOpacity" id="CzY-Vj-QBh"/>
                         </connections>
@@ -48,30 +40,38 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXi-4G-zUZ">
-                    <rect key="frame" x="112" y="27" width="96" height="20"/>
-                    <sliderCell key="cell" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="I2d-II-ix7">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6D-h7-Bmm">
+                    <rect key="frame" x="43" y="235" width="130" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Flatten Tool Settings" id="u1O-o9-7mI">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n96-L6-YO6">
+                    <rect key="frame" x="112" y="30" width="96" height="20"/>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="aS6-2N-kRr">
                         <connections>
-                            <binding destination="-2" name="value" keyPath="self.brushHardness" id="WBe-24-El4"/>
+                            <binding destination="-2" name="value" keyPath="self.brushHardness" id="AoK-dz-N4m"/>
                         </connections>
                     </sliderCell>
                 </slider>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emv-Bd-aHw">
-                    <rect key="frame" x="18" y="29" width="63" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hardness" id="RDX-fd-aiM">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vo2-Xc-DEj">
+                    <rect key="frame" x="18" y="32" width="63" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hardness" id="QVJ-ZA-uie">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUp-b7-XZp">
-                    <rect key="frame" x="45" y="242" width="136" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Smooth Tool Settings" id="7pu-kF-ljl">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qk2-Dj-V8H">
+                    <rect key="frame" x="112" y="95" width="96" height="20"/>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="56.088541666666671" tickMarkPosition="above" sliderType="linear" id="Q6a-92-rs0">
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.brushSize" id="MVT-wa-u1h"/>
+                        </connections>
+                    </sliderCell>
+                </slider>
             </subviews>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="3cF-pg-3Xe"/>

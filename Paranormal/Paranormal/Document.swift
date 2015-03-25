@@ -12,6 +12,7 @@ public class Document: NSPersistentDocument {
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
     public var brushSize : Float = 30.0
     public var brushOpacity : Float = 1.0
+    public var brushHardness : Float = 0.9
     public var gaussianRadius : Float = 30
 
     public var rootLayer : Layer? {
