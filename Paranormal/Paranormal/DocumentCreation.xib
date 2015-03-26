@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DocumentCreationController" customModule="Paranormal" customModuleProvider="target">
@@ -18,14 +18,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="0cZ-el-lV7" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" documentModal="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="120" y="64" width="467" height="272"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="contentRect" x="120" y="64" width="495" height="273"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="sNs-a2-Qlx">
-                <rect key="frame" x="0.0" y="0.0" width="467" height="272"/>
+                <rect key="frame" x="0.0" y="0.0" width="495" height="273"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KL8-NX-drQ">
-                        <rect key="frame" x="362" y="13" width="106" height="32"/>
+                        <rect key="frame" x="362" y="14" width="129" height="32"/>
                         <buttonCell key="cell" type="push" title="Create Blank" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U8H-p0-ddn">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -34,9 +34,9 @@
                             <action selector="pushCreate:" target="-2" id="yYu-NU-XlF"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67H-sI-AYE">
-                        <rect key="frame" x="362" y="39" width="106" height="32"/>
-                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ozb-rj-wsW">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggo-zb-6E2">
+                        <rect key="frame" x="362" y="80" width="129" height="32"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WW2-P7-lNg">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -44,15 +44,15 @@ Gw
 </string>
                         </buttonCell>
                         <connections>
-                            <action selector="pushCancel:" target="-2" id="qlF-YQ-weY"/>
+                            <action selector="pushCancel:" target="-2" id="Ala-rj-48t"/>
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ziG-sF-Xft">
-                        <rect key="frame" x="17" y="17" width="346" height="201"/>
+                        <rect key="frame" x="17" y="18" width="346" height="201"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" imageFrameStyle="grayBezel" id="8jX-5s-akg"/>
                     </imageView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-uV-FBW">
-                        <rect key="frame" x="362" y="217" width="106" height="32"/>
+                        <rect key="frame" x="362" y="218" width="129" height="32"/>
                         <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6jp-u9-Wol">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -62,7 +62,7 @@ Gw
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4kp-dq-FyK">
-                        <rect key="frame" x="18" y="248" width="127" height="17"/>
+                        <rect key="frame" x="18" y="249" width="127" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose Base Sprite" id="Ms8-Na-45R">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -70,7 +70,7 @@ Gw
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZRb-I0-Pqj">
-                        <rect key="frame" x="20" y="223" width="340" height="22"/>
+                        <rect key="frame" x="20" y="224" width="340" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="zUb-Oh-D3g">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -80,9 +80,22 @@ Gw
                             <action selector="changeUrlText:" target="-2" id="tJM-xA-b0k"/>
                         </connections>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67H-sI-AYE">
+                        <rect key="frame" x="362" y="47" width="129" height="32"/>
+                        <buttonCell key="cell" type="push" title="Import Normal" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ozb-rj-wsW">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="pushImportNormal:" target="-2" id="0Cx-MC-RtP"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="267.5" y="577"/>
+            <point key="canvasLocation" x="281.5" y="577.5"/>
         </window>
         <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="ybw-Pf-Jn1">
             <rect key="frame" x="0.0" y="0.0" width="9" height="314"/>
