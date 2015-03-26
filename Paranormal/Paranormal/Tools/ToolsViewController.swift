@@ -87,9 +87,13 @@ public class ToolsViewController: PNViewController {
         selectButton(sender)
     }
 
-    @IBAction public func angleBrushPressed(sender: NSButton) {
-        setActiveTool(ActiveTool.Plane)
-        selectButton(sender)
+    @IBAction public func planeBrushPressed(sender: NSButton) {
+        if let doc = document {
+            editorViewController?.changeActiveTool(PlaneBrushTool())
+            doc.setActiveEditorTool(ActiveTool.Plane)
+        }
+
+        selectButton( sender )
     }
 
     @IBAction public func tiltPressed(sender: NSButton) {

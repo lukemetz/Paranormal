@@ -3,13 +3,13 @@ import Quick
 import Nimble
 import Paranormal
 
-class AngleBrushToolTest: QuickSpec {
+class PlaneBrushToolTest: QuickSpec {
     override func spec() {
-        describe("AngleBrushTool") {
+        describe("PlaneBrushTool") {
             var editorViewController : EditorViewController!
             var document : Document?
             var editorView : EditorView?
-            var tool : AngleBrushTool!
+            var planeTool : PlaneBrushTool!
 
             beforeEach {
                 editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
@@ -24,26 +24,26 @@ class AngleBrushToolTest: QuickSpec {
 
                 editorViewController.document = document
 
-                editorViewController?.activeEditorTool = AngleBrushTool()
-                tool = editorViewController.activeEditorTool! as AngleBrushTool
+                editorViewController?.activeEditorTool = PlaneBrushTool()
+                planeTool = editorViewController.activeEditorTool! as PlaneBrushTool
                 expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
             }
 
-            describe("Drawing lays down angle correctly") {
+            describe("Drawing lays down plane at correct angle") {
                 it("Without opacity") {
                     document?.currentColor = NSColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0)
                     document?.brushSize = 5.0;
                     document?.brushOpacity = 1.0;
 
-                    tool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
+                    planeTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
 
-                    tool.mouseDraggedAtPoint(NSPoint(x: 60, y: 60),
+                    planeTool.mouseDraggedAtPoint(NSPoint(x: 60, y: 60),
                         editorViewController: editorViewController)
 
-                    tool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
+                    planeTool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                         editorViewController: editorViewController)
-                    expect(tool.drawingKernel?.doneDrawing()).toEventually(beTrue())
+                    expect(planeTool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                     // kick the editor and document into updating
                     document?.computeDerivedData()
@@ -74,16 +74,16 @@ class AngleBrushToolTest: QuickSpec {
                 document?.brushSize = 5.0;
                 document?.brushOpacity = 0.5;
 
-                tool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
+                planeTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                     editorViewController: editorViewController)
 
-                tool.mouseDraggedAtPoint(NSPoint(x: 60, y: 60),
+                planeTool.mouseDraggedAtPoint(NSPoint(x: 60, y: 60),
                     editorViewController: editorViewController)
 
-                tool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
+                planeTool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                     editorViewController: editorViewController)
-                tool.stopUsingTool()
-                expect(tool.drawingKernel?.doneDrawing()).toEventually(beTrue())
+                planeTool.stopUsingTool()
+                expect(planeTool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                 // kick the editor and document into updating
                 document?.computeDerivedData()

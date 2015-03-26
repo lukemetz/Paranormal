@@ -9,7 +9,7 @@ class FlattenBrushToolTests: QuickSpec {
             var editorViewController : EditorViewController!
             var document : Document?
             var editorView : EditorView?
-            var angleTool : AngleBrushTool!
+            var planeTool : PlaneBrushTool!
 
             beforeEach {
                 editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
@@ -24,7 +24,7 @@ class FlattenBrushToolTests: QuickSpec {
 
                 editorViewController.document = document
 
-                angleTool = AngleBrushTool()
+                planeTool = PlaneBrushTool()
                 expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
             }
 
@@ -34,14 +34,14 @@ class FlattenBrushToolTests: QuickSpec {
                     document?.brushSize = 9.0;
                     document?.brushOpacity = 1.0;
 
-                    angleTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
+                    planeTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
-                    angleTool.mouseDraggedAtPoint(NSPoint(x: 60, y: 60),
+                    planeTool.mouseDraggedAtPoint(NSPoint(x: 60, y: 60),
                         editorViewController: editorViewController)
-                    angleTool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
+                    planeTool.mouseUpAtPoint(NSPoint(x: 40, y: 40),
                         editorViewController: editorViewController)
-                    angleTool?.stopUsingTool()
-                    expect(angleTool.drawingKernel?.doneDrawing()).toEventually(beTrue())
+                    planeTool?.stopUsingTool()
+                    expect(planeTool.drawingKernel?.doneDrawing()).toEventually(beTrue())
 
                     document?.computeDerivedData()
                     expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
