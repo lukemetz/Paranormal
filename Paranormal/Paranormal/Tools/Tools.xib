@@ -9,137 +9,154 @@
             <connections>
                 <outlet property="emphasize" destination="8U9-0Z-mg3" id="uEq-uN-GEf"/>
                 <outlet property="flatten" destination="UBv-l1-hx9" id="Dge-Ia-38m"/>
+                <outlet property="invert" destination="5gi-JA-ctb" id="xcT-wx-xnv"/>
                 <outlet property="pan" destination="abj-1n-C0G" id="aff-rb-ocR"/>
                 <outlet property="plane" destination="dZH-Kl-P0V" id="c2J-2a-Rk7"/>
-                <outlet property="profile" destination="UBv-l1-hx9" id="PTN-J4-PKV"/>
                 <outlet property="sharpen" destination="Osi-sh-y7Z" id="PeX-Lu-kbF"/>
                 <outlet property="smooth" destination="G1T-WH-uEZ" id="KhZ-A1-Lht"/>
                 <outlet property="tilt" destination="oel-oc-iba" id="gQ1-ng-OY1"/>
-                <outlet property="view" destination="c22-O7-iKe" id="Wrq-ks-jNx"/>
+                <outlet property="view" destination="h7m-5S-mqy" id="6Xv-uI-EIe"/>
                 <outlet property="zoom" destination="nbi-gn-GzJ" id="GUl-IH-Rlf"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="c22-O7-iKe">
+        <box autoresizesSubviews="NO" transparent="YES" borderWidth="0.0" borderType="line" titlePosition="noTitle" id="h7m-5S-mqy">
             <rect key="frame" x="0.0" y="0.0" width="50" height="508"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-Kl-P0V">
-                    <rect key="frame" x="5" y="460" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" alternateTitle="plane" bezelStyle="shadowlessSquare" image="plane" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TFa-Fa-LGC">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="angleBrushPressed:" target="-2" id="24z-XA-5dv"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
-                    <rect key="frame" x="5" y="373" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" alternateTitle="profile" bezelStyle="shadowlessSquare" image="flatten" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Fkr-0k-YHv">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="flattenBrushPressed:" target="-2" id="1I6-Ow-h4O"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
-                    <rect key="frame" x="5" y="330" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" alternateTitle="smooth" bezelStyle="shadowlessSquare" image="smooth" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="was-yP-kHm">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="smoothPressed:" target="-2" id="C5O-F2-Ksb"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-Es-LLJ">
-                    <rect key="frame" x="5" y="7" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="texture" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WrH-6T-F5G">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="noisePressed:" target="-2" id="nwY-Bx-3FF"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Fe-AjZ">
-                    <rect key="frame" x="5" y="61" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="chamfer" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="yqn-zB-0Pw">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="chamferPressed:" target="-2" id="YX2-sN-siu"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-gn-GzJ">
-                    <rect key="frame" x="5" y="201" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="zoom" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="szf-Os-xvP">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="zoomPressed:" target="-2" id="bBn-fS-hbP"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oel-oc-iba">
-                    <rect key="frame" x="5" y="244" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tilt" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="FJQ-tx-Prr">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="tiltPressed:" target="-2" id="xgM-HT-ywb"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVH-VN-Wzk">
-                    <rect key="frame" x="5" y="287" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="viF-NY-h2k">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8U9-0Z-mg3">
-                    <rect key="frame" x="5" y="417" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="emphasize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="XZU-PB-Vat">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="emphasizePressed:" target="-2" id="8gN-4e-GNj"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
-                    <rect key="frame" x="5" y="158" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pan" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
-                    </connections>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-sh-y7Z">
-                    <rect key="frame" x="5" y="287" width="40" height="40"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ASq-Ba-qZF">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="sharpenPressed:" target="-2" id="d83-8i-DdY"/>
-                    </connections>
-                </button>
-            </subviews>
-            <point key="canvasLocation" x="-23" y="270"/>
-        </customView>
+            <view key="contentView">
+                <rect key="frame" x="1" y="1" width="48" height="506"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-Kl-P0V">
+                        <rect key="frame" x="10" y="454" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" alternateTitle="plane" bezelStyle="shadowlessSquare" image="plane" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TFa-Fa-LGC">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="angleBrushPressed:" target="-2" id="24z-XA-5dv"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
+                        <rect key="frame" x="10" y="367" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" alternateTitle="profile" bezelStyle="shadowlessSquare" image="flatten" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Fkr-0k-YHv">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="flattenBrushPressed:" target="-2" id="1I6-Ow-h4O"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
+                        <rect key="frame" x="10" y="324" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" alternateTitle="smooth" bezelStyle="shadowlessSquare" image="smooth" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="was-yP-kHm">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="smoothPressed:" target="-2" id="C5O-F2-Ksb"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-Es-LLJ">
+                        <rect key="frame" x="10" y="1" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="texture" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WrH-6T-F5G">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="noisePressed:" target="-2" id="nwY-Bx-3FF"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Fe-AjZ">
+                        <rect key="frame" x="10" y="44" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="chamfer" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="yqn-zB-0Pw">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="chamferPressed:" target="-2" id="YX2-sN-siu"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-gn-GzJ">
+                        <rect key="frame" x="10" y="151" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="zoom" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="szf-Os-xvP">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="zoomPressed:" target="-2" id="bBn-fS-hbP"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oel-oc-iba">
+                        <rect key="frame" x="10" y="238" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tilt" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="FJQ-tx-Prr">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="tiltPressed:" target="-2" id="xgM-HT-ywb"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gi-JA-ctb">
+                        <rect key="frame" x="10" y="195" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="invert" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="at2-ND-UuI">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="invertPressed:" target="-2" id="CbO-oB-VRq"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVH-VN-Wzk">
+                        <rect key="frame" x="10" y="281" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="viF-NY-h2k">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8U9-0Z-mg3">
+                        <rect key="frame" x="10" y="411" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="emphasize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="XZU-PB-Vat">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="emphasizePressed:" target="-2" id="8gN-4e-GNj"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abj-1n-C0G">
+                        <rect key="frame" x="10" y="108" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pan" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="B2g-Ot-bnL">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-sh-y7Z">
+                        <rect key="frame" x="10" y="281" width="40" height="40"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ASq-Ba-qZF">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="sharpenPressed:" target="-2" id="d83-8i-DdY"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="254.5" y="341"/>
+        </box>
     </objects>
     <resources>
         <image name="chamfer" width="512" height="512"/>
         <image name="emphasize" width="512" height="512"/>
         <image name="flatten" width="512" height="512"/>
+        <image name="invert" width="57" height="57"/>
         <image name="pan" width="57" height="57"/>
         <image name="plane" width="512" height="512"/>
         <image name="sharpen" width="512" height="512"/>

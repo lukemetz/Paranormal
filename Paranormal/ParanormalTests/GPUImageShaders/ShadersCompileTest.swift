@@ -8,7 +8,13 @@ import Cocoa
 class ShadersCompileTest : QuickSpec {
     override func spec() {
         describe("The shader") {
+            func ensureShaderExists(shaderName: String) {
+                let shaderPath = NSBundle.mainBundle().pathForResource(shaderName, ofType: "fsh")
+                expect(shaderPath).toNot(beNil())
+            }
+
             func test_single_input(name : String) {
+                ensureShaderExists(name)
                 let filter = GPUImageFilter(fragmentShaderFromFile: name)
                 let path = NSBundle(forClass:
                     ShadersCompileTest.self).pathForResource("blankImage", ofType: "png")
@@ -22,6 +28,7 @@ class ShadersCompileTest : QuickSpec {
             }
 
             func test_two_input(name : String) {
+                ensureShaderExists(name)
                 let filter = GPUImageTwoInputFilter(fragmentShaderFromFile: name)
                 let path = NSBundle(forClass:
                     ShadersCompileTest.self).pathForResource("blankImage", ofType: "png")
@@ -44,16 +51,20 @@ class ShadersCompileTest : QuickSpec {
                 test_single_input("ZUpInitialize")
             }
 
-            it("MaskAlpha compiles") {
-                test_single_input("MaskAlpha")
+            it("Chamfer compiles") {
+                test_single_input("Chamfer")
+            }
+
+            it("AlphaToBlack compiles") {
+                test_single_input("AlphaToBlack")
             }
 
             it("DepthToNormal compiles") {
                 test_single_input("DepthToNormal")
             }
 
-            it("BlendReorientTexture compiles") {
-                test_two_input("BlendReorientTexture")
+            it("BlendReorient compiles") {
+                test_two_input("BlendReorient")
             }
 
             it("BlendAdd compiles") {
@@ -66,6 +77,14 @@ class ShadersCompileTest : QuickSpec {
 
             it("MultiplyMaxAlpha compiles") {
                 test_two_input("MultiplyMaxAlpha")
+            }
+
+            it("BlendEmphasizeCompiles") {
+                test_two_input("BlendEmphasize")
+            }
+
+            it("BlendInvertCompiles") {
+                test_two_input("BlendInvert")
             }
         }
     }

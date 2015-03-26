@@ -7,6 +7,7 @@ public enum ActiveTool {
     case Emphasize
     case Plane
     case Tilt
+    case Invert
     case Pan
     case Zoom
 }

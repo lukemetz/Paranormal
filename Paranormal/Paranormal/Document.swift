@@ -184,9 +184,10 @@ public class Document: NSPersistentDocument {
         addWindowController(singleWindowController!)
     }
 
-    public func setActiveEditorTool(tool : ActiveTool) {
-        var pvc : PanelsViewController? = singleWindowController?.panelsViewController?
-        pvc?.toolSettingsViewController?.displayActiveEditorToolSettings(tool)
+    public func setActiveEditorTool(tool: ActiveTool) {
+        let panelVC = singleWindowController?.panelsViewController
+        panelVC?.toolSettingsViewController?.displayActiveEditorToolSettings(tool)
+        let editorVC = singleWindowController?.editorViewController
+        editorVC?.activeEditorTool = PNToolUtils.toolForToolMode(tool)
     }
-
 }
