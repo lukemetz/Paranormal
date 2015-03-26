@@ -7,11 +7,15 @@ class AutomaticToolSettings {
     var depth : Float = 0.0
 }
 
-public class AutomaticTool : EditorActiveTool {
-
+public class AutomaticTool {
     var heightMap : NSImage?
     var running = false
-    public init() {
+
+    let document : Document
+    var chamferLayer : Layer?
+
+    init(document: Document) {
+        self.document = document
     }
 
     public func setup(document : Document) {
@@ -30,7 +34,6 @@ public class AutomaticTool : EditorActiveTool {
     func update(document : Document, settings : AutomaticToolSettings) {
         ThreadUtils.runGPUImageDestructive { () -> Void in
             let spriteOverlay = SpriteOverlayFilter()
-
 
             let base = GPUImagePicture(image: document.baseImage)
             base.addTarget(spriteOverlay)
@@ -91,14 +94,5 @@ public class AutomaticTool : EditorActiveTool {
 //            }
             self.running = false
         }
-    }
-
-    public func mouseDownAtPoint(point : NSPoint, editorViewController: EditorViewController) {
-    }
-    public func mouseDraggedAtPoint(point : NSPoint, editorViewController: EditorViewController) {
-    }
-    public func mouseUpAtPoint(point : NSPoint, editorViewController: EditorViewController) {
-    }
-    public func stopUsingTool() {
     }
 }
