@@ -14,7 +14,7 @@ public class AutomaticTool {
     let document : Document
     var chamferLayer : Layer?
 
-    init(document: Document) {
+    public init(document: Document) {
         self.document = document
     }
 

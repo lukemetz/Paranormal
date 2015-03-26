@@ -24,7 +24,7 @@ class AutomaticGenerationTests : QuickSpec {
 
             it("test callback") {
                 var done = false
-                let t = AutomaticTool()
+                let t = AutomaticTool(document: document)
                 t.setup(document)
 
                 let input = document.baseImage

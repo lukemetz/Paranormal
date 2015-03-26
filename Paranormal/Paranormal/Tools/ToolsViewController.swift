@@ -120,9 +120,9 @@ public class ToolsViewController: PNViewController {
 
     @IBAction public func automaticPressed(sender: NSButton) {
         if let doc = document {
-            let tool = AutomaticTool()
+            let tool = AutomaticTool(document: doc)
             tool.setup(doc)
-            editorViewController?.activeEditorTool = tool
+            //editorViewController?.activeEditorTool = tool
         }
         selectButton( sender )
     }

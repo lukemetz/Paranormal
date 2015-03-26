@@ -101,6 +101,17 @@ class DocumentCreationController : NSWindowController, NSOpenSavePanelDelegate {
         }
     }
 
+    @IBAction func pushAutomaticNormal(sender: NSButton) {
+        let documentController =
+            DocumentController.sharedDocumentController() as DocumentController
+        documentController.createDocumentFromUrl(self.baseImageURL)
+        let document = documentController.currentDocument as? Document
+
+        let tool = AutomaticTool(document: document!)
+        tool.setup(document!)
+        closeSheet()
+    }
+
     override init(window: NSWindow?) {
         super.init(window:window)
     }

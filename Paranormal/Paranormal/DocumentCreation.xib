@@ -35,7 +35,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggo-zb-6E2">
-                        <rect key="frame" x="362" y="80" width="129" height="32"/>
+                        <rect key="frame" x="362" y="109" width="129" height="32"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WW2-P7-lNg">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -91,6 +91,19 @@ Gw
                         </buttonCell>
                         <connections>
                             <action selector="pushImportNormal:" target="-2" id="0Cx-MC-RtP"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYF-xz-gtf">
+                        <rect key="frame" x="362" y="76" width="129" height="32"/>
+                        <buttonCell key="cell" type="push" title="Automatic" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fQk-Fo-2hc">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="pushAutomaticNormal:" target="-2" id="D2H-a7-1BQ"/>
                         </connections>
                     </button>
                 </subviews>
