@@ -52,13 +52,13 @@ class ToolsViewControllerTests: QuickSpec {
 
             describe("planeBrushPressed") {
                 it("sets the active tool on the editorViewController to be an AngleBrushTool") {
-                    windowController?.toolsViewController?.angleBrushPressed(plane!)
+                    windowController?.toolsViewController?.planeBrushPressed(plane!)
 
                     let activeTool = windowController?.editorViewController?.activeEditorTool
-                    expect(activeTool as? AngleBrushTool).toNot(beNil())
+                    expect(activeTool as? PlaneBrushTool).toNot(beNil())
                 }
                 it("tests to see if plane is only button pressed") {
-                    windowController?.toolsViewController?.angleBrushPressed(plane!)
+                    windowController?.toolsViewController?.planeBrushPressed(plane!)
 
                     let activeTool = windowController?.editorViewController?.activeEditorTool
                     expectOnlyButtonSelected(plane)

@@ -26,7 +26,7 @@ class BlendSmoothFilter : BlendFilter {
 
         initialFilters = [replaceAlphaFilter, blurFilter]
         terminalFilter = blendAddFilter
-    }
+}
 
     override func setInputs(#top: GPUImageOutput, base: GPUImageOutput) {
 
@@ -34,5 +34,12 @@ class BlendSmoothFilter : BlendFilter {
         base.addTarget(self.blendAddFilter, atTextureLocation: 0)
         top.addTarget(self.replaceAlphaFilter, atTextureLocation: 1)
     }
+
+    override func setOpacity(opacity: Float) {
+        if let filter = self.blendAddFilter.filterWithOpacity {
+            filter.setFloat(GLfloat(opacity), forUniformName: "opacity")
+        }
+    }
+
 }
 

@@ -23,6 +23,8 @@ void main() {
 
     float factor = 1.0 - 0.9 * (flattenColor.a * opacity);
     vec3 norm = colorToNormal(baseColor);
+    norm.x += 0.01;
+    norm = normalize(norm);
     vec4 outputColor;
     if (norm.z < epsilon) {
         outputColor = baseColor;
