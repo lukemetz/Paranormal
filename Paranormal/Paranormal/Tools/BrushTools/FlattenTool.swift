@@ -1,6 +1,6 @@
 import Foundation
 
-public class FlattenBrushTool : BrushTool {
+public class FlattenTool : BrushTool {
 
     override public init() {
         super.init()
