@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="c22-O7-iKe">
+        <customView wantsLayer="YES" id="c22-O7-iKe">
             <rect key="frame" x="0.0" y="0.0" width="226" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -65,14 +65,22 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUp-b7-XZp">
-                    <rect key="frame" x="45" y="242" width="136" height="17"/>
+                    <rect key="frame" x="38" y="242" width="151" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Smooth Tool Settings" id="7pu-kF-ljl">
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name="Krungthep"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
+            <contentFilters>
+                <ciFilter name="CIAffineTransform">
+                    <configuration>
+                        <null key="inputImage"/>
+                        <affineTransform key="inputTransform" m11="1" m12="0.0" m21="0.0" m22="1" tX="0.0" tY="0.0"/>
+                    </configuration>
+                </ciFilter>
+            </contentFilters>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="3cF-pg-3Xe"/>
     </objects>

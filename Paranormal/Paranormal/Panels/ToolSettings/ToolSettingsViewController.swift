@@ -6,18 +6,26 @@ public class ToolSettingsViewController: PNViewController {
 
     @IBOutlet weak var childView : NSView!
     var smoothToolSettingsViewController : ActiveToolSettingsViewController? =
-    ActiveToolSettingsViewController(nibName: "SmoothToolSettings", bundle: nil)
+        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
+        bundle: nil, toolType:ActiveTool.Smooth)
     var sharpenToolSettingsViewController : ActiveToolSettingsViewController? =
-    ActiveToolSettingsViewController(nibName: "SharpenToolSettings", bundle: nil)
+        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
+        bundle: nil, toolType:ActiveTool.Sharpen)
     var flattenToolSettingsViewController : ActiveToolSettingsViewController? =
-    ActiveToolSettingsViewController(nibName: "FlattenToolSettings", bundle: nil)
+        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
+        bundle: nil, toolType:ActiveTool.Flatten)
     var emphasizeToolSettingsViewController : ActiveToolSettingsViewController? =
-    ActiveToolSettingsViewController(nibName: "EmphasizeToolSettings", bundle: nil)
+        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
+        bundle: nil, toolType:ActiveTool.Emphasize)
     var planeToolSettingsViewController : ActiveToolSettingsViewController? =
-    ActiveToolSettingsViewController(nibName: "PlaneToolSettings", bundle: nil)
+        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
+        bundle: nil, toolType:ActiveTool.Plane)
     var tiltToolSettingsViewController : ActiveToolSettingsViewController? =
-    ActiveToolSettingsViewController(nibName: "TiltToolSettings", bundle: nil)
-
+        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
+        bundle: nil, toolType:ActiveTool.Tilt)
+    var invertToolSettingsViewController : ActiveToolSettingsViewController? =
+        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
+        bundle: nil, toolType:ActiveTool.Invert)
 
 
     var activeToolSettingsView: NSView?
@@ -45,13 +53,17 @@ public class ToolSettingsViewController: PNViewController {
             controller = planeToolSettingsViewController
         case .Tilt:
             controller = tiltToolSettingsViewController
+        case .Invert:
+            controller = invertToolSettingsViewController
         default:
-            controller = tiltToolSettingsViewController
+            controller = nil
         }
         self.addViewController(controller)
-        if let view = controller?.view {
-            ViewControllerUtils.insertSubviewIntoParent(childView, child: view)
-            activeToolSettingsView = view
+        if let c = controller {
+            if let view = controller?.view {
+                ViewControllerUtils.insertSubviewIntoParent(childView, child: view)
+                activeToolSettingsView = view
+            }
         }
     }
 }

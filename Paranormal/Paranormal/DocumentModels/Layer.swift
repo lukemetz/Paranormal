@@ -190,6 +190,8 @@ public class Layer : NSManagedObject{
             return BlendSharpenFilter()
         case .Emphasize:
             return BlendEmphasizeFilter()
+        case .Invert:
+            return BlendInvertFilter()
         }
     }
 

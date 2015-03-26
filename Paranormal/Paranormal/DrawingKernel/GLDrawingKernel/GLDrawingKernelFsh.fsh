@@ -13,13 +13,9 @@ void main() {
     if (hardness > (1.0 - epsilon)) {
         alpha = (dist < 1.0) ? 1.0 : 0.0;
     } else {
-        dist = clamp(dist, 0.0, 1.0);
-        // smooth edges with sin
-        float smoothDist = (1.0 + sin(PI * (dist - 0.5))) / 2.0;
-        // Map hardnesses (0.0, 1.0) to powers (0.5, inf)
-        float power = 1.0 / (2.0 - 2.0 * hardness); // max value of 2/epsilon
-        // alpha is a high power function of dist for high hardnesses
-        alpha = 1.0 - pow(smoothDist, power);
+        float distFromEdge = 1.0 - dist;
+        float linearAlpha = clamp(1.0/(1.0 - hardness) * (1.0 - dist), 0.0, 1.0);
+        alpha = smoothstep(0.0, 1.0, linearAlpha);
     }
     gl_FragColor = vec4(color, alpha);
 }

@@ -75,6 +75,32 @@ class DocumentCreationController : NSWindowController, NSOpenSavePanelDelegate {
         documentController.createDocumentFromUrl(baseImageURL)
     }
 
+    @IBAction func pushImportNormal(sender: NSButton) {
+        var panel = NSOpenPanel()
+        panel.allowedFileTypes = allowedFileTypes
+        panel.delegate = self;
+        panel.beginWithCompletionHandler { (_) -> Void in
+            if let url = panel.URL {
+                let normalImage = NSImage(contentsOfURL: url)
+
+                self.closeSheet()
+                let documentController =
+                    DocumentController.sharedDocumentController() as DocumentController
+                documentController.createDocumentFromUrl(self.baseImageURL)
+                let document = documentController.currentDocument as? Document
+                let overlay = NoiseTool()
+                if let currentLayer = document?.currentLayer {
+                    if let newLayer = document?.rootLayer?.addLayer() {
+                        newLayer.imageData = normalImage?.TIFFRepresentation
+                        newLayer.name = "Noise Layer"
+                        newLayer.blendMode = BlendMode.Tilted
+                        currentLayer.combineLayerOntoSelf(newLayer)
+                    }
+                }
+            }
+        }
+    }
+
     override init(window: NSWindow?) {
         super.init(window:window)
     }
