@@ -18,7 +18,7 @@ public class ToolsViewController: PNViewController {
     var chamferDialogController : ChamferDialogController?
 
     var buttons: [NSButton] { return [
-        plane, emphasize, flatten, smooth, sharpen, tilt, pan, zoom, invert] }
+        plane, emphasize, flatten, smooth, sharpen, tilt, invert, pan, zoom] }
 
     private func turnoff( buttons: [NSButton]){
         for button in buttons {
@@ -46,6 +46,51 @@ public class ToolsViewController: PNViewController {
         return document?.singleWindowController?.editorViewController?
     }
 
+    @IBAction public func planePressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Plane)
+        selectButton(sender)
+    }
+
+    @IBAction public func emphasizePressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Emphasize)
+        selectButton(sender)
+    }
+
+    @IBAction public func flattenPressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Flatten)
+        selectButton(sender)
+    }
+
+    @IBAction public func smoothPressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Smooth)
+        selectButton(sender)
+    }
+
+    @IBAction public func sharpenPressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Sharpen)
+        selectButton(sender)
+    }
+
+    @IBAction public func tiltPressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Tilt)
+        selectButton(sender)
+    }
+
+    @IBAction public func invertPressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Invert)
+        selectButton(sender)
+    }
+
+    @IBAction public func zoomPressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Zoom)
+        selectButton(sender)
+    }
+
+    @IBAction public func panPressed(sender: NSButton) {
+        setActiveTool(ActiveTool.Pan)
+        selectButton( sender )
+    }
+
     @IBAction public func chamferPressed(sender: NSButton) {
         if let doc = document {
             let chamfer = ChamferTool(document: doc)
@@ -65,60 +110,5 @@ public class ToolsViewController: PNViewController {
         if let doc = document {
             noise.perform(doc)
         }
-    }
-
-    @IBAction func smoothPressed(sender: NSButton) {
-        setActiveTool(ActiveTool.Smooth)
-        selectButton(sender)
-    }
-
-    @IBAction func sharpenPressed(sender: NSButton) {
-        setActiveTool(ActiveTool.Sharpen)
-        selectButton(sender)
-    }
-
-    @IBAction public func flattenBrushPressed(sender: NSButton) {
-        setActiveTool(ActiveTool.Flatten)
-        selectButton(sender)
-    }
-
-    @IBAction func emphasizePressed(sender: NSButton) {
-        setActiveTool(ActiveTool.Emphasize)
-        selectButton(sender)
-    }
-
-    @IBAction public func planeBrushPressed(sender: NSButton) {
-        if let doc = document {
-            editorViewController?.changeActiveTool(PlaneBrushTool())
-            doc.setActiveEditorTool(ActiveTool.Plane)
-        }
-
-        selectButton( sender )
-    }
-
-    @IBAction public func tiltPressed(sender: NSButton) {
-        setActiveTool(ActiveTool.Tilt)
-        selectButton(sender)
-    }
-
-    @IBAction func invertPressed(sender: NSButton) {
-        setActiveTool(ActiveTool.Invert)
-        selectButton(sender)
-    }
-
-    @IBAction public func panPressed(sender: NSButton) {
-        if let doc = document {
-            editorViewController?.changeActiveTool(PanTool())
-            doc.setActiveEditorTool(ActiveTool.Pan)
-        }
-        selectButton( sender )
-    }
-
-    @IBAction func zoomPressed(sender: NSButton) {
-        if let doc = document {
-            editorViewController?.changeActiveTool(ZoomTool())
-            document?.setActiveEditorTool(ActiveTool.Zoom)
-        }
-        selectButton( sender )
     }
 }

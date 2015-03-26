@@ -2,7 +2,7 @@ import Foundation
 
 import Foundation
 
-public class PlaneBrushTool : BrushTool {
+public class PlaneTool : BrushTool {
 
     public override init() {
         super.init()

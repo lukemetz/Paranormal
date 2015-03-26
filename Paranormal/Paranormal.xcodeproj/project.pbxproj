@@ -70,8 +70,8 @@
 		AD2CDA431A7029DB007CA3B7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2CDA381A702954007CA3B7 /* Quick.framework */; };
 		AD2CDA441A7029E0007CA3B7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2CDA2B1A70293F007CA3B7 /* Nimble.framework */; };
 		AD2D79541A145C7900ED5CB8 /* Preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7699A51A13F2CE00ABDD2A /* Preview.xib */; };
-		AD2D80B71A9A79A6002F92F2 /* FlattenBrushTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D80B61A9A79A6002F92F2 /* FlattenBrushTool.swift */; };
-		AD2D80C91A9A7FD2002F92F2 /* PlaneBrushTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D80C81A9A7FD2002F92F2 /* PlaneBrushTool.swift */; };
+		AD2D80B71A9A79A6002F92F2 /* FlattenTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D80B61A9A79A6002F92F2 /* FlattenTool.swift */; };
+		AD2D80C91A9A7FD2002F92F2 /* PlaneTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D80C81A9A7FD2002F92F2 /* PlaneTool.swift */; };
 		AD36CE9C1AAF588B00FC947D /* DrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */; };
 		AD36CE9E1AAF5DBD00FC947D /* CGDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */; };
 		AD36CEA01AAF669F00FC947D /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD36CE9F1AAF669F00FC947D /* Brush.swift */; };
@@ -384,8 +384,8 @@
 		AD2CDA1F1A70293F007CA3B7 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = libs/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AD2CDA2E1A702954007CA3B7 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = libs/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AD2D44871A389BE8004D1994 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "libs/cocos2d-swift/cocos2d.xcodeproj"; sourceTree = "<group>"; };
-		AD2D80B61A9A79A6002F92F2 /* FlattenBrushTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlattenBrushTool.swift; sourceTree = "<group>"; };
-		AD2D80C81A9A7FD2002F92F2 /* PlaneBrushTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneBrushTool.swift; sourceTree = "<group>"; };
+		AD2D80B61A9A79A6002F92F2 /* FlattenTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlattenTool.swift; sourceTree = "<group>"; };
+		AD2D80C81A9A7FD2002F92F2 /* PlaneTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneTool.swift; sourceTree = "<group>"; };
 		AD36CE9B1AAF588B00FC947D /* DrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingKernel.swift; sourceTree = "<group>"; };
 		AD36CE9D1AAF5DBD00FC947D /* CGDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGDrawingKernel.swift; sourceTree = "<group>"; };
 		AD36CE9F1AAF669F00FC947D /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
@@ -576,8 +576,8 @@
 			children = (
 				775D6F7D1AC1E43F00B60B01 /* SharpenTool.swift */,
 				775D6DFC1AC1339700B60B01 /* EmphasizeTool.swift */,
-				AD2D80B61A9A79A6002F92F2 /* FlattenBrushTool.swift */,
-				AD2D80C81A9A7FD2002F92F2 /* PlaneBrushTool.swift */,
+				AD2D80B61A9A79A6002F92F2 /* FlattenTool.swift */,
+				AD2D80C81A9A7FD2002F92F2 /* PlaneTool.swift */,
 				84A36EB41AACD6B60010CF47 /* SmoothTool.swift */,
 				775D6DDD1AC11F2300B60B01 /* TiltTool.swift */,
 				778DC7021AC2FB0300B88037 /* InvertTool.swift */,
@@ -1322,7 +1322,7 @@
 				AD7862F11A85CB3100BA1E10 /* BlendAddFilter.swift in Sources */,
 				849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */,
 				AD36CE9C1AAF588B00FC947D /* DrawingKernel.swift in Sources */,
-				AD2D80B71A9A79A6002F92F2 /* FlattenBrushTool.swift in Sources */,
+				AD2D80B71A9A79A6002F92F2 /* FlattenTool.swift in Sources */,
 				0AB813451A0129FE0032FD6E /* EditorViewController.swift in Sources */,
 				ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */,
 				775D6F6A1AC1E30E00B60B01 /* ChamferTool.swift in Sources */,
@@ -1358,7 +1358,7 @@
 				AD7699A81A13F31100ABDD2A /* PreviewViewController.swift in Sources */,
 				AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */,
 				ADB62A981A912E53003FCB27 /* BrushTool.swift in Sources */,
-				AD2D80C91A9A7FD2002F92F2 /* PlaneBrushTool.swift in Sources */,
+				AD2D80C91A9A7FD2002F92F2 /* PlaneTool.swift in Sources */,
 				AD6649901A32BBF700B52295 /* BlendReorientTextureFilter.swift in Sources */,
 				774B84341AA67CB3006770E4 /* ChamferFilter.swift in Sources */,
 				ADE87F3819E9A9350041AAB5 /* AppDelegate.swift in Sources */,
