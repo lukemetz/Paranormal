@@ -4,7 +4,7 @@ class PNToolUtils {
     class func toolForToolMode(toolMode: ActiveTool) -> EditorActiveTool {
         switch toolMode {
         case .Plane:
-            return AngleBrushTool()
+            return PlaneBrushTool()
         case .Flatten:
             return FlattenBrushTool()
         case .Emphasize:
