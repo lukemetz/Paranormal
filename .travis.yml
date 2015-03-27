@@ -1,2 +1,10 @@
+language: objective-c
+
+before_install:
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - python tools/fixSubmodules.py
+  - git submodule update --init --recursive
+
 script:
-  ./tools/check_tidy.py
+  ./check.py build

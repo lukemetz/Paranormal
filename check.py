@@ -10,14 +10,15 @@ def tidy():
     return err
 
 def build():
-    build_command = "xcodebuild -project Paranormal/Paranormal.xcodeproj/ -scheme Paranormal"
+    build_command = "xctool -project Paranormal/Paranormal.xcodeproj/ -scheme Paranormal"
     err = run(build_command)
     return err
 
 def tests():
-    test_command = 'xcodebuild -project Paranormal/Paranormal.xcodeproj/ -scheme Paranormal test'
+    test_command = 'xctool -project Paranormal/Paranormal.xcodeproj/ -scheme Paranormal test'
     err = run(test_command)
     return err
+
 
 def run_check(check):
     print colors.OKBLUE + 'Running ' + check.__name__ + colors.ENDC
@@ -52,6 +53,10 @@ class colors:
 
 if __name__ == "__main__":
     successes = []
+
+    if sys.argv[1] == "build":
+        all_checks = [tidy, build]
+
     for check in all_checks:
         if run_check(check) is 0:
             successes.append(True)
@@ -64,7 +69,7 @@ if __name__ == "__main__":
         else colors.FAIL + all_checks[i].__name__ + ": FAILED" + colors.ENDC
         for i, success in enumerate(successes)])
 
-    if all(s == 0 for s in successes):
+    if all(successes):
         sys.exit(0)
     else:
         sys.exit(1)
