@@ -20,7 +20,7 @@ class PreviewSpriteUtils: NSObject {
     }
 
     class func spriteTextureForImage(image : NSImage) -> CCTexture! {
-        let img = image.CGImageForProposedRect(nil, context: nil, hints: nil)?.takeUnretainedValue()
+        let img = NSImageHelper.CGImageFrom(image)
         let texture : CCTexture = CCTexture(CGImage: img, contentScale: 1.0)
         return texture
     }

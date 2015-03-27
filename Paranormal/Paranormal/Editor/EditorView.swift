@@ -35,11 +35,12 @@ public class EditorView : NSView {
         let context = NSGraphicsContext.currentContext()?.CGContext
         if let context = context {
             if let img = image {
-                let drawImg = image?.CGImageForProposedRect(nil, context: nil, hints: nil)
+                let drawImg = NSImageHelper.CGImageFrom(img)
+
                 CGContextConcatCTM(context, transform)
                 CGContextDrawImage(context,
-                                   CGRectMake(0,0,img.size.width, img.size.height),
-                                   drawImg?.takeUnretainedValue())
+                    CGRectMake(0,0,img.size.width, img.size.height),
+                    drawImg)
 
             }
         }

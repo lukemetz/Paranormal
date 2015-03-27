@@ -58,6 +58,7 @@
 		84A36ECE1AAE62540010CF47 /* SmoothToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A36ECD1AAE62540010CF47 /* SmoothToolSettings.xib */; };
 		AD04E9831A7EAC03007A717C /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = AD04E9821A7EAC03007A717C /* checker.png */; };
 		AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */; };
+		AD0B5FC01AC4C81600F76391 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17EED11A39294D00FA4849 /* PreviewViewDelegate.swift */; };
 		AD19D9DF1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19D9DE1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift */; };
@@ -1339,6 +1340,7 @@
 				770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */,
+				AD0B5FC01AC4C81600F76391 /* NSImageHelper.swift in Sources */,
 				84A36EC61AACD8B00010CF47 /* BlendSmoothFilter.swift in Sources */,
 				AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */,
 				AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */,

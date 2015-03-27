@@ -30,5 +30,14 @@ class NSImageHelper {
         let url = NSURL(fileURLWithPath: path)
         pngData?.writeToURL(url!, atomically: true)
     }
+
+    class func CGImageFrom(image: NSImage) -> CGImage {
+        let imageData = image.TIFFRepresentation
+        let tmp = unsafeBitCast(imageData!.bytes, UnsafePointer<UInt8>.self)
+        let cfData = CFDataCreate(nil, tmp, imageData!.length)
+        let source = CGImageSourceCreateWithData(cfData, nil)
+        let drawImg = CGImageSourceCreateImageAtIndex(source, UInt(0), nil)
+        return drawImg
+    }
 }
 
