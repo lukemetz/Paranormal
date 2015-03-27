@@ -35,7 +35,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="planeBrushPressed:" target="-2" id="WE8-BR-WHm"/>
+                            <action selector="planePressed:" target="-2" id="he7-ZA-iAM"/>
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
@@ -45,7 +45,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="flattenBrushPressed:" target="-2" id="1I6-Ow-h4O"/>
+                            <action selector="flattenPressed:" target="-2" id="Thy-DC-h60"/>
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">

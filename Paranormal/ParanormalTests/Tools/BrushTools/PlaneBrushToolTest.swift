@@ -3,13 +3,13 @@ import Quick
 import Nimble
 import Paranormal
 
-class PlaneBrushToolTest: QuickSpec {
+class PlaneToolTest: QuickSpec {
     override func spec() {
-        describe("PlaneBrushTool") {
+        describe("PlaneTool") {
             var editorViewController : EditorViewController!
             var document : Document?
             var editorView : EditorView?
-            var planeTool : PlaneBrushTool!
+            var planeTool : PlaneTool!
 
             beforeEach {
                 editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
@@ -24,8 +24,8 @@ class PlaneBrushToolTest: QuickSpec {
 
                 editorViewController.document = document
 
-                editorViewController?.activeEditorTool = PlaneBrushTool()
-                planeTool = editorViewController.activeEditorTool! as PlaneBrushTool
+                editorViewController?.activeEditorTool = PlaneTool()
+                planeTool = editorViewController.activeEditorTool! as PlaneTool
                 expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
             }
 

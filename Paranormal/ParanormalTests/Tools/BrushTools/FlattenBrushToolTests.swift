@@ -3,13 +3,13 @@ import Quick
 import Nimble
 import Paranormal
 
-class FlattenBrushToolTests: QuickSpec {
+class FlattenToolTests: QuickSpec {
     override func spec() {
         describe("AngleBrushTool") {
             var editorViewController : EditorViewController!
             var document : Document?
             var editorView : EditorView?
-            var planeTool : PlaneBrushTool!
+            var planeTool : PlaneTool!
 
             beforeEach {
                 editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
@@ -24,7 +24,7 @@ class FlattenBrushToolTests: QuickSpec {
 
                 editorViewController.document = document
 
-                planeTool = PlaneBrushTool()
+                planeTool = PlaneTool()
                 expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
             }
 
@@ -50,7 +50,7 @@ class FlattenBrushToolTests: QuickSpec {
                 // Race condition is reappearing here. No idea why.
                 xit("Without opacity") {
                     document?.brushSize = 5.0;
-                    let flattenTool = FlattenBrushTool()
+                    let flattenTool = FlattenTool()
 
                     flattenTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
@@ -79,7 +79,7 @@ class FlattenBrushToolTests: QuickSpec {
                 xit("With opacity") {
                     document?.brushSize = 5.0;
                     document?.brushOpacity = 0.5;
-                    let flattenTool = FlattenBrushTool()
+                    let flattenTool = FlattenTool()
 
                     flattenTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
