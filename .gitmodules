@@ -1,15 +1,15 @@
 [submodule "Paranormal/libs/cocos2d-swift"]
 	path = Paranormal/libs/cocos2d-swift
-	url = git@github.com:cocos2d/cocos2d-swift.git
+	url = git://github.com/cocos2d/cocos2d-swift.git
 [submodule "Paranormal/libs/GPUImage"]
 	path = Paranormal/libs/GPUImage
-	url = git@github.com:BradLarson/GPUImage.git
+	url = git://github.com/BradLarson/GPUImage.git
 [submodule "Paranormal/libs/XCGLogger"]
 	path = Paranormal/libs/XCGLogger
-	url = git@github.com:DaveWoodCom/XCGLogger.git
+	url = git://github.com/DaveWoodCom/XCGLogger.git
 [submodule "Paranormal/libs/Quick"]
 	path = Paranormal/libs/Quick
-	url = git@github.com:Quick/Quick.git
+	url = git://github.com/Quick/Quick.git
 [submodule "Paranormal/libs/Nimble"]
 	path = Paranormal/libs/Nimble
-	url = git@github.com:Quick/Nimble.git
+	url = git://github.com/Quick/Nimble.git
