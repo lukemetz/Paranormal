@@ -50,6 +50,7 @@
 		849CE73B1AC212A70033CD3A /* SharpenToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73A1AC212A70033CD3A /* SharpenToolSettings.xib */; };
 		849CE73D1AC212F80033CD3A /* TiltToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73C1AC212F80033CD3A /* TiltToolSettings.xib */; };
 		849CE73F1AC2133B0033CD3A /* EmphasizeToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73E1AC2133B0033CD3A /* EmphasizeToolSettings.xib */; };
+		849CE7C31AC488D90033CD3A /* Normalize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 849CE7C21AC488D90033CD3A /* Normalize.fsh */; };
 		84A36EB51AACD6B60010CF47 /* SmoothTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EB41AACD6B60010CF47 /* SmoothTool.swift */; };
 		84A36EC61AACD8B00010CF47 /* BlendSmoothFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */; };
 		84A36EC81AACDAC60010CF47 /* ReplaceAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */; };
@@ -364,6 +365,7 @@
 		849CE73A1AC212A70033CD3A /* SharpenToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharpenToolSettings.xib; sourceTree = "<group>"; };
 		849CE73C1AC212F80033CD3A /* TiltToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TiltToolSettings.xib; sourceTree = "<group>"; };
 		849CE73E1AC2133B0033CD3A /* EmphasizeToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmphasizeToolSettings.xib; sourceTree = "<group>"; };
+		849CE7C21AC488D90033CD3A /* Normalize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normalize.fsh; sourceTree = "<group>"; };
 		84A36EB41AACD6B60010CF47 /* SmoothTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothTool.swift; sourceTree = "<group>"; };
 		84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendSmoothFilter.swift; sourceTree = "<group>"; };
 		84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ReplaceAlpha.fsh; sourceTree = "<group>"; };
@@ -776,6 +778,7 @@
 				774B84351AA67DEB006770E4 /* Chamfer.fsh */,
 				ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */,
 				ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */,
+				849CE7C21AC488D90033CD3A /* Normalize.fsh */,
 				84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */,
 				77193BA21AAA121800B60E11 /* BlendReorient.fsh */,
 				ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */,
@@ -1284,6 +1287,7 @@
 				ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */,
 				849CE6DB1AC052460033CD3A /* GLDrawingKernelVsh.vsh in Resources */,
 				84A36ECA1AAE0E5A0010CF47 /* ToolSettings.xib in Resources */,
+				849CE7C31AC488D90033CD3A /* Normalize.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
