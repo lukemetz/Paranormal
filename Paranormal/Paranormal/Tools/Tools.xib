@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ToolsViewController" customModule="Paranormal" customModuleProvider="target">
@@ -28,7 +28,7 @@
                 <rect key="frame" x="1" y="1" width="48" height="506"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-Kl-P0V">
+                    <button toolTip="Plane Tool" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-Kl-P0V">
                         <rect key="frame" x="10" y="454" width="40" height="40"/>
                         <buttonCell key="cell" type="square" alternateTitle="plane" bezelStyle="shadowlessSquare" image="plane" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TFa-Fa-LGC">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -38,7 +38,7 @@
                             <action selector="planePressed:" target="-2" id="he7-ZA-iAM"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
+                    <button toolTip="Flatten Tool" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBv-l1-hx9">
                         <rect key="frame" x="10" y="367" width="40" height="40"/>
                         <buttonCell key="cell" type="square" alternateTitle="profile" bezelStyle="shadowlessSquare" image="flatten" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Fkr-0k-YHv">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -48,7 +48,7 @@
                             <action selector="flattenPressed:" target="-2" id="Thy-DC-h60"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
+                    <button toolTip="Smooth Tool" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-WH-uEZ">
                         <rect key="frame" x="10" y="324" width="40" height="40"/>
                         <buttonCell key="cell" type="square" alternateTitle="smooth" bezelStyle="shadowlessSquare" image="smooth" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="was-yP-kHm">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -58,7 +58,7 @@
                             <action selector="smoothPressed:" target="-2" id="C5O-F2-Ksb"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-Es-LLJ">
+                    <button toolTip="Add Texture" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-Es-LLJ">
                         <rect key="frame" x="10" y="1" width="40" height="40"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="texture" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WrH-6T-F5G">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -68,7 +68,7 @@
                             <action selector="noisePressed:" target="-2" id="nwY-Bx-3FF"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Fe-AjZ">
+                    <button toolTip="Chamfer" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmP-Fe-AjZ">
                         <rect key="frame" x="10" y="44" width="40" height="40"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="chamfer" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="yqn-zB-0Pw">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -88,7 +88,7 @@
                             <action selector="zoomPressed:" target="-2" id="bBn-fS-hbP"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oel-oc-iba">
+                    <button toolTip="Tilt Tool" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oel-oc-iba">
                         <rect key="frame" x="10" y="238" width="40" height="40"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tilt" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="FJQ-tx-Prr">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -98,7 +98,7 @@
                             <action selector="tiltPressed:" target="-2" id="xgM-HT-ywb"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gi-JA-ctb">
+                    <button toolTip="Invert Tool" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gi-JA-ctb">
                         <rect key="frame" x="10" y="195" width="40" height="40"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="invert" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="at2-ND-UuI">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -115,7 +115,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8U9-0Z-mg3">
+                    <button toolTip="Emphasize Tool" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8U9-0Z-mg3">
                         <rect key="frame" x="10" y="411" width="40" height="40"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="emphasize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="XZU-PB-Vat">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -135,7 +135,7 @@
                             <action selector="panPressed:" target="-2" id="V5c-oW-VaV"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-sh-y7Z">
+                    <button toolTip="Sharpen Tool" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-sh-y7Z">
                         <rect key="frame" x="10" y="281" width="40" height="40"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="sharpen" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ASq-Ba-qZF">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
