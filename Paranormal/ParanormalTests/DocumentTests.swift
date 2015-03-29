@@ -93,16 +93,9 @@ class DocumentTests: QuickSpec {
 
                 it ("Initializes editor with ZUP in shape of bear") {
                     let newDocument = documentController.documents[0] as? Document
+                    PNEditorHelper.waitForEditorImageInDocument(newDocument!)
                     let editorController = newDocument?.singleWindowController?.editorViewController
                         as EditorViewController?
-
-                    // Kick the editor a couple times to make sure
-                    // everything has been updated properly
-                    expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
-                    expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                    newDocument?.computeDerivedData()
-                    expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
-                    expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
 
                     //w=161, h=156
                     //check that corners are transparent

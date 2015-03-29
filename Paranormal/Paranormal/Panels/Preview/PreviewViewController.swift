@@ -2,12 +2,12 @@ import Foundation
 import Appkit
 import GPUImage
 
-class PreviewViewController : PNViewController, PreviewViewDelegate {
+public class PreviewViewController : PNViewController, PreviewViewDelegate {
     @IBOutlet weak var glView: PreviewView!
     var currentPreviewLayer: PreviewLayer?
 
     var scene : PreviewScene?
-    override var document : Document? {
+    override public var document : Document? {
         didSet {
             updateComputedEditorImage(nil)
             updateCoreData(nil)
@@ -18,7 +18,7 @@ class PreviewViewController : PNViewController, PreviewViewDelegate {
         return self.currentPreviewLayer?.renderedPreviewImage()
     }
 
-    override func loadView() {
+    override public func loadView() {
         super.loadView()
 
         NSNotificationCenter.defaultCenter().addObserver(self,

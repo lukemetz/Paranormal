@@ -45,12 +45,12 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    var computedPreviewImage : NSImage? {
+    public var computedPreviewImage : NSImage? {
         var previewcontroller = singleWindowController?.panelsViewController?.previewViewController
         return previewcontroller?.renderedPreviewImage()
     }
 
-    var computedEditorImage : NSImage? {
+    public var computedEditorImage : NSImage? {
         switch self.editorViewMode {
         case .Normal:
             return computedNormalImage
