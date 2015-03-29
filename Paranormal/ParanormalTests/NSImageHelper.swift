@@ -31,4 +31,3 @@ class NSImageHelper {
         pngData?.writeToURL(url!, atomically: true)
     }
 }
-
