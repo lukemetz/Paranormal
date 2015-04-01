@@ -11,7 +11,6 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
         didSet {
             updateComputedEditorImage(nil)
             updateCoreData(nil)
-            updatePreviewSprite()
         }
     }
 
@@ -33,11 +32,13 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
                 switch mode {
                 case .Normal, .Preview:
                     if let baseImage = self.document?.baseImage {
-                        self.currentPreviewLayer?.updateBaseImage(baseImage, keepNormalMap: keepNormalMap)
+                        self.currentPreviewLayer?.updateBaseImage(baseImage,
+                            keepNormalMap: keepNormalMap)
                     }
                 case .Lighting:
                     if let grayImage = self.document?.grayImage {
-                        self.currentPreviewLayer?.updateBaseImage(grayImage, keepNormalMap: keepNormalMap)
+                        self.currentPreviewLayer?.updateBaseImage(grayImage,
+                            keepNormalMap: keepNormalMap)
                     }
                 }
             }
@@ -51,6 +52,8 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
             selector: "updateComputedEditorImage:",
             name: PNDocumentNormalImageChanged,
             object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
 
         self.setupPreview()
     }
@@ -84,6 +87,7 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
                 self.document?.grayImage = PreviewSpriteUtils.grayImageWithAlphaSource(
                     diffuseImage, brightness: 0.5)
             }
+            self.updatePreviewSprite()
         }
     }
 
