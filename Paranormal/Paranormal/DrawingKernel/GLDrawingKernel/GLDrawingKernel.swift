@@ -29,11 +29,18 @@ class GLDrawingKernel : NSThread, DrawingKernel {
 
     var conditionLock : NSConditionLock
 
+    var buffer : UnsafeMutablePointer<UInt8>?
+    var bufferSize : Int = 0;
+
     init(size : CGSize) {
         self.imageSize = size
         conditionLock = NSConditionLock(condition: ThreadState.Waiting.rawValue)
         super.init()
         self.start()
+    }
+
+    deinit {
+        buffer?.destroy(bufferSize)
     }
 
     func startDraw(update : (image : NSImage) -> Void) {
@@ -234,12 +241,15 @@ class GLDrawingKernel : NSThread, DrawingKernel {
     func getImageFromBuffer() -> NSImage {
         let height : UInt = UInt(imageSize.height)
         let width : UInt = UInt(imageSize.width)
-        let bufferSize = Int(4 * height * width)
-        var buffer = UnsafeMutablePointer<UInt8>.alloc(bufferSize)
-        glReadPixels(0, 0, GLsizei(width), GLsizei(height), GLenum(GL_RGBA),
-            GLenum(GL_UNSIGNED_BYTE), buffer)
+        if buffer == nil {
+            bufferSize = Int(4 * height * width)
+            buffer = UnsafeMutablePointer<UInt8>.alloc(bufferSize)
+        }
 
-        let representation = NSBitmapImageRep(bitmapDataPlanes: &buffer,
+        glReadPixels(0, 0, GLsizei(width), GLsizei(height), GLenum(GL_RGBA),
+            GLenum(GL_UNSIGNED_BYTE), buffer!)
+
+        let representation = NSBitmapImageRep(bitmapDataPlanes: &buffer!,
             pixelsWide: Int(width),
             pixelsHigh: Int(height),
             bitsPerSample: 8,
@@ -257,8 +267,6 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         } else {
             log.error("No image rep from GL")
         }
-
-        buffer.destroy()
 
         return image
     }
