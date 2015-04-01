@@ -105,6 +105,7 @@ public class Document: NSPersistentDocument {
             NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         managedObjectContext.undoManager = undoManager
+        managedObjectContext.stalenessInterval = 0
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
             name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
