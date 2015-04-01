@@ -1,10 +1,13 @@
 language: objective-c
 
 before_install:
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-  - python tools/fixSubmodules.py
-  - git submodule update --init --recursive
+    # Used if our product should be built. For now turned off as
+    # Travis is using an old version of XCode
+
+    #- brew update
+    #- brew outdated xctool || brew upgrade xctool
+    #- python tools/fixSubmodules.py
+    #- git submodule update --init --recursive
 
 script:
-  ./check.py build
+  ./check.py tidy
