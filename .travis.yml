@@ -1,13 +1,11 @@
 language: objective-c
+osx_image: beta-xcode6.2
 
 before_install:
-    # Used if our product should be built. For now turned off as
-    # Travis is using an old version of XCode
-
-    #- brew update
-    #- brew outdated xctool || brew upgrade xctool
-    #- python tools/fixSubmodules.py
-    #- git submodule update --init --recursive
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - python tools/fixSubmodules.py
+  - git submodule update --init --recursive
 
 script:
-  ./check.py tidy
+  ./check.py build
