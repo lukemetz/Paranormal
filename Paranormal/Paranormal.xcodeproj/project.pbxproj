@@ -40,6 +40,8 @@
 		778DC7011AC2FA9D00B88037 /* invert.png in Resources */ = {isa = PBXBuildFile; fileRef = 778DC7001AC2FA9D00B88037 /* invert.png */; };
 		778DC7031AC2FB0300B88037 /* InvertTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DC7021AC2FB0300B88037 /* InvertTool.swift */; };
 		778DC7051AC302D500B88037 /* PNToolUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DC7041AC302D500B88037 /* PNToolUtils.swift */; };
+		778DC7A51AC4C42C00B88037 /* PNEditorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DC7A41AC4C42C00B88037 /* PNEditorHelper.swift */; };
+		778DC8471AC88DDC00B88037 /* PreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DC8461AC88DDC00B88037 /* PreviewTests.swift */; };
 		77C2E4D01A094AB300991492 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C2E4CF1A094AB300991492 /* PreviewView.swift */; };
 		77D500421AABAB5F00B4728D /* BlendTiltFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */; };
 		849CE6D91AC052460033CD3A /* GLDrawingKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */; };
@@ -50,6 +52,7 @@
 		849CE73B1AC212A70033CD3A /* SharpenToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73A1AC212A70033CD3A /* SharpenToolSettings.xib */; };
 		849CE73D1AC212F80033CD3A /* TiltToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73C1AC212F80033CD3A /* TiltToolSettings.xib */; };
 		849CE73F1AC2133B0033CD3A /* EmphasizeToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849CE73E1AC2133B0033CD3A /* EmphasizeToolSettings.xib */; };
+		849CE7C31AC488D90033CD3A /* Normalize.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 849CE7C21AC488D90033CD3A /* Normalize.fsh */; };
 		84A36EB51AACD6B60010CF47 /* SmoothTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EB41AACD6B60010CF47 /* SmoothTool.swift */; };
 		84A36EC61AACD8B00010CF47 /* BlendSmoothFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */; };
 		84A36EC81AACDAC60010CF47 /* ReplaceAlpha.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */; };
@@ -355,6 +358,8 @@
 		778DC7001AC2FA9D00B88037 /* invert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invert.png; path = Paranormal/Resources/invert.png; sourceTree = SOURCE_ROOT; };
 		778DC7021AC2FB0300B88037 /* InvertTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertTool.swift; sourceTree = "<group>"; };
 		778DC7041AC302D500B88037 /* PNToolUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNToolUtils.swift; sourceTree = "<group>"; };
+		778DC7A41AC4C42C00B88037 /* PNEditorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNEditorHelper.swift; sourceTree = "<group>"; };
+		778DC8461AC88DDC00B88037 /* PreviewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewTests.swift; sourceTree = "<group>"; };
 		77C2E4CF1A094AB300991492 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		77D500411AABAB5F00B4728D /* BlendTiltFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendTiltFilter.swift; sourceTree = "<group>"; };
 		849CE6D61AC052460033CD3A /* GLDrawingKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLDrawingKernel.swift; sourceTree = "<group>"; };
@@ -365,6 +370,7 @@
 		849CE73A1AC212A70033CD3A /* SharpenToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharpenToolSettings.xib; sourceTree = "<group>"; };
 		849CE73C1AC212F80033CD3A /* TiltToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TiltToolSettings.xib; sourceTree = "<group>"; };
 		849CE73E1AC2133B0033CD3A /* EmphasizeToolSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmphasizeToolSettings.xib; sourceTree = "<group>"; };
+		849CE7C21AC488D90033CD3A /* Normalize.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normalize.fsh; sourceTree = "<group>"; };
 		84A36EB41AACD6B60010CF47 /* SmoothTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothTool.swift; sourceTree = "<group>"; };
 		84A36EC51AACD8B00010CF47 /* BlendSmoothFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendSmoothFilter.swift; sourceTree = "<group>"; };
 		84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ReplaceAlpha.fsh; sourceTree = "<group>"; };
@@ -517,6 +523,14 @@
 				775D6F671AC1E30E00B60B01 /* NoiseTool.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		778DC74C1AC32F4700B88037 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				778DC8461AC88DDC00B88037 /* PreviewTests.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		849CE6D51AC052460033CD3A /* GLDrawingKernel */ = {
@@ -723,6 +737,7 @@
 		AD9454A81A3CDE2D008CD31F /* Panels */ = {
 			isa = PBXGroup;
 			children = (
+				778DC74C1AC32F4700B88037 /* Preview */,
 				AD9454A91A3CDE38008CD31F /* ToolSettings */,
 			);
 			path = Panels;
@@ -777,6 +792,7 @@
 				774B84351AA67DEB006770E4 /* Chamfer.fsh */,
 				ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */,
 				ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */,
+				849CE7C21AC488D90033CD3A /* Normalize.fsh */,
 				84A36EC71AACDAC60010CF47 /* ReplaceAlpha.fsh */,
 				77193BA21AAA121800B60E11 /* BlendReorient.fsh */,
 				ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */,
@@ -967,6 +983,7 @@
 				AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */,
 				ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */,
 				AD19D9EF1AACE04300C2A4B1 /* Matchers.swift */,
+				778DC7A41AC4C42C00B88037 /* PNEditorHelper.swift */,
 			);
 			path = ParanormalTests;
 			sourceTree = "<group>";
@@ -1285,6 +1302,7 @@
 				ADF9E1861A40CC4C00C75D88 /* MultiplyMaxAlpha.fsh in Resources */,
 				849CE6DB1AC052460033CD3A /* GLDrawingKernelVsh.vsh in Resources */,
 				84A36ECA1AAE0E5A0010CF47 /* ToolSettings.xib in Resources */,
+				849CE7C31AC488D90033CD3A /* Normalize.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1392,10 +1410,12 @@
 				ADDFF9901A9E690D009FF720 /* NSImageHelper.swift in Sources */,
 				AD1CE6021AA7D5ED00AA53F7 /* ZoomToolTests.swift in Sources */,
 				ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */,
+				778DC8471AC88DDC00B88037 /* PreviewTests.swift in Sources */,
 				ADB62AC51A9150BC003FCB27 /* EditorViewTests.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,
 				AD3BA2BD1A79779300C42D8C /* WindowControllerTests.swift in Sources */,
 				AD62957B1A420616001252BC /* ZUpInitializeFilter.swift in Sources */,
+				778DC7A51AC4C42C00B88037 /* PNEditorHelper.swift in Sources */,
 				AD9FDCD71A85BAB300C6D974 /* ThreadUtilsTest.swift in Sources */,
 				AD3BA2931A7970F100C42D8C /* PNViewControllerTests.swift in Sources */,
 				ADDFF98E1A9E5F8B009FF720 /* PlaneBrushToolTest.swift in Sources */,

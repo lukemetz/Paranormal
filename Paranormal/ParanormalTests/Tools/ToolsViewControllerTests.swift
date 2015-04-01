@@ -109,7 +109,7 @@ class ToolsViewControllerTests: QuickSpec {
                     windowController?.toolsViewController?.smoothPressed(smooth!)
 
                     let activeTool = windowController?.editorViewController?.activeEditorTool
-                    expect(activeTool as? FlattenTool).toNot(beNil())
+                    expect(activeTool as? SmoothTool).toNot(beNil())
                 }
                 it("tests to see if smooth is only button pressed") {
                     windowController?.toolsViewController?.smoothPressed(smooth!)

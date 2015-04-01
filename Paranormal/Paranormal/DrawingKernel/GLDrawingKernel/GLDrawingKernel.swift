@@ -27,8 +27,11 @@ class GLDrawingKernel : NSThread, DrawingKernel {
     var updateFunc : ((image : NSImage) -> Void)?
     var finishFunc : (() -> Void)?
 
+    var conditionLock : NSConditionLock
+
     init(size : CGSize) {
         self.imageSize = size
+        conditionLock = NSConditionLock(condition: ThreadState.Waiting.rawValue)
         super.init()
         self.start()
     }
@@ -41,6 +44,7 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         queueLock.lock()
         queue.append(.Point(point, brush))
         queueLock.unlock()
+        runWork()
     }
 
     func stopDraw(finish : () -> Void) {
@@ -48,6 +52,7 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         queueLock.lock()
         queue.append(.Finish)
         queueLock.unlock()
+        runWork()
     }
 
     func doneDrawing() -> Bool {
@@ -61,6 +66,7 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         queueLock.lock()
         queue.append(.Destroy)
         queueLock.unlock()
+        runWork()
     }
 
     // Must only be called on the GLDrawingThread
@@ -282,17 +288,25 @@ class GLDrawingKernel : NSThread, DrawingKernel {
         glBindVertexArray(0)
     }
 
+    private func runWork() {
+        conditionLock.lock()
+        conditionLock.unlockWithCondition(ThreadState.WorkTodo.rawValue)
+    }
+
     override func main() {
         setupOpenGL()
 
         var lastPoint : CGPoint? = nil
 
         while true {
+            conditionLock.lockWhenCondition(ThreadState.WorkTodo.rawValue)
+            conditionLock.unlockWithCondition(ThreadState.Waiting.rawValue)
+
             queueLock.lock()
-            let count = queue.count
+            var count = queue.count
             queueLock.unlock()
 
-            if count > 0 {
+            while count > 0 {
                 queueLock.lock()
                 let queueEntry = queue[0]
                 queueLock.unlock()
@@ -341,6 +355,7 @@ class GLDrawingKernel : NSThread, DrawingKernel {
                 // Important, remove at end to prevent a race condition
                 queueLock.lock()
                 queue.removeAtIndex(0)
+                count = queue.count
                 queueLock.unlock()
             }
         }
