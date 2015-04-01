@@ -57,6 +57,8 @@ if __name__ == "__main__":
     if len(sys.argv) >= 2:
         if sys.argv[1] == "build":
             all_checks = [tidy, build]
+        if sys.argv[1] == "tidy":
+            all_checks = [tidy]
 
     for check in all_checks:
         if run_check(check) is 0:
