@@ -109,7 +109,6 @@ class PreviewLayer: CCNode {
 
     func updateBaseImage(image : NSImage, keepNormalMap: Bool) {
         ThreadUtils.runCocos { () -> Void in
-            NSImageHelper.writeToFile(image, path: "/users/kotoole/Desktop/baseImage.png")
             if let sprite = self.previewSprite? {
                 if let parent = sprite.parent {
                     // TODO: Deal with children (for now, there are none)
@@ -130,9 +129,8 @@ class PreviewLayer: CCNode {
                 self.updateNodePositions()
             } else {
                 // New session begun, initialize sprite
-                let previewSprite = CCSprite(texture:
+                self.previewSprite = CCSprite(texture:
                     PreviewSpriteUtils.spriteTextureForImage(image))
-                self.previewSprite = previewSprite
                 self.beginPreviewWithSprite(self.previewSprite)
             }
         }
