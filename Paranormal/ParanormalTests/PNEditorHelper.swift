@@ -9,7 +9,7 @@ class PNEditorHelper {
         // everything has been updated properly
         let editorController = document.singleWindowController?.editorViewController
             as EditorViewController?
-        expect(editorController?.editor.image).toEventuallyNot(beNil()) //wait for image
+        expect(editorController?.editor.image).toEventuallyNot(beNil(), timeout: 3) //wait for image
         expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())
         document.computeDerivedData()
         expect(ThreadUtils.doneProcessingGPUImage()).toEventually(beTrue())

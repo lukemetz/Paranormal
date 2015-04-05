@@ -21,11 +21,15 @@ class previewTests: QuickSpec {
                 previewController = swc?.panelsViewController?.previewViewController
             }
 
-            fit("Renders a preview") {
+            // There's a race condition somewhere in this test that's making it flaky
+            // TODO: figure out what's going on and un-xit the test.
+            xit("Renders a preview") {
                 expect(documentController.documents.count).to(equal(1))
                 let document = documentController.documents[0] as? Document
                 PNEditorHelper.waitForPreviewImageInDocument(document!)
+                PNEditorHelper.waitForEditorImageInDocument(document!)
                 expect(document?.computedPreviewImage).toEventuallyNot(beNil())
+
                 if let image = document?.computedPreviewImage {
                     let darkerColor = NSImageHelper.getPixelColor(
                         image, pos: NSPoint(x: 10, y: 10))
