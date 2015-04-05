@@ -1,8 +1,8 @@
 import Foundation
 import Cocoa
 
-class NSImageHelper {
-    class func getPixelColor(image: NSImage, pos: NSPoint) -> NSColor {
+public class NSImageHelper {
+    public class func getPixelColor(image: NSImage, pos: NSPoint) -> NSColor {
         var imageRect: CGRect = CGRectMake(0, 0, image.size.width, image.size.height)
         var imageRef = image.CGImageForProposedRect(&imageRect, context: nil, hints: nil)
         let width = CGFloat(image.size.width)
@@ -19,7 +19,7 @@ class NSImageHelper {
         return color
     }
 
-    class func writeToFile(image: NSImage, path: String) {
+    public class func writeToFile(image: NSImage, path: String) {
         // Write images to files for debugging purposes
 
         let imageData = image.TIFFRepresentation

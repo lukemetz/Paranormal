@@ -5,7 +5,7 @@ import AppKit
 public class PanelsViewController: PNViewController {
 
     @IBOutlet weak var previewView: NSView!
-    var previewViewController: PreviewViewController?
+    public var previewViewController: PreviewViewController?
 
     @IBOutlet weak var toolSettingsView: NSView!
     public var toolSettingsViewController: ToolSettingsViewController?

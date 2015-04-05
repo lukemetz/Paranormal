@@ -8,7 +8,15 @@ public class Document: NSPersistentDocument {
     public var singleWindowController : WindowController?
 
     // User preferences / user facing data
-    public var editorViewMode = EditorViewMode.Normal
+    public var editorViewMode : EditorViewMode = EditorViewMode.Normal {
+        didSet {
+            if let previewController =
+                    self.singleWindowController?.panelsViewController?.previewViewController {
+                previewController.updatePreviewSpriteImage()
+            }
+        }
+    }
+
     public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
     public var brushSize : Float = 30.0
     public var brushOpacity : Float = 1.0
@@ -54,7 +62,7 @@ public class Document: NSPersistentDocument {
         switch self.editorViewMode {
         case .Normal:
             return computedNormalImage
-        case .Preview:
+        case .Preview, .Lighting:
             return computedPreviewImage
         }
     }
@@ -73,28 +81,16 @@ public class Document: NSPersistentDocument {
         }
         // If there is no base image, try to make a gray image.
         if let docSettings = documentSettings? {
-            let width = docSettings.width
-            let height = docSettings.height
-
-            let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
-            let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-
-            var context = CGBitmapContextCreate(nil, UInt(width),
-                UInt(height), 8, 0, colorSpace, bitmapInfo)
-            let color = CGColorCreateGenericRGB(0.5, 0.5, 0.5, 1.0)
-            CGContextSetFillColorWithColor(context, color)
-            let rect = CGRectMake(0, 0, CGFloat(width), CGFloat(height))
-            CGContextFillRect(context, rect)
-            let cgImage = CGBitmapContextCreateImage(context)
-
-            let size = NSSize(width: CGFloat(width), height: CGFloat(height))
-            return NSImage(CGImage: cgImage, size:size)
+            return PreviewSpriteUtils.grayImage(width: UInt(docSettings.width),
+                height: UInt(docSettings.height), brightness: 0.5)
         }
         else {
             log.error("Failed to initialize document")
             return nil
         }
     }
+
+    var grayImage : NSImage?
 
     override init() {
         super.init()

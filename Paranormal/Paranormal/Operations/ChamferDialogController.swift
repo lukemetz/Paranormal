@@ -20,7 +20,6 @@ class ChamferDialogController : NSWindowController, NSOpenSavePanelDelegate {
 
     @IBAction func shapeSet(sender: NSSlider) {
         self.shape = sender.floatValue
-        println(shape)
         self.updatePreview()
     }
 
