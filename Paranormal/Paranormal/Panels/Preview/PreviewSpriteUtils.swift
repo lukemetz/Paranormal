@@ -1,5 +1,6 @@
 import Cocoa
 import AppKit
+import GPUImage
 
 class PreviewSpriteUtils: NSObject {
 
@@ -52,5 +53,42 @@ class PreviewSpriteUtils: NSObject {
         } else {
             return NSImage(CGImage: cgImage, size: sprite.contentSize)
         }
+    }
+
+    class func grayImage(#width: UInt, height: UInt, brightness: Float) -> NSImage {
+        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+        var context = CGBitmapContextCreate(nil, width, height,
+            8, 0, colorSpace, bitmapInfo)
+        let color = CGColorCreateGenericRGB(
+            CGFloat(brightness), CGFloat(brightness), CGFloat(brightness), 1.0)
+        CGContextSetFillColorWithColor(context, color)
+        let rect = CGRectMake(0, 0, CGFloat(width), CGFloat(height))
+        CGContextFillRect(context, rect)
+        let cgImage = CGBitmapContextCreateImage(context)
+
+        let size = NSSize(width: CGFloat(width), height: CGFloat(height))
+        let grayNSImage = NSImage(CGImage: cgImage, size: size)
+        return grayNSImage
+    }
+
+    class func grayImageWithAlphaSource(source: NSImage, brightness: Float) -> NSImage {
+        // Needs to be called on a GPUImageThread
+        let replaceAlphaFilter = GPUImageTwoInputFilter(fragmentShaderFromFile: "ReplaceAlpha")
+
+        let grayRectangle = self.grayImage(width: UInt(source.size.width),
+            height: UInt(source.size.height), brightness: 0.5)
+        let grayPicture = GPUImagePicture(image: grayRectangle)
+        grayPicture.addTarget(replaceAlphaFilter, atTextureLocation: 0)
+
+        let alphaPicture = GPUImagePicture(image: source)
+        alphaPicture.addTarget(replaceAlphaFilter)
+
+        replaceAlphaFilter.useNextFrameForImageCapture()
+        grayPicture.processImage()
+        alphaPicture.processImage()
+
+        return replaceAlphaFilter.imageFromCurrentFramebuffer()
     }
 }

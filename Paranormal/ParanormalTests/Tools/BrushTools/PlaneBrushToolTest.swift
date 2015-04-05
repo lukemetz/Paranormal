@@ -52,19 +52,19 @@ class PlaneToolTest: QuickSpec {
 
                     var color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 0, y:0))
-                    expect(color).to(beColor(127, 127, 255, 255))
+                    expect(color).to(beNearColor(127, 127, 255, 255, tolerance: 1))
 
                     color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 40, y:40))
-                    expect(color).to(beColor(255, 128, 128, 255))
+                    expect(color).to(beNearColor(255, 128, 128, 255, tolerance: 1))
 
                     color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 40, y:41))
-                    expect(color).to(beColor(255, 128, 128, 255))
+                    expect(color).to(beNearColor(255, 128, 128, 255, tolerance: 1))
 
                     color = NSImageHelper.getPixelColor(image!,
                         pos: NSPoint(x: 40, y:46))
-                    expect(color).to(beColor(127, 127, 255, 255))
+                    expect(color).to(beNearColor(127, 127, 255, 255, tolerance: 1))
                 }
             }
 

@@ -18,6 +18,33 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
         return self.currentPreviewLayer?.renderedPreviewImage()
     }
 
+    func updatePreviewSprite() {
+        updateBaseImage(keepNormalMap: false)
+    }
+
+    func updatePreviewSpriteImage() {
+        updateBaseImage(keepNormalMap: true)
+    }
+
+    func updateBaseImage(#keepNormalMap: Bool) {
+        ThreadUtils.runCocos { () -> Void in
+            if let mode = self.document?.editorViewMode {
+                switch mode {
+                case .Normal, .Preview:
+                    if let baseImage = self.document?.baseImage {
+                        self.currentPreviewLayer?.updateBaseImage(baseImage,
+                            keepNormalMap: keepNormalMap)
+                    }
+                case .Lighting:
+                    if let grayImage = self.document?.grayImage {
+                        self.currentPreviewLayer?.updateBaseImage(grayImage,
+                            keepNormalMap: keepNormalMap)
+                    }
+                }
+            }
+        }
+    }
+
     override public func loadView() {
         super.loadView()
 
@@ -25,6 +52,8 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
             selector: "updateComputedEditorImage:",
             name: PNDocumentNormalImageChanged,
             object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
+            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
 
         self.setupPreview()
     }
@@ -53,10 +82,12 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
     }
 
     func updateCoreData(notification: NSNotification?) {
-        ThreadUtils.runCocos { () -> Void in
-            if let baseImage = self.document?.baseImage {
-                self.currentPreviewLayer?.updateBaseImage(baseImage)
+        ThreadUtils.runGPUImage { () -> Void in
+            if let diffuseImage = self.document?.baseImage {
+                self.document?.grayImage = PreviewSpriteUtils.grayImageWithAlphaSource(
+                    diffuseImage, brightness: 0.5)
             }
+            self.updatePreviewSprite()
         }
     }
 

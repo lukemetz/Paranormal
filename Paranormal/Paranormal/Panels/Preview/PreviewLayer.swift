@@ -107,15 +107,19 @@ class PreviewLayer: CCNode {
         }
     }
 
-    func updateBaseImage(image : NSImage) {
+    func updateBaseImage(image : NSImage, keepNormalMap: Bool) {
         ThreadUtils.runCocos { () -> Void in
             if let sprite = self.previewSprite? {
                 if let parent = sprite.parent {
                     // TODO: Deal with children (for now, there are none)
+                    let oldNormalFrame = sprite.normalMapSpriteFrame
                     parent.removeChild(sprite, cleanup: true)
                     self.previewSprite = CCSprite(
                         texture: PreviewSpriteUtils.spriteTextureForImage(image))
                     parent.addChild(self.previewSprite)
+                    if keepNormalMap {
+                        self.previewSprite.normalMapSpriteFrame = oldNormalFrame
+                    }
                 } else {
                     log.error("Attempting to change a sprite which has not been added to the scene")
                 }
@@ -125,8 +129,8 @@ class PreviewLayer: CCNode {
                 self.updateNodePositions()
             } else {
                 // New session begun, initialize sprite
-                let sprite = CCSprite(texture: PreviewSpriteUtils.spriteTextureForImage(image))
-                self.previewSprite = sprite
+                self.previewSprite = CCSprite(texture:
+                    PreviewSpriteUtils.spriteTextureForImage(image))
                 self.beginPreviewWithSprite(self.previewSprite)
             }
         }
