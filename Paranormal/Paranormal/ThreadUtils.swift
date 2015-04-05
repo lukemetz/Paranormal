@@ -29,23 +29,25 @@ public class ThreadUtils : NSObject {
         while(true) { // TODO turn this off
             conditionLock.lockWhenCondition(ThreadState.WorkTodo.rawValue)
             conditionLock.unlockWithCondition(ThreadState.Waiting.rawValue)
-            while (editClosures.count > 0) {
-                doneProcessing = false
-                lock.lock()
-                let closure = editClosures.removeAtIndex(0)
-                lock.unlock()
-                closure()
-            }
+            autoreleasepool {
+                while (self.editClosures.count > 0) {
+                    self.doneProcessing = false
+                    self.lock.lock()
+                    let closure = self.editClosures.removeAtIndex(0)
+                    self.lock.unlock()
+                    closure()
+                }
 
-            while (updateClosures.count > 0) {
-                doneProcessing = false
-                lock.lock()
-                let closure = updateClosures.removeLast()
-                updateClosures = []
-                lock.unlock()
-                closure()
+                while (self.updateClosures.count > 0) {
+                    self.doneProcessing = false
+                    self.lock.lock()
+                    let closure = self.updateClosures.removeLast()
+                    self.updateClosures = []
+                    self.lock.unlock()
+                    closure()
+                }
+                self.doneProcessing = true
             }
-            doneProcessing = true
         }
     }
 
