@@ -15,6 +15,7 @@
 		77193BA31AAA121800B60E11 /* BlendReorient.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 77193BA21AAA121800B60E11 /* BlendReorient.fsh */; };
 		772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772427941A9BDE1600F1E462 /* EditorViewMode.swift */; };
 		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
+		773A7B4A1AD1A582003BEA02 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A7B491AD1A582003BEA02 /* NSImageHelper.swift */; };
 		774B84341AA67CB3006770E4 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B84331AA67CB3006770E4 /* ChamferFilter.swift */; };
 		774B84361AA67DEB006770E4 /* Chamfer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 774B84351AA67DEB006770E4 /* Chamfer.fsh */; };
 		774CA9611A7ED29B006B0D7B /* chamfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA95F1A7ED29B006B0D7B /* chamfer.png */; };
@@ -63,7 +64,6 @@
 		84A36ECE1AAE62540010CF47 /* SmoothToolSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A36ECD1AAE62540010CF47 /* SmoothToolSettings.xib */; };
 		AD04E9831A7EAC03007A717C /* checker.png in Resources */ = {isa = PBXBuildFile; fileRef = AD04E9821A7EAC03007A717C /* checker.png */; };
 		AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD08AD4D1A913659000E7C1A /* PreviewSpriteUtils.swift */; };
-		AD0B5FC01AC4C81600F76391 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */; };
 		AD167C8F19F6D1C3004A82B3 /* PreviewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD167C8E19F6D1C3004A82B3 /* PreviewSettings.swift */; };
 		AD17EED21A39294E00FA4849 /* PreviewViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17EED11A39294D00FA4849 /* PreviewViewDelegate.swift */; };
 		AD19D9DF1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19D9DE1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift */; };
@@ -147,7 +147,6 @@
 		ADDA76731A756CF200CCCC45 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
 		ADDA76761A756DF600CCCC45 /* blankImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76751A756DF600CCCC45 /* blankImage.png */; };
 		ADDFF98E1A9E5F8B009FF720 /* PlaneBrushToolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98D1A9E5F8B009FF720 /* PlaneBrushToolTest.swift */; };
-		ADDFF9901A9E690D009FF720 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */; };
 		ADE732EE1A0572C900A1C743 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE732ED1A0572C900A1C743 /* Layer.swift */; };
 		ADE7B2EE1A102CB6005EDD11 /* AlphaToBlack.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */; };
 		ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */; };
@@ -335,6 +334,7 @@
 		77193BA21AAA121800B60E11 /* BlendReorient.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorient.fsh; sourceTree = "<group>"; };
 		772427941A9BDE1600F1E462 /* EditorViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewMode.swift; sourceTree = "<group>"; };
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
+		773A7B491AD1A582003BEA02 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageHelper.swift; path = Paranormal/Editor/NSImageHelper.swift; sourceTree = "<group>"; };
 		774B84331AA67CB3006770E4 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
 		774B84351AA67DEB006770E4 /* Chamfer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Chamfer.fsh; path = Paranormal/GPUImageShaders/Chamfer.fsh; sourceTree = SOURCE_ROOT; };
 		774CA95F1A7ED29B006B0D7B /* chamfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chamfer.png; sourceTree = "<group>"; };
@@ -453,7 +453,6 @@
 		ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadersCompileTest.swift; sourceTree = "<group>"; };
 		ADDA76751A756DF600CCCC45 /* blankImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blankImage.png; path = ParanormalTests/assets/blankImage.png; sourceTree = SOURCE_ROOT; };
 		ADDFF98D1A9E5F8B009FF720 /* PlaneBrushToolTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneBrushToolTest.swift; sourceTree = "<group>"; };
-		ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageHelper.swift; sourceTree = "<group>"; };
 		ADE732ED1A0572C900A1C743 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AlphaToBlack.fsh; sourceTree = "<group>"; };
 		ADE7B2F31A1032FB005EDD11 /* DepthToNormal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DepthToNormal.fsh; sourceTree = "<group>"; };
@@ -928,6 +927,7 @@
 		ADE87F2919E9A9340041AAB5 = {
 			isa = PBXGroup;
 			children = (
+				773A7B491AD1A582003BEA02 /* NSImageHelper.swift */,
 				ADE87F3419E9A9350041AAB5 /* Paranormal */,
 				ADEE7BD119E9C57100588629 /* libs */,
 				ADE87F4D19E9A9360041AAB5 /* ParanormalTests */,
@@ -995,7 +995,6 @@
 				AD3BA2921A7970F100C42D8C /* PNViewControllerTests.swift */,
 				AD3BA2BC1A79779300C42D8C /* WindowControllerTests.swift */,
 				AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */,
-				ADDFF98F1A9E690D009FF720 /* NSImageHelper.swift */,
 				AD19D9EF1AACE04300C2A4B1 /* Matchers.swift */,
 				778DC7A41AC4C42C00B88037 /* PNEditorHelper.swift */,
 			);
@@ -1374,7 +1373,7 @@
 				770131301A0555A700C6CC9E /* PreviewScene.swift in Sources */,
 				ADE87F4019E9A9360041AAB5 /* Document.xcdatamodeld in Sources */,
 				ADAE53341A17E36D007135C0 /* ToolsViewController.swift in Sources */,
-				AD0B5FC01AC4C81600F76391 /* NSImageHelper.swift in Sources */,
+				773A7B4A1AD1A582003BEA02 /* NSImageHelper.swift in Sources */,
 				84A36EC61AACD8B00010CF47 /* BlendSmoothFilter.swift in Sources */,
 				AD08AD4E1A913659000E7C1A /* PreviewSpriteUtils.swift in Sources */,
 				AD8757E319FC2C760057B456 /* DocumentCreationController.swift in Sources */,
@@ -1423,7 +1422,6 @@
 				ADB62AC21A913D04003FCB27 /* PanToolTests.swift in Sources */,
 				AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */,
 				AD19D9DF1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift in Sources */,
-				ADDFF9901A9E690D009FF720 /* NSImageHelper.swift in Sources */,
 				AD1CE6021AA7D5ED00AA53F7 /* ZoomToolTests.swift in Sources */,
 				ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */,
 				778DC8471AC88DDC00B88037 /* PreviewTests.swift in Sources */,
