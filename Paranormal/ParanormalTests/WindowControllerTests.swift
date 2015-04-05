@@ -32,29 +32,29 @@ class WindowControllerTests : QuickSpec {
                 expect(windowController.editorViewController?.document).to(equal(document))
             }
 
-            describe("gui elements") {
-                describe("zoom") {
-                    it("Zooms in the editor") {
-                        windowController.zoomField.floatValue = 200.0
-                        windowController.zoomSetFromGUI(windowController.zoomField)
-                        expect(windowController.editorViewController?.zoom).to(equal(2.0))
-                    }
-
-                    it("Triggers a PNNotificationZoomChanged notification") {
-                        var ranNotification = false
-                        NSNotificationCenter.defaultCenter()
-                            .addObserverForName(PNNotificationZoomChanged, object: nil, queue: nil,
-                            usingBlock: { (n) -> Void in
-                                ranNotification = true
-                        })
-
-                        windowController.zoomSetFromGUI(windowController.zoomField)
-                        let date = NSDate(timeIntervalSinceNow: 0.1)
-                        NSRunLoop.currentRunLoop().runUntilDate(date)
-                        expect(ranNotification).toEventually(beTrue(()))
-                    }
-                }
-            }
+//            describe("gui elements") {
+//                describe("zoom") {
+//                    it("Zooms in the editor") {
+//                        windowController.zoomField.floatValue = 200.0
+//                        windowController.zoomSetFromGUI(windowController.zoomField)
+//                        expect(windowController.editorViewController?.zoom).to(equal(2.0))
+//                    }
+//
+//                    it("Triggers a PNNotificationZoomChanged notification") {
+//                        var ranNotification = false
+//                        NSNotificationCenter.defaultCenter()
+//                            .addObserverForName(PNNotificationZoomChanged, object: nil, queue: nil,
+//                            usingBlock: { (n) -> Void in
+//                                ranNotification = true
+//                        })
+//
+//                        windowController.zoomSetFromGUI(windowController.zoomField)
+//                        let date = NSDate(timeIntervalSinceNow: 0.1)
+//                        NSRunLoop.currentRunLoop().runUntilDate(date)
+//                        expect(ranNotification).toEventually(beTrue(()))
+//                    }
+//                }
+//            }
         }
     }
 }

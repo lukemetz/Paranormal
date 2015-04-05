@@ -1,8 +1,6 @@
 import Foundation
 import Cocoa
 
-public let PNNotificationZoomChanged = "PNNotificationZoomChanged"
-
 public class WindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var mainView: NSView!
 
@@ -16,33 +14,15 @@ public class WindowController: NSWindowController, NSWindowDelegate {
     public var editorViewController: EditorViewController?
     var childViewControllers : [PNViewController?] = []
 
-    @IBOutlet public weak var zoomField: NSTextField!
+    @IBOutlet public weak var statusBarView: NSView!
+    public var statusBarViewController: StatusBarViewController?
 
     override init(window: NSWindow?) {
         super.init(window:window)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "zoomUpdated:",
-            name: PNNotificationZoomChanged, object: nil)
     }
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    func zoomUpdated(notification: NSNotification) {
-        zoomField.floatValue = (notification.userInfo?["zoom"] as Float)*100
-    }
-
-    @IBAction public func zoomSetFromGUI(sender: NSTextField) {
-        let zoomAmount = sender.floatValue / 100.0
-        if let editViewCont = editorViewController {
-            let center = CGPoint(x: editViewCont.editor.frame.width / 2.0,
-                y: editViewCont.editor.frame.height / 2.0)
-            editViewCont.setZoomAroundApplicationSpacePoint(center, scale: CGFloat(zoomAmount))
-        }
-
-        NSNotificationCenter.defaultCenter()
-            .postNotificationName(PNNotificationZoomChanged,
-                object: nil, userInfo: ["zoom" : zoomAmount])
     }
 
     // TODO: This and other preview settings should get their own view controller.
@@ -79,6 +59,9 @@ public class WindowController: NSWindowController, NSWindowDelegate {
         toolsViewController = ToolsViewController(nibName: "Tools", bundle: nil)
         childViewControllers.append(toolsViewController)
 
+        statusBarViewController = StatusBarViewController(nibName: "StatusBar", bundle: nil)
+        childViewControllers.append(statusBarViewController)
+
         setDocumentOnChildren()
 
         if let view = editorViewController?.view {
@@ -99,6 +82,11 @@ public class WindowController: NSWindowController, NSWindowDelegate {
             }
         }
 
+        if let view = statusBarViewController?.view {
+            if statusBarView != nil {
+                ViewControllerUtils.insertSubviewIntoParent(statusBarView, child: view)
+            }
+        }
     }
 
     required public init?(coder:NSCoder) {
