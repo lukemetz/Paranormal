@@ -30,27 +30,23 @@ class ColorPickerViewControllerTests: QuickSpec {
                 let document = Document(type: "Paranormal", error: nil)!
                 let colorPickerViewController = ColorPickerViewController()
                 colorPickerViewController.document = document
-
-                colorPickerViewController.deg = 0
-                colorPickerViewController.pit = 0
+                document.toolSettings.colorAsAngles = (0,0)
                 // This corresponds to a vector pointing out of screen, +z
                 // (0, 0, 1)
-                expect(document.currentColor).to(equal(NSColor(red: 0.5,
-                    green: 0.5, blue: 1.0, alpha: 1.0)))
+                expect(document.toolSettings.colorAsNSColor)
+                    .to(equal(NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)))
 
-                colorPickerViewController.deg = 180
-                colorPickerViewController.pit = 90
+        document.toolSettings.colorAsAngles = (180,90.0)
                 // This corresponds to the vector pointing entirly down, -y
                 // (0, -1, 0)
-                expectColorNear(document.currentColor, NSColor(red: 0.5,
-                    green: 0.0, blue: 0.5, alpha: 1.0))
+                expectColorNear(document.toolSettings.colorAsNSColor,
+                    NSColor(red: 0.5, green: 0.0, blue: 0.5, alpha: 1.0))
 
-                colorPickerViewController.deg = 0
-                colorPickerViewController.pit = 90
+        document.toolSettings.colorAsAngles = (0.0,90.0)
                 // This corresponds to the vector pointing entirly up, +y
                 // (0, 1, 0)
-                expectColorNear(document.currentColor, NSColor(red: 0.5,
-                    green: 1.0, blue: 0.5, alpha: 1.0))
+                expectColorNear(document.toolSettings.colorAsNSColor,
+                    NSColor(red: 0.5, green: 1.0, blue: 0.5, alpha: 1.0))
             }
         }
     }

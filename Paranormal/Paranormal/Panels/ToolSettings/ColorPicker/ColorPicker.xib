@@ -7,6 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ColorPickerViewController" customModule="Paranormal" customModuleProvider="target">
             <connections>
+                <outlet property="degreeSlider" destination="XNk-Sj-QCt" id="MYP-hI-aRn"/>
+                <outlet property="degreeTextBox" destination="q5E-xa-hul" id="w46-6p-8CP"/>
+                <outlet property="pitchSlider" destination="3Cf-lc-pKO" id="fr2-A6-SCG"/>
+                <outlet property="pitchTextBox" destination="6cy-xX-dhx" id="jBP-FF-P4C"/>
                 <outlet property="view" destination="c22-O7-iKe" id="ng7-ba-C3R"/>
             </connections>
         </customObject>
@@ -24,21 +28,21 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.pit" id="acK-Gw-pjQ"/>
+                        <action selector="setPitchFromTextbox:" target="-2" id="Vxc-0u-Ddt"/>
                     </connections>
                 </textField>
                 <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNk-Sj-QCt">
                     <rect key="frame" x="14" y="63" width="28" height="30"/>
                     <sliderCell key="cell" state="on" alignment="left" maxValue="360" doubleValue="256.73772770183621" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="53f-mY-V4Z"/>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.deg" id="WaB-qA-Fb6"/>
+                        <action selector="setDegreeFromSlider:" target="-2" id="SKz-Tu-G8L"/>
                     </connections>
                 </slider>
                 <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Cf-lc-pKO">
                     <rect key="frame" x="14" y="23" width="28" height="30"/>
                     <sliderCell key="cell" alignment="left" maxValue="90" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="CZ4-Es-kqJ"/>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.pit" id="Jo5-ZF-rOE"/>
+                        <action selector="setPitchFromSlider:" target="-2" id="8My-Gf-GPO"/>
                     </connections>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jxM-YU-8Nj">
@@ -65,7 +69,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.deg" id="Ude-MI-EwF"/>
+                        <action selector="setDegreeFromTextBox:" target="-2" id="FbA-vX-IbY"/>
                     </connections>
                 </textField>
             </subviews>
