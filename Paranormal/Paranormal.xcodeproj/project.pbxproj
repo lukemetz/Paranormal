@@ -16,6 +16,7 @@
 		772427951A9BDE1600F1E462 /* EditorViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772427941A9BDE1600F1E462 /* EditorViewMode.swift */; };
 		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
 		773A7B4A1AD1A582003BEA02 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A7B491AD1A582003BEA02 /* NSImageHelper.swift */; };
+		773A7C051AD4DB64003BEA02 /* StatusBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A7C041AD4DB64003BEA02 /* StatusBarControllerTests.swift */; };
 		774B84341AA67CB3006770E4 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B84331AA67CB3006770E4 /* ChamferFilter.swift */; };
 		774B84361AA67DEB006770E4 /* Chamfer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 774B84351AA67DEB006770E4 /* Chamfer.fsh */; };
 		774CA9611A7ED29B006B0D7B /* chamfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA95F1A7ED29B006B0D7B /* chamfer.png */; };
@@ -36,6 +37,8 @@
 		775D6F6B1AC1E30E00B60B01 /* NoiseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6F671AC1E30E00B60B01 /* NoiseTool.swift */; };
 		775D6F7C1AC1E42500B60B01 /* BlendSharpenFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6F7B1AC1E42400B60B01 /* BlendSharpenFilter.swift */; };
 		775D6F7E1AC1E43F00B60B01 /* SharpenTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6F7D1AC1E43F00B60B01 /* SharpenTool.swift */; };
+		778260E41ACC51120049C30A /* StatusBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 778260E31ACC51120049C30A /* StatusBar.xib */; };
+		778260E61ACC5EA80049C30A /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778260E51ACC5EA80049C30A /* StatusBarViewController.swift */; };
 		778DC6EE1AC2F75B00B88037 /* BlendInvertFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DC6ED1AC2F75B00B88037 /* BlendInvertFilter.swift */; };
 		778DC6FF1AC2F80F00B88037 /* BlendInvert.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 778DC6FE1AC2F80F00B88037 /* BlendInvert.fsh */; };
 		778DC7011AC2FA9D00B88037 /* invert.png in Resources */ = {isa = PBXBuildFile; fileRef = 778DC7001AC2FA9D00B88037 /* invert.png */; };
@@ -333,6 +336,7 @@
 		772427941A9BDE1600F1E462 /* EditorViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewMode.swift; sourceTree = "<group>"; };
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		773A7B491AD1A582003BEA02 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageHelper.swift; sourceTree = "<group>"; };
+		773A7C041AD4DB64003BEA02 /* StatusBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarControllerTests.swift; sourceTree = "<group>"; };
 		774B84331AA67CB3006770E4 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
 		774B84351AA67DEB006770E4 /* Chamfer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Chamfer.fsh; path = Paranormal/GPUImageShaders/Chamfer.fsh; sourceTree = SOURCE_ROOT; };
 		774CA95F1A7ED29B006B0D7B /* chamfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chamfer.png; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 		775D6F671AC1E30E00B60B01 /* NoiseTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseTool.swift; sourceTree = "<group>"; };
 		775D6F7B1AC1E42400B60B01 /* BlendSharpenFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendSharpenFilter.swift; sourceTree = "<group>"; };
 		775D6F7D1AC1E43F00B60B01 /* SharpenTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharpenTool.swift; sourceTree = "<group>"; };
+		778260E31ACC51120049C30A /* StatusBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusBar.xib; sourceTree = "<group>"; };
+		778260E51ACC5EA80049C30A /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
 		778DC6ED1AC2F75B00B88037 /* BlendInvertFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendInvertFilter.swift; sourceTree = "<group>"; };
 		778DC6FE1AC2F80F00B88037 /* BlendInvert.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendInvert.fsh; sourceTree = "<group>"; };
 		778DC7001AC2FA9D00B88037 /* invert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invert.png; path = Paranormal/Resources/invert.png; sourceTree = SOURCE_ROOT; };
@@ -522,6 +528,15 @@
 				775D6F671AC1E30E00B60B01 /* NoiseTool.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		778260D31ACC50E90049C30A /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				778260E31ACC51120049C30A /* StatusBar.xib */,
+				778260E51ACC5EA80049C30A /* StatusBarViewController.swift */,
+			);
+			path = StatusBar;
 			sourceTree = "<group>";
 		};
 		778DC74C1AC32F4700B88037 /* Preview */ = {
@@ -945,6 +960,7 @@
 				ADA963331A0C6E6100AF22EB /* Resources */,
 				AD898B8819FC78AB000FF6AF /* DocumentModels */,
 				AD85C6621A7EBD3800DAE66F /* Examples */,
+				778260D31ACC50E90049C30A /* StatusBar */,
 				ADE87F3719E9A9350041AAB5 /* AppDelegate.swift */,
 				ADE87F3919E9A9350041AAB5 /* Document.swift */,
 				ADE87F3619E9A9350041AAB5 /* Info.plist */,
@@ -983,6 +999,7 @@
 				AD9FDCD61A85BAB300C6D974 /* ThreadUtilsTest.swift */,
 				AD19D9EF1AACE04300C2A4B1 /* Matchers.swift */,
 				778DC7A41AC4C42C00B88037 /* PNEditorHelper.swift */,
+				773A7C041AD4DB64003BEA02 /* StatusBarControllerTests.swift */,
 			);
 			path = ParanormalTests;
 			sourceTree = "<group>";
@@ -1273,6 +1290,7 @@
 				778DC7011AC2FA9D00B88037 /* invert.png in Resources */,
 				AD7699A61A13F2CE00ABDD2A /* Preview.xib in Resources */,
 				849CE73B1AC212A70033CD3A /* SharpenToolSettings.xib in Resources */,
+				778260E41ACC51120049C30A /* StatusBar.xib in Resources */,
 				774CA9731A7F3CCD006B0D7B /* texture.png in Resources */,
 				775D6DF91AC122F100B60B01 /* tilt.png in Resources */,
 				775D6DF71AC122F100B60B01 /* sharpen.png in Resources */,
@@ -1349,6 +1367,7 @@
 				778DC6EE1AC2F75B00B88037 /* BlendInvertFilter.swift in Sources */,
 				ADF4A0E51A01363600E47DA1 /* LayersViewController.swift in Sources */,
 				ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */,
+				778260E61ACC5EA80049C30A /* StatusBarViewController.swift in Sources */,
 				84A36ECC1AAE10F20010CF47 /* ToolSettingsViewController.swift in Sources */,
 				775D6F691AC1E30E00B60B01 /* ChamferDialogController.swift in Sources */,
 				AD969B1A19F09B5300A2F718 /* WindowController.swift in Sources */,
@@ -1408,6 +1427,7 @@
 				AD19D9DF1AACD5F800C2A4B1 /* FlattenBrushToolTests.swift in Sources */,
 				AD1CE6021AA7D5ED00AA53F7 /* ZoomToolTests.swift in Sources */,
 				ADAEBEE71A7941B500BFEF6A /* AppDelegateTests.swift in Sources */,
+				773A7C051AD4DB64003BEA02 /* StatusBarControllerTests.swift in Sources */,
 				778DC8471AC88DDC00B88037 /* PreviewTests.swift in Sources */,
 				ADB62AC51A9150BC003FCB27 /* EditorViewTests.swift in Sources */,
 				ADBC406B1A2A7E6B0033B7C7 /* LayerTests.swift in Sources */,

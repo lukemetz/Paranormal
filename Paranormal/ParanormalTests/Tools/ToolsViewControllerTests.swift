@@ -26,7 +26,7 @@ class ToolsViewControllerTests: QuickSpec {
                 for button in buttons {
                     if (button == currentbutton) {
                         expect(button?.bordered).to(beTrue())
-                    }else{
+                    } else {
                         expect(button?.bordered).to(beFalse())
                     }
                 }
