@@ -4,66 +4,78 @@ import AppKit
 
 public class ToolSettingsViewController: PNViewController {
 
-    @IBOutlet weak var childView : NSView!
-    var smoothToolSettingsViewController : ActiveToolSettingsViewController? =
-        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
-        bundle: nil, toolType:ActiveTool.Smooth)
-    var sharpenToolSettingsViewController : ActiveToolSettingsViewController? =
-        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
-        bundle: nil, toolType:ActiveTool.Sharpen)
-    var flattenToolSettingsViewController : ActiveToolSettingsViewController? =
-        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
-        bundle: nil, toolType:ActiveTool.Flatten)
-    var emphasizeToolSettingsViewController : ActiveToolSettingsViewController? =
-        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
-        bundle: nil, toolType:ActiveTool.Emphasize)
-    var planeToolSettingsViewController : ActiveToolSettingsViewController? =
-        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
-        bundle: nil, toolType:ActiveTool.Plane)
-    var tiltToolSettingsViewController : ActiveToolSettingsViewController? =
-        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
-        bundle: nil, toolType:ActiveTool.Tilt)
-    var invertToolSettingsViewController : ActiveToolSettingsViewController? =
-        ActiveToolSettingsViewController(nibName: "PlaneToolSettings",
-        bundle: nil, toolType:ActiveTool.Invert)
+    @IBOutlet weak var sizeSlider: NSSlider!
+    @IBOutlet weak var strengthSlider: NSSlider!
+    @IBOutlet weak var hardnessSlider: NSSlider!
 
+    @IBOutlet weak var colorPickerView: NSView!
+    var colorPickerViewController: ColorPickerViewController?
+    public var toolSettingsTitle: String = ""
+    var toolType: ActiveTool = ActiveTool.Tilt
 
-    var activeToolSettingsView: NSView?
+    init?(nibName: NSString, bundle: NSBundle?, toolType : ActiveTool) {
+        super.init(nibName: nibName, bundle: bundle)
+
+        self.toolType = toolType
+        switch toolType {
+        case .Smooth:
+            toolSettingsTitle = "Smooth Tool Settings"
+        case .Sharpen:
+            toolSettingsTitle = "Sharpen Tool Settings"
+        case .Flatten:
+            toolSettingsTitle = "Flatten Tool Settings"
+        case .Emphasize:
+            toolSettingsTitle = "Emphasize Tool Settings"
+        case .Plane:
+            toolSettingsTitle = "Plane Tool Settings"
+        case .Tilt:
+            toolSettingsTitle = "Tilt Tool Settings"
+        case .Invert:
+            toolSettingsTitle = "Invert Tool Settings"
+        default:
+            toolSettingsTitle = ""
+        }
+    }
 
     override public func loadView() {
         super.loadView()
-        displayActiveEditorToolSettings(ActiveTool.Plane)
+
+        if (toolType == ActiveTool.Plane || toolType == ActiveTool.Tilt) {
+            colorPickerViewController =
+                ColorPickerViewController(nibName: "ColorPicker", bundle: nil)
+            addViewController(colorPickerViewController)
+            if let view = colorPickerViewController?.view {
+                ViewControllerUtils.insertSubviewIntoParent(colorPickerView, child: view)
+            }
+        }
     }
 
-    public func displayActiveEditorToolSettings(tool : ActiveTool) {
-        var controller : ActiveToolSettingsViewController?
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+        updateSettingsSliders()
+    }
 
-        activeToolSettingsView?.removeFromSuperview()
+    @IBAction func updateSize(sender: NSSlider) {
+        document?.toolSettings.size = sizeSlider.floatValue
+    }
 
-        switch tool {
-        case .Smooth:
-            controller = smoothToolSettingsViewController
-        case .Sharpen:
-            controller = sharpenToolSettingsViewController
-        case .Flatten:
-            controller = flattenToolSettingsViewController
-        case .Emphasize:
-            controller = emphasizeToolSettingsViewController
-        case .Plane:
-            controller = planeToolSettingsViewController
-        case .Tilt:
-            controller = tiltToolSettingsViewController
-        case .Invert:
-            controller = invertToolSettingsViewController
-        default:
-            controller = nil
+    @IBAction func updateStrength(sender: NSSlider) {
+        document?.toolSettings.strength = strengthSlider.floatValue
+    }
+
+    @IBAction func updateHardness(sender: NSSlider) {
+        document?.toolSettings.hardness = hardnessSlider.floatValue
+    }
+
+    public func updateSettingsSliders() {
+        if let doc = document {
+            sizeSlider.floatValue = doc.toolSettings.size
+            strengthSlider.floatValue = doc.toolSettings.strength
+            hardnessSlider.floatValue = doc.toolSettings.hardness
         }
-        self.addViewController(controller)
-        if let c = controller {
-            if let view = controller?.view {
-                ViewControllerUtils.insertSubviewIntoParent(childView, child: view)
-                activeToolSettingsView = view
-            }
+
+        if let cpController = colorPickerViewController? {
+            cpController.updateColorPicker()
         }
     }
 }

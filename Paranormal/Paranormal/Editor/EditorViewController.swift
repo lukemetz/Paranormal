@@ -27,7 +27,7 @@ public class EditorViewController : PNViewController {
     }
 
     public var color : NSColor? {
-        return document?.currentColor
+        return document?.toolSettings.colorAsNSColor
     }
 
     public var currentLayer : Layer? {
@@ -35,15 +35,15 @@ public class EditorViewController : PNViewController {
     }
 
     public var brushSize : Float? {
-        return document?.brushSize
+        return document?.toolSettings.size
     }
 
     public var brushOpacity : Float? {
-        return document?.brushOpacity
+        return document?.toolSettings.strength
     }
 
     public var brushHardness : Float? {
-        return document?.brushHardness
+        return document?.toolSettings.hardness
     }
 
     public var zoom : Float {

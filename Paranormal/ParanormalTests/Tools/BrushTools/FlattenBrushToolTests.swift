@@ -30,9 +30,10 @@ class FlattenToolTests: QuickSpec {
 
             describe("Flattening makes an area flatter") {
                 beforeEach {
-                    document?.currentColor = NSColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0)
-                    document?.brushSize = 9.0;
-                    document?.brushOpacity = 1.0;
+                    document?.toolSettings.setColorAsNSColor(
+                        NSColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0))
+                    document?.toolSettings.size = 9.0;
+                    document?.toolSettings.strength = 1.0;
 
                     planeTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
@@ -49,7 +50,7 @@ class FlattenToolTests: QuickSpec {
 
                 // Race condition is reappearing here. No idea why.
                 xit("Without opacity") {
-                    document?.brushSize = 5.0;
+                    document?.toolSettings.size = 5.0;
                     let flattenTool = FlattenTool()
 
                     flattenTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
@@ -77,8 +78,8 @@ class FlattenToolTests: QuickSpec {
                 }
 
                 xit("With opacity") {
-                    document?.brushSize = 5.0;
-                    document?.brushOpacity = 0.5;
+                    document?.toolSettings.size = 5.0;
+                    document?.toolSettings.strength = 0.5;
                     let flattenTool = FlattenTool()
 
                     flattenTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
