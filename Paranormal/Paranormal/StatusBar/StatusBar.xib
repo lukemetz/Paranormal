@@ -32,22 +32,19 @@
                         </connections>
                     </textField>
                     <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37U-GJ-O88">
-                        <rect key="frame" x="94" y="3" width="171" height="24"/>
+                        <rect key="frame" x="94" y="3" width="241" height="24"/>
                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="yPN-BK-AFD">
                             <font key="font" metaFont="system"/>
                             <segments>
                                 <segment label="Normal Map" width="82" selected="YES"/>
-                                <segment label="Preview" width="82" tag="1"/>
+                                <segment label="Lighting" width="82" tag="1"/>
+                                <segment label="Preview"/>
                             </segments>
                         </segmentedCell>
+                        <connections>
+                            <action selector="setEditorViewMode:" target="-2" id="rVb-zH-CvN"/>
+                        </connections>
                     </segmentedControl>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALw-bq-dfN">
-                        <rect key="frame" x="374" y="6" width="122" height="18"/>
-                        <buttonCell key="cell" type="check" title="Light Movement" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GBP-xQ-nce">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-Ct-hPq">
                         <rect key="frame" x="9" y="8" width="44" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zoom:" id="McX-Yv-m8y">
@@ -56,6 +53,16 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALw-bq-dfN">
+                        <rect key="frame" x="347" y="6" width="122" height="18"/>
+                        <buttonCell key="cell" type="check" title="Light Movement" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GBP-xQ-nce">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="lightToggled:" target="-2" id="3T8-gm-Yw1"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

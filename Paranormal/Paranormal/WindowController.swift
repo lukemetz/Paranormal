@@ -25,30 +25,6 @@ public class WindowController: NSWindowController, NSWindowDelegate {
         super.awakeFromNib()
     }
 
-    // TODO: This and other preview settings should get their own view controller.
-    @IBAction func setEditorViewMode(sender: NSSegmentedControl) {
-        if let newViewMode = EditorViewMode(rawValue: sender.selectedSegment) {
-            if let doc = document as? Document {
-                doc.editorViewMode = newViewMode
-            }
-        } else {
-            log.error("editor mode set to unknown value \(sender.selectedSegment)")
-        }
-    }
-
-
-    @IBAction func lightToggled(sender: NSButton) {
-        if let doc = document as? Document {
-            let panelsViewController = doc.singleWindowController?.panelsViewController?
-            let previewViewController = panelsViewController?.previewViewController
-            if sender.integerValue == 0 {
-                previewViewController?.currentPreviewLayer?.stopAnimation()
-            } else {
-                previewViewController?.currentPreviewLayer?.resumeAnimation()
-            }
-        }
-    }
-
     override public func windowDidLoad() {
         editorViewController = EditorViewController(nibName: "Editor", bundle: nil)
         childViewControllers.append(editorViewController)

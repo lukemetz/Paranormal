@@ -26,4 +26,22 @@ public class StatusBarViewController : PNViewController {
     func zoomUpdated(notification: NSNotification) {
         zoomTextField.floatValue = (notification.userInfo?["zoom"] as Float)*100
     }
+    
+    @IBAction func setEditorViewMode(sender: NSSegmentedControl) {
+        if let newViewMode = EditorViewMode(rawValue: sender.selectedSegment) {
+            document?.editorViewMode = newViewMode
+        } else {
+            log.error("editor mode set to unknown value \(sender.selectedSegment)")
+        }
+    }
+
+    @IBAction func lightToggled(sender: NSButton) {
+        let panelsViewController = document?.singleWindowController?.panelsViewController?
+        let previewViewController = panelsViewController?.previewViewController
+        if sender.integerValue == 0 {
+            previewViewController?.currentPreviewLayer?.stopAnimation()
+        } else {
+            previewViewController?.currentPreviewLayer?.resumeAnimation()
+        }
+    }
 }
