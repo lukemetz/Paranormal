@@ -31,7 +31,7 @@ public class BrushTool : NSObject, EditorActiveTool {
 
         initializeEditLayer()
 
-        drawingKernel?.startDraw() { (image) -> () in
+        drawingKernel?.startDraw() { [unowned self] (image) -> () in
             self.editLayer?.managedObjectContext?.performBlock({ () -> Void in
                 self.editLayer?.imageData = image.TIFFRepresentation
                 return

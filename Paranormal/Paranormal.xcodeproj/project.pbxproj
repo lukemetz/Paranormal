@@ -334,7 +334,7 @@
 		77193BA21AAA121800B60E11 /* BlendReorient.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendReorient.fsh; sourceTree = "<group>"; };
 		772427941A9BDE1600F1E462 /* EditorViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewMode.swift; sourceTree = "<group>"; };
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
-		773A7B491AD1A582003BEA02 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageHelper.swift; path = Paranormal/Editor/NSImageHelper.swift; sourceTree = "<group>"; };
+		773A7B491AD1A582003BEA02 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageHelper.swift; sourceTree = "<group>"; };
 		774B84331AA67CB3006770E4 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
 		774B84351AA67DEB006770E4 /* Chamfer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Chamfer.fsh; path = Paranormal/GPUImageShaders/Chamfer.fsh; sourceTree = SOURCE_ROOT; };
 		774CA95F1A7ED29B006B0D7B /* chamfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chamfer.png; sourceTree = "<group>"; };
@@ -664,6 +664,7 @@
 		AD7699A01A13C84900ABDD2A /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				773A7B491AD1A582003BEA02 /* NSImageHelper.swift */,
 				0A27FC821A0564CF00999020 /* EditorView.swift */,
 				0AB813441A0129FE0032FD6E /* EditorViewController.swift */,
 				772427941A9BDE1600F1E462 /* EditorViewMode.swift */,
@@ -927,7 +928,6 @@
 		ADE87F2919E9A9340041AAB5 = {
 			isa = PBXGroup;
 			children = (
-				773A7B491AD1A582003BEA02 /* NSImageHelper.swift */,
 				ADE87F3419E9A9350041AAB5 /* Paranormal */,
 				ADEE7BD119E9C57100588629 /* libs */,
 				ADE87F4D19E9A9360041AAB5 /* ParanormalTests */,

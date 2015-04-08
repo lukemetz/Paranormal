@@ -78,7 +78,7 @@ class PreviewSpriteUtils: NSObject {
         let replaceAlphaFilter = GPUImageTwoInputFilter(fragmentShaderFromFile: "ReplaceAlpha")
 
         let grayRectangle = self.grayImage(width: UInt(source.size.width),
-            height: UInt(source.size.height), brightness: 0.5)
+            height: UInt(source.size.height), brightness: brightness)
         let grayPicture = GPUImagePicture(image: grayRectangle)
         grayPicture.addTarget(replaceAlphaFilter, atTextureLocation: 0)
 

@@ -10,7 +10,7 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
     override public var document : Document? {
         didSet {
             updateComputedEditorImage(nil)
-            updateCoreData(nil)
+            updatePreviewData()
         }
     }
 
@@ -52,8 +52,6 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
             selector: "updateComputedEditorImage:",
             name: PNDocumentNormalImageChanged,
             object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
-            name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
 
         self.setupPreview()
     }
@@ -81,11 +79,11 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
         }
     }
 
-    func updateCoreData(notification: NSNotification?) {
+    func updatePreviewData() {
         ThreadUtils.runGPUImage { () -> Void in
             if let diffuseImage = self.document?.baseImage {
                 self.document?.grayImage = PreviewSpriteUtils.grayImageWithAlphaSource(
-                    diffuseImage, brightness: 0.5)
+                    diffuseImage, brightness: 0.7)
             }
             self.updatePreviewSprite()
         }
