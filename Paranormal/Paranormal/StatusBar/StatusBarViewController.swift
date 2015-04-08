@@ -4,14 +4,15 @@ public let PNNotificationZoomChanged = "PNNotificationZoomChanged"
 
 public class StatusBarViewController : PNViewController {
 
-    @IBOutlet weak var zoomTextField: NSTextField!
+    @IBOutlet public weak var zoomTextField: NSTextField!
 
     override public func viewDidLoad() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "zoomUpdated:",
             name: PNNotificationZoomChanged, object: nil)
     }
 
-    @IBAction public func zoomSentFromGUI(sender: NSTextField) {        let zoomAmount = sender.floatValue / 100.0
+    @IBAction public func zoomSentFromGUI(sender: NSTextField) {
+        let zoomAmount = sender.floatValue / 100.0
         if let editViewCont = document?.singleWindowController?.editorViewController {
             let center = CGPoint(x: editViewCont.editor.frame.width / 2.0,
                 y: editViewCont.editor.frame.height / 2.0)
@@ -26,8 +27,8 @@ public class StatusBarViewController : PNViewController {
     func zoomUpdated(notification: NSNotification) {
         zoomTextField.floatValue = (notification.userInfo?["zoom"] as Float)*100
     }
-    
-    @IBAction func setEditorViewMode(sender: NSSegmentedControl) {
+
+    @IBAction public func setEditorViewMode(sender: NSSegmentedControl) {
         if let newViewMode = EditorViewMode(rawValue: sender.selectedSegment) {
             document?.editorViewMode = newViewMode
         } else {
@@ -35,8 +36,8 @@ public class StatusBarViewController : PNViewController {
         }
     }
 
-    @IBAction func lightToggled(sender: NSButton) {
-        let panelsViewController = document?.singleWindowController?.panelsViewController?
+    @IBAction public func lightToggled(sender: NSButton) {
+        let panelsViewController = document?.singleWindowController?.panelsViewController
         let previewViewController = panelsViewController?.previewViewController
         if sender.integerValue == 0 {
             previewViewController?.currentPreviewLayer?.stopAnimation()
