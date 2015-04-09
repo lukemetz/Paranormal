@@ -32,7 +32,7 @@ class ChamferTool {
                 } else {
                     if let newLayer = self.document.rootLayer?.addLayer() {
                         newLayer.imageData = resultImage?.TIFFRepresentation
-                        newLayer.blendMode = BlendMode.Tilt
+                        newLayer.blendMode = BlendMode.Add // TODO: Change me back!
                         self.chamferLayer = newLayer
                     }
                 }

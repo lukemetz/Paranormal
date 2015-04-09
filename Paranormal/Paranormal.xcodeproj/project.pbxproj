@@ -17,7 +17,7 @@
 		772A09891A05D18C000686E0 /* PreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A09881A05D18C000686E0 /* PreviewLayer.swift */; };
 		773A7B4A1AD1A582003BEA02 /* NSImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A7B491AD1A582003BEA02 /* NSImageHelper.swift */; };
 		774B84341AA67CB3006770E4 /* ChamferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B84331AA67CB3006770E4 /* ChamferFilter.swift */; };
-		774B84361AA67DEB006770E4 /* Chamfer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 774B84351AA67DEB006770E4 /* Chamfer.fsh */; };
+		774B84361AA67DEB006770E4 /* Bulge.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 774B84351AA67DEB006770E4 /* Bulge.fsh */; };
 		774CA9611A7ED29B006B0D7B /* chamfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA95F1A7ED29B006B0D7B /* chamfer.png */; };
 		774CA9731A7F3CCD006B0D7B /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 774CA9721A7F3CCD006B0D7B /* texture.png */; };
 		775D6DDE1AC11F2300B60B01 /* TiltTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D6DDD1AC11F2300B60B01 /* TiltTool.swift */; };
@@ -334,7 +334,7 @@
 		772A09881A05D18C000686E0 /* PreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewLayer.swift; sourceTree = "<group>"; };
 		773A7B491AD1A582003BEA02 /* NSImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageHelper.swift; sourceTree = "<group>"; };
 		774B84331AA67CB3006770E4 /* ChamferFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChamferFilter.swift; sourceTree = "<group>"; };
-		774B84351AA67DEB006770E4 /* Chamfer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Chamfer.fsh; path = Paranormal/GPUImageShaders/Chamfer.fsh; sourceTree = SOURCE_ROOT; };
+		774B84351AA67DEB006770E4 /* Bulge.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Bulge.fsh; path = Paranormal/GPUImageShaders/Bulge.fsh; sourceTree = SOURCE_ROOT; };
 		774CA95F1A7ED29B006B0D7B /* chamfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chamfer.png; sourceTree = "<group>"; };
 		774CA9721A7F3CCD006B0D7B /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		775D6DDD1AC11F2300B60B01 /* TiltTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiltTool.swift; sourceTree = "<group>"; };
@@ -789,7 +789,7 @@
 		ADA963341A0C734F00AF22EB /* GPUImageShaders */ = {
 			isa = PBXGroup;
 			children = (
-				774B84351AA67DEB006770E4 /* Chamfer.fsh */,
+				774B84351AA67DEB006770E4 /* Bulge.fsh */,
 				ADA963351A0C738100AF22EB /* ZUpInitialize.fsh */,
 				ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */,
 				849CE7C21AC488D90033CD3A /* Normalize.fsh */,
@@ -1293,7 +1293,7 @@
 				AD969B1E19F0A0D400A2F718 /* PreviewSettings.xib in Resources */,
 				849CE6DA1AC052460033CD3A /* GLDrawingKernelFsh.fsh in Resources */,
 				ADEF49221A9A85E100AE0597 /* BlendFlatten.fsh in Resources */,
-				774B84361AA67DEB006770E4 /* Chamfer.fsh in Resources */,
+				774B84361AA67DEB006770E4 /* Bulge.fsh in Resources */,
 				AD8757DF19FC22C20057B456 /* DocumentCreation.xib in Resources */,
 				77193BA31AAA121800B60E11 /* BlendReorient.fsh in Resources */,
 				AD85C6851A7EBD6400DAE66F /* olinO.png in Resources */,

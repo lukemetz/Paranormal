@@ -8,7 +8,7 @@ class ChamferFilter : GPUImageFilter {
     var shape : Float = 0.0
 
     override init() {
-        super.init(fragmentShaderFromFile: "Chamfer")
+        super.init(fragmentShaderFromFile: "Bulge")
     }
 
     convenience init(radius: Float, depth: Float, shape: Float) {
