@@ -121,8 +121,6 @@ public class Layer : NSManagedObject{
         self.layers.removeObject(layer)
         managedObjectContext?
             .deleteObject(layer)
-        self.managedObjectContext?.refreshObject(layer, mergeChanges: false)
-        self.managedObjectContext?.save(nil)
     }
 
     public func createEditLayer() -> Layer? {
