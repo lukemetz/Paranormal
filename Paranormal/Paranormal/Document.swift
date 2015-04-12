@@ -18,6 +18,8 @@ public class Document: NSPersistentDocument {
         }
     }
 
+    var _documentSettings : DocumentSettings?
+
     public var rootLayer : Layer? {
         return documentSettings?.rootLayer
     }
@@ -27,18 +29,21 @@ public class Document: NSPersistentDocument {
     }
 
     public var documentSettings : DocumentSettings? {
-        let fetch = NSFetchRequest(entityName: "DocumentSettings")
-        var error : NSError?
-        let documentSettings = managedObjectContext.executeFetchRequest(fetch, error: &error)
-        if let unwrapError = error {
-            let alert = NSAlert(error: unwrapError)
-            alert.runModal()
+        if _documentSettings == nil {
+            let fetch = NSFetchRequest(entityName: "DocumentSettings")
+            var error : NSError?
+            let documentSettings = managedObjectContext.executeFetchRequest(fetch, error: &error)
+            if let unwrapError = error {
+                let alert = NSAlert(error: unwrapError)
+                alert.runModal()
+            }
+            if documentSettings?.count == 0 {
+                _documentSettings = nil
+            } else {
+                _documentSettings = documentSettings?[0] as? DocumentSettings
+            }
         }
-        if documentSettings?.count == 0 {
-            return nil
-        } else {
-            return documentSettings?[0] as? DocumentSettings
-        }
+        return _documentSettings
     }
 
     public var computedNormalImage : NSImage? {
@@ -91,6 +96,8 @@ public class Document: NSPersistentDocument {
         super.init()
 
         let coordinator = managedObjectContext.persistentStoreCoordinator;
+        coordinator?.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil,
+                                                URL: nil, options: nil, error: nil)
 
         managedObjectContext =  NSManagedObjectContext(concurrencyType:
             NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
