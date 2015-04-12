@@ -32,10 +32,14 @@ public class BrushTool : NSObject, EditorActiveTool {
         initializeEditLayer()
 
         drawingKernel?.startDraw() { [unowned self] (image) -> () in
-            self.editLayer?.managedObjectContext?.performBlock({ () -> Void in
-                self.editLayer?.imageData = image.TIFFRepresentation
+            autoreleasepool {
+                let data = image.TIFFRepresentation
+                self.editLayer?.managedObjectContext?.performBlock({ () -> Void in
+                    self.editLayer?.imageData = data
+                    return
+                })
                 return
-            })
+            }
             return
         }
         editorViewController.document?.managedObjectContext.undoManager?.beginUndoGrouping()
