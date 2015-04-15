@@ -3,7 +3,7 @@ import GPUImage
 
 class FilterWithSizeUniforms : GPUImageFilter {
     init(shaderName: String!) {
-        super.init(fragmentShaderFromString: shaderName);
+        super.init(fragmentShaderFromFile: shaderName);
     }
 
     override init!(fragmentShaderFromString fragmentShaderString: String!) {
