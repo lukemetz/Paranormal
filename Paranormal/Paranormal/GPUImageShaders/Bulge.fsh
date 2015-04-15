@@ -28,8 +28,8 @@ vec3 colorToNormal(vec4 color) {
                 2.0 * (color.b - normalZero));
 }
 
-float squaredDistance(int x, int y) {
-    return float((x * x) + (y * y));
+float squaredDistance(float x, float y) {
+    return (x * x) + (y * y);
 }
 
 float weightFunction(float dSquared) {
@@ -37,7 +37,7 @@ float weightFunction(float dSquared) {
 }
 
 float inverseCDF(float p) {
-    return sigma * log(p);
+    return -sigma * log(p);
 }
 
 float rand(vec2 co){
@@ -49,37 +49,35 @@ float rand(vec2 co){
 vec3 findEdge(float x, float y) {
     vec2 total = vec2(0.0, 0.0);
     float count = 0.0;
-    int dx, dy; // Pixels
-    int rtdx, rtdy; // Pixels ^ 0.5
+    float dx, dy, dist; // Pixels
+    float angle; // Radians
     float xSample, ySample; // Percent
-    float alphaWeight;
-    float distanceWeight;
+    float alphaWeight, distanceWeight; // Percent
     float dSquared; // Pixels squared
     float minD = MAXD; // Pixels squared
 
     // Monte Carlo Sampling of the alpha channel
-    for (int i = 1; i < 1000; i++) {
-        dist = rand(vec2(x + i, y));
-        angle = rand(vec2(y + i, x));
-        dx =
+    for (float i = 1.0; i < 999.9; i++) {
+        dist = inverseCDF(rand(vec2(x + i, y)));
+        angle = rand(vec2(y + i, x)) * 2.0 * PI;
+        dx = dist * cos(angle);
+        dy = dist * sin(angle);
         dSquared = squaredDistance(dx, dy);
         distanceWeight = weightFunction(dSquared);
-        if (dSquared < MAXD) {
-            xSample = x + (texelWidth  * float(dx)); // Percent
-            ySample = y + (texelHeight * float(dy)); // Percent
-            if (xSample > 0.0 && xSample < 1.0 &&
-                ySample > 0.0 && ySample < 1.0) {
-                alphaWeight = 1.0 - texture2D(inputImageTexture, vec2(xSample, ySample)).a;
-            } else {
-                alphaWeight = 1.0; // Treat areas outside the image outside the image as transparent
-            }
-            if (alphaWeight > epsilon) {
-                minD = min(minD, dSquared);
-                // Negative to get the output normal right
-                total += alphaWeight * distanceWeight * normalize(vec2(dx, -dy));
-            }
-            count += distanceWeight;
+        xSample = x + (texelWidth  * dx); // Percent
+        ySample = y + (texelHeight * dy); // Percent
+        if (xSample > 0.0 && xSample < 1.0 &&
+            ySample > 0.0 && ySample < 1.0) {
+            alphaWeight = 1.0 - texture2D(inputImageTexture, vec2(xSample, ySample)).a;
+        } else {
+            alphaWeight = 1.0; // Treat areas outside the image outside the image as transparent
         }
+        if (alphaWeight > epsilon) {
+            minD = min(minD, dSquared);
+            // Negative to get the output normal right
+            total += alphaWeight * distanceWeight * normalize(vec2(dx, -dy));
+        }
+        count += distanceWeight;
     }
     return vec3(total / count, sqrt(minD));
 }
@@ -96,13 +94,9 @@ void main() {
 
 //    float edgeDist = edge.z;
     float xyMagnitude = clamp(length(edgePoint)* 2.0, 0.0, 1.0);
-//    if (xyMagnitude < 0.1) {
-//        outputNormal = vec3(0.0, 1.0, 0.0);
-//    } else {
-        vec2 xyDirection = normalize(edgePoint) * xyMagnitude;
-        float zValue = sqrt(1.0 - xyMagnitude);
-        outputNormal = vec3(xyDirection, zValue);
-//    }
+    vec2 xyDirection = normalize(edgePoint) * xyMagnitude;
+    float zValue = sqrt(1.0 - xyMagnitude);
+    outputNormal = vec3(xyDirection, zValue);
 
 //    vec2 direction = normalize(edgePoint);
 
@@ -120,6 +114,5 @@ void main() {
 //        outputNormal = zUpNormal;
 //    }
     outputColor = normalToColor(outputNormal, baseColor.a);
-//    outputColor = vec4(x, y, 0.0, 1.0);
     gl_FragColor = outputColor;
 }

@@ -88,15 +88,15 @@ public class ToolsViewController: PNViewController {
 
     @IBAction public func panPressed(sender: NSButton) {
         setActiveTool(ActiveTool.Pan)
-        selectButton( sender )
+        selectButton(sender)
     }
 
     @IBAction public func chamferPressed(sender: NSButton) {
         if let doc = document {
-            let chamfer = ChamferTool(document: doc)
+            let chamfer = ChamferOperation(document: doc)
             if let window = doc.singleWindowController?.window {
                 chamferDialogController = ChamferDialogController(
-                    parentWindow: window, tool: chamfer)
+                    parentWindow: window, chamfer: chamfer)
                 if let chamferDialog : NSWindow = chamferDialogController?.window {
                     NSApp.beginSheet(chamferDialog, modalForWindow: window,
                         modalDelegate: self, didEndSelector: nil, contextInfo: nil)
@@ -106,9 +106,9 @@ public class ToolsViewController: PNViewController {
     }
 
     @IBAction public func noisePressed(sender: NSButton) {
-        let noise = NoiseTool()
         if let doc = document {
-            noise.perform(doc)
+            let textureOperation = TextureOperation(document: doc)
+            textureOperation.perform()
         }
     }
 }

@@ -88,7 +88,6 @@ class DocumentCreationController : NSWindowController, NSOpenSavePanelDelegate {
                     DocumentController.sharedDocumentController() as DocumentController
                 documentController.createDocumentFromUrl(self.baseImageURL)
                 let document = documentController.currentDocument as? Document
-                let overlay = NoiseTool()
                 if let currentLayer = document?.currentLayer {
                     if let newLayer = document?.rootLayer?.addLayer() {
                         newLayer.imageData = normalImage?.TIFFRepresentation

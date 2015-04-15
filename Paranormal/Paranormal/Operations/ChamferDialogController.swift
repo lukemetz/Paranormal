@@ -2,8 +2,9 @@ import Foundation
 import Cocoa
 
 class ChamferDialogController : NSWindowController, NSOpenSavePanelDelegate {
+    // TOOD: make a common PNOperationDialogController base class
     var parentWindow : NSWindow?
-    var chamferTool : ChamferTool?
+    var chamferOperation : ChamferOperation?
     var radius : Float = 20.0
     var depth : Float = 2.0
     var shape : Float = 0.0
@@ -27,35 +28,38 @@ class ChamferDialogController : NSWindowController, NSOpenSavePanelDelegate {
         return "ChamferDialog"
     }
 
-    init(parentWindow: NSWindow, tool: ChamferTool) {
+    init(parentWindow: NSWindow, chamfer: ChamferOperation) {
         super.init(window: nil)
-        self.chamferTool = tool
+        self.chamferOperation = chamfer
         self.parentWindow = parentWindow
-        self.updatePreview()
+        self.createChamferLayer()
     }
 
     override init() {
         super.init()
     }
 
-    func updatePreview() {
-        if let chamfer = chamferTool {
-            chamfer.previewChamfer(radius: radius, depth: depth, shape: shape)
+    func createChamferLayer() {
+        if let chamfer = chamferOperation {
+            chamfer.create()
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(
-            NSManagedObjectContextObjectsDidChangeNotification,
-            object: nil)
+    }
+
+    func updatePreview() {
+        if let chamfer = chamferOperation {
+            chamfer.updatePreview(radius: radius, depth: depth, shape: shape)
+        }
     }
 
     @IBAction func confirm(sender: NSButton) {
-        if let chamfer = chamferTool {
-            chamfer.finalizePreview()
+        if let chamfer = chamferOperation {
+            chamfer.confirm()
         }
         closeSheet()
     }
 
     @IBAction func cancel(sender: NSButton) {
-        if let chamfer = chamferTool {
+        if let chamfer = chamferOperation {
             chamfer.cancel()
         }
         closeSheet()
