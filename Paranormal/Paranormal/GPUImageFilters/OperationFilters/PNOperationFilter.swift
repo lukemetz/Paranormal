@@ -3,16 +3,19 @@ import GPUImage
 import OpenGL
 
 class PNOperationFilter : GPUImageFilterGroup {
-    var operationFilter : FilterWithSizeUniforms
+    var operationFilter : FilterWithSizeUniforms?
 
-    init(singleShaderName: String!) {
-        operationFilter = FilterWithSizeUniforms(shaderName: singleShaderName)
+    override init() {
         super.init()
-
-        self.addFilter(operationFilter)
-        initialFilters = [operationFilter]
-        terminalFilter = operationFilter
     }
 
-    init 
+    init(singleShaderName: String!) {
+        super.init()
+        let singleOperationFilter = FilterWithSizeUniforms(shaderName: singleShaderName)
+        self.operationFilter = singleOperationFilter
+
+        self.addFilter(singleOperationFilter)
+        initialFilters = [singleOperationFilter]
+        terminalFilter = singleOperationFilter
+    }
 }
