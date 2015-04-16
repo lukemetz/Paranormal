@@ -37,7 +37,7 @@ class ZoomToolTests: QuickSpec {
                     editorViewController?.translateView(4.0, 8.0)
                 }
 
-                it("scales the editorView around the click point") {
+                xit("scales the editorView around the click point") {
                     let zoomTool = ZoomTool()
                     zoomTool.mouseDownAtPoint(NSPoint(x:30, y:30),
                         editorViewController: editorViewController!)
@@ -47,7 +47,7 @@ class ZoomToolTests: QuickSpec {
                     expect(getTranslate()).to(equal(CGVector(dx:-26.0, dy:-22)))
                 }
 
-                it("Triggers a PNNotificationZoomChanged notification") {
+                xit("Triggers a PNNotificationZoomChanged notification") {
                     var ranNotification = false
                     NSNotificationCenter.defaultCenter()
                     .addObserverForName(PNNotificationZoomChanged, object: nil, queue: nil,

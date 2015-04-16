@@ -16,8 +16,6 @@ class ToolsViewControllerTests: QuickSpec {
             var smooth : NSButton?
             var sharpen : NSButton?
             var tilt : NSButton?
-            var invert : NSButton?
-            var zoom : NSButton?
             var pan : NSButton?
 
             var buttons : [NSButton?]!
@@ -51,12 +49,10 @@ class ToolsViewControllerTests: QuickSpec {
                 smooth = windowController?.toolsViewController?.smooth
                 sharpen = windowController?.toolsViewController?.sharpen
                 tilt = windowController?.toolsViewController?.tilt
-                invert = windowController?.toolsViewController?.invert
-                zoom = windowController?.toolsViewController?.zoom
                 pan = windowController?.toolsViewController?.pan
 
 
-                buttons = [plane, emphasize, flatten, smooth, sharpen, tilt, invert, zoom, pan]
+                buttons = [plane, emphasize, flatten, smooth, sharpen, tilt, pan]
             }
 
             describe("planePressed") {
@@ -146,36 +142,6 @@ class ToolsViewControllerTests: QuickSpec {
 
                     let activeTool = windowController?.editorViewController?.activeEditorTool
                     expectOnlyButtonSelected(tilt)
-                }
-            }
-
-            describe("invertPressed") {
-                it("sets the active tool on the editorViewController to be a InvertTool") {
-                    windowController?.toolsViewController?.invertPressed(invert!)
-
-                    let activeTool = windowController?.editorViewController?.activeEditorTool
-                    expect(activeTool as? InvertTool).toNot(beNil())
-                }
-                it("tests to see if invert is only button pressed") {
-                    windowController?.toolsViewController?.invertPressed(invert!)
-
-                    let activeTool = windowController?.editorViewController?.activeEditorTool
-                    expectOnlyButtonSelected(invert)
-                }
-            }
-
-            describe("zoomPressed") {
-                it("sets the active tool on the editorViewController to be a ZoomTool") {
-                    windowController?.toolsViewController?.zoomPressed(zoom!)
-
-                    let activeTool = windowController?.editorViewController?.activeEditorTool
-                    expect(activeTool as? ZoomTool).toNot(beNil())
-                }
-                it("tests to see if zoom is only button pressed") {
-                    windowController?.toolsViewController?.zoomPressed(zoom!)
-
-                    let activeTool = windowController?.editorViewController?.activeEditorTool
-                    expectOnlyButtonSelected(zoom)
                 }
             }
 
