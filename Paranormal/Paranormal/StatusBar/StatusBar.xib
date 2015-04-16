@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="StatusBarViewController" customModule="Paranormal" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="M17-vs-mAV" id="uYl-aA-QJT"/>
+                <outlet property="zoomTextField" destination="Vhv-hC-rrC" id="CQ8-ge-PNM"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <box autoresizesSubviews="NO" borderType="line" titlePosition="noTitle" id="M17-vs-mAV">
+            <rect key="frame" x="0.0" y="0.0" width="831" height="31"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView">
+                <rect key="frame" x="1" y="1" width="829" height="29"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vhv-hC-rrC">
+                        <rect key="frame" x="52" y="3" width="35" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" title="100" placeholderString="100" id="TRe-Fb-Bcw">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="zoomSentFromGUI:" target="-2" id="Dns-82-6pK"/>
+                        </connections>
+                    </textField>
+                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37U-GJ-O88">
+                        <rect key="frame" x="94" y="3" width="241" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="yPN-BK-AFD">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="Normal Map" width="82" selected="YES"/>
+                                <segment label="Lighting" width="82" tag="1"/>
+                                <segment label="Preview"/>
+                            </segments>
+                        </segmentedCell>
+                        <connections>
+                            <action selector="setEditorViewMode:" target="-2" id="rVb-zH-CvN"/>
+                        </connections>
+                    </segmentedControl>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-Ct-hPq">
+                        <rect key="frame" x="9" y="8" width="44" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zoom:" id="McX-Yv-m8y">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALw-bq-dfN">
+                        <rect key="frame" x="347" y="6" width="122" height="18"/>
+                        <buttonCell key="cell" type="check" title="Light Movement" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GBP-xQ-nce">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="lightToggled:" target="-2" id="3T8-gm-Yw1"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="555.5" y="211.5"/>
+        </box>
+    </objects>
+</document>

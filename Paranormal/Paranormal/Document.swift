@@ -6,6 +6,7 @@ let PNPreviewNeedsRedraw = "PNPreviewNeedsRedraw"
 
 public class Document: NSPersistentDocument {
     public var singleWindowController : WindowController?
+    public var toolSettings : ToolSettings = ToolSettings()
 
     // User preferences / user facing data
     public var editorViewMode : EditorViewMode = EditorViewMode.Normal {
@@ -17,11 +18,7 @@ public class Document: NSPersistentDocument {
         }
     }
 
-    public var currentColor : NSColor = NSColor(red: 0.5, green: 0.5, blue: 1.0, alpha: 1.0)
-    public var brushSize : Float = 30.0
-    public var brushOpacity : Float = 1.0
-    public var brushHardness : Float = 0.9
-    public var gaussianRadius : Float = 30
+    var _documentSettings : DocumentSettings?
 
     public var rootLayer : Layer? {
         return documentSettings?.rootLayer
@@ -32,18 +29,21 @@ public class Document: NSPersistentDocument {
     }
 
     public var documentSettings : DocumentSettings? {
-        let fetch = NSFetchRequest(entityName: "DocumentSettings")
-        var error : NSError?
-        let documentSettings = managedObjectContext.executeFetchRequest(fetch, error: &error)
-        if let unwrapError = error {
-            let alert = NSAlert(error: unwrapError)
-            alert.runModal()
+        if _documentSettings == nil {
+            let fetch = NSFetchRequest(entityName: "DocumentSettings")
+            var error : NSError?
+            let documentSettings = managedObjectContext.executeFetchRequest(fetch, error: &error)
+            if let unwrapError = error {
+                let alert = NSAlert(error: unwrapError)
+                alert.runModal()
+            }
+            if documentSettings?.count == 0 {
+                _documentSettings = nil
+            } else {
+                _documentSettings = documentSettings?[0] as? DocumentSettings
+            }
         }
-        if documentSettings?.count == 0 {
-            return nil
-        } else {
-            return documentSettings?[0] as? DocumentSettings
-        }
+        return _documentSettings
     }
 
     public var computedNormalImage : NSImage? {
@@ -183,7 +183,7 @@ public class Document: NSPersistentDocument {
 
     public func setActiveEditorTool(tool: ActiveTool) {
         let panelVC = singleWindowController?.panelsViewController
-        panelVC?.toolSettingsViewController?.displayActiveEditorToolSettings(tool)
+        panelVC?.displayActiveToolSettings(tool)
         let editorVC = singleWindowController?.editorViewController
         editorVC?.activeEditorTool = PNToolUtils.toolForToolMode(tool)
     }

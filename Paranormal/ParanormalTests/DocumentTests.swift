@@ -63,9 +63,9 @@ class DocumentTests: QuickSpec {
                 }
 
                 it("sets brush color to ZUP"){
-                    expect(document.currentColor.redComponent).to(equal(0.5))
-                    expect(document.currentColor.greenComponent).to(equal(0.5))
-                    expect(document.currentColor.blueComponent).to(equal(1.0))
+                    expect(document.toolSettings.colorAsNSColor.redComponent).to(equal(0.5))
+                    expect(document.toolSettings.colorAsNSColor.greenComponent).to(equal(0.5))
+                    expect(document.toolSettings.colorAsNSColor.blueComponent).to(equal(1.0))
                 }
             }
 

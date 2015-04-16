@@ -31,9 +31,10 @@ class PlaneToolTest: QuickSpec {
 
             describe("Drawing lays down plane at correct angle") {
                 it("Without opacity") {
-                    document?.currentColor = NSColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0)
-                    document?.brushSize = 5.0;
-                    document?.brushOpacity = 1.0;
+                    document?.toolSettings.setColorAsNSColor(
+                        NSColor(red: 1.0, green: 0.5, blue: 0.5, alpha: 1.0))
+                    document?.toolSettings.size = 5.0;
+                    document?.toolSettings.strength = 1.0;
 
                     planeTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                         editorViewController: editorViewController)
@@ -69,10 +70,10 @@ class PlaneToolTest: QuickSpec {
             }
 
             it("With opacity") {
-                document?.currentColor = NSColor(red: 1.0, green: 127.0 / 255.0,
-                    blue: 127.0 / 255.0, alpha: 1.0)
-                document?.brushSize = 5.0;
-                document?.brushOpacity = 0.5;
+                document?.toolSettings.setColorAsNSColor(NSColor(red: 1.0, green: 127.0 / 255.0,
+                    blue: 127.0 / 255.0, alpha: 1.0))
+                document?.toolSettings.size = 5.0;
+                document?.toolSettings.strength = 0.5;
 
                 planeTool.mouseDownAtPoint(NSPoint(x: 20, y: 20),
                     editorViewController: editorViewController)

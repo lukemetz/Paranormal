@@ -4,25 +4,37 @@ import AppKit
 import Darwin
 
 public class ColorPickerViewController: PNViewController {
-    public var deg: Float32 = 0 {
-        didSet(value) {
-            updateColorOnDocument()
-        }
+    @IBOutlet weak var degreeSlider: NSSlider!
+    @IBOutlet weak var degreeTextBox: NSTextField!
+    @IBOutlet weak var pitchSlider: NSSlider!
+    @IBOutlet weak var pitchTextBox: NSTextField!
+
+    @IBAction func setDegreeFromSlider(sender: NSSlider) {
+        document?.toolSettings.colorAsAngles.direction = degreeSlider.floatValue
+        updateColorPicker()
     }
 
-    public var pit: Float32 = 0 {
-        didSet(value) {
-            updateColorOnDocument()
-        }
+    @IBAction func setDegreeFromTextBox(sender: NSTextField) {
+        document?.toolSettings.colorAsAngles.direction = degreeTextBox.floatValue
+        updateColorPicker()
     }
 
-    public func updateColorOnDocument() {
-        let dir = deg * Float(M_PI) / 180.0
-        let pitt = pit * Float(M_PI) / 180.0
-        let x = sin(dir) * sin(pitt) * 0.5 + 0.5
-        let y = cos(dir) * sin(pitt) * 0.5 + 0.5
-        let z = cos(pitt) * 0.5 + 0.5
-        document?.currentColor = NSColor(red: CGFloat(x),
-            green: CGFloat(y), blue: CGFloat(z), alpha: 1.0)
+    @IBAction func setPitchFromSlider(sender: NSSlider) {
+        document?.toolSettings.colorAsAngles.pitch = pitchSlider.floatValue
+        updateColorPicker()
+    }
+
+    @IBAction func setPitchFromTextbox(sender: NSTextField) {
+        document?.toolSettings.colorAsAngles.pitch = pitchTextBox.floatValue
+        updateColorPicker()
+    }
+
+    public func updateColorPicker() {
+        if let doc = document {
+            degreeSlider.floatValue = doc.toolSettings.colorAsAngles.direction
+            degreeTextBox.floatValue = doc.toolSettings.colorAsAngles.direction
+            pitchSlider.floatValue = doc.toolSettings.colorAsAngles.pitch
+            pitchTextBox.floatValue = doc.toolSettings.colorAsAngles.pitch
+        }
     }
 }

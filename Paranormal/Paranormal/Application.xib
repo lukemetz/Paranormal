@@ -7,127 +7,67 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WindowController" customModule="Paranormal" customModuleProvider="target">
             <connections>
-                <outlet property="EditorModeToggle" destination="HD6-fg-gAg" id="aom-sm-GdI"/>
                 <outlet property="editorView" destination="Lpj-m4-ypl" id="QVH-jh-c67"/>
                 <outlet property="mainView" destination="LMU-Ob-Gbw" id="usj-BD-CjJ"/>
                 <outlet property="panelsView" destination="mR4-zi-C0S" id="Iki-lx-rdO"/>
-                <outlet property="setEditorViewMode" destination="ZFW-x9-hDf" id="gsQ-Ch-8k1"/>
+                <outlet property="statusBarView" destination="qab-Ng-PKN" id="A7D-NL-Qf6"/>
                 <outlet property="toolsView" destination="gYp-f6-dFS" id="vY9-4S-rmi"/>
                 <outlet property="window" destination="khZ-mA-o3D" id="cnt-uq-7ep"/>
-                <outlet property="zoomField" destination="jee-yJ-cfu" id="uoT-g6-39j"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="khZ-mA-o3D">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="163" y="199" width="729" height="532"/>
+            <rect key="contentRect" x="163" y="199" width="973" height="699"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="LMU-Ob-Gbw">
-                <rect key="frame" x="0.0" y="0.0" width="729" height="532"/>
+                <rect key="frame" x="0.0" y="0.0" width="973" height="699"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="D3t-Tj-Maq" userLabel="Tabs">
-                        <rect key="frame" x="0.0" y="500" width="729" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="32" id="Alf-Qz-Flj"/>
-                        </constraints>
-                    </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="gYp-f6-dFS" userLabel="Tools">
-                        <rect key="frame" x="0.0" y="0.0" width="64" height="503"/>
+                        <rect key="frame" x="0.0" y="20" width="50" height="679"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="64" id="fHD-UH-Qsm"/>
+                            <constraint firstAttribute="width" constant="50" id="fHD-UH-Qsm"/>
                         </constraints>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-m4-ypl" userLabel="Editor">
-                        <rect key="frame" x="63" y="28" width="420" height="475"/>
+                        <rect key="frame" x="49" y="25" width="678" height="674"/>
                         <animations/>
                     </customView>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="tHU-eL-O8M" userLabel="Status bar">
-                        <rect key="frame" x="63" y="0.0" width="666" height="27"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijm-2D-4po">
-                                <rect key="frame" x="7" y="5" width="44" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zoom:" id="zyb-2H-aed">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jee-yJ-cfu">
-                                <rect key="frame" x="55" y="5" width="38" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="100" id="H93-3M-gJu">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="a1a-5l-rf2">
-                                        <real key="minimum" value="0.0"/>
-                                        <real key="maximum" value="500"/>
-                                    </numberFormatter>
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <action selector="zoomSetFromGUI:" target="-2" id="ASK-5J-xs5"/>
-                                </connections>
-                            </textField>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZFW-x9-hDf">
-                                <rect key="frame" x="97" y="1" width="242" height="24"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="HD6-fg-gAg">
-                                    <font key="font" metaFont="system"/>
-                                    <segments>
-                                        <segment label="Normal Map" width="83" selected="YES"/>
-                                        <segment label="Lighting" width="82" tag="1"/>
-                                        <segment label="Preview"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="setEditorViewMode:" target="-2" id="px7-rM-3U7"/>
-                                </connections>
-                            </segmentedControl>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-g1-3dL">
-                                <rect key="frame" x="367" y="4" width="122" height="18"/>
-                                <buttonCell key="cell" type="check" title="Light Movement" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cW5-m3-at1">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="lightToggled:" target="-2" id="uuu-qY-V30"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="27" id="pt9-tW-0NY"/>
-                        </constraints>
-                    </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="mR4-zi-C0S" userLabel="Sidebar">
-                        <rect key="frame" x="482" y="28" width="247" height="475"/>
+                        <rect key="frame" x="726" y="25" width="247" height="674"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="247" id="jp0-fG-uuW"/>
                         </constraints>
                     </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="qab-Ng-PKN" userLabel="Status Bar">
+                        <rect key="frame" x="0.0" y="0.0" width="973" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Qkm-2Q-trB"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="D3t-Tj-Maq" firstAttribute="top" secondItem="LMU-Ob-Gbw" secondAttribute="top" id="9Xc-ly-1de"/>
-                    <constraint firstItem="D3t-Tj-Maq" firstAttribute="leading" secondItem="gYp-f6-dFS" secondAttribute="leading" id="Fx6-G8-aI2"/>
+                    <constraint firstItem="mR4-zi-C0S" firstAttribute="trailing" secondItem="qab-Ng-PKN" secondAttribute="trailing" id="9Ii-R1-VKk"/>
+                    <constraint firstItem="gYp-f6-dFS" firstAttribute="leading" secondItem="LMU-Ob-Gbw" secondAttribute="leading" id="Eas-wb-DER"/>
                     <constraint firstItem="Lpj-m4-ypl" firstAttribute="top" secondItem="mR4-zi-C0S" secondAttribute="top" id="GoI-47-xO3"/>
                     <constraint firstItem="Lpj-m4-ypl" firstAttribute="bottom" secondItem="mR4-zi-C0S" secondAttribute="bottom" id="III-Z0-PhZ"/>
-                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="leading" secondItem="tHU-eL-O8M" secondAttribute="leading" id="Mwd-wE-Vpd"/>
-                    <constraint firstItem="mR4-zi-C0S" firstAttribute="trailing" secondItem="D3t-Tj-Maq" secondAttribute="trailing" id="Nhp-yV-yS6"/>
-                    <constraint firstAttribute="bottom" secondItem="gYp-f6-dFS" secondAttribute="bottom" id="Nip-O1-vEd"/>
-                    <constraint firstAttribute="trailing" secondItem="tHU-eL-O8M" secondAttribute="trailing" id="Sow-jR-h8Q"/>
-                    <constraint firstItem="gYp-f6-dFS" firstAttribute="top" secondItem="LMU-Ob-Gbw" secondAttribute="top" constant="29" id="XsV-5V-P3Y"/>
-                    <constraint firstItem="gYp-f6-dFS" firstAttribute="bottom" secondItem="tHU-eL-O8M" secondAttribute="bottom" id="Y7F-nH-fuk"/>
+                    <constraint firstAttribute="bottom" secondItem="gYp-f6-dFS" secondAttribute="bottom" constant="20" id="Nip-O1-vEd"/>
+                    <constraint firstAttribute="trailing" secondItem="mR4-zi-C0S" secondAttribute="trailing" id="Xpb-q0-xLE"/>
+                    <constraint firstItem="gYp-f6-dFS" firstAttribute="top" secondItem="LMU-Ob-Gbw" secondAttribute="top" id="XsV-5V-P3Y"/>
+                    <constraint firstAttribute="bottom" secondItem="qab-Ng-PKN" secondAttribute="bottom" id="cuP-zl-zOK"/>
                     <constraint firstItem="Lpj-m4-ypl" firstAttribute="top" secondItem="gYp-f6-dFS" secondAttribute="top" id="g5s-0G-iWs"/>
-                    <constraint firstAttribute="bottom" secondItem="Lpj-m4-ypl" secondAttribute="bottom" constant="28" id="glc-r5-YZv"/>
-                    <constraint firstItem="mR4-zi-C0S" firstAttribute="trailing" secondItem="tHU-eL-O8M" secondAttribute="trailing" id="iuF-tX-apl"/>
-                    <constraint firstItem="D3t-Tj-Maq" firstAttribute="leading" secondItem="LMU-Ob-Gbw" secondAttribute="leading" id="jCz-Ly-8Oh"/>
+                    <constraint firstAttribute="bottom" secondItem="Lpj-m4-ypl" secondAttribute="bottom" constant="25" id="glc-r5-YZv"/>
+                    <constraint firstItem="qab-Ng-PKN" firstAttribute="leading" secondItem="Lpj-m4-ypl" secondAttribute="leading" constant="-49" id="mkc-cL-lvp"/>
                     <constraint firstAttribute="trailing" secondItem="Lpj-m4-ypl" secondAttribute="trailing" constant="246" id="sDC-MK-fZ4"/>
-                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="leading" secondItem="LMU-Ob-Gbw" secondAttribute="leading" constant="63" id="u14-dM-pnR"/>
+                    <constraint firstItem="Lpj-m4-ypl" firstAttribute="leading" secondItem="LMU-Ob-Gbw" secondAttribute="leading" constant="49" id="u14-dM-pnR"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="PU0-Dy-pdN"/>
             </connections>
-            <point key="canvasLocation" x="539.5" y="278"/>
+            <point key="canvasLocation" x="544.5" y="361.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="bLb-oW-af2"/>
     </objects>
