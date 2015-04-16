@@ -31,20 +31,6 @@
                             <action selector="zoomSentFromGUI:" target="-2" id="Dns-82-6pK"/>
                         </connections>
                     </textField>
-                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37U-GJ-O88">
-                        <rect key="frame" x="94" y="3" width="241" height="24"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="yPN-BK-AFD">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Normal Map" toolTip="Editor view mode" width="82" selected="YES"/>
-                                <segment label="Lighting" width="82" tag="1"/>
-                                <segment label="Preview"/>
-                            </segments>
-                        </segmentedCell>
-                        <connections>
-                            <action selector="setEditorViewMode:" target="-2" id="rVb-zH-CvN"/>
-                        </connections>
-                    </segmentedControl>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-Ct-hPq">
                         <rect key="frame" x="9" y="8" width="44" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zoom:" id="McX-Yv-m8y">
@@ -66,6 +52,42 @@ IA
                             <action selector="lightToggled:" target="-2" id="3T8-gm-Yw1"/>
                         </connections>
                     </button>
+                    <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHQ-yy-Bie">
+                        <rect key="frame" x="103" y="5" width="221" height="21"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <size key="cellSize" width="71" height="21"/>
+                        <size key="intercellSpacing" width="4" height="2"/>
+                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="wmO-2a-oz4">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <cells>
+                            <column>
+                                <buttonCell type="radio" title="Normal" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" toolTip="View Normal Map" tag="1" inset="2" id="elr-cL-hrl">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">z</string>
+                                </buttonCell>
+                            </column>
+                            <column>
+                                <buttonCell type="radio" title="Lighting" bezelStyle="regularSquare" imagePosition="left" alignment="left" toolTip="View lighting on gray image" inset="2" id="27s-Il-C9h">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">x</string>
+                                </buttonCell>
+                            </column>
+                            <column>
+                                <buttonCell type="radio" title="Preview" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="4av-K5-WLj">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">c</string>
+                                </buttonCell>
+                            </column>
+                        </cells>
+                        <connections>
+                            <action selector="setEditorViewMode:" target="-2" id="oYZ-qU-zjM"/>
+                        </connections>
+                    </matrix>
                 </subviews>
             </view>
             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

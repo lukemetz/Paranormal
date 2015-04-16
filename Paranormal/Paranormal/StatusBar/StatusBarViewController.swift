@@ -28,11 +28,11 @@ public class StatusBarViewController : PNViewController {
         zoomTextField.floatValue = (notification.userInfo?["zoom"] as Float)*100
     }
 
-    @IBAction public func setEditorViewMode(sender: NSSegmentedControl) {
-        if let newViewMode = EditorViewMode(rawValue: sender.selectedSegment) {
+    @IBAction public func setEditorViewMode(sender: NSMatrix) {
+        if let newViewMode = EditorViewMode(rawValue: sender.selectedColumn) {
             document?.editorViewMode = newViewMode
         } else {
-            log.error("editor mode set to unknown value \(sender.selectedSegment)")
+            log.error("editor mode set to unknown value \(sender.selectedColumn)")
         }
     }
 
