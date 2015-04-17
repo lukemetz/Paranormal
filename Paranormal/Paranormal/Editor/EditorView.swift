@@ -6,7 +6,7 @@ public class EditorView : NSView {
 
     @IBOutlet var delegate : EditorViewController?
 
-    private weak var defaultCursor : NSCursor!
+    private var defaultCursor : NSCursor = NSCursor.arrowCursor()
     var editorCursor : NSCursor?
 
     func createCustomCursor() {
@@ -67,8 +67,9 @@ public class EditorView : NSView {
     }
 
     override public func mouseEntered(theEvent: NSEvent) {
-        defaultCursor = NSCursor.currentCursor()
-        editorCursor!.set()
+        if let cursor = editorCursor{
+            editorCursor!.set()
+        }
     }
 
     override public func mouseExited(theEvent: NSEvent) {
