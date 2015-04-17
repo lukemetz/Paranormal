@@ -6,6 +6,75 @@ public class EditorView : NSView {
 
     @IBOutlet var delegate : EditorViewController?
 
+    private weak var defaultCursor : NSCursor!
+    var editorCursor : NSCursor?
+
+    func createCustomCursor() {
+        let radius : CGFloat = CGFloat(
+            (delegate!.document!.toolSettings.size/2.0)*(delegate?.zoom)!)
+        let image : NSImage = drawCircle(radius: radius)
+        editorCursor = NSCursor(image: image, hotSpot: NSPoint(x: radius, y: radius))
+        updateTrackingAreas()
+    }
+
+    func drawCircle(#radius : CGFloat) -> NSImage {
+        let imageSideLength : CGFloat = radius*2.0
+        let imageSize = CGSize(width: imageSideLength, height: imageSideLength)
+
+        let diameter : CGFloat = max( 0.001, ((radius - 2.0)*2.0))
+        let circleBoundsSize = CGSize(width: diameter, height: diameter)
+        let circleBounds = CGRect(origin : CGPoint(x: 2.0 , y: 1.0), size: circleBoundsSize)
+
+        let colorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+        var context = CGBitmapContextCreate(nil, UInt(imageSize.width),
+            UInt(imageSize.height),  8,  0 , colorSpace, bitmapInfo)
+
+        CGContextSetStrokeColorWithColor(context, NSColor.darkGrayColor().CGColor)
+        CGContextSetLineWidth(context, 1.0)
+        CGContextStrokeEllipseInRect(context, circleBounds)
+
+        let image = CGBitmapContextCreateImage(context)
+        return NSImage(CGImage: image, size: imageSize)
+    }
+
+    public override func viewDidMoveToSuperview() {
+        createCustomCursor()
+        setTrackingArea()
+    }
+
+    public override func updateTrackingAreas() {
+        if (trackingAreas.count > 0) {
+            for index in 1...trackingAreas.count{
+                removeTrackingArea(trackingAreas[0] as NSTrackingArea)
+            }
+        }
+        setTrackingArea()
+    }
+
+    func setTrackingArea() {
+        let rect : NSRect = superview!.superview!.convertRect(superview!.frame, toView: superview!)
+
+        var trackingArea : NSTrackingArea =
+        NSTrackingArea(rect: rect,
+            options: NSTrackingAreaOptions.MouseEnteredAndExited |
+                NSTrackingAreaOptions.MouseMoved |
+                NSTrackingAreaOptions.ActiveAlways,
+            owner: self, userInfo: nil)
+
+        addTrackingArea(trackingArea)
+    }
+
+    override public func mouseEntered(theEvent: NSEvent) {
+        defaultCursor = NSCursor.currentCursor()
+        editorCursor!.set()
+    }
+
+    override public func mouseExited(theEvent: NSEvent) {
+        defaultCursor.set()
+    }
+
     override public func mouseDown(theEvent: NSEvent) {
         let _ = self.delegate?.mouseDown(theEvent)
     }
@@ -28,6 +97,7 @@ public class EditorView : NSView {
     public var transform : CGAffineTransform = CGAffineTransformIdentity {
         didSet {
             needsDisplay = true
+            createCustomCursor()
         }
     }
 
