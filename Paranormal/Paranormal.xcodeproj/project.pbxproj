@@ -98,6 +98,7 @@
 		AD7863131A86736300BA1E10 /* BlendAdd.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */; };
 		AD7863141A86736800BA1E10 /* AlphaToBlack.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ADE7B2ED1A102CB6005EDD11 /* AlphaToBlack.fsh */; };
 		AD7C0D3319FB24E800A58201 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C0D3219FB24E800A58201 /* DocumentController.swift */; };
+		AD83902D1AD5D46A0037AA6F /* cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = AD83902C1AD5D46A0037AA6F /* cursor.png */; };
 		AD83DDB719F81EA5004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBA19F83CDB004EAA77 /* Refraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDB619F81EA5004EAA77 /* Refraction.swift */; };
 		AD83DDBC19F9E9BD004EAA77 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */; };
@@ -404,6 +405,7 @@
 		AD7862F01A85CB3100BA1E10 /* BlendAddFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendAddFilter.swift; sourceTree = "<group>"; };
 		AD7863011A85CB4E00BA1E10 /* BlendAdd.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlendAdd.fsh; sourceTree = "<group>"; };
 		AD7C0D3219FB24E800A58201 /* DocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
+		AD83902C1AD5D46A0037AA6F /* cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cursor.png; sourceTree = "<group>"; };
 		AD83DDB619F81EA5004EAA77 /* Refraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refraction.swift; sourceTree = "<group>"; };
 		AD83DDBB19F9E9BD004EAA77 /* DocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
 		AD85C6741A7EBD6400DAE66F /* brick.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brick.jpeg; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 		ADA963331A0C6E6100AF22EB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD83902C1AD5D46A0037AA6F /* cursor.png */,
 				775D6DEE1AC122F100B60B01 /* emphasize.png */,
 				775D6DEF1AC122F100B60B01 /* flatten.png */,
 				775D6DF01AC122F100B60B01 /* plane.png */,
@@ -1259,6 +1262,7 @@
 				AD85C6801A7EBD6400DAE66F /* stone_normal.jpg in Resources */,
 				ADE87F4219E9A9360041AAB5 /* Images.xcassets in Resources */,
 				ADE7B2F41A1032FB005EDD11 /* DepthToNormal.fsh in Resources */,
+				AD83902D1AD5D46A0037AA6F /* cursor.png in Resources */,
 				ADA963361A0C738100AF22EB /* ZUpInitialize.fsh in Resources */,
 				ADFCB80B1A3923220016A49B /* light64.png in Resources */,
 				775D6DF61AC122F100B60B01 /* plane.png in Resources */,
