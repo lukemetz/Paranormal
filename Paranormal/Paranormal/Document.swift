@@ -105,6 +105,7 @@ public class Document: NSPersistentDocument {
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoreData:",
             name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+        toolSettings.document = self
     }
 
     func updateCoreData(notification: NSNotification) {

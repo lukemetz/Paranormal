@@ -17,6 +17,11 @@ public class ToolSettings {
         panelVC?.toolSettingsViewController?.updateSettingsSliders()
     }
 
+    public func updateEditorCursor(size: Float){
+        let editorView = document?.singleWindowController?.editorViewController?.editor
+        editorView?.createCustomCursor()
+    }
+
     public var colorAsNSColor : NSColor {
         let dir = colorAsAngles.direction * Float(M_PI) / 180.0
         let pitt = colorAsAngles.pitch * Float(M_PI) / 180.0
@@ -49,6 +54,7 @@ public class ToolSettings {
     public var size : Float = 30.0 {
         didSet {
             updateToolSettingsView()
+            updateEditorCursor(size)
         }
     }
     public var strength : Float = 1.0 {
