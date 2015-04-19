@@ -25,7 +25,11 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         self.removeLastItemFromEdit("orderFrontCharacterPalette:")
         self.removeLastItemFromEdit("startDictation:")
         documentController.createDocumentFromUrl(nil)
+        documentController.windowController.showWindow(nil)
 
+        // Hack to have the image centered
+        documentController.windowController.editorViewController?.document =
+            documentController.windowController.document as? Document
     }
 
     public func applicationWillTerminate(aNotification: NSNotification) {
@@ -33,7 +37,7 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     public func applicationShouldOpenUntitledFile(sender: NSApplication) -> Bool {
-        return true
+        return false
     }
 
     public func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
