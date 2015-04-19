@@ -10,11 +10,15 @@ public class EditorView : NSView {
     var editorCursor : NSCursor?
 
     func createCustomCursor() {
-        let radius : CGFloat = CGFloat(
-            (delegate!.document!.toolSettings.size/2.0)*(delegate?.zoom)!)
-        let image : NSImage = drawCircle(radius: radius)
-        editorCursor = NSCursor(image: image, hotSpot: NSPoint(x: radius, y: radius))
-        updateTrackingAreas()
+        if let editor = delegate {
+            if let doc = editor.document? {
+                let radius : CGFloat = CGFloat(
+                    (doc.toolSettings.size/2.0)*(editor.zoom))
+                let image : NSImage = drawCircle(radius: radius)
+                editorCursor = NSCursor(image: image, hotSpot: NSPoint(x: radius, y: radius))
+                updateTrackingAreas()
+            }
+        }
     }
 
     func drawCircle(#radius : CGFloat) -> NSImage {
@@ -54,21 +58,25 @@ public class EditorView : NSView {
     }
 
     func setTrackingArea() {
-        let rect : NSRect = superview!.superview!.convertRect(superview!.frame, toView: superview!)
+        if let editorContainer = self.superview {
+            if let windowView = editorContainer.superview {
+                let rect = windowView.convertRect(editorContainer.frame, toView: editorContainer)
 
-        var trackingArea : NSTrackingArea =
-        NSTrackingArea(rect: rect,
-            options: NSTrackingAreaOptions.MouseEnteredAndExited |
-                NSTrackingAreaOptions.MouseMoved |
-                NSTrackingAreaOptions.ActiveAlways,
-            owner: self, userInfo: nil)
+                var trackingArea : NSTrackingArea =
+                NSTrackingArea(rect: rect,
+                    options: NSTrackingAreaOptions.MouseEnteredAndExited |
+                        NSTrackingAreaOptions.MouseMoved |
+                        NSTrackingAreaOptions.ActiveAlways,
+                    owner: self, userInfo: nil)
 
-        addTrackingArea(trackingArea)
+                addTrackingArea(trackingArea)
+            }
+        }
     }
 
     override public func mouseEntered(theEvent: NSEvent) {
-        if let cursor = editorCursor{
-            editorCursor!.set()
+        if let cursor = editorCursor {
+            cursor.set()
         }
     }
 
