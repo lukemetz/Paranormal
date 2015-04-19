@@ -1,20 +1,27 @@
 Paranormal
 ==========
 
-Awesome normal map editor for Mac OS X
+Paranormal is a normal map editor for OSX. It is designed to work well with creating and editing normal maps for use 2d games.
 
-Run the following before building in xcode:
-git submodule update --init --recursive
+For more information, binary downloads, and tutorials see [paranormal.github.io](paranormal.github.io).
 
-Before pull requesting, run to ensure all tests pass:
-./check.py
+##Build
 
-git commit for all changes <br /> 
-git checkout master <br /> 
-git pull origin master <br /> 
-git checkout branchname <br /> 
-git reset --soft master <br /> 
-git commit -m "message text" <br /> 
-git push --force
+Currently, Paranormal supports Swift 1.2 with Xcode 6.2.
 
-When code passes all tests and code review is complete, use the green button to merge into master.
+First clone paranormal:
+
+	git clone https://github.com/spritebuilder/Paranormal.git
+	
+Paranormal uses submodules to manage dependencies. Run the following to download them.
+
+	git submodule update --init --recursive
+
+Paranormal can then be built using Xcode with `Paranormal/Paranormal.xcodeproj` project.
+
+##Contributing
+Have a feature you want to add? See [CONTRIBUTING.md](CONTRIBUTING.md) to get started developing with Paranormal.
+
+
+##Licence
+Paranormal is primarily distributed under the terms of the MIT license. See our [LICENSE](LICENSE) for more information.
