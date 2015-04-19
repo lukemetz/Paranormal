@@ -25,6 +25,11 @@ void main() {
 
     float factor = 1.0 + 9.0 * (emphasizeColor.a * opacity);
     vec3 norm = colorToNormal(baseColor);
+
+    // For numerical stability
+    norm.x += epsilon;
+    norm = normalize(norm);
+
     vec4 outputColor;
     if (norm.z < epsilon) {
         outputColor = baseColor;
