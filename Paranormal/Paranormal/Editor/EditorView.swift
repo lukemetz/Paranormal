@@ -125,6 +125,10 @@ public class EditorView : NSView {
         }
     }
 
+    // Don't have the default behavior
+    public override func cursorUpdate(event: NSEvent) {
+    }
+
     public func applicationToImage(aPoint: CGPoint) -> CGPoint {
         return CGPointApplyAffineTransform(aPoint, CGAffineTransformInvert(transform))
     }
