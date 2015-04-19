@@ -8,9 +8,11 @@ public class PreviewViewController : PNViewController, PreviewViewDelegate {
 
     var scene : PreviewScene?
     override public var document : Document? {
-        didSet {
-            updateComputedEditorImage(nil)
-            updatePreviewData()
+        willSet(oldDocument) {
+            if document != oldDocument {
+                updateComputedEditorImage(nil)
+                updatePreviewData()
+            }
         }
     }
 
