@@ -73,6 +73,24 @@ class PreviewSpriteUtils: NSObject {
         return grayNSImage
     }
 
+    class func resizedImage(nsImage: NSImage, newSize: NSSize) -> NSImage {
+        let image = NSImageHelper.CGImageFrom(nsImage)
+
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+        let context = CGBitmapContextCreate(nil, UInt(newSize.width), UInt(newSize.height),
+            8, 0, colorSpace, bitmapInfo)
+
+        CGContextSetInterpolationQuality(context, kCGInterpolationHigh)
+
+        CGContextDrawImage(context, CGRect(origin: CGPointZero,
+            size: CGSize(width: newSize.width, height: newSize.height)),
+            image)
+
+        return NSImage(CGImage: CGBitmapContextCreateImage(context), size: newSize)
+    }
+
     class func grayImageWithAlphaSource(source: NSImage, brightness: Float) -> NSImage {
         // Needs to be called on a GPUImageThread
         let replaceAlphaFilter = GPUImageTwoInputFilter(fragmentShaderFromFile: "ReplaceAlpha")
@@ -89,6 +107,13 @@ class PreviewSpriteUtils: NSObject {
         grayPicture.processImage()
         alphaPicture.processImage()
 
-        return replaceAlphaFilter.imageFromCurrentFramebuffer()
+        let imageResult = replaceAlphaFilter.imageFromCurrentFramebuffer()
+        // There is some mysterious scaling that sometimes happens when we make a sprite texture.
+        // For now, to match image size, we mimic this scaling for the gray image
+        let texture = self.spriteTextureForImage(source)
+
+        return self.resizedImage(imageResult, newSize: NSSize(
+            width: CGFloat(texture.pixelWidth),
+            height: CGFloat(texture.pixelHeight)))
     }
 }
