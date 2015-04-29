@@ -138,6 +138,9 @@
 		ADD01FCC1A2FAF7E00C8712C /* PanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCB1A2FAF7E00C8712C /* PanelsViewController.swift */; };
 		ADD01FD01A2FB71200C8712C /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD01FCF1A2FB71200C8712C /* ViewControllerUtils.swift */; };
 		ADD01FD21A2FBDF400C8712C /* ColorPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD01FD11A2FBDF400C8712C /* ColorPicker.xib */; };
+		ADD5FED51AF139C200C937A9 /* GPUImage.framework in Resources */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
+		ADD5FEDD1AF15A9400C937A9 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ADD5FEDF1AF15B9200C937A9 /* XCGLogger.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD55F1061A38943400BC3E1B /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ADDA76721A756C2300CCCC45 /* ShadersCompileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA76711A756C2300CCCC45 /* ShadersCompileTest.swift */; };
 		ADDA76731A756CF200CCCC45 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA963241A0C69C000AF22EB /* GPUImage.framework */; };
 		ADDA76761A756DF600CCCC45 /* blankImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76751A756DF600CCCC45 /* blankImage.png */; };
@@ -169,6 +172,27 @@
 		ADFCB80B1A3923220016A49B /* light64.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFCB80A1A3923220016A49B /* light64.png */; };
 		ADFCB80C1A3923220016A49B /* light64.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFCB80A1A3923220016A49B /* light64.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		ADD5FEDA1AF15A2E00C937A9 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.rez;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "$(DEVELOPER_BIN_DIR)/Rez\n";
+		};
+		ADD5FEDB1AF15A3600C937A9 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		AD2CDA261A70293F007CA3B7 /* PBXContainerItemProxy */ = {
@@ -304,7 +328,7 @@
 			remoteGlobalIDString = BCA3F31C17239B6500E28AEC;
 			remoteInfo = GPUImage;
 		};
-		ADA963251A0C69F800AF22EB /* PBXContainerItemProxy */ = {
+		ADD5FED61AF1513800C937A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADA9631D1A0C69BF00AF22EB /* GPUImageMac.xcodeproj */;
 			proxyType = 1;
@@ -319,6 +343,20 @@
 			remoteInfo = Paranormal;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ADD5FEDC1AF15A8C00C937A9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ADD5FEDD1AF15A9400C937A9 /* GPUImage.framework in CopyFiles */,
+				ADD5FEDF1AF15B9200C937A9 /* XCGLogger.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A27FC821A0564CF00999020 /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
@@ -1031,13 +1069,16 @@
 				ADE87F2E19E9A9350041AAB5 /* Sources */,
 				ADE87F2F19E9A9350041AAB5 /* Frameworks */,
 				ADE87F3019E9A9350041AAB5 /* Resources */,
+				ADD5FEDC1AF15A8C00C937A9 /* CopyFiles */,
 			);
 			buildRules = (
+				ADD5FEDB1AF15A3600C937A9 /* PBXBuildRule */,
+				ADD5FEDA1AF15A2E00C937A9 /* PBXBuildRule */,
 			);
 			dependencies = (
+				ADD5FED71AF1513800C937A9 /* PBXTargetDependency */,
 				AD2D449B1A389BF7004D1994 /* PBXTargetDependency */,
 				AD55F10A1A38943B00BC3E1B /* PBXTargetDependency */,
-				ADA963261A0C69F800AF22EB /* PBXTargetDependency */,
 			);
 			name = Paranormal;
 			productName = Paranormal;
@@ -1248,6 +1289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD5FED51AF139C200C937A9 /* GPUImage.framework in Resources */,
 				AD1CE5C71AA764D900AA53F7 /* zoom.png in Resources */,
 				AD37B1311A867647009602DE /* BlendAdd.fsh in Resources */,
 				AD85C67F1A7EBD6400DAE66F /* gem-normal.png in Resources */,
@@ -1435,10 +1477,10 @@
 			name = "XCGLogger (OS X)";
 			targetProxy = AD55F1091A38943B00BC3E1B /* PBXContainerItemProxy */;
 		};
-		ADA963261A0C69F800AF22EB /* PBXTargetDependency */ = {
+		ADD5FED71AF1513800C937A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPUImage;
-			targetProxy = ADA963251A0C69F800AF22EB /* PBXContainerItemProxy */;
+			targetProxy = ADD5FED61AF1513800C937A9 /* PBXContainerItemProxy */;
 		};
 		ADE87F4C19E9A9360041AAB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1475,8 +1517,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1528,9 +1571,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1563,8 +1607,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Paranormal/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/msvc/glew/lib/Release/Win32",
@@ -1581,8 +1626,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Paranormal/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/cocos2d-swift/external/Chipmunk/msvc/glew/lib/Release/Win32",
