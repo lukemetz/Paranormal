@@ -3,7 +3,7 @@ Paranormal
 
 Paranormal is a normal map editor for OSX. It is designed to work well with creating and editing normal maps for use 2d games.
 
-For more information, binary downloads, and tutorials see [paranormal.github.io](paranormal.github.io).
+For more information, binary downloads, and tutorials see [http://dianavermilya.github.io/paranormal-site/](http://dianavermilya.github.io/paranormal-site/).
 
 ##Build
 
