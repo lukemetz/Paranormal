@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 public class PlaneTool : BrushTool {
 
     public override init() {
